@@ -1,11 +1,14 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -15,7 +18,11 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Setup gpu
   hardware.graphics = {
@@ -24,8 +31,8 @@
   };
 
   # Allow for nvidia
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true; # Set to false for proprietary drivers
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.open = false;
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.powerManagement.enable = true;
   hardware.nvidia.nvidiaSettings = true;
@@ -34,7 +41,7 @@
       enableOffloadCmd = true;
       enable = true;
     };
-    
+
     nvidiaBusId = "PCI:1:0:0";
     amdgpuBusId = "PCI:5:0:0";
   };
@@ -63,6 +70,13 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+    options = "caps:escape";
+  };
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -71,13 +85,6 @@
     konsole
     oxygen
   ];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-    options = "caps:escape";
-  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -93,19 +100,19 @@
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" "libvirtd" ];
+    extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "libvirtd"];
   };
 
   # Setup home manager
   home-manager = {
-    extraSpecialArgs = {inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     backupFileExtension = "backup";
     users = {
       crony = import ./home.nix;
     };
   };
 
- # Disable hibernation, sleep and other friends
+  # Disable hibernation, sleep and other friends
   systemd.targets = {
     sleep = {
       enable = false;
@@ -139,9 +146,14 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
+  # Installing zsh
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # Enable sytling using stylix
   stylix.enable = true;
-  stylix.autoEnable=true;
+  stylix.autoEnable = true;
   stylix.image = ./wallpaper.png;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
@@ -172,6 +184,9 @@
     };
   };
 
+  # Enable nixd to see nixpkgs path
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
   # Change terminal font size
   stylix.fonts.sizes.terminal = 15;
 
@@ -180,6 +195,12 @@
 
   # Enable zram swap device
   zramSwap.enable = true;
+
+  # Nfs share
+  fileSystems."/mnt/share" = {
+    device = "192.168.0.4:/mnt/nfs";
+    fsType = "nfs";
+  };
 
   # DO NOT CHANGE
   system.stateVersion = "24.11"; # Did you read the comment?

@@ -13,14 +13,25 @@
 
     # Let's theme everything easilly
     stylix.url = "github:danth/stylix";
+
+    # NVF FOR SUPER NVIM
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/default/configuration.nix
-	inputs.stylix.nixosModules.stylix
+        inputs.stylix.nixosModules.stylix
       ];
     };
   };
