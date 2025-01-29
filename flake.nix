@@ -30,9 +30,25 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
+        # Get the system config
         ./hosts/nixos/configuration.nix
+        # Enable stylix
         inputs.stylix.nixosModules.stylix
+        # Load my modules
         ./modules/nixos
+        # Setup home manager for my user
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.backupFileExtension = "backup";
+          home-manager.users.crony = {
+            imports = [
+              ./hosts/nixos/home.nix
+              ./modules/home-manager
+            ];
+          };
+        }
       ];
     };
   };

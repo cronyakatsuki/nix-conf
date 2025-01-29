@@ -73,15 +73,6 @@
     extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "libvirtd"];
   };
 
-  # Setup home manager
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    backupFileExtension = "backup";
-    users = {
-      crony = import ./home.nix;
-    };
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
