@@ -23,6 +23,8 @@
 
   # Enable programs to get their themes
   programs.foot.enable = true;
+
+  # Setup nice view for mangohud
   programs.mangohud = {
     enable = true;
     settings = {
