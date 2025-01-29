@@ -1,0 +1,51 @@
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
+  options = {
+    crony.stylix.enable = lib.mkEnableOption "enable stylix and style my system";
+  };
+
+  config = lib.mkIf config.crony.stylix.enable {
+    # Enable sytling using stylix
+    stylix.enable = true;
+    stylix.autoEnable = true;
+    stylix.image = ./wallpaper.png;
+    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+
+    # Change Cursor
+    stylix.cursor.package = pkgs.bibata-cursors;
+    stylix.cursor.name = "Bibata-Modern-Ice";
+
+    # Change u those fonts
+    stylix.fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.nerd-fonts.caskaydia-cove;
+        name = "CaskaydiaCove Nerd Font";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+
+    # Change terminal font size
+    stylix.fonts.sizes.terminal = 15;
+
+    # Change chrome settings
+    stylix.targets.chromium.enable = true;
+  };
+}

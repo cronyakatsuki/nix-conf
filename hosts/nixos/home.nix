@@ -19,6 +19,9 @@
     keepassxc
     restic
     age
+    nh
+    nix-output-monitor
+    nvd
   ];
 
   # Enable programs to get their themes
@@ -240,6 +243,7 @@
   # Default environmental variables
   home.sessionVariables = {
     EDITOR = "nvim";
+    FLAKE = "/home/crony/Repos/nixos";
   };
 
   # Let Home Manager install and manage itself.
