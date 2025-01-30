@@ -12,17 +12,24 @@
 
   # PACKAGES
   home.packages = with pkgs; [
-    librewolf
-    thunderbird
     qbittorrent
     alejandra
     keepassxc
     restic
     age
-    nh
     nix-output-monitor
     nvd
+    thunderbird
   ];
+
+  # Install librewolf
+  programs.librewolf.enable = true;
+
+  # Install nh
+  programs.nh = {
+    enable = true;
+    flake = "/home/crony/Repos/nixos";
+  };
 
   # Enable programs to get their themes
   programs.foot.enable = true;
@@ -243,7 +250,6 @@
   # Default environmental variables
   home.sessionVariables = {
     EDITOR = "nvim";
-    FLAKE = "/home/crony/Repos/nixos";
   };
 
   # Let Home Manager install and manage itself.
