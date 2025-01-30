@@ -95,6 +95,23 @@
     options = ["_netdev" "noauto" "x-systemd.automount" "x-systemd.mount-timeout=10" "timeo=14" "x-systemd.idle-timeout=600"];
   };
 
+  # Setup auto-cpufreq
+  programs.auto-cpufreq = {
+    enable = true;
+
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+  };
+
   # Allow for wireguard traffic
   networking.firewall = {
     # if packets are still dropped, they will show up in dmesg

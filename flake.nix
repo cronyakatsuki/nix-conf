@@ -19,12 +19,19 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # auto-cpufreq latest version, for optimizing my laptop's thermal's
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    auto-cpufreq,
     ...
   } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -34,6 +41,8 @@
         ./hosts/nixos/configuration.nix
         # Enable stylix
         inputs.stylix.nixosModules.stylix
+        # Load updated auto-cpufreq
+        auto-cpufreq.nixosModules.default
         # Load my modules
         ./modules/nixos
         # Setup home manager for my user
