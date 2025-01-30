@@ -80,6 +80,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     mangohud
+    lm_sensors
   ];
 
   # Enable nixd to see nixpkgs path
