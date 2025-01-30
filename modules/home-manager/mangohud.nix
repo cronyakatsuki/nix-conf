@@ -21,7 +21,7 @@
         gpu_load_change = true;
 
         cpu_stats = true;
-        cpu_temps = true;
+        cpu_temp = true;
         cpu_text = "CPU";
         cpu_mhz = true;
         cpu_load_change = true;
