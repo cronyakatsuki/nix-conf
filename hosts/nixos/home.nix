@@ -21,6 +21,8 @@
     nvd
     thunderbird
     sesh
+    stress-ng
+    dmidecode
   ];
 
   # Install librewolf
