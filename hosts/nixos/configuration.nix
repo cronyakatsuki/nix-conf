@@ -81,7 +81,6 @@
     neovim
     mangohud
     lm_sensors
-    nbfc-linux
   ];
 
   # Enable nixd to see nixpkgs path
@@ -112,18 +111,6 @@
         turbo = "auto";
       };
     };
-  };
-
-  # Install nbfc-linux
-  systemd.services.nbfc_service = {
-    enable = false;
-    description = "NoteBook FanControl Service";
-    serviceConfig.Type = "simple";
-    path = [pkgs.kmod];
-
-    script = "${pkgs.nbfc-linux}/bin/nbfc_service --config-file '/home/crony/.config/nbfc.json'";
-
-    wantedBy = ["multi-user.target"];
   };
 
   # Allow for wireguard traffic
