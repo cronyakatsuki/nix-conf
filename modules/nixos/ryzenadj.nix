@@ -20,14 +20,10 @@
     # Setup python service for ryzenadj
     systemd.services.ryzenadj = {
       enable = true;
-
-      path = [pkgs.ryzenadj pkgs.python3];
-
       description = "Set my cpu power usage power to something more manageable.";
-      serviceConfig.Type = "simple";
-      script = "python ${./scripts/ryzenadj-service} --stapm-limit 30000 --fast-limit 30000 --slow-limit 30000 --slow-time 60 --stapm-time 1000 --tctl-temp 80 --vrmmax-current 50000";
-
+      serviceConfig.Type = "oneshot";
       wantedBy = ["multi-user.target"];
+      script = "${pkgs.ryzenadj}/bin/ryzenadj --stapm-limit 30000 --fast-limit 30000 --slow-limit 30000 --slow-time 60 --stapm-time 1000 --tctl-temp 85 --vrmmax-current 46000";
     };
   };
 }
