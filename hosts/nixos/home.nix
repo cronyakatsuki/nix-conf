@@ -23,6 +23,7 @@
     sesh
     stress-ng
     dmidecode
+    nurl
   ];
 
   # Install librewolf
