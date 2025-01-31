@@ -113,6 +113,8 @@
     ignores = ["~/Documents/Share" ".git"];
   };
 
+  programs.btop.enable = true;
+
   # Default environmental variables
   home.sessionVariables = {
     EDITOR = "nvim";
