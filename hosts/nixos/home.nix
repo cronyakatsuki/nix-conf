@@ -24,6 +24,7 @@
     stress-ng
     dmidecode
     nurl
+    entr
   ];
 
   # Install librewolf
@@ -88,6 +89,28 @@
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
+  };
+
+  # Install the fuck
+  programs.thefuck = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # Install tealdeer
+  programs.tealdeer.enable = true;
+
+  # Install bat
+  programs.bat.enable = true;
+
+  # Install jq
+  programs.jq.enable = true;
+
+  # Install fd
+  programs.fd = {
+    enable = true;
+    hidden = true;
+    ignores = ["~/Documents/Share" ".git"];
   };
 
   # Default environmental variables
