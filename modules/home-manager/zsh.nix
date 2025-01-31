@@ -28,16 +28,16 @@
         bindkey -M vicmd 'j' history-substring-search-down
       '';
 
-      zplug = {
+      antidote = {
         enable = true;
         plugins = [
-          {name = "zap-zsh/supercharge";}
-          {name = "zap-zsh/completions";}
-          {name = "zap-zsh/vim";}
-          {name = "chivalryq/git-alias";}
-          {name = "zdharma-continuum/fast-syntax-highlighting";}
-          {name = "zsh-users/zsh-history-substring-search";}
-          {name = "MichaelAquilina/zsh-you-should-use";}
+          "zap-zsh/supercharge"
+          "zap-zsh/completions"
+          "zap-zsh/vim"
+          "chivalryq/git-alias"
+          "zdharma-continuum/fast-syntax-highlighting"
+          "zsh-users/zsh-history-substring-search"
+          "MichaelAquilina/zsh-you-should-use"
         ];
       };
     };
