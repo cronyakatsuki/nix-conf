@@ -11,6 +11,7 @@
   config = lib.mkIf config.crony.zsh.enable {
     # Installing zsh
     programs.zsh.enable = true;
+    programs.zsh.enableCompletion = false;
     users.defaultUserShell = pkgs.zsh;
     environment.pathsToLink = ["/share/zsh"];
   };
