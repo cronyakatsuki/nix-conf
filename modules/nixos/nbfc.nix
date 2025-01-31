@@ -16,7 +16,7 @@
 
     # Setup nbfc package
     systemd.services.nbfc_service = {
-      enable = false;
+      enable = true;
       description = "NoteBook FanControl Service";
       serviceConfig.Type = "simple";
       path = [pkgs.kmod];
