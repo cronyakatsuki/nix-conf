@@ -9,6 +9,13 @@
   };
 
   config = lib.mkIf config.crony.tmux.enable {
+    # Enable custom tmux bar settings
+    home.sessionVariables = {
+      TINTED_TMUX_OPTION_ACTIVE = 1;
+      TINTED_TMUX_OPTION_STATUSBAR = 1;
+    };
+
+    # Setup tmux
     programs.tmux = {
       enable = true;
       escapeTime = 0;
