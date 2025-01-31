@@ -9,6 +9,10 @@
   };
 
   config = lib.mkIf config.crony.nnn.enable {
+    # Needed enviromental variables
+    home.sessionVariables = {
+      NNN_FIFO = "/tmp/nnn.fifo";
+    };
     # NNN Settings
     programs.nnn = {
       enable = true;
