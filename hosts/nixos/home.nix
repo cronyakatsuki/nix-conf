@@ -11,7 +11,6 @@
 
   # PACKAGES
   home.packages = with pkgs; [
-    qbittorrent
     alejandra
     keepassxc
     restic
@@ -20,8 +19,6 @@
     nvd
     thunderbird
     sesh
-    stress-ng
-    dmidecode
     nurl
     entr
     ffmpeg
