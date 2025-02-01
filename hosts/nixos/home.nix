@@ -23,6 +23,7 @@
     entr
     ffmpeg
     spice-gtk
+    vesktop
   ];
 
   # Install librewolf
