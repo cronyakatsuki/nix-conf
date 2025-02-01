@@ -89,38 +89,6 @@
   # Enable zram swap device
   zramSwap.enable = true;
 
-  # Setup auto-cpufreq
-  programs.auto-cpufreq = {
-    enable = true;
-
-    settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
-
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
-    };
-  };
-
-  # Allow for wireguard traffic
-  networking.firewall = {
-    # if packets are still dropped, they will show up in dmesg
-    logReversePathDrops = true;
-    # wireguard trips rpfilter up
-    extraCommands = ''
-      ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN
-      ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN
-    '';
-    extraStopCommands = ''
-      ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN || true
-      ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN || true
-    '';
-  };
-
   # DO NOT CHANGE
   system.stateVersion = "24.11";
 }

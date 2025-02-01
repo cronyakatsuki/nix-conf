@@ -12,6 +12,8 @@
     ./qemu.nix
     ./amdgpu.nix
     ./nfs-share.nix
+    ./auto-cpufreq.nix
+    ./wireguard.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -26,4 +28,6 @@
   crony.qemu.enable = lib.mkDefault true;
   crony.amdgpu.enable = lib.mkDefault true;
   crony.nfs-share.enable = lib.mkDefault true;
+  crony.auto-cpufreq.enable = lib.mkDefault true;
+  crony.wireguard.enable = lib.mkDefault true;
 }
