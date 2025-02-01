@@ -18,6 +18,7 @@
     nix-output-monitor
     nvd
     thunderbird
+    tutanota-desktop
     sesh
     nurl
     entr
