@@ -25,6 +25,10 @@
     enable32Bit = true;
   };
 
+  # Try to fix amdgpu
+  boot.initrd.kernelModules = ["amdgpu"];
+  services.xserver.videoDrivers = ["amdgpu"];
+
   # Enable networking
   networking.networkmanager.enable = true;
 
