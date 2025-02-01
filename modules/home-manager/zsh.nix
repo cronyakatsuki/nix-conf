@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: {
@@ -29,6 +30,7 @@
       };
 
       initExtra = ''
+        ${pkgs.nerdfetch}/bin/nerdfetch
         # VI Mode escape timeout fix
         export KEYTIMEOUT=1
 
