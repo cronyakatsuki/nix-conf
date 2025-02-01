@@ -28,16 +28,6 @@
   # Install librewolf
   programs.librewolf.enable = true;
 
-  # Install nh
-  programs.nh = {
-    enable = true;
-    flake = "/home/crony/Repos/nixos";
-    clean = {
-      enable = true;
-      extraArgs = "--keep 5 --keep-since 3d";
-    };
-  };
-
   # Install foot
   programs.foot.enable = true;
 
