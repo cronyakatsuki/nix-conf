@@ -30,6 +30,14 @@
   # Install librewolf
   programs.librewolf.enable = true;
 
+  # Install obs-studio
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vkcapture
+    ];
+  };
+
   # Install nh
   programs.nh = {
     enable = true;
