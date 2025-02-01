@@ -27,10 +27,10 @@
         pmount
         ffmpegthumbnailer
         mediainfo
-        ueberzugpp
         poppler_utils
         gnome-epub-thumbnailer
         nsxiv
+        libarchive
       ];
       plugins.mappings = {
         u = "nmount";
