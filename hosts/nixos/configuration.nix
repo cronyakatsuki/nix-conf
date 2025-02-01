@@ -25,6 +25,9 @@
     enable32Bit = true;
   };
 
+  # Setup OpenTabletDriver graphic tablet driver
+  hardware.opentabletdriver.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
