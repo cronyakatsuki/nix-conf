@@ -123,6 +123,7 @@
     ignores = ["~/Documents/Share" ".git"];
   };
 
+  # Install btop
   programs.btop.enable = true;
 
   # Default environmental variables
