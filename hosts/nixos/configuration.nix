@@ -56,6 +56,9 @@
     options = "caps:escape";
   };
 
+  # Enable fstrim
+  services.fstrim.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
