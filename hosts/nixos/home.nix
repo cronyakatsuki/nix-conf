@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -26,6 +25,7 @@
     nurl
     entr
     ffmpeg
+    spice-gtk
   ];
 
   # Install librewolf
