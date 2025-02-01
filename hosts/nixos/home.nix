@@ -24,6 +24,8 @@
     ffmpeg
     spice-gtk
     vesktop
+    buku
+    bukubrow
   ];
 
   # Install librewolf
