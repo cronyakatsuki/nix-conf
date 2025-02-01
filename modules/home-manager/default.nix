@@ -6,6 +6,7 @@
     ./tmux.nix
     ./nnn.nix
     ./mpv.nix
+    ./obs-studio.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -14,4 +15,5 @@
   crony.tmux.enable = lib.mkDefault true;
   crony.nnn.enable = lib.mkDefault true;
   crony.mpv.enable = lib.mkDefault true;
+  crony.obs-studio.enable = lib.mkDefault true;
 }
