@@ -9,6 +9,7 @@
     ./stylix.nix
     ./nbfc.nix
     ./ryzenadj.nix
+    ./qemu.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -20,4 +21,5 @@
   crony.stylix.enable = lib.mkDefault true;
   crony.nbfc.enable = lib.mkDefault true;
   crony.ryzenadj.enable = lib.mkDefault true;
+  crony.qemu.enable = lib.mkDefault true;
 }
