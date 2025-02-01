@@ -10,6 +10,7 @@
     ./nbfc.nix
     ./ryzenadj.nix
     ./qemu.nix
+    ./amdgpu.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -22,4 +23,5 @@
   crony.nbfc.enable = lib.mkDefault true;
   crony.ryzenadj.enable = lib.mkDefault true;
   crony.qemu.enable = lib.mkDefault true;
+  crony.amdgpu.enable = lib.mkDefault true;
 }
