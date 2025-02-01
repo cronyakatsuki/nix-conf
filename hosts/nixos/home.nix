@@ -29,6 +29,7 @@
     vesktop
     buku
     bukubrow
+    piper
   ];
 
   # Install librewolf
