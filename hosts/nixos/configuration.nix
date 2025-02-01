@@ -25,7 +25,6 @@
     enable32Bit = true;
   };
 
-
   # Enable networking
   networking.networkmanager.enable = true;
 
