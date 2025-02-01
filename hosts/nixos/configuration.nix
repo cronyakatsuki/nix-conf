@@ -59,6 +59,12 @@
   # Enable fstrim
   services.fstrim.enable = true;
 
+  # Enable ratbagd to customize mouse options
+  services.ratbagd.enable = true;
+
+  # Enable firmware updater
+  services.fwupd.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
