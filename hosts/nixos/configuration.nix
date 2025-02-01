@@ -89,13 +89,6 @@
   # Enable zram swap device
   zramSwap.enable = true;
 
-  # Nfs share
-  fileSystems."/mnt/share" = {
-    device = "192.168.0.4:/mnt/nfs";
-    fsType = "nfs";
-    options = ["_netdev" "noauto" "x-systemd.automount" "x-systemd.mount-timeout=10" "timeo=14" "x-systemd.idle-timeout=600"];
-  };
-
   # Setup auto-cpufreq
   programs.auto-cpufreq = {
     enable = true;

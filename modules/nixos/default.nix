@@ -11,6 +11,7 @@
     ./ryzenadj.nix
     ./qemu.nix
     ./amdgpu.nix
+    ./nfs-share.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -24,4 +25,5 @@
   crony.ryzenadj.enable = lib.mkDefault true;
   crony.qemu.enable = lib.mkDefault true;
   crony.amdgpu.enable = lib.mkDefault true;
+  crony.nfs-share.enable = lib.mkDefault true;
 }
