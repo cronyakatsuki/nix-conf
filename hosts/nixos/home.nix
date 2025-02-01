@@ -31,6 +31,7 @@
     buku
     bukubrow
     piper
+    heroic
   ];
 
   # Install librewolf
