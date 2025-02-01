@@ -26,6 +26,11 @@
         export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black,bold'
         bindkey -M vicmd 'k' history-substring-search-up
         bindkey -M vicmd 'j' history-substring-search-down
+
+        # Tmux autostart
+        if [ -x "$(command -v tmux)" ] && [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
+          exec tmux new-session -A -s default >/dev/null 2>&1
+        fi
       '';
 
       antidote = {
