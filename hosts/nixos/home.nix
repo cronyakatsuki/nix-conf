@@ -25,6 +25,7 @@
     dmidecode
     nurl
     entr
+    ffmpeg
   ];
 
   # Install librewolf
