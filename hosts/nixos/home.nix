@@ -47,6 +47,11 @@
   programs.chromium = {
     enable = true;
     package = pkgs.ungoogled-chromium;
+    # Fix for wayland
+    commandLineArgs = [
+      "--ozone-platform-hint=auto"
+      "--ozone-platform=wayland"
+    ];
   };
 
   # Enable git
