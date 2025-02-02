@@ -19,6 +19,9 @@
     stylix.cursor.package = pkgs.bibata-cursors;
     stylix.cursor.name = "Bibata-Modern-Ice";
 
+    # Fix stuff not automatically using dark theme on websites
+    stylix.polarity = "dark";
+
     # Change u those fonts
     stylix.fonts = {
       serif = {
