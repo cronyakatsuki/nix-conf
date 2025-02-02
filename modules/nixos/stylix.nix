@@ -12,7 +12,7 @@
     # Enable sytling using stylix
     stylix.enable = true;
     stylix.autoEnable = true;
-    stylix.image = ./wallpaper.png;
+    stylix.image = ./background.png;
     stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
     # Change Cursor
