@@ -34,6 +34,7 @@
     heroic
     prismlauncher
     protonup-qt
+    protontricks
   ];
 
   # Install librewolf
