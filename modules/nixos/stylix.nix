@@ -46,6 +46,6 @@
     stylix.fonts.sizes.terminal = 15;
 
     # Change chrome settings
-    stylix.targets.chromium.enable = true;
+    stylix.targets.chromium.enable = false;
   };
 }
