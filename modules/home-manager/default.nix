@@ -8,6 +8,7 @@
     ./mpv.nix
     ./obs-studio.nix
     ./nh.nix
+    ./restic.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -18,4 +19,5 @@
   crony.mpv.enable = lib.mkDefault true;
   crony.obs-studio.enable = lib.mkDefault true;
   crony.nh.enable = lib.mkDefault true;
+  crony.restic.enable = lib.mkDefault true;
 }

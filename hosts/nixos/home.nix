@@ -13,7 +13,6 @@
   home.packages = with pkgs; [
     alejandra
     keepassxc
-    restic
     age
     nix-output-monitor
     nvd
