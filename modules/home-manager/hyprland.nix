@@ -15,6 +15,7 @@
       '')
       cliphist
       wl-clipboard
+      xwaylandvideobridge
     ];
 
     # Enable and setup tofi
