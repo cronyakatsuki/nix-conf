@@ -33,6 +33,7 @@
     piper
     heroic
     prismlauncher
+    protonup-qt
   ];
 
   # Install librewolf
