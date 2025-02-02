@@ -9,6 +9,7 @@
     ./obs-studio.nix
     ./nh.nix
     ./restic.nix
+    ./hyprland.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -20,4 +21,5 @@
   crony.obs-studio.enable = lib.mkDefault true;
   crony.nh.enable = lib.mkDefault true;
   crony.restic.enable = lib.mkDefault true;
+  crony.hyprland.enable = lib.mkDefault true;
 }

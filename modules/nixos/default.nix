@@ -14,6 +14,7 @@
     ./nfs-share.nix
     ./auto-cpufreq.nix
     ./wireguard.nix
+    ./hyprland.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -30,4 +31,5 @@
   crony.nfs-share.enable = lib.mkDefault true;
   crony.auto-cpufreq.enable = lib.mkDefault true;
   crony.wireguard.enable = lib.mkDefault true;
+  crony.hyprland-nixos.enable = lib.mkDefault true;
 }
