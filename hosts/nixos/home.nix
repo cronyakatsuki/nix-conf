@@ -32,6 +32,7 @@
     bukubrow
     piper
     heroic
+    prismlauncher
   ];
 
   # Install librewolf
