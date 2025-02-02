@@ -35,6 +35,7 @@
     prismlauncher
     protonup-qt
     protontricks
+    jellyfin-mpv-shim
   ];
 
   # Install librewolf
