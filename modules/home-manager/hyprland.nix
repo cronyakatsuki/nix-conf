@@ -162,6 +162,63 @@ in {
       };
     };
 
+    # Setup and enable waybar
+    programs.waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          height = 30;
+          modules-left = [
+            "hyprland/workspaces"
+          ];
+          modules-center = [
+            "hyprland/window"
+          ];
+          modules-right = [
+            "cpu"
+            "memory"
+            "temperature"
+            "battery"
+            "clock"
+            "tray"
+          ];
+          "hyprland/workspaces" = {
+            persistent-workspaces = {
+              "*" = [1 2 3 4 5 6 7 8 9];
+            };
+          };
+          tray = {
+            spacing = 10;
+          };
+          clock = {
+            format = " {:%Y.%m.%d %H:%M}";
+          };
+          cpu = {
+            format = "  {usage}%";
+          };
+          memory = {
+            format = "  {}%";
+          };
+          temperature = {
+            critical-threshold = 80;
+            format = " {temperatureC}°C";
+          };
+          battery = {
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+
+            format = "{icon} {capacity}%";
+            format-full = "{icon} {capacity}%";
+            format-charging = " {icon} {capacity}%";
+            format-plugged = " {capacity}%";
+            format-icons = [" " " " " " " " " "];
+          };
+        };
+      };
+    };
+
     # Setup and enable hyprland
     wayland.windowManager.hyprland = {
       enable = true;
@@ -177,6 +234,7 @@ in {
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
+          "waybar" # Start waybar on start
         ];
 
         monitor = [
@@ -200,7 +258,9 @@ in {
         };
 
         general = {
-          border_size = 5;
+          border_size = 3;
+          gaps_in = 5;
+          gaps_out = 10;
           layout = "master";
           allow_tearing = true;
         };
