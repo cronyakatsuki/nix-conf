@@ -55,13 +55,13 @@
 
         listener = [
           {
-            timeout = 300; # 5min
-            on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
+            timeout = 10; # 10 sec
+            on-timeout = "pidof hyprlock && hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
+            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
           }
           {
-            timeout = 330; # 5.5min
-            on-timeout = "hyprctl dispatch dpms off"; # screen off when timeout has passed
-            on-resume = "hyprctl dispatch dpms on"; # screen on when activity is detected after timeout has fired.
+            timeout = 300; # 5min
+            on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
           }
         ];
       };
@@ -73,7 +73,7 @@
       settings = {
         general = {
           disable_loading_bar = true;
-          grace = 300;
+          grace = 0;
           hide_cursor = true;
           no_fade_in = false;
         };
@@ -173,6 +173,8 @@
           "$mod SHIFT,  Space, togglefloating"
           "$mod,        D, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod SHIFT,  D, exec, tofi-drun | xargs hyprctl dispatch exec --"
+
+          "$mod,        L, exec, hyprlock --immediate"
 
           "$mod,        V, exec, cliphist list | tofi --horizontal false --height 380 | cliphist decode | wl-copy"
 
