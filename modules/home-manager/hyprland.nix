@@ -40,6 +40,12 @@
       };
     };
 
+    # Setup and enable mako
+    services.mako = {
+      enable = true;
+      defaultTimeout = 5;
+    };
+
     # Enable hyprpaper
     services.hyprpaper.enable = true;
 
