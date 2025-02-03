@@ -228,7 +228,7 @@ in {
           "$mod,        D, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod SHIFT,  D, exec, tofi-drun | xargs hyprctl dispatch exec --"
 
-          "$mod,        L, exec, hyprlock --immediate"
+          "$mod SHIFT,  L, exec, hyprlock --immediate"
 
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
           "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
