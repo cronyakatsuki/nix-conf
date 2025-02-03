@@ -35,6 +35,7 @@
     protonup-qt
     protontricks
     jellyfin-mpv-shim
+    fractal
   ];
 
   # Install librewolf

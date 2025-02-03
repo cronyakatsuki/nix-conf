@@ -3,7 +3,24 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  gamemode = pkgs.writeShellScriptBin "gamemode" ''
+    #!/usr/bin/env sh
+    HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
+    if [ "$HYPRGAMEMODE" = 1 ] ; then
+        hyprctl --batch "\
+            keyword animations:enabled 0;\
+            keyword decoration:shadow:enabled 0;\
+            keyword decoration:blur:enabled 0;\
+            keyword general:gaps_in 0;\
+            keyword general:gaps_out 0;\
+            keyword general:border_size 1;\
+            keyword decoration:rounding 0"
+        exit
+    fi
+    hyprctl reload
+  '';
+in {
   options = {
     crony.hyprland.enable = lib.mkEnableOption "Enable hyprland and configure it for me";
   };
@@ -161,6 +178,7 @@
         input = {
           kb_layout = "us";
           kb_options = "caps:escape";
+          accel_profile = "flat";
         };
 
         master = {
@@ -181,6 +199,8 @@
           "$mod SHIFT,  D, exec, tofi-drun | xargs hyprctl dispatch exec --"
 
           "$mod,        L, exec, hyprlock --immediate"
+
+          "$mod,        G, exec, ${gamemode}"
 
           "$mod,        V, exec, cliphist list | tofi --horizontal false --height 380 | cliphist decode | wl-copy"
 
