@@ -45,8 +45,13 @@
       };
     };
 
-    # Change terminal font size
-    stylix.fonts.sizes.terminal = 15;
+    # Change font sizes
+    stylix.fonts.sizes = {
+      applications = 15;
+      desktop = 13;
+      popups = 13;
+      terminal = 15;
+    };
 
     # Change chrome settings
     stylix.targets.chromium.enable = false;
