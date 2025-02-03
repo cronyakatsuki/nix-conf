@@ -43,6 +43,9 @@
   # Install foot
   programs.foot.enable = true;
 
+  # Install imv
+  programs.imv.enable = true;
+
   # Enable theming chromium + use ungoogled chromium package
   programs.chromium = {
     enable = true;
