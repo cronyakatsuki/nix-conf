@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  gamemode = pkgs.writeShellScriptBin "gamemode" ''
+  hyprgamemode = pkgs.writeShellScriptBin "gamemode" ''
     #!/usr/bin/env sh
     HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
     if [ "$HYPRGAMEMODE" = 1 ] ; then
@@ -19,6 +19,36 @@
         exit
     fi
     hyprctl reload
+    hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor "eDP-1, disable"
+  '';
+  volume-notify = pkgs.writeShellScriptBin "volume-notify" ''
+    #!/usr/bin/env sh
+
+    volumep="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
+
+    case "$volumep" in
+    *0.0*) volumep="''${volumep##* 0.0}%" ;;
+    *0.*) volumep="''${volumep##* 0.}%" ;;
+    *MUTED*) volumep='MUTED' ;;
+    *) volumep="100%" ;;
+    esac
+
+    notify-send -h string:x-canonical-private-synchronous:sys-notify "🔊 Volume: ''${volumep}"
+  '';
+  toggle-sound-output = pkgs.writeShellScriptBin "toggle-sound-output" ''
+    #!/usr/bin/env sh
+
+    speakers="alsa_output.pci-0000_05_00.1.hdmi-stereo"
+    headphones="alsa_output.usb-Xtrfy_SC1_Xtrfy_SC1-00.analog-stereo"
+
+    current="$(wpctl status -n | grep Audio/Sink | grep -oE '[^ ]+$')"
+
+    if [ "''${current}" = "''${headphones}" ]; then
+    	wpctl set-default "$(pw-cli info $speakers | head -n 1 | awk '{print $2}')"
+    else
+    	wpctl set-default "$(pw-cli info $headphones | head -n 1 | awk '{print $2}')"
+    fi
+
   '';
 in {
   options = {
@@ -60,7 +90,7 @@ in {
     # Setup and enable mako
     services.mako = {
       enable = true;
-      defaultTimeout = 5;
+      defaultTimeout = 5000;
     };
 
     # Enable hyprpaper
@@ -200,7 +230,8 @@ in {
 
           "$mod,        L, exec, hyprlock --immediate"
 
-          "$mod,        G, exec, ${gamemode}"
+          "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
+          "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
 
           "$mod,        V, exec, cliphist list | tofi --horizontal false --height 380 | cliphist decode | wl-copy"
 
@@ -236,9 +267,9 @@ in {
         ];
 
         bindel = [
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1 && ${volume-notify}/bin/volume-notify"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1 && ${volume-notify}/bin/volume-notify"
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${volume-notify}/bin/volume-notify"
         ];
 
         # Requires playerctl
