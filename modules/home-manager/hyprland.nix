@@ -77,6 +77,35 @@
           hide_cursor = true;
           no_fade_in = false;
         };
+
+        image = {
+          path = "$HOME/.face";
+          size = 150;
+          border_size = 4;
+          border_color = "rgb(d5c4a1)";
+          position = "0, 285";
+          halign = "center";
+          valign = "center";
+        };
+
+        label = [
+          {
+            text = "$TIME";
+            font_size = 90;
+            color = "rgb(d5c4a1)";
+            position = "0, 165";
+            halign = "center";
+            valight = "center";
+          }
+          {
+            text = ''cmd[update:43200000] date +"%Y %m %d"'';
+            font_size = 25;
+            color = "rgb(d5c4a1)";
+            position = "0, -225";
+            halign = "center";
+            valign = "center";
+          }
+        ];
       };
     };
 
