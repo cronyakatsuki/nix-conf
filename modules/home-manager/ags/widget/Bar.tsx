@@ -12,7 +12,7 @@ function SysTray() {
 
     return <box className="SysTray">
         {bind(tray, "items").as(items => items.map(item => (
-            <menubutton
+            <menubutton visible={item.title != "Wayland to X11 Video bridge"}
                 tooltipMarkup={bind(item, "tooltipMarkup")}
                 usePopover={false}
                 actionGroup={bind(item, "actionGroup").as(ag => ["dbusmenu", ag])}
@@ -29,7 +29,7 @@ function Wifi() {
 
     return <box visible={wifi.as(Boolean)}>
         {wifi.as(wifi => wifi && (
-            <icon
+            <icon visible={wifi.ssid != null}
                 tooltipText={bind(wifi, "ssid").as(String)}
                 className="Wifi"
                 icon={bind(wifi, "iconName")}
@@ -59,7 +59,7 @@ function BatteryLevel() {
         visible={bind(bat, "isPresent")}>
         <icon icon={bind(bat, "batteryIconName")} />
         <label label={bind(bat, "percentage").as(p =>
-            `${Math.floor(p * 100)} %`
+            ` ${Math.floor(p * 100)} %`
         )} />
     </box>
 }
