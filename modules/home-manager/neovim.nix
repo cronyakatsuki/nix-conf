@@ -58,6 +58,9 @@
             enableTreesitter = true;
             enableFormat = true;
 
+            ts = {
+              enable = true;
+            };
             nix = {
               enable = true;
             };
