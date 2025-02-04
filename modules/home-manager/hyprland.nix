@@ -192,7 +192,7 @@ in {
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
-          # "waybar" # Start waybar on start
+          "ags run" # Start ags on start
         ];
 
         monitor = [
