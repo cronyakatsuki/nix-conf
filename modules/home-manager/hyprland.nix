@@ -94,6 +94,8 @@ in {
     services.mako = {
       enable = true;
       defaultTimeout = 5000;
+      layer = "overlay";
+      width = 200;
     };
 
     # Enable hyprpaper
