@@ -167,18 +167,6 @@ in {
       };
     };
 
-    programs.ags = {
-      enable = true;
-      configDir = ./ags;
-      extraPackages = [
-        inputs.ags.packages.${pkgs.system}.battery
-        inputs.ags.packages.${pkgs.system}.hyprland
-        inputs.ags.packages.${pkgs.system}.network
-        inputs.ags.packages.${pkgs.system}.tray
-        inputs.ags.packages.${pkgs.system}.wireplumber
-      ];
-    };
-
     # Setup and enable hyprland
     wayland.windowManager.hyprland = {
       enable = true;
