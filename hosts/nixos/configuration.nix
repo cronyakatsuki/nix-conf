@@ -13,6 +13,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use the xanmod kernel
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+
   # Get nicer hostname
   networking.hostName = "nixos"; # Define your hostname.
 
