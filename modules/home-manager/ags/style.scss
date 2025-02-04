@@ -1,8 +1,8 @@
 @use "sass:color";
 
-$bg: #212223;
-$fg: #f1f1f1;
-$accent: #378DF7;
+$bg: #282828;
+$fg: #ebdbb2;
+$accent: #83a598;
 $radius: 7px;
 
 window.Bar {
@@ -10,7 +10,7 @@ window.Bar {
     box-shadow: none;
     background-color: $bg;
     color: $fg;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: bold;
 
     label {
@@ -42,7 +42,7 @@ window.Bar {
 
         .focused label {
             color: $accent;
-            border-color: $accent;
+            border-bottom: 2px solid;
         }
     }
 
@@ -56,14 +56,6 @@ window.Bar {
 
     .FocusedClient {
         color: $accent;
-    }
-
-    .Media .Cover {
-        min-height: 1.2em;
-        min-width: 1.2em;
-        border-radius: $radius;
-        background-position: center;
-        background-size: contain;
     }
 
     .Battery label {
