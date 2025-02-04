@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -63,6 +64,7 @@ in {
       cliphist
       wl-clipboard
       xwaylandvideobridge
+      inputs.ags.packages.${pkgs.system}.battery
     ];
 
     # Enable and setup tofi
@@ -162,61 +164,16 @@ in {
       };
     };
 
-    # Setup and enable waybar
-    programs.waybar = {
+    programs.ags = {
       enable = true;
-      settings = {
-        mainBar = {
-          height = 30;
-          modules-left = [
-            "hyprland/workspaces"
-          ];
-          modules-center = [
-            "hyprland/window"
-          ];
-          modules-right = [
-            "cpu"
-            "memory"
-            "temperature"
-            "battery"
-            "clock"
-            "tray"
-          ];
-          "hyprland/workspaces" = {
-            persistent-workspaces = {
-              "*" = [1 2 3 4 5 6 7 8 9];
-            };
-          };
-          tray = {
-            spacing = 10;
-          };
-          clock = {
-            format = " {:%Y.%m.%d %H:%M}";
-          };
-          cpu = {
-            format = "  {usage}%";
-          };
-          memory = {
-            format = "  {}%";
-          };
-          temperature = {
-            critical-threshold = 80;
-            format = " {temperatureC}°C";
-          };
-          battery = {
-            states = {
-              warning = 30;
-              critical = 15;
-            };
-
-            format = "{icon} {capacity}%";
-            format-full = "{icon} {capacity}%";
-            format-charging = " {icon} {capacity}%";
-            format-plugged = " {capacity}%";
-            format-icons = [" " " " " " " " " "];
-          };
-        };
-      };
+      configDir = ./ags;
+      extraPackages = [
+        inputs.ags.packages.${pkgs.system}.battery
+        inputs.ags.packages.${pkgs.system}.hyprland
+        inputs.ags.packages.${pkgs.system}.network
+        inputs.ags.packages.${pkgs.system}.tray
+        inputs.ags.packages.${pkgs.system}.wireplumber
+      ];
     };
 
     # Setup and enable hyprland
@@ -234,7 +191,7 @@ in {
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
-          "waybar" # Start waybar on start
+          # "waybar" # Start waybar on start
         ];
 
         monitor = [
