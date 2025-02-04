@@ -63,6 +63,7 @@ in {
       '')
       cliphist
       wl-clipboard
+      adwaita-icon-theme
       xwaylandvideobridge
       inputs.ags.packages.${pkgs.system}.battery
     ];
