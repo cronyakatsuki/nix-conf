@@ -64,6 +64,9 @@
   # Enable fstrim
   services.fstrim.enable = true;
 
+  # Enable upower
+  services.upower.enable = true;
+
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
 
