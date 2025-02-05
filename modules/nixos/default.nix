@@ -16,6 +16,7 @@
     ./wireguard.nix
     ./hyprland.nix
     ./sddm.nix
+    ./watchdog.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -34,4 +35,5 @@
   crony.wireguard.enable = lib.mkDefault true;
   crony.hyprland-nixos.enable = lib.mkDefault true;
   crony.sddm.enable = lib.mkDefault true;
+  crony.watchdog.disable = lib.mkDefault true;
 }
