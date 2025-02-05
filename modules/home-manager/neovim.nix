@@ -34,11 +34,6 @@
             whichKey.enable = true;
           };
 
-          # Enable gitsings
-          git.gitsigns = {
-            enable = true;
-          };
-
           # Enable lsp
           lsp = {
             enable = true;
@@ -79,15 +74,29 @@
 
           # Enable mini modules ( mini is amazing )
           mini = {
-            statusline.enable = true;
+            # Text editing
+            ai.enable = true;
             comment.enable = true;
-            notify.enable = true;
-            surround.enable = true;
-            diff.enable = true;
+            operators.enable = true;
             pairs.enable = true;
-            indentscope.enable = true;
+            surround.enable = true;
+            basics = {
+              enable = true;
+              setupOpts = {
+                mappings = {
+                  windows = true;
+                  move_with_alt = true;
+                };
+              };
+            };
+            bracketed.enable = true;
             bufremove.enable = true;
+            diff.enable = true;
+            files.enable = true;
             git.enable = true;
+            statusline.enable = true;
+            notify.enable = true;
+            indentscope.enable = true;
             hipatterns = {
               enable = true;
               setupOpts = {
@@ -113,6 +122,16 @@
               previous = "<C-k>";
             };
           };
+
+          keymaps = [
+            {
+              key = "<leader>e";
+              mode = ["n"];
+              action = ":lua MiniFiles.open()<CR>";
+              silent = true;
+              desc = "Open Mini.Files and manage the filesystem.";
+            }
+          ];
         };
       };
     };
