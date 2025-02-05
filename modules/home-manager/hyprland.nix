@@ -430,6 +430,9 @@ in {
           "noblur, class:^(xwaylandvideobridge)$"
           "nofocus, class:^(xwaylandvideobridge)$"
 
+          # Disable animations for ueberzugpp
+          "noanim, class:^(ueberzugpp.*)$"
+
           # Allow tearing for sifu
           "immediate, class:^(steam_app_2138710)$"
 
