@@ -24,7 +24,6 @@
     ffmpeg
     imagemagick
     glow
-    ueberzugpp
     spice-gtk
     vesktop
     buku

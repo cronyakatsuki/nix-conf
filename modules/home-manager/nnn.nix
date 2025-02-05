@@ -31,6 +31,7 @@
         gnome-epub-thumbnailer
         nsxiv
         libarchive
+        ueberzugpp
       ];
       plugins.mappings = {
         u = "nmount";
