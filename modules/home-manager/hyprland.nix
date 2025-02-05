@@ -167,6 +167,109 @@ in {
       };
     };
 
+    # Disable stylix to add full css, I only need it to add colors
+    stylix.targets.waybar.addCss = false;
+
+    # Enable and install waybar
+    programs.waybar = {
+      enable = true;
+      style = ''
+        #workspaces {
+          background-color: @base01;
+          margin: 0.25em;
+          border-radius: 1em;
+        }
+        #workspaces button {
+          padding: 0 0.5em;
+          color: @base06;
+        }
+
+        #workspaces button.empty {
+          color: @base03;
+        }
+
+        #workspaces button.visible {
+          color: @base06;
+        }
+
+        #workspaces button.active {
+          color: @base0D;
+        }
+
+        #window {
+          color: @base0B;
+          padding: 0 1em;
+        }
+
+        #cpu,
+        #memory,
+        #temperature,
+        #battery,
+        #clock {
+          color: @base00;
+          background-color: @base0C;
+          margin: 0.25em;
+          border-radius: 0.5em;
+        }
+
+        #tray {
+          background-color: @base00;
+        }
+      '';
+      settings = {
+        mainBar = {
+          height = 30;
+          modules-left = [
+            "hyprland/workspaces"
+            "hyprland/window"
+          ];
+          modules-center = [
+          ];
+          modules-right = [
+            "cpu"
+            "memory"
+            "temperature"
+            "battery"
+            "clock"
+            "tray"
+          ];
+          "hyprland/workspaces" = {
+            persistent-workspaces = {
+              "*" = [1 2 3 4 5 6 7 8 9];
+            };
+          };
+          tray = {
+            spacing = 10;
+          };
+          clock = {
+            format = " {:%Y.%m.%d %H:%M}";
+          };
+          cpu = {
+            format = "  {usage}%";
+          };
+          memory = {
+            format = "  {}%";
+          };
+          temperature = {
+            critical-threshold = 80;
+            format = " {temperatureC}°C";
+          };
+          battery = {
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+
+            format = "{icon} {capacity}%";
+            format-full = "{icon} {capacity}%";
+            format-charging = " {icon} {capacity}%";
+            format-plugged = " {capacity}%";
+            format-icons = [" " " " " " " " " "];
+          };
+        };
+      };
+    };
+
     # Setup and enable hyprland
     wayland.windowManager.hyprland = {
       enable = true;
@@ -182,7 +285,7 @@ in {
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
-          "ags run" # Start ags on start
+          "waybar" # Start waybar on start
         ];
 
         monitor = [
