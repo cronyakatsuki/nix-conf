@@ -51,6 +51,14 @@
     fi
 
   '';
+  power-menu = pkgs.writeShellScriptBin "power-menu" ''
+    #!/usr/bin/env sh
+
+    case "$(printf "shutdown\\nreboot" | tofi --prompt "Choose your poison")" in
+    "shutdown") poweroff ;;
+    "reboot") reboot ;;
+    esac
+  '';
 in {
   options = {
     crony.hyprland.enable = lib.mkEnableOption "Enable hyprland and configure it for me";
@@ -364,6 +372,7 @@ in {
 
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
           "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
+          "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
 
           "$mod,        V, exec, cliphist list | tofi --horizontal false --height 380 | cliphist decode | wl-copy"
 
