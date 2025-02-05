@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   pkgs,
   lib,
   ...
@@ -59,6 +58,7 @@
     "reboot") reboot ;;
     esac
   '';
+  grim = "${pkgs.grim}/bin/grim";
 in {
   options = {
     crony.hyprland.enable = lib.mkEnableOption "Enable hyprland and configure it for me";
@@ -69,8 +69,6 @@ in {
       (writeShellScriptBin "tofi-pass" ''
         tofi --hide-input true --prompt-text 'Password: ' --require-match false --hidden-character '.' < /dev/null
       '')
-      grim
-      slurp
       cliphist
       wl-clipboard
     ];
@@ -372,6 +370,8 @@ in {
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
           "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
           "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
+
+          "$mod,        F12, exec, ${grim} $HOME/Pictures/screenshots/$(date +'%s_grim.png')"
 
           "$mod,        V, exec, cliphist list | tofi --horizontal false --height 380 | cliphist decode | wl-copy"
 
