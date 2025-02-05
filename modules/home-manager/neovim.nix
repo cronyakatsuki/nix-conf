@@ -94,9 +94,8 @@
             diff.enable = true;
             files.enable = true;
             git.enable = true;
-            statusline.enable = true;
-            notify.enable = true;
-            indentscope.enable = true;
+            sessions.enable = true;
+            visits.enable = true;
             hipatterns = {
               enable = true;
               setupOpts = {
@@ -105,6 +104,11 @@
                 };
               };
             };
+            icons.enable = true;
+            indentscope.enable = true;
+            notify.enable = true;
+            starter.enable = true;
+            statusline.enable = true;
           };
 
           # Use telescope
