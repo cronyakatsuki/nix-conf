@@ -69,10 +69,10 @@ in {
       (writeShellScriptBin "tofi-pass" ''
         tofi --hide-input true --prompt-text 'Password: ' --require-match false --hidden-character '.' < /dev/null
       '')
+      grim
+      slurp
       cliphist
       wl-clipboard
-      adwaita-icon-theme
-      inputs.ags.packages.${pkgs.system}.battery
     ];
 
     # Enable and setup tofi
