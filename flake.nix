@@ -25,9 +25,6 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # ags for cool widgets
-    ags.url = "github:aylur/ags";
   };
 
   outputs = {
@@ -58,7 +55,6 @@
             imports = [
               ./hosts/nixos/home.nix
               ./modules/home-manager
-              inputs.ags.homeManagerModules.default
             ];
           };
         }
