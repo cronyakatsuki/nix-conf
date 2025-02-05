@@ -74,7 +74,7 @@ in {
       settings = {
         anchor = "top";
         width = "100%";
-        height = "28";
+        height = "34";
         horizontal = true;
         history = false;
         require-match = false;
@@ -120,6 +120,11 @@ in {
           {
             timeout = 300; # 5min
             on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
+          }
+          {
+            timeout = 310; # 5min and 10 sec
+            on-timeout = "hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
+            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
           }
         ];
       };
@@ -174,6 +179,10 @@ in {
     programs.waybar = {
       enable = true;
       style = ''
+        .modules-left {
+          padding-left: 10px;
+        }
+
         #workspaces {
           background-color: @base01;
           margin: 0.25em;
@@ -197,7 +206,7 @@ in {
         }
 
         #window {
-          color: @base0B;
+          color: @base0D;
           padding: 0 1em;
         }
 
@@ -205,20 +214,26 @@ in {
         #memory,
         #temperature,
         #battery,
+        #disk,
         #clock {
           color: @base00;
-          background-color: @base0C;
+          background-color: @base0D;
           margin: 0.25em;
           border-radius: 0.5em;
+          padding: 0 0.5em;
         }
 
         #tray {
           background-color: @base00;
         }
+
+        .modules-right {
+          padding-right: 10px;
+        }
       '';
       settings = {
         mainBar = {
-          height = 30;
+          height = 34;
           modules-left = [
             "hyprland/workspaces"
             "hyprland/window"
@@ -229,6 +244,7 @@ in {
             "cpu"
             "memory"
             "temperature"
+            "disk"
             "battery"
             "clock"
             "tray"
@@ -237,6 +253,11 @@ in {
             persistent-workspaces = {
               "*" = [1 2 3 4 5 6 7 8 9];
             };
+          };
+          disk = {
+            path = "/";
+            unit = "GB";
+            format = "󰋊 {percentage_used}%";
           };
           tray = {
             spacing = 10;
