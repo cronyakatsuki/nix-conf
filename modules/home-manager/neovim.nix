@@ -58,8 +58,13 @@
             enableTreesitter = true;
             enableFormat = true;
 
+            css = {
+              enable = true;
+              format.enable = true;
+            };
             ts = {
               enable = true;
+              format.enable = true;
             };
             nix = {
               enable = true;
@@ -83,6 +88,14 @@
             indentscope.enable = true;
             bufremove.enable = true;
             git.enable = true;
+            hipatterns = {
+              enable = true;
+              setupOpts = {
+                highlighters = {
+                  hex_color = lib.generators.mkLuaInline "require('mini.hipatterns').gen_highlighter.hex_color()";
+                };
+              };
+            };
           };
 
           # Use telescope
