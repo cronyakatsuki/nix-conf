@@ -35,8 +35,8 @@
       };
 
       monospace = {
-        package = pkgs.nerd-fonts.caskaydia-cove;
-        name = "CaskaydiaCove Nerd Font";
+        package = pkgs.nerd-fonts.commit-mono;
+        name = "CommitMono Nerd Font";
       };
 
       emoji = {
