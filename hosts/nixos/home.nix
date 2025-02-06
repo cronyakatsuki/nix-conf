@@ -35,6 +35,7 @@
     protontricks
     jellyfin-mpv-shim
     itch
+    wineWowPackages.staging
   ];
 
   # Install librewolf
@@ -131,6 +132,7 @@
   # Default environmental variables
   home.sessionVariables = {
     EDITOR = "nvim";
+    WINEPREFIX = "$HOME/.local/share/wineprefix/default";
   };
 
   # Let Home Manager install and manage itself.

@@ -308,14 +308,16 @@ in {
         "$menu" = "tofi";
         "$terminal" = "foot";
 
+        exec = [
+          # Fix laptop monitor getting turned on while my external monitor connected
+          "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
+        ];
+
         exec-once = [
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
           "waybar" # Start waybar on start
-
-          # Fix laptop monitor getting turned on while my external monitor connected
-          "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
         ];
 
         monitor = [
