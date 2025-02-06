@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: {
@@ -13,7 +14,20 @@
     # Enable gamescope
     programs.steam.gamescopeSession.enable = true;
     # Install gamemode
-    programs.gamemode.enable = true;
+    programs.gamemode = {
+      enable = true;
+      enableRenice = true;
+      settings = {
+        general = {
+          softrealtime = "on";
+          renice = 10;
+        };
+        custom = {
+          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+        };
+      };
+    };
     # Setup esync
     systemd.extraConfig = "DefaultLimitNOFILE=1048576";
     security.pam.loginLimits = [
