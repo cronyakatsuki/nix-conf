@@ -313,6 +313,9 @@ in {
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
           "waybar" # Start waybar on start
+
+          # Fix laptop monitor getting turned on while my external monitor connected
+          "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
         ];
 
         monitor = [
