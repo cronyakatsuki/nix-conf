@@ -90,7 +90,7 @@
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "libvirtd"];
+    extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode"];
   };
 
   # Allow unfree packages
