@@ -449,6 +449,7 @@ in {
 
           # Allow tearing for sifu
           "immediate, class:^(steam_app_2138710)$"
+          "immediate, class:^(Graveyard Keeper.x86_64)"
 
           # Make workspace 6 a floating layout
           "float, workspace:6"
