@@ -19,14 +19,18 @@
       dotDir = ".config/zsh";
 
       shellAliases = {
+        # General aliases
         grep = "grep --color=auto";
         cp = "cp -iv";
         rm = "rm -iv";
         mkd = "mkdir -pv";
         less = "less -R";
-        nnn = ''LC_COLLATE="C" nnn -xeaiH'';
         df = "df -h -x devtmpfs -x tmpfs -x usbfs -x loop";
         free = "free -mht";
+        # nnn on crack
+        nnn = ''LC_COLLATE="C" nnn -xeaiH'';
+        # Buku powerup
+        b = "buku -p";
       };
 
       initExtra = ''
