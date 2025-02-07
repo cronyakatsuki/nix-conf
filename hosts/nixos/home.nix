@@ -37,6 +37,7 @@
     itch
     wineWowPackages.staging
     rpcs3
+    unzip
   ];
 
   # Install librewolf
