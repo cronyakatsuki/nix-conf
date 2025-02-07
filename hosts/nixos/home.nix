@@ -36,6 +36,7 @@
     jellyfin-mpv-shim
     itch
     wineWowPackages.staging
+    rpcs3
   ];
 
   # Install librewolf
