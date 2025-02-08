@@ -39,6 +39,7 @@
     rpcs3
     unzip
     p7zip
+    aria2
   ];
 
   # Install librewolf
