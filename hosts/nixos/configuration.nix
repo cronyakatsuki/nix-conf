@@ -70,6 +70,11 @@
   # Enable upower
   services.upower.enable = true;
 
+  # Setup udev for android rules
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
+
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
 
