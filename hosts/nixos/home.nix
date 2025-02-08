@@ -38,6 +38,7 @@
     wineWowPackages.staging
     rpcs3
     unzip
+    p7zip
   ];
 
   # Install librewolf
