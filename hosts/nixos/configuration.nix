@@ -106,6 +106,7 @@
     neovim
     mangohud
     lm_sensors
+    libva-utils
   ];
 
   # Enable nixd to see nixpkgs path

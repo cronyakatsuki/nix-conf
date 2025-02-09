@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }: {
@@ -9,19 +10,27 @@
   };
 
   config = lib.mkIf config.crony.nvidia.enable {
-    services.xserver.videoDrivers = ["nvidia"];
-    hardware.nvidia.open = false;
-    hardware.nvidia.modesetting.enable = true;
-    hardware.nvidia.powerManagement.enable = true;
-    hardware.nvidia.nvidiaSettings = true;
-    hardware.nvidia.prime = {
-      offload = {
-        enableOffloadCmd = true;
-        enable = true;
-      };
+    # Setup vaapi for nvidia
+    hardware.graphics.extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+    ];
 
-      nvidiaBusId = "PCI:1:0:0";
-      amdgpuBusId = "PCI:5:0:0";
+    # Setup nvidia drivers
+    services.xserver.videoDrivers = ["nvidia"];
+    hardware.nvidia = {
+      open = false;
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      nvidiaSettings = true;
+      prime = {
+        offload = {
+          enableOffloadCmd = true;
+          enable = true;
+        };
+
+        nvidiaBusId = "PCI:1:0:0";
+        amdgpuBusId = "PCI:5:0:0";
+      };
     };
   };
 }
