@@ -22,6 +22,7 @@
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # Disable plasma
   crony.plasma.enable = false;
 
   # Setup gpu
