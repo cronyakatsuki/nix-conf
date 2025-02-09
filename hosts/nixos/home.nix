@@ -40,6 +40,7 @@
     unzip
     p7zip
     aria2
+    osu-lazer-bin
   ];
 
   # Install librewolf
