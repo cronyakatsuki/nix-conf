@@ -349,8 +349,8 @@ in {
         };
 
         input = {
-          kb_layout = "us";
-          kb_options = "caps:escape";
+          kb_layout = "us,hr";
+          kb_options = "caps:escape,grp:alt_space_toggle";
           accel_profile = "flat";
         };
 
@@ -370,6 +370,8 @@ in {
           "$mod SHIFT,  Space, togglefloating"
           "$mod,        D, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod SHIFT,  D, exec, tofi-drun | xargs hyprctl dispatch exec --"
+
+          "$mod,        F, fullscreen"
 
           "$mod SHIFT,  L, exec, hyprlock --immediate"
 
