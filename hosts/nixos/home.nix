@@ -41,6 +41,7 @@
     p7zip
     aria2
     osu-lazer-bin
+    overskride
   ];
 
   # Install librewolf
