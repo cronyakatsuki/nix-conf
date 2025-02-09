@@ -87,10 +87,14 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
     pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
   };
+  # Fix not saving my state
+  hardware.alsa.enablePersistence = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.crony = {
@@ -108,6 +112,7 @@
     mangohud
     lm_sensors
     libva-utils
+    alsa-utils
   ];
 
   # Enable nixd to see nixpkgs path
