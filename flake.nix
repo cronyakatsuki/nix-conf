@@ -12,7 +12,10 @@
     };
 
     # Let's theme everything easilly
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # NVF FOR SUPER NVIM
     nvf = {
