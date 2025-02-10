@@ -18,7 +18,6 @@
     nvd
     thunderbird
     tutanota-desktop
-    sesh
     nurl
     entr
     ffmpeg
