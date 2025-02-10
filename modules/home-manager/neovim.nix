@@ -64,6 +64,7 @@
             };
             nix = {
               enable = true;
+              lsp.server = "nixd";
             };
             bash.enable = true;
             go.enable = true;
