@@ -54,6 +54,11 @@
             enableTreesitter = true;
             enableFormat = true;
 
+            lua.enable = true;
+            # python = {
+            #   enable = true;
+            #   format.type = "black-and-isort";
+            # };
             css = {
               enable = true;
               format.enable = true;
@@ -84,7 +89,7 @@
                     expr = "import <nixpkgs> { }",
                   },
                   formatting = {
-                    command = { "${pkgs.alejandra}/bin/alejandra" },
+                    command = { "${pkgs.alejandra}/bin/alejandra", "--quiet" },
                   },
                   options = {
                     nixos = {
