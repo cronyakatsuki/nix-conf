@@ -79,6 +79,9 @@
             };
           };
 
+          # Setup snippet support
+          snippets.luasnip.enable = true;
+
           # Setup nixd options
           luaConfigRC.nixd = ''
             require("lspconfig").nixd.setup({
