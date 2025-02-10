@@ -375,6 +375,9 @@ in {
 
           "$mod SHIFT,  L, exec, hyprlock --immediate"
 
+          "$mod,        B, exec, chromium"
+          "$mod SHIFT,  B, exec, librewolf"
+
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
           "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
           "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
@@ -455,6 +458,9 @@ in {
 
           # Make workspace 6 a floating layout
           "float, workspace:6"
+
+          # Move to workspace 5
+          "workspace 5, class:^(vesktop)$"
         ];
       };
     };
