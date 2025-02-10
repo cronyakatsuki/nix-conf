@@ -74,6 +74,31 @@
             };
           };
 
+          # Setup nixd options
+          luaConfigRC.nixd = ''
+            require("lspconfig").nixd.setup({
+              cmd = { "${pkgs.nixd}/bin/nixd" },
+              settings = {
+                nixd = {
+                  nixpkgs = {
+                    expr = "import <nixpkgs> { }",
+                  },
+                  formatting = {
+                    command = { "${pkgs.alejandra}/bin/alejandra" },
+                  },
+                  options = {
+                    nixos = {
+                        expr = '(builtins.getFlake "/home/crony/Repos/nixos").nixosConfigurations.CONFIGNAME.options',
+                    },
+                    home_manager = {
+                        expr = '(builtins.getFlake "/home/crony/Repos/nixos").homeConfigurations.CONFIGNAME.options',
+                    },
+                  },
+                },
+              },
+            })
+          '';
+
           # Enable mini modules ( mini is amazing )
           mini = {
             # Text editing
