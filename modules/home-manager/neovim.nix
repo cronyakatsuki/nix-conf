@@ -69,7 +69,17 @@
             };
             nix = {
               enable = true;
-              lsp.server = "nixd";
+              lsp = {
+                server = "nixd";
+                options = {
+                  nixos = {
+                    expr = ''(builtins.getFlake "/home/crony/Repos/nixos").nixosConfigurations.CONFIGNAME.options'';
+                  };
+                  home_manager = {
+                    expr = ''(builtins.getFlake "/home/crony/Repos/nixos").homeConfigurations.CONFIGNAME.options'';
+                  };
+                };
+              };
             };
             bash.enable = true;
             go.enable = true;
@@ -81,31 +91,6 @@
 
           # Setup snippet support
           snippets.luasnip.enable = true;
-
-          # Setup nixd options
-          luaConfigRC.nixd = ''
-            require("lspconfig").nixd.setup({
-              cmd = { "${pkgs.nixd}/bin/nixd" },
-              settings = {
-                nixd = {
-                  nixpkgs = {
-                    expr = "import <nixpkgs> { }",
-                  },
-                  formatting = {
-                    command = { "${pkgs.alejandra}/bin/alejandra", "--quiet" },
-                  },
-                  options = {
-                    nixos = {
-                        expr = '(builtins.getFlake "/home/crony/Repos/nixos").nixosConfigurations.CONFIGNAME.options',
-                    },
-                    home_manager = {
-                        expr = '(builtins.getFlake "/home/crony/Repos/nixos").homeConfigurations.CONFIGNAME.options',
-                    },
-                  },
-                },
-              },
-            })
-          '';
 
           # Enable mini modules ( mini is amazing )
           mini = {
