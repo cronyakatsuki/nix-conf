@@ -18,14 +18,8 @@
     };
 
     # NVF FOR SUPER NVIM
-    # nvf = {
-    #   url = "github:notashelf/nvf";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # Test out specific nvf pr
     nvf = {
-      url = "github:iynaix/nvf/add-nixd-opts";
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
