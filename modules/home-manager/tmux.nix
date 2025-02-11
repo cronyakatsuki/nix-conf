@@ -14,7 +14,6 @@
       TINTED_TMUX_OPTION_STATUSBAR = 1;
     };
 
-
     home.packages = with pkgs; [
       sesh
     ];
