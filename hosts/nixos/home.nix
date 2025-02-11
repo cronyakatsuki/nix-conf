@@ -16,7 +16,6 @@
     age
     nix-output-monitor
     nvd
-    thunderbird
     tutanota-desktop
     nurl
     entr
