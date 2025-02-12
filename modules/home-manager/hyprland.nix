@@ -59,6 +59,18 @@
     esac
   '';
   grim = "${pkgs.grim}/bin/grim";
+  vpn-toggle = pkgs.writeShellScriptBin "vpn-toggle" ''
+    #!/usr/bin/env sh
+
+    if [ "$(nmcli --overview -f GENERAL.STATE connection show hetz)" = "" ]; then
+    	nmcli con up hetz
+      notify-send "VPN" "UP"
+    else
+    	nmcli con down hetz
+      notify-send "VPN" "DOWN"
+    fi
+
+  '';
 in {
   options = {
     crony.hyprland.enable = lib.mkEnableOption "Enable hyprland and configure it for me";
@@ -381,6 +393,7 @@ in {
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
           "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
           "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
+          "$mod,        w, exec, ${vpn-toggle}/bin/vpn-toggle"
 
           "$mod,        F12, exec, ${grim} $HOME/Pictures/screenshots/$(date +'%s_grim.png')"
 
