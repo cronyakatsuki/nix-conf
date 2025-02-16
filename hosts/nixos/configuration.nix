@@ -36,6 +36,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nameservers = ["192.168.0.10" "1.1.1.1"];
+  services.resolved = {
+    enable = true;
+    fallbackDns = ["192.168.0.10" "1.1.1.1"];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Zagreb";
