@@ -39,6 +39,7 @@
     aria2
     osu-lazer-bin
     overskride
+    delfin
   ];
 
   # Install librewolf
@@ -62,6 +63,11 @@
       bukubrow
       keepassxc
     ];
+  };
+
+  programs.thunderbird = {
+    enable = true;
+    profiles.default.isDefault = true;
   };
 
   # Install foot
