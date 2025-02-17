@@ -1,7 +1,8 @@
 {
   config,
-  lib,
+  inputs,
   pkgs,
+  lib,
   ...
 }: {
   options = {
@@ -10,8 +11,8 @@
 
   config = lib.mkIf config.crony.nbfc.enable {
     # Install nbfc-linux
-    environment.systemPackages = with pkgs; [
-      nbfc-linux
+    environment.systemPackages = [
+      inputs.nbfc-linux.packages.x86_64-linux.default
     ];
 
     # Setup nbfc package
@@ -21,7 +22,7 @@
       serviceConfig.Type = "simple";
       path = [pkgs.kmod];
 
-      script = "${pkgs.nbfc-linux}/bin/nbfc_service --config-file '/home/crony/.config/nbfc.json'";
+      script = "${inputs.nbfc-linux.packages.x86_64-linux.default}/bin/nbfc_service --config-file '/home/crony/.config/nbfc.json'";
 
       wantedBy = ["multi-user.target"];
     };

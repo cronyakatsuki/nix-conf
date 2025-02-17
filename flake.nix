@@ -28,6 +28,12 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # use custom nbfc that has the config for my laptop
+    nbfc-linux = {
+      url = "github:cronyakatsuki/nbfc-linux/a715-41g";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
