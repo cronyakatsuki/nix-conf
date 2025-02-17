@@ -25,6 +25,9 @@
   # Disable plasma
   crony.plasma.enable = false;
 
+  # Disable amdgpu
+  crony.amdgpu.enable = false;
+
   # Setup gpu
   hardware.graphics = {
     enable = true;

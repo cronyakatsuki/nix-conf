@@ -23,9 +23,10 @@
       powerManagement.enable = true;
       nvidiaSettings = true;
       prime = {
+        reverseSync.enable = true;
         offload = {
           enableOffloadCmd = true;
-          enable = true;
+          enable = false;
         };
 
         nvidiaBusId = "PCI:1:0:0";
