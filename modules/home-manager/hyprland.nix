@@ -467,6 +467,7 @@ in {
 
           # Allow tearing for sifu
           "immediate, class:^(steam_app_2138710)$"
+          "immediate, class:^(steam_app_1145360)$"
           "immediate, class:^(Graveyard Keeper.x86_64)$"
           "immediate, class:^(gamescope)$"
 
