@@ -31,6 +31,8 @@
         nnn = ''LC_COLLATE="C" nnn -xeaiH'';
         # Buku powerup
         b = "buku -p";
+        # fzf shenanigans
+        vif = ''nvim $(fzf --preview="bat --color=always {}")'';
       };
 
       initExtra = ''

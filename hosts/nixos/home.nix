@@ -101,6 +101,7 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    defaultCommand = "fd --type f";
   };
 
   # Install starship
@@ -153,6 +154,11 @@
     enable = true;
     hidden = true;
     ignores = ["~/Documents/Share" ".git"];
+  };
+
+  # Install rg
+  programs.ripgrep = {
+    enable = true;
   };
 
   # Install btop
