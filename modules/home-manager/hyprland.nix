@@ -360,6 +360,10 @@ in {
           allow_tearing = true;
         };
 
+        misc = {
+          vrr = 1;
+        };
+
         input = {
           kb_layout = "us,hr";
           kb_options = "caps:escape,grp:alt_space_toggle";
