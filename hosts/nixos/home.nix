@@ -3,7 +3,10 @@
   inputs,
   ...
 }: {
-  imports = [inputs.nvf.homeManagerModules.default];
+  imports = [
+    inputs.nvf.homeManagerModules.default
+    inputs.nix-index-database.hmModules.nix-index
+  ];
 
   # Some info
   home.username = "crony";
@@ -86,6 +89,15 @@
       "--ozone-platform=wayland"
     ];
   };
+
+  # Enable nix-index
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # Enable comma
+  programs.nix-index-database.comma.enable = true;
 
   # Enable git
   programs.git = {

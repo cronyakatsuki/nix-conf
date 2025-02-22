@@ -383,6 +383,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739676768,
+        "narHash": "sha256-U1HQ7nzhJyVVXUgjU028UCkbLQLEIkg42+G7iIiBmlU=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "ae15068e79e22b76c344f0d7f8aed1bb1c5b0b63",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1739866667,
@@ -481,6 +501,7 @@
         "auto-cpufreq": "auto-cpufreq",
         "home-manager": "home-manager",
         "nbfc-linux": "nbfc-linux",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
         "stylix": "stylix"

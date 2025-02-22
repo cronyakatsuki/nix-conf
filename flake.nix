@@ -34,6 +34,12 @@
       url = "github:cronyakatsuki/nbfc-linux/a715-41g";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # use prebuild nix-index ( crashes on me cause little ram )
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
