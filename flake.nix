@@ -42,8 +42,8 @@
     };
 
     # Add pre commit hooks
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -53,7 +53,7 @@
     nixpkgs,
     home-manager,
     auto-cpufreq,
-    pre-commit-hooks,
+    git-hooks,
     ...
   } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -85,6 +85,6 @@
     devShells.x86_64-linux.default = let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in (import ./shell.nix {inherit pkgs pre-commit-hooks;});
+    in (import ./shell.nix {inherit pkgs git-hooks;});
   };
 }
