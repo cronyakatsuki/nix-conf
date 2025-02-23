@@ -89,9 +89,6 @@
             };
           };
 
-          # Setup snippet support
-          snippets.luasnip.enable = true;
-
           # Enable mini modules ( mini is amazing )
           mini = {
             # Text editing
@@ -135,15 +132,13 @@
           telescope.enable = true;
 
           # Enable autocompletion
-          autocomplete.nvim-cmp = {
-            enable = true;
-
-            mappings = {
-              close = null;
-              complete = null;
-              confirm = "<C-l>";
-              next = "<C-j>";
-              previous = "<C-k>";
+          autocomplete = {
+            enableSharedCmpSources = true;
+            blink-cmp = {
+              enable = true;
+              setupOpts = {
+                keymap.preset = "default";
+              };
             };
           };
 
