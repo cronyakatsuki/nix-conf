@@ -43,6 +43,7 @@
     osu-lazer-bin
     overskride
     delfin
+    commitizen
   ];
 
   # Install librewolf

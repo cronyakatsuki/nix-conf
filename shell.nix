@@ -9,6 +9,8 @@
       # General formaters
       end-of-file-fixer.enable = true;
       mixed-line-endings.enable = true;
+      # Git commit lint
+      commitizen.enable = true;
       # Nix section
       alejandra.enable = true;
       deadnix.enable = true;
