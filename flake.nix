@@ -40,6 +40,12 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Add pre commit hooks
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -47,6 +53,7 @@
     nixpkgs,
     home-manager,
     auto-cpufreq,
+    pre-commit-hooks,
     ...
   } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -75,5 +82,9 @@
         }
       ];
     };
+    devShells.x86_64-linux.default = let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in (import ./shell.nix {inherit pkgs pre-commit-hooks;});
   };
 }
