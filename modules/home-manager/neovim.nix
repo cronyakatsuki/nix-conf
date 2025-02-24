@@ -192,6 +192,12 @@
                 require('telescope').load_extension('fzf')
               '';
             };
+            telescope-ui-select = {
+              package = telescope-ui-select-nvim;
+              setup = ''
+                require('telescope').load_extension('fzf')
+              '';
+            };
           };
         };
       };
