@@ -129,7 +129,19 @@
           };
 
           # Use telescope
-          telescope.enable = true;
+          telescope = {
+            enable = true;
+            setupOpts = {
+              extensions = {
+                fzf = {
+                  fuzzy = true;
+                  override_generic_sorter = true;
+                  override_file_sorter = true;
+                  case_mode = "smart_case";
+                };
+              };
+            };
+          };
 
           # Enable autocompletion
           autocomplete = {
@@ -173,6 +185,12 @@
             };
             friendly-snippets = {
               package = friendly-snippets;
+            };
+            telescope-fzf-native = {
+              package = telescope-fzf-native-nvim;
+              setup = ''
+                require('telescope').load_extension('fzf')
+              '';
             };
           };
         };
