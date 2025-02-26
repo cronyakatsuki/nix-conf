@@ -178,6 +178,15 @@
           extraLuaFiles = [./nvim/autocommands.lua];
 
           extraPlugins = with pkgs.vimPlugins; {
+            oil = {
+              package = oil-nvim;
+              setup = ''
+                require("oil").setup()
+
+                vim.keymap.set("n", "<leader>N", ":Oil<CR>")
+                vim.keymap.set("n", "<leader>n", ':lua require("oil").toggle_float()<CR>')
+              '';
+            };
             harpoon = {
               package = harpoon2;
               setup = ''
