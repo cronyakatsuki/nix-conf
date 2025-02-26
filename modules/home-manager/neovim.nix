@@ -22,7 +22,15 @@
           options = {
             tabstop = 2;
             shiftwidth = 2;
+            expandtab = true;
+            softtabstop = 2;
             updatetime = 50;
+            scrolloff = 5;
+            signcolumn = "no";
+            ignorecase = true;
+            smartcase = true;
+            colorcolumn = "80";
+            laststatus = 3;
           };
 
           # Enable the undo file
