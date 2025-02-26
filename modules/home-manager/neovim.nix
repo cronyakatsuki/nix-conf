@@ -62,7 +62,10 @@
             enableTreesitter = true;
             enableFormat = true;
 
-            lua.enable = true;
+            lua = {
+              enable = true;
+              lsp.lazydev.enable = true;
+            };
             # python = {
             #   enable = true;
             #   format.type = "black-and-isort";
@@ -171,6 +174,8 @@
               desc = "Open Mini.Files and manage the filesystem.";
             }
           ];
+
+          extraLuaFiles = [./nvim/autocommands.lua];
 
           extraPlugins = with pkgs.vimPlugins; {
             harpoon = {
