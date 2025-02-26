@@ -14,3 +14,12 @@ autocmd({ "BufWritePre" }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
+
+-- [[ Settings for default neovim terminal ]]
+autocmd({ "TermOpen" }, {
+  group = augroup("term_open"),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end
+})
