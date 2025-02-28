@@ -71,6 +71,7 @@
     fi
 
   '';
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
 in {
   options = {
     crony.hyprland.enable = lib.mkEnableOption "Enable hyprland and configure it for me";
@@ -442,9 +443,9 @@ in {
 
         # Requires playerctl
         bindl = [
-          ", XF86AudioPlay, exec, playerctl play-pause"
-          ", XF86AudioPrev, exec, playerctl previous"
-          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioPlay, exec, ${playerctl} play-pause"
+          ", XF86AudioPrev, exec, ${playerctl} previous"
+          ", XF86AudioNext, exec, ${playerctl} next"
 
           '', switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1"''
           '', switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"''
@@ -477,6 +478,9 @@ in {
 
           # Make workspace 6 a floating layout
           "float, workspace:6"
+
+          # Make keepassxc floating
+          "float, class:^(org.keepassxc.KeePassXC)$"
 
           # Move to workspace 5
           "workspace 5, class:^(vesktop)$"
