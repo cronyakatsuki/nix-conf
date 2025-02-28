@@ -70,14 +70,8 @@
               enable = true;
               format.type = "black-and-isort";
             };
-            css = {
-              enable = true;
-              format.enable = true;
-            };
-            ts = {
-              enable = true;
-              format.enable = true;
-            };
+            css.enable = true;
+            ts.enable = true;
             nix = {
               enable = true;
               lsp = {
@@ -93,11 +87,15 @@
               };
             };
             bash.enable = true;
-            go.enable = true;
+            go = {
+              enable = true;
+              format.type = "gofumpt";
+            };
             markdown = {
               enable = true;
               extensions.render-markdown-nvim.enable = true;
             };
+            html.enable = true;
           };
 
           # Enable mini modules ( mini is amazing )
