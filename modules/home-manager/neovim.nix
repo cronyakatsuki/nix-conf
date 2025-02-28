@@ -66,10 +66,10 @@
               enable = true;
               lsp.lazydev.enable = true;
             };
-            # python = {
-            #   enable = true;
-            #   format.type = "black-and-isort";
-            # };
+            python = {
+              enable = true;
+              format.type = "black-and-isort";
+            };
             css = {
               enable = true;
               format.enable = true;
