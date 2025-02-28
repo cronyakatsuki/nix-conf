@@ -137,6 +137,8 @@
             notify.enable = true;
             starter.enable = true;
             statusline.enable = true;
+            move.enable = true;
+            splitjoin.enable = true;
           };
 
           # Use telescope
