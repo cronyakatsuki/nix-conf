@@ -175,6 +175,30 @@
               silent = true;
               desc = "Open Mini.Files and manage the filesystem.";
             }
+            {
+              key = "<C-d>";
+              mode = ["n"];
+              action = "<C-d>zz";
+              silent = true;
+            }
+            {
+              key = "<C-u>";
+              mode = ["n"];
+              action = "<C-u>zz";
+              silent = true;
+            }
+            {
+              key = "<C-f>";
+              mode = ["n"];
+              action = "<C-f>zz";
+              silent = true;
+            }
+            {
+              key = "<C-b>";
+              mode = ["n"];
+              action = "<C-b>zz";
+              silent = true;
+            }
           ];
 
           extraLuaFiles = [./nvim/autocommands.lua];
