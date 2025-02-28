@@ -44,6 +44,7 @@
     overskride
     delfin
     commitizen
+    termsonic
   ];
 
   # Install librewolf
