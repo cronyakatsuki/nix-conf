@@ -3,7 +3,17 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  markdown-table-mode = pkgs.vimUtils.buildVimPlugin {
+    name = "markdown-table-mode";
+    src = pkgs.fetchFromGitHub {
+      owner = "Kicamon";
+      repo = "markdown-table-mode.nvim";
+      rev = "fe207ea7cef615ccaf2c0f1257c58ffa0a50a9f5";
+      hash = "sha256-JGc5L+7/eSBww1HaMl0AVcIwEJF/RFqoVRpR3DnP6+E=";
+    };
+  };
+in {
   options = {
     crony.neovim.enable = lib.mkEnableOption "Enable neovim and apply a good config.";
   };
@@ -242,6 +252,12 @@
               package = telescope-ui-select-nvim;
               setup = ''
                 require('telescope').load_extension('fzf')
+              '';
+            };
+            markdown-table-mode-nvim = {
+              package = markdown-table-mode;
+              setup = ''
+                require('markdown-table-mode').setup()
               '';
             };
           };
