@@ -264,6 +264,15 @@ in {
                 require('markdown-table-mode').setup()
               '';
             };
+            snacks-nvim = {
+              package = snacks-nvim;
+              setup = ''
+                require('snacks').setup({
+                  bigfile = {enabled = true},
+                  quickfile = {enabled = true},
+                })
+              '';
+            };
           };
         };
       };
