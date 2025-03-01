@@ -136,6 +136,10 @@ in {
               enable = true;
               setupOpts = {
                 highlighters = {
+                  fixme = lib.generators.mkLuaInline "{ pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' }";
+                  hack = lib.generators.mkLuaInline "{ pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  }";
+                  todo = lib.generators.mkLuaInline "{ pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  }";
+                  note = lib.generators.mkLuaInline "{ pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  }";
                   hex_color = lib.generators.mkLuaInline "require('mini.hipatterns').gen_highlighter.hex_color()";
                 };
               };
