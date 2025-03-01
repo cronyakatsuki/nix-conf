@@ -273,6 +273,7 @@ in {
                 })
               '';
             };
+            helpview-nvim.package = helpview-nvim;
           };
         };
       };
