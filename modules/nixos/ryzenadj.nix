@@ -88,10 +88,10 @@
           adjust("stapm_limit", args.stapm_limit)
           adjust("fast_limit", args.fast_limit)
           adjust("slow_limit", args.slow_limit)
-          adjust("slow_time", args.slow_time)
-          adjust("stapm_time", args.stapm_time)
+          # adjust("slow_time", args.slow_time)
+          # adjust("stapm_time", args.stapm_time)
           adjust("tctl_temp", args.tctl_temp)
-          adjust("vrmmax_current", args.vrmmax_current)
+          # adjust("vrmmax_current", args.vrmmax_current)
           enable("max_performance")
 
 
@@ -113,10 +113,10 @@
           parser.add_argument("--stapm-limit", action="store", required=True, type=int)
           parser.add_argument("--fast-limit", action="store", required=True, type=int)
           parser.add_argument("--slow-limit", action="store", required=True, type=int)
-          parser.add_argument("--slow-time", action="store", required=True, type=int)
-          parser.add_argument("--stapm-time", action="store", required=True, type=int)
+          # parser.add_argument("--slow-time", action="store", required=True, type=int)
+          # parser.add_argument("--stapm-time", action="store", required=True, type=int)
           parser.add_argument("--tctl-temp", action="store", required=True, type=int)
-          parser.add_argument("--vrmmax-current", action="store", required=True, type=int)
+          # parser.add_argument("--vrmmax-current", action="store", required=True, type=int)
           return parser.parse_args()
 
 
@@ -147,7 +147,7 @@ in {
       enable = true;
       description = "Set my cpu power usage power to something more manageable.";
       wantedBy = ["multi-user.target"];
-      script = "${ryzenadj-service}/bin/ryzenadj-service --stapm-limit 30000 --fast-limit 30000 --slow-limit 30000 --slow-time 60 --stapm-time 1000 --tctl-temp 85 --vrmmax-current 47000";
+      script = "${ryzenadj-service}/bin/ryzenadj-service --stapm-limit 35000 --fast-limit 35000 --slow-limit 35000 --tctl-temp 90";
     };
   };
 }
