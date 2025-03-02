@@ -475,6 +475,7 @@ in {
           "immediate, class:^(steam_app_1145360)$"
           "immediate, class:^(Graveyard Keeper.x86_64)$"
           "immediate, class:^(gamescope)$"
+          "immediate, class:^(steam_app_1087760)$"
 
           # Make workspace 6 a floating layout
           "float, workspace:6"
