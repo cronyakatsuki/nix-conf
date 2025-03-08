@@ -147,7 +147,7 @@ in {
       enable = true;
       description = "Set my cpu power usage power to something more manageable.";
       wantedBy = ["multi-user.target"];
-      script = "${ryzenadj-service}/bin/ryzenadj-service --stapm-limit 35000 --fast-limit 35000 --slow-limit 35000 --tctl-temp 90 --vrmmax-current 51000";
+      script = "${ryzenadj-service}/bin/ryzenadj-service --stapm-limit 35000 --fast-limit 35000 --slow-limit 35000 --tctl-temp 90 --vrmmax-current 70000";
     };
   };
 }
