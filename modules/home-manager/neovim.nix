@@ -62,7 +62,7 @@ in {
           # Setup the theme
           theme = {
             enable = true;
-            name = "gruvbox";
+            # name = "gruvbox";
             style = "dark";
           };
 
