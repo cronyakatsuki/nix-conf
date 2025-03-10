@@ -61,6 +61,18 @@ in {
             enable = true;
           };
 
+          # Autocompletion
+          autocomplete.nvim-cmp = {
+            enable = true;
+            mapping = {
+              close = "<C-h>";
+              complete = null;
+              confirm = "<C-l>";
+              next = "<C-j>";
+              previous = "<C-k>";
+            };
+          };
+
           # Setup lsp's and languages
           languages = {
             enableLSP = true;
