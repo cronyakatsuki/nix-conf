@@ -19,6 +19,9 @@ in {
   };
 
   config = lib.mkIf config.crony.neovim.enable {
+    # Disable stylix for nvf, I wan't to use a properly implemented theme sorry.
+    stylix.targets.nvf.enable = false;
+
     # Setup neovim
     programs.nvf = {
       enable = true;
@@ -56,14 +59,6 @@ in {
           # Enable lsp
           lsp = {
             enable = true;
-            lspkind.enable = true;
-          };
-
-          # Setup the theme
-          theme = {
-            enable = true;
-            # name = "gruvbox";
-            style = "dark";
           };
 
           # Setup lsp's and languages
@@ -168,17 +163,14 @@ in {
             };
           };
 
-          # Enable autocompletion
-          autocomplete = {
-            enableSharedCmpSources = true;
-            blink-cmp = {
-              enable = true;
-              setupOpts = {
-                keymap.preset = "default";
-              };
-            };
+          # Theme
+          theme = {
+            enable = true;
+            name = "gruvbox";
+            style = "dark";
           };
 
+          # Keymaps
           keymaps = [
             {
               key = "<leader>e";
