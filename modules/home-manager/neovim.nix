@@ -64,7 +64,7 @@ in {
           # Autocompletion
           autocomplete.nvim-cmp = {
             enable = true;
-            mapping = {
+            mappings = {
               close = "<C-h>";
               complete = null;
               confirm = "<C-l>";
