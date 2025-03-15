@@ -18,6 +18,7 @@
     # Change Cursor
     stylix.cursor.package = pkgs.bibata-cursors;
     stylix.cursor.name = "Bibata-Modern-Ice";
+    stylix.cursor.size = 32;
 
     # Fix stuff not automatically using dark theme on websites
     stylix.polarity = "dark";
