@@ -13,7 +13,7 @@
       commitizen.enable = true;
       # Nix section
       alejandra.enable = true;
-      deadnix.enable = true;
+      # deadnix.enable = true;
       flake-checker.enable = true;
     };
   };
