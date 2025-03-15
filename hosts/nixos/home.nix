@@ -46,6 +46,8 @@
     commitizen
     license-go
     termsonic
+    inputs.iamb.packages.x86_64-linux.default
+    toot
   ];
 
   # Install librewolf

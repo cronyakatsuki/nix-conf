@@ -46,6 +46,12 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # iamb, a matrix tui client. Latest possible version
+    iamb = {
+      url = "github:ulyssa/iamb";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
