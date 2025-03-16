@@ -17,6 +17,7 @@
     ./hyprland.nix
     ./sddm.nix
     ./watchdog.nix
+    ./additional-hardware
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -36,4 +37,5 @@
   crony.hyprland-nixos.enable = lib.mkDefault true;
   crony.sddm.enable = lib.mkDefault true;
   crony.watchdog.disable = lib.mkDefault true;
+  crony.additional-hardware.enable = lib.mkDefault true;
 }

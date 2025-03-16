@@ -34,9 +34,6 @@
     enable32Bit = true;
   };
 
-  # Setup OpenTabletDriver graphic tablet driver
-  hardware.opentabletdriver.enable = true;
-
   # Enable networking
   networking.networkmanager.enable = true;
   networking.nameservers = ["192.168.0.10" "1.1.1.1"];
