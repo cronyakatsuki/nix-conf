@@ -17,6 +17,7 @@
     ./hyprland.nix
     ./sddm.nix
     ./watchdog.nix
+    ./general-services.nix
     ./additional-hardware
   ];
 
@@ -37,5 +38,6 @@
   crony.hyprland-nixos.enable = lib.mkDefault true;
   crony.sddm.enable = lib.mkDefault true;
   crony.watchdog.disable = lib.mkDefault true;
+  crony.general-services.enable = lib.mkDefault true;
   crony.additional-hardware.enable = lib.mkDefault true;
 }

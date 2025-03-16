@@ -1,0 +1,25 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  options = {
+    crony.general-services.enable = lib.mkEnableOption "Enable general services that just should be enabled by default.";
+  };
+
+  config = lib.mkIf config.crony.general-services.enable {
+    # Enable upower
+    services.upower.enable = true;
+
+    # Setup udev for android rules
+    services.udev.packages = [
+      pkgs.android-udev-rules
+    ];
+    # Enable firmware updater
+    services.fwupd.enable = true;
+
+    # Enable zram swap device
+    zramSwap.enable = true;
+  };
+}

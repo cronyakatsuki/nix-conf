@@ -73,19 +73,8 @@
   # Enable fstrim
   services.fstrim.enable = true;
 
-  # Enable upower
-  services.upower.enable = true;
-
-  # Setup udev for android rules
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
-
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
-
-  # Enable firmware updater
-  services.fwupd.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -122,9 +111,6 @@
 
   # Enable nixd to see nixpkgs path
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-
-  # Enable zram swap device
-  zramSwap.enable = true;
 
   # DO NOT CHANGE
   system.stateVersion = "24.11";
