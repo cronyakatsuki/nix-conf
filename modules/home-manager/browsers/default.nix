@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./librewolf.nix
+    ./chromium.nix
   ];
 
   options = {
@@ -13,5 +14,6 @@
 
   config = lib.mkIf config.crony.browsers.enable {
     crony.browsers.librewolf.enable = lib.mkDefault true;
+    crony.browsers.chromium.enable = lib.mkDefault true;
   };
 }

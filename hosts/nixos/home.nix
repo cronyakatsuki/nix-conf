@@ -61,17 +61,6 @@
   # Install imv
   programs.imv.enable = true;
 
-  # Enable theming chromium + use ungoogled chromium package
-  programs.chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
-    # Fix for wayland
-    commandLineArgs = [
-      "--ozone-platform-hint=auto"
-      "--ozone-platform=wayland"
-    ];
-  };
-
   # Enable nix-index
   programs.nix-index = {
     enable = true;
