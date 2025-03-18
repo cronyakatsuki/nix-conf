@@ -11,6 +11,7 @@
     ./restic.nix
     ./hyprland.nix
     ./browsers
+    ./shell.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -24,4 +25,5 @@
   crony.restic.enable = lib.mkDefault true;
   crony.hyprland.enable = lib.mkDefault true;
   crony.browsers.enable = lib.mkDefault true;
+  crony.shell.enable = lib.mkDefault true;
 }
