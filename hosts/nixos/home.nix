@@ -26,10 +26,25 @@
     jellyfin-mpv-shim
     itch
     wineWowPackages.staging
-    rpcs3
     osu-lazer-bin
     overskride
     delfin
+    # Setting up emulator just cause
+    (retroarch.overrideAttrs {
+      cores = with libretro; [
+        beetle-saturn
+        parallel-n64
+        flycast
+        desmume
+      ];
+    })
+    duckstation
+    pcsx2
+    dolphin-emu
+    xemu
+    rpcs3
+    cemu
+    ppsspp-sdl-wayland
   ];
 
   programs.thunderbird = {
