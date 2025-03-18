@@ -50,29 +50,6 @@
     toot
   ];
 
-  # Install librewolf
-  programs.librewolf = {
-    enable = true;
-    nativeMessagingHosts = with pkgs; [
-      tridactyl-native
-      bukubrow
-      keepassxc
-    ];
-  };
-
-  # This tricks messaging hosts into working for no
-  # real reason other than to make me rage at hour of debugging
-  # (5 hours in total)
-  programs.firefox = {
-    package = pkgs.librewolf;
-    enable = true;
-    nativeMessagingHosts = with pkgs; [
-      tridactyl-native
-      bukubrow
-      keepassxc
-    ];
-  };
-
   programs.thunderbird = {
     enable = true;
     profiles.default.isDefault = true;
