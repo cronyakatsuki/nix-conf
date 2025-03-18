@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+for File in *.cue; do
+	[ -f "$File" ] || continue
+	chdman createcd -i "$File" -o "${File%.cue}.chd"
+	rm -v "$File" "${File%.cue}"*.bin
+done

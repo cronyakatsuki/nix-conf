@@ -12,6 +12,7 @@
     ./hyprland.nix
     ./browsers
     ./shell.nix
+    ./scripts.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -26,4 +27,5 @@
   crony.hyprland.enable = lib.mkDefault true;
   crony.browsers.enable = lib.mkDefault true;
   crony.shell.enable = lib.mkDefault true;
+  crony.scripts.enable = lib.mkDefault true;
 }
