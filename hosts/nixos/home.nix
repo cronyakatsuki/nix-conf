@@ -45,6 +45,7 @@
     rpcs3
     cemu
     ppsspp-sdl-wayland
+    mame-tools
   ];
 
   programs.thunderbird = {
