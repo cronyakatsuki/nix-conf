@@ -27,7 +27,7 @@
             restic backup --files-from /home/crony/.config/restic/list --verbose && restic forget --keep-last 10 --keep-daily 7 --keep-weekly 5 --keep-monthly 12
             . /etc/restic/online
             restic backup --files-from /home/crony/.config/restic/list --verbose && restic forget --keep-last 10 --keep-daily 7 --keep-weekly 5 --keep-monthly 12
-            rsync -avP --delete "$HOME/.local/backup" "$HOME/Documents/Share/backup"
+            rsync -avP --delete "$HOME/.local/backup/" "$HOME/Documents/Share/"
           '');
         };
       };
