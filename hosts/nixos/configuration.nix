@@ -103,7 +103,6 @@
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     neovim
-    mangohud
     lm_sensors
     libva-utils
     alsa-utils

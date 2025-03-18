@@ -9,6 +9,9 @@
     crony.gaming.enable = lib.mkEnableOption "enable gaming related stuff, like steam and gamemode";
   };
   config = lib.mkIf config.crony.gaming.enable {
+    environment.systemPackages = with pkgs; [
+      mangohud
+    ];
     # Install steam
     programs.steam.enable = true;
     # Enable gamescope
