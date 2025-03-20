@@ -13,6 +13,9 @@
     ./browsers
     ./shell.nix
     ./scripts.nix
+    ./emulators.nix
+    ./desktop.nix
+    ./gaming.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -28,4 +31,7 @@
   crony.browsers.enable = lib.mkDefault true;
   crony.shell.enable = lib.mkDefault true;
   crony.scripts.enable = lib.mkDefault true;
+  crony.emulators.enable = lib.mkDefault true;
+  crony.desktop.enable = lib.mkDefault true;
+  crony.gaming.enable = lib.mkDefault true;
 }

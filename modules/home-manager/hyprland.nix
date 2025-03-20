@@ -108,6 +108,9 @@ in {
       };
     };
 
+    # Install foot
+    programs.foot.enable = true;
+
     # Setup and enable mako
     services.mako = {
       enable = true;
