@@ -13,9 +13,15 @@
       mangohud
     ];
     # Install steam
-    programs.steam.enable = true;
+    programs.steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
     # Enable gamescope
-    programs.steam.gamescopeSession.enable = true;
+    programs.gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
     # Install gamemode
     programs.gamemode = {
       enable = true;
