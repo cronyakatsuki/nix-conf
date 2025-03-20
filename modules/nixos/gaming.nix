@@ -15,7 +15,6 @@
     # Install steam
     programs.steam = {
       enable = true;
-      gamescopeSession.enable = true;
     };
     # Enable gamescope
     programs.gamescope = {
