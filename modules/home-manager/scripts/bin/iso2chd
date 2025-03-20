@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+for File in *.iso; do
+	[ -f "$File" ] || continue
+	chdman createdvd -i "$File" -o "${File%.iso}.chd"
+	rm -v "$File"
+done
