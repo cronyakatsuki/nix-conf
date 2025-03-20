@@ -30,14 +30,15 @@
     overskride
     delfin
     # Setting up emulator just cause
-    (retroarch.overrideAttrs {
-      cores = with libretro; [
-        beetle-saturn
-        parallel-n64
-        flycast
-        desmume
-      ];
-    })
+    (retroarch.withCores (
+      cores:
+        with cores; [
+          beetle-saturn
+          parallel-n64
+          flycast
+          desmume
+        ]
+    ))
     duckstation
     pcsx2
     dolphin-emu
