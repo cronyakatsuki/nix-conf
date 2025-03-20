@@ -23,7 +23,7 @@
 
   crony.bluetooth.enable = lib.mkDefault true;
   crony.nvidia.enable = lib.mkDefault true;
-  crony.plasma.enable = lib.mkDefault true;
+  crony.plasma.enable = lib.mkDefault false;
   crony.hibernation.disable = lib.mkDefault true;
   crony.gaming.enable = lib.mkDefault true;
   crony.zsh.enable = lib.mkDefault true;
@@ -31,7 +31,7 @@
   crony.nbfc.enable = lib.mkDefault true;
   crony.ryzenadj.enable = lib.mkDefault true;
   crony.qemu.enable = lib.mkDefault true;
-  crony.amdgpu.enable = lib.mkDefault true;
+  crony.amdgpu.enable = lib.mkDefault false;
   crony.nfs-share.enable = lib.mkDefault true;
   crony.auto-cpufreq.enable = lib.mkDefault true;
   crony.wireguard.enable = lib.mkDefault true;
