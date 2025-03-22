@@ -87,6 +87,12 @@
   # Fix not saving my state
   hardware.alsa.enablePersistence = true;
 
+  # Enable appimages
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.crony = {
     isNormalUser = true;
