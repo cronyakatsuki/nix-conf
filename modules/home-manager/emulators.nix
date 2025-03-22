@@ -22,10 +22,7 @@
       duckstation
       pcsx2
       dolphin-emu
-      xemu
       rpcs3
-      cemu
-      ppsspp-sdl-wayland
       mame-tools
     ];
   };
