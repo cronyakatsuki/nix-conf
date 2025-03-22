@@ -14,7 +14,7 @@
         cores:
           with cores; [
             beetle-saturn
-            parallel-n64
+            mupen64plus
             flycast
             desmume
           ]
