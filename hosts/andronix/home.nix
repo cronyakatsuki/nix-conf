@@ -7,7 +7,11 @@
   home.stateVersion = "24.05";
 
   # Import modules I need
-  imports = [inputs.nvf.homeManagerModules.default ../../modules/cross-platform/home-manager];
+  imports = [
+    inputs.nvf.homeManagerModules.default
+    ../../modules/cross-platform/home-manager
+    inputs.nix-index-database.hmModules.nix-index
+  ];
 
   stylix = {
     enable = true;
