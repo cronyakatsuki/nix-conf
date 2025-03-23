@@ -52,6 +52,12 @@
       url = "github:ulyssa/iamb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = {
@@ -60,8 +66,19 @@
     home-manager,
     auto-cpufreq,
     git-hooks,
+    nix-on-droid,
     ...
   } @ inputs: {
+    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+      modules = [inputs.stylix.nixOnDroidModules.stylix ./hosts/andronix/configuration.nix];
+      extraSpecialArgs = {inherit inputs;};
+      pkgs = import nixpkgs {
+        system = "aarch64-linux";
+        overlays = [
+          nix-on-droid.overlays.default
+        ];
+      };
+    };
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
@@ -88,9 +105,15 @@
         }
       ];
     };
-    devShells.x86_64-linux.default = let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in (import ./shell.nix {inherit pkgs git-hooks;});
+    devShells = {
+      x86_64-linux.default = let
+        system = "x86_64-linux";
+        pkgs = nixpkgs.legacyPackages.${system};
+      in (import ./shell.nix {inherit pkgs git-hooks;});
+      aarch64-linux.default = let
+        system = "aarch64-linux";
+        pkgs = nixpkgs.legacyPackages.${system};
+      in (import ./shell.nix {inherit pkgs git-hooks;});
+    };
   };
 }
