@@ -74,6 +74,10 @@
         pkgs = import nixpkgs {system = "x86_64-linux";};
         modules = [./hosts/server/home.nix];
       };
+      "banir" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {system = "x86_64-linux";};
+        modules = [./hosts/server/home.nix];
+      };
     };
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
