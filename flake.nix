@@ -89,7 +89,9 @@
         # Load updated auto-cpufreq
         auto-cpufreq.nixosModules.default
         # Load my modules
-        ./modules/nixos
+        ./modules/linux/nixos
+        # Still no specific modules here
+        # ./modules/cross-platform/nixos
         # Setup home manager for my user
         home-manager.nixosModules.home-manager
         {
@@ -99,7 +101,8 @@
           home-manager.users.crony = {
             imports = [
               ./hosts/nixos/home.nix
-              ./modules/home-manager
+              ./modules/linux/home-manager
+              ./modules/cross-platform/home-manager
             ];
           };
         }
