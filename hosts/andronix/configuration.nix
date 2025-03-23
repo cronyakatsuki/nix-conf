@@ -45,6 +45,10 @@
     extraSpecialArgs = {inherit inputs;};
   };
 
+  # Add support for deploy-rs
+  user.uid = 10292;
+  user.gid = 10292;
+
   # Configure stylix
   stylix = {
     enable = true;
