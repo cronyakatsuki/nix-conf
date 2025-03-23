@@ -5,7 +5,7 @@
 
   programs.home-manager.enable = true;
 
-  imports = [../../modules/linux/zsh.nix];
+  imports = [../../modules/cross-platform/home-manager/zsh.nix];
 
   crony.zsh.enable = true;
 
