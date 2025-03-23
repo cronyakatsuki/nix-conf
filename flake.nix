@@ -73,10 +73,12 @@
       "ivek" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "x86_64-linux";};
         modules = [./hosts/server/home.nix];
+        extraSpecialArgs = {inherit inputs;};
       };
       "banir" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "x86_64-linux";};
         modules = [./hosts/server/home.nix];
+        extraSpecialArgs = {inherit inputs;};
       };
     };
 
