@@ -11,10 +11,12 @@
 
   imports = [
     ../../modules/cross-platform/home-manager/zsh.nix
+    ../../modules/cross-platform/home-manager/neovim.nix
     inputs.nvf.homeManagerModules.default
   ];
 
   crony.zsh.enable = true;
+  crony.neovim.enable = true;
 
   programs.starship.enable = true;
 }
