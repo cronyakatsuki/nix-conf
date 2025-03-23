@@ -69,6 +69,13 @@
     nix-on-droid,
     ...
   } @ inputs: {
+    homeConfigurations = {
+      "ivek" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {system = "x86_64-linux";};
+        modules = [./hosts/server/home.nix];
+      };
+    };
+
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       modules = [inputs.stylix.nixOnDroidModules.stylix ./hosts/andronix/configuration.nix];
       extraSpecialArgs = {inherit inputs;};
