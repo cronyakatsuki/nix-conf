@@ -13,6 +13,7 @@
     ../../modules/cross-platform/home-manager/zsh.nix
     ../../modules/cross-platform/home-manager/neovim.nix
     inputs.nvf.homeManagerModules.default
+    inputs.stylix.homeManagerModules.default
   ];
 
   crony.zsh.enable = true;
