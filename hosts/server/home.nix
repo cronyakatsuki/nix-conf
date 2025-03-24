@@ -47,7 +47,7 @@
       bindkey -M vicmd 'j' history-substring-search-down
 
       # Make sure to load home manager profile
-      . "$'{HOME}/.nix-profile/etc/profile.d/nix.sh"
+      . "$HOME/.nix-profile/etc/profile.d/nix.sh"
     '';
 
     antidote = {
