@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   pkgs,
   lib,
@@ -14,9 +13,6 @@
     home.packages = with pkgs; [
       alejandra
       age
-      nix-output-monitor
-      nvd
-      nurl
       entr
       ffmpeg
       imagemagick
@@ -27,9 +23,6 @@
       aria2
       commitizen
       license-go
-      termsonic
-      inputs.iamb.packages.x86_64-linux.default
-      toot
     ];
 
     # Enable nix-index

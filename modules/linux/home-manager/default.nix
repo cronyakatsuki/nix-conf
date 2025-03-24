@@ -12,6 +12,7 @@
     ./obs-studio.nix
     ./restic.nix
     ./scripts.nix
+    ./shell-additions.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -26,4 +27,5 @@
   crony.emulators.enable = lib.mkDefault true;
   crony.desktop.enable = lib.mkDefault true;
   crony.gaming.enable = lib.mkDefault true;
+  crony.shell-additions.enable = lib.mkDefault true;
 }
