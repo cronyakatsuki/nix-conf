@@ -12,6 +12,7 @@
 
   imports = [
     inputs.nvf.homeManagerModules.default
+    inputs.nix-index-database.hmModules.nix-index
   ];
 
   programs.zsh = {
