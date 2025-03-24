@@ -12,7 +12,6 @@
 
   imports = [
     inputs.nvf.homeManagerModules.default
-    inputs.nix-index-database.hmModules.nix-index
   ];
 
   programs.zsh = {
@@ -63,15 +62,6 @@
       ];
     };
   };
-
-  # Enable nix-index
-  programs.nix-index = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  # Enable comma
-  programs.nix-index-database.comma.enable = true;
 
   # Install fzf
   programs.fzf = {
