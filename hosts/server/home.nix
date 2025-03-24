@@ -45,6 +45,9 @@
       export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black,bold'
       bindkey -M vicmd 'k' history-substring-search-up
       bindkey -M vicmd 'j' history-substring-search-down
+
+      # Make sure to load home manager profile
+      . "$'{HOME}/.nix-profile/etc/profile.d/nix.sh"
     '';
 
     antidote = {
