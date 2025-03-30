@@ -11,7 +11,6 @@
     ./nnn.nix
     ./obs-studio.nix
     ./restic.nix
-    ./scripts.nix
     ./shell-additions.nix
   ];
 
@@ -23,7 +22,6 @@
   crony.restic.enable = lib.mkDefault true;
   crony.hyprland.enable = lib.mkDefault true;
   crony.browsers.enable = lib.mkDefault true;
-  crony.scripts.enable = lib.mkDefault true;
   crony.emulators.enable = lib.mkDefault true;
   crony.desktop.enable = lib.mkDefault true;
   crony.gaming.enable = lib.mkDefault true;
