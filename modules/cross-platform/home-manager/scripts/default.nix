@@ -21,7 +21,7 @@ with pkgs;
         --prefix PATH : ${lib.makeBinPath [mame-tools]}
 
       # Add dependencies to the runtime for my iso2chd script
-      wrapProgram $out/bin/cue2chd \
+      wrapProgram $out/bin/iso2chd \
         --prefix PATH : ${lib.makeBinPath [mame-tools]}
     '';
   }
