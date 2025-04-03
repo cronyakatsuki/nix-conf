@@ -19,6 +19,7 @@
     ./watchdog.nix
     ./general-services.nix
     ./additional-hardware
+    ./tailscale.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -40,4 +41,5 @@
   crony.watchdog.disable = lib.mkDefault true;
   crony.general-services.enable = lib.mkDefault true;
   crony.additional-hardware.enable = lib.mkDefault true;
+  crony.tailscale.enable = lib.mkDefault true;
 }
