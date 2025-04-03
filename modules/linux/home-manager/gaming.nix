@@ -18,6 +18,7 @@
       wineWowPackages.staging
       osu-lazer-bin
       steam-rom-manager
+      sunshine
     ];
   };
 }
