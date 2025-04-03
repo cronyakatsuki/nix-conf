@@ -21,6 +21,7 @@
     ./additional-hardware
     ./tailscale.nix
     ./sunshine.nix
+    ./nh.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -44,4 +45,5 @@
   crony.additional-hardware.enable = lib.mkDefault true;
   crony.tailscale.enable = lib.mkDefault true;
   crony.sunshine.enable = lib.mkDefault true;
+  crony.nh.enable = lib.mkDefault true;
 }
