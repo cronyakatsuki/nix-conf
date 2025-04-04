@@ -488,6 +488,11 @@ in {
 
           # Move to workspace 5
           "workspace 5, class:^(vesktop)$"
+
+          # Enable inhibition for fullscreen apps
+          "idleinhibit fullscreen, class:^(*)$"
+          "idleinhibit fullscreen, title:^(*)$"
+          "idleinhibit fullscreen, fullscreen:1"
         ];
       };
     };
