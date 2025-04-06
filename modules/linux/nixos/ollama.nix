@@ -16,5 +16,8 @@
     services.open-webui = {
       enable = true;
     };
+
+    systemd.services.ollama.wantedBy = lib.mkForce [];
+    systemd.services.open-webui.wantedBy = lib.mkForce [];
   };
 }
