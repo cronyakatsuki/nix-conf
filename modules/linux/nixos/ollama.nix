@@ -18,6 +18,7 @@
     };
 
     systemd.services.ollama.wantedBy = lib.mkForce [];
+    systemd.services.ollama-model-loader.wantedBy = lib.mkForce [];
     systemd.services.open-webui.wantedBy = lib.mkForce [];
   };
 }
