@@ -53,11 +53,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Support for android
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    # Declare flatpak easilly
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs = {

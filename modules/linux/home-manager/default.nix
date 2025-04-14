@@ -11,6 +11,7 @@
     ./obs-studio.nix
     ./restic.nix
     ./shell-additions.nix
+    ./flatpak.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault true;
@@ -24,4 +25,5 @@
   crony.desktop.enable = lib.mkDefault true;
   crony.gaming.enable = lib.mkDefault true;
   crony.shell-additions.enable = lib.mkDefault true;
+  crony.flatpak.enable = lib.mkDefault true;
 }

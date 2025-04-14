@@ -70,6 +70,9 @@
   # Enable seatd
   services.seatd.enable = true;
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
 

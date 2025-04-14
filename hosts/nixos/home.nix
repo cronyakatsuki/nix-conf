@@ -6,6 +6,7 @@
   imports = [
     inputs.nvf.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
 
   # Some info
