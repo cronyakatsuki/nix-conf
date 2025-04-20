@@ -15,6 +15,7 @@
         "app.zen_browser.zen"
         "com.usebottles.bottles"
         "com.github.tchx84.Flatseal"
+        "org.diasurgical.DevilutionX"
       ];
 
       update.auto = {
