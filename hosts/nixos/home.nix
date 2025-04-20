@@ -27,6 +27,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Disable emulators for now
+  crony.emulators.enable = false;
+
   # Fix gtkrc-2.0 collision
   home.file."/home/crony/.gtkrc-2.0".force = true;
 
