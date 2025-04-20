@@ -19,6 +19,7 @@
       osu-lazer-bin
       steam-rom-manager
       bolt-launcher
+      space-cadet-pinball
     ];
   };
 }
