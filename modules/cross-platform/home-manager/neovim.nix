@@ -59,6 +59,39 @@ in {
           # Enable lsp
           lsp = {
             enable = true;
+            formatOnSave = false;
+            inlayHints.enable = true;
+            lightbulb.enable = true;
+            lspSignature.enable = true;
+            lspkind.enable = true;
+            lspsaga.enable = true;
+            otter-nvim.enable = true;
+            trouble.enable = true;
+          };
+
+          # Enable diagnostics
+          diagnostics = {
+            enable = true;
+            nvim-lint = {
+              enable = true;
+            };
+          };
+
+          # Enable formatting with conform-nvim
+          formatter = {
+            conform-nvim = {
+              enable = true;
+            };
+          };
+
+          # Some git related stuff
+          git = {
+            git-conflict = {
+              enable = true;
+            };
+            gitlinker-nvim = {
+              enable = true;
+            };
           };
 
           # Autocompletion
@@ -76,8 +109,9 @@ in {
           # Setup lsp's and languages
           languages = {
             enableLSP = true;
-            enableTreesitter = true;
             enableFormat = true;
+            enableTreesitter = true;
+            enableExtraDiagnostics = true;
 
             lua = {
               enable = true;
@@ -113,6 +147,23 @@ in {
               extensions.render-markdown-nvim.enable = true;
             };
             html.enable = true;
+          };
+
+          # utility related plugins
+          utility = {
+            direnv = {
+              enable = true;
+            };
+            icon-picker = {
+              enable = true;
+            };
+            snacks-nvim = {
+              enable = true;
+              setupOpts = {
+                bigfile = {enabled = true;};
+                quickfile = {enabled = true;};
+              };
+            };
           };
 
           # Enable mini modules ( mini is amazing )
@@ -218,14 +269,6 @@ in {
           ];
 
           navigation.harpoon.enable = true;
-
-          utility.snacks-nvim = {
-            enable = true;
-            setupOpts = {
-              bigfile = {enabled = true;};
-              quickfile = {enabled = true;};
-            };
-          };
 
           extraLuaFiles = [./nvim/autocommands.lua];
 
