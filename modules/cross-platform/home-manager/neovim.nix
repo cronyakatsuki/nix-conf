@@ -217,27 +217,19 @@ in {
             }
           ];
 
+          navigation.harpoon.enable = true;
+
+          utility.snacks-nvim = {
+            enable = true;
+            setupOpts = {
+              bigfile = {enabled = true;};
+              quickfile = {enabled = true;};
+            };
+          };
+
           extraLuaFiles = [./nvim/autocommands.lua];
 
           extraPlugins = with pkgs.vimPlugins; {
-            harpoon = {
-              package = harpoon2;
-              setup = ''
-                local harpoon = require("harpoon")
-
-                -- REQUIRED
-                harpoon:setup()
-                -- REQUIRED
-
-                vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-                vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-                vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-                vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
-                vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
-                vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
-              '';
-            };
             friendly-snippets = {
               package = friendly-snippets;
             };
@@ -257,15 +249,6 @@ in {
               package = markdown-table-mode;
               setup = ''
                 require('markdown-table-mode').setup()
-              '';
-            };
-            snacks-nvim = {
-              package = snacks-nvim;
-              setup = ''
-                require('snacks').setup({
-                  bigfile = {enabled = true},
-                  quickfile = {enabled = true},
-                })
               '';
             };
             helpview-nvim.package = helpview-nvim;
