@@ -167,7 +167,7 @@ in {
           size = 150;
           border_size = 4;
           border_color = "rgb(d5c4a1)";
-          position = "0, 285";
+          position = "0, 385";
           halign = "center";
           valign = "center";
         };
@@ -177,7 +177,7 @@ in {
             text = "$TIME";
             font_size = 90;
             color = "rgb(d5c4a1)";
-            position = "0, 165";
+            position = "0, 245";
             halign = "center";
             valight = "center";
           }
