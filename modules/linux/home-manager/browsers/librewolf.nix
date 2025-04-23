@@ -31,5 +31,11 @@
         keepassxc
       ];
     };
+
+    # disable stylix for librewolf and firefox
+    stylix.targets = {
+      firefox.enable = false;
+      librewolf.enable = false;
+    };
   };
 }
