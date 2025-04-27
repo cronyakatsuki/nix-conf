@@ -17,7 +17,6 @@
       piper
       jellyfin-mpv-shim
       overskride
-      delfin
       galaxy-buds-client
     ];
 

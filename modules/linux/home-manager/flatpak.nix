@@ -16,6 +16,7 @@
         "com.usebottles.bottles"
         "com.github.tchx84.Flatseal"
         "org.diasurgical.DevilutionX"
+        "cafe.avery.Delfin"
       ];
 
       update.auto = {
