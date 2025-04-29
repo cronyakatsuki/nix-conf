@@ -4,7 +4,6 @@
   inputs,
   ...
 }: {
-  # home.username = "banir";
   home.homeDirectory = "/home/banir";
   home.stateVersion = "24.11";
 
