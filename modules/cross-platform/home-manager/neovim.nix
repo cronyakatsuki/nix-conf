@@ -140,7 +140,11 @@ in {
             bash.enable = true;
             go = {
               enable = true;
-              format.type = "gofumpt";
+
+              format = {
+                enable = true;
+                type = "gofumpt";
+              };
             };
             markdown = {
               enable = true;
