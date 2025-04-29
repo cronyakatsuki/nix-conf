@@ -8,6 +8,32 @@
     crony.zsh.enable = lib.mkEnableOption "Enable zsh and customize it.";
   };
 
+  imports = [
+    ({lib, ...}: {
+      programs.zsh.initContent = lib.mkBefore ''
+        # Tmux autostart
+        if [ -x "$(command -v tmux)" ] && [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
+          exec tmux new-session -A -s default >/dev/null 2>&1
+        fi
+      '';
+    })
+    ({...}: {
+      programs.zsh.initContent = ''
+        ${pkgs.nerdfetch}/bin/nerdfetch
+        # VI Mode escape timeout fix
+        export KEYTIMEOUT=1
+
+        # Substring search settings
+        export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=blue,fg=black,bold"
+        export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black,bold'
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
+
+        [[ -f "$HOME/.config/zsh/functions.zsh" ]] && source "$HOME/.config/zsh/functions.zsh"
+      '';
+    })
+  ];
+
   config = lib.mkIf config.crony.zsh.enable {
     # Setup zsh
     programs.zsh = {
@@ -34,27 +60,6 @@
         # fzf shenanigans
         vif = ''nvim $(fzf --preview="bat --color=always {}")'';
       };
-
-      initExtra = ''
-        ${pkgs.nerdfetch}/bin/nerdfetch
-        # VI Mode escape timeout fix
-        export KEYTIMEOUT=1
-
-        # Substring search settings
-        export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=blue,fg=black,bold"
-        export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=black,bold'
-        bindkey -M vicmd 'k' history-substring-search-up
-        bindkey -M vicmd 'j' history-substring-search-down
-
-        [[ -f "$HOME/.config/zsh/functions.zsh" ]] && source "$HOME/.config/zsh/functions.zsh"
-      '';
-
-      initExtraFirst = ''
-        # Tmux autostart
-        if [ -x "$(command -v tmux)" ] && [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
-          exec tmux new-session -A -s default >/dev/null 2>&1
-        fi
-      '';
 
       antidote = {
         enable = true;
