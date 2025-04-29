@@ -76,12 +76,12 @@
     homeConfigurations = {
       "ivek" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "x86_64-linux";};
-        modules = [./hosts/server/home.nix];
+        modules = [./hosts/server/home.nix ({...}: {home.username = "ivek";})];
         extraSpecialArgs = {inherit inputs;};
       };
       "banir" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "x86_64-linux";};
-        modules = [./hosts/server/home.nix];
+        modules = [./hosts/server/home.nix ({...}: {home.username = "banir";})];
         extraSpecialArgs = {inherit inputs;};
       };
     };
