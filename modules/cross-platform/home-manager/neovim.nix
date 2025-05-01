@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -27,6 +28,8 @@ in {
       enable = true;
       settings = {
         vim = {
+          # Use the nighly package
+          package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
           # Enable the aliases, I love them
           viAlias = true;
           vimAlias = true;

@@ -62,6 +62,9 @@
 
     # Declare flatpak easilly
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    # Neovim nightly
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = {
