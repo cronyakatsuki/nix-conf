@@ -1,8 +1,19 @@
 {
   config,
+  pkgs,
   lib,
   ...
-}: {
+}: let
+  link-handler = pkgs.writeShellScriptBin "link-handler" ''
+    #!/usr/bin/env sh
+
+    case "$(printf "mpv\\nmpv audio\\nbrowser" | tofi --prompt "Open link with what program?")" in
+    "mpv") ${pkgs.mpv}/bin/mpv "$@" ;;
+    "mpv audio") ${pkgs.mpv}/bin/mpv "$@" --no-video ;;
+    "browser") ${pkgs.librewolf}/bin/librewolf "$@" ;;
+    esac
+  '';
+in {
   options = {
     crony.newsboat.enable = lib.mkEnableOption "Enable and config newsboat how I wan't it";
   };
@@ -10,6 +21,7 @@
   config = lib.mkIf config.crony.newsboat.enable {
     programs.newsboat = {
       enable = true;
+      browser = "${link-handler}/bin/link-handler";
       autoReload = true;
       reloadThreads = 10;
       extraConfig = ''
