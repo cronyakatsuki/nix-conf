@@ -33,7 +33,7 @@
       vif = ''nvim $(fzf --preview="bat --color=always {}")'';
     };
 
-    initExtra = ''
+    initContent = ''
       ${pkgs.nerdfetch}/bin/nerdfetch
       # VI Mode escape timeout fix
       export KEYTIMEOUT=1
