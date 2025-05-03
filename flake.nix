@@ -61,6 +61,9 @@
 
     # Neovim nightly
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    # Deploy-rs
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = {
@@ -70,8 +73,21 @@
     auto-cpufreq,
     git-hooks,
     nix-on-droid,
+    deploy-rs,
     ...
   } @ inputs: {
+    deploy.nodes = {
+      dedi = {
+        hostname = "dedi";
+        profiles.ivek = {
+          sshUser = "ivek";
+          user = "ivek";
+          path = deploy-rs.lib.x86_64-linux.activate.home-manager self.homeConfigurations."ivek";
+          sshOpts = [];
+          magicRollback = false;
+        };
+      };
+    };
     homeConfigurations = {
       "ivek" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "x86_64-linux";};
