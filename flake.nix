@@ -20,19 +20,16 @@
     # NVF FOR SUPER NVIM
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # auto-cpufreq latest version, for optimizing my laptop's thermal's
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # use custom nbfc that has the config for my laptop
     nbfc-linux = {
       url = "github:cronyakatsuki/nbfc-linux/a715-41g";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # use prebuild nix-index ( crashes on me cause little ram )
@@ -50,7 +47,6 @@
     # iamb, a matrix tui client. Latest possible version
     iamb = {
       url = "github:ulyssa/iamb";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Support for android
