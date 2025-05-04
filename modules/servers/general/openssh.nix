@@ -2,7 +2,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      AllowUsers = ["root"];
+      AllowUsers = ["root" "crony"];
       X11Forwarding = false;
       PasswordAuthentication = false;
     };
