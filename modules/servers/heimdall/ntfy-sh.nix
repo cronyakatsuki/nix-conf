@@ -12,7 +12,7 @@
   services.traefik.dynamicConfigOptions.http = {
     services.ntfy-sh.loadBalancer.servers = [
       {
-        url = "http://localhost:3001";
+        url = "http://localhost:2586";
       }
     ];
 
