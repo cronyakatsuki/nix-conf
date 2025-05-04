@@ -64,6 +64,12 @@
 
     # Deploy-rs
     deploy-rs.url = "github:serokell/deploy-rs";
+
+    # Disko
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -74,6 +80,7 @@
     git-hooks,
     nix-on-droid,
     deploy-rs,
+    disko,
     ...
   } @ inputs: {
     deploy.nodes = {
@@ -85,6 +92,14 @@
           path = deploy-rs.lib.x86_64-linux.activate.home-manager self.homeConfigurations."ivek";
           sshOpts = [];
           magicRollback = false;
+        };
+      };
+      heimdall = {
+        hostname = "heimdall";
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.heimdall;
         };
       };
     };
@@ -127,34 +142,44 @@
         ];
       };
     };
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        # Get the system config
-        ./hosts/nixos/configuration.nix
-        # Enable stylix
-        inputs.stylix.nixosModules.stylix
-        # Load updated auto-cpufreq
-        auto-cpufreq.nixosModules.default
-        # Load my modules
-        ./modules/linux/nixos
-        # Still no specific modules here
-        # ./modules/cross-platform/nixos
-        # Setup home manager for my user
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.extraSpecialArgs = {inherit inputs;};
-          home-manager.backupFileExtension = "backup";
-          home-manager.users.crony = {
-            imports = [
-              ./hosts/nixos/home.nix
-              ./modules/linux/home-manager
-              ./modules/cross-platform/home-manager
-            ];
-          };
-        }
-      ];
+    nixosConfigurations = {
+      heimdall = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          disko.nixosModules.disko
+          ./hosts/heimdall/configuration.nix
+          ./modules/servers/general
+        ];
+      };
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          # Get the system config
+          ./hosts/nixos/configuration.nix
+          # Enable stylix
+          inputs.stylix.nixosModules.stylix
+          # Load updated auto-cpufreq
+          auto-cpufreq.nixosModules.default
+          # Load my modules
+          ./modules/linux/nixos
+          # Still no specific modules here
+          # ./modules/cross-platform/nixos
+          # Setup home manager for my user
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.crony = {
+              imports = [
+                ./hosts/nixos/home.nix
+                ./modules/linux/home-manager
+                ./modules/cross-platform/home-manager
+              ];
+            };
+          }
+        ];
+      };
     };
     devShells = {
       x86_64-linux.default = let

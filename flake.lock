@@ -105,6 +105,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745812220,
+        "narHash": "sha256-hotBG0EJ9VmAHJYF0yhWuTVZpENHvwcJ2SxvIPrXm+g=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "d0c543d740fad42fe2c035b43c9d41127e073c78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -1058,6 +1078,7 @@
       "inputs": {
         "auto-cpufreq": "auto-cpufreq",
         "deploy-rs": "deploy-rs",
+        "disko": "disko",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "iamb": "iamb",
