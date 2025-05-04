@@ -9,6 +9,9 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
   ];
+
+  networking.hostName = "heimdall";
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
