@@ -94,6 +94,7 @@
           magicRollback = false;
         };
       };
+
       heimdall = {
         hostname = "heimdall";
         profiles.system = {
@@ -103,6 +104,7 @@
         };
       };
     };
+
     homeConfigurations = {
       "ivek" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "x86_64-linux";};
@@ -117,6 +119,7 @@
         ];
         extraSpecialArgs = {inherit inputs;};
       };
+
       "banir" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "x86_64-linux";};
         modules = [
@@ -142,6 +145,7 @@
         ];
       };
     };
+
     nixosConfigurations = {
       heimdall = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -151,6 +155,7 @@
           ./modules/servers/general
         ];
       };
+
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -181,6 +186,7 @@
         ];
       };
     };
+
     devShells = {
       x86_64-linux.default = let
         system = "x86_64-linux";
