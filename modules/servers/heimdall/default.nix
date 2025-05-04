@@ -4,5 +4,6 @@
     ./ntfy-sh.nix
     ./wireguard.nix
     ./secrets.nix
+    ./redlib.nix
   ];
 }
