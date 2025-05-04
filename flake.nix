@@ -70,6 +70,9 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # secrets management
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = {
@@ -81,6 +84,7 @@
     nix-on-droid,
     deploy-rs,
     disko,
+    agenix,
     ...
   } @ inputs: {
     deploy.nodes = {
@@ -151,6 +155,7 @@
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
+          agenix.nixosModules.default
           ./hosts/heimdall/configuration.nix
           ./modules/servers/general
         ];
