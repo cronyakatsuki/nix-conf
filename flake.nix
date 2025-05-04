@@ -175,6 +175,7 @@
           ./modules/linux/nixos
           # Still no specific modules here
           # ./modules/cross-platform/nixos
+          agenix.nixosModules.default
           # Setup home manager for my user
           home-manager.nixosModules.home-manager
           {

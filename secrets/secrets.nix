@@ -11,4 +11,6 @@ let
   systems = [heimdall];
 in {
   "traefik.age".publicKeys = systems ++ users;
+  "wg-heimdall.age".publicKeys = systems ++ users;
+  "wg-desktop.age".publicKeys = systems ++ users;
 }

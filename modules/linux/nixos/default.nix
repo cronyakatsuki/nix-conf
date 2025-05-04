@@ -23,6 +23,7 @@
     ./sunshine.nix
     ./nh.nix
     ./ollama.nix
+    ./secrets.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
