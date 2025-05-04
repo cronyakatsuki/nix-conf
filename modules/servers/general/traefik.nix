@@ -2,8 +2,8 @@
   services.traefik = {
     enable = true;
     staticConfigOptions = {
-      log = {level = "WARN";};
-      certifiedResolvers = {
+      log = {level = "DEBUG";};
+      certificatesResolvers = {
         porkbun = {
           acme = {
             email = "crony@cronyakatsuki.xyz";

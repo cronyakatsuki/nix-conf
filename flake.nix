@@ -158,6 +158,7 @@
           agenix.nixosModules.default
           ./hosts/heimdall/configuration.nix
           ./modules/servers/general
+          ./modules/servers/heimdall
         ];
       };
 
