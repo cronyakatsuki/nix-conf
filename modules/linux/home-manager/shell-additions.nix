@@ -17,6 +17,8 @@
       termsonic
       inputs.iamb.packages.x86_64-linux.default
       toot
+      inputs.agenix.packages.${system}.default
+      inputs.deploy-rs.packages.${system}.default
     ];
   };
 }
