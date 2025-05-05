@@ -107,6 +107,15 @@
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.heimdall;
         };
       };
+
+      loki = {
+        hostname = "loki";
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.loki;
+        };
+      };
     };
 
     homeConfigurations = {
@@ -159,6 +168,17 @@
           ./hosts/heimdall/configuration.nix
           ./modules/servers/general
           ./modules/servers/heimdall
+        ];
+      };
+
+      loki = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          ./hosts/loki/configuration.nix
+          ./modules/servers/general
+          ./modules/servers/loki
         ];
       };
 
