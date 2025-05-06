@@ -13,6 +13,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable aarch64 emulation
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   # Use the xanmod kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
