@@ -88,17 +88,6 @@
     ...
   } @ inputs: {
     deploy.nodes = {
-      dedi = {
-        hostname = "dedi";
-        profiles.ivek = {
-          sshUser = "ivek";
-          user = "ivek";
-          path = deploy-rs.lib.x86_64-linux.activate.home-manager self.homeConfigurations."ivek";
-          sshOpts = [];
-          magicRollback = false;
-        };
-      };
-
       heimdall = {
         hostname = "heimdall";
         profiles.system = {
@@ -115,36 +104,6 @@
           user = "root";
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.loki;
         };
-      };
-    };
-
-    homeConfigurations = {
-      "ivek" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {system = "x86_64-linux";};
-        modules = [
-          ./hosts/server/home.nix
-          (
-            {...}: {
-              home.username = "ivek";
-              home.homeDirectory = "/home/ivek";
-            }
-          )
-        ];
-        extraSpecialArgs = {inherit inputs;};
-      };
-
-      "banir" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {system = "x86_64-linux";};
-        modules = [
-          ./hosts/server/home.nix
-          (
-            {...}: {
-              home.username = "banir";
-              home.homeDirectory = "/home/banir";
-            }
-          )
-        ];
-        extraSpecialArgs = {inherit inputs;};
       };
     };
 
