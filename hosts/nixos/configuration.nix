@@ -25,6 +25,9 @@
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # Enable trusted users
+  nix.trustedUsers = ["root" "@wheel"];
+
   # Setup gpu
   hardware.graphics = {
     enable = true;

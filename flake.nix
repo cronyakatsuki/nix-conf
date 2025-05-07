@@ -105,6 +105,15 @@
           path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.loki;
         };
       };
+
+      baldur = {
+        hostname = "baldur";
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.baldur;
+        };
+      };
     };
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
@@ -138,6 +147,17 @@
           ./hosts/loki/configuration.nix
           ./modules/servers/general
           ./modules/servers/loki
+        ];
+      };
+
+      baldur = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          ./hosts/baldur/configuration.nix
+          ./modules/servers/general
+          ./modules/servers/baldur
         ];
       };
 
