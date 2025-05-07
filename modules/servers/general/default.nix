@@ -4,5 +4,6 @@
     ./user.nix
     ./traefik.nix
     ./secrets.nix
+    ./podman.nix
   ];
 }
