@@ -26,7 +26,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable trusted users
-  nix.settings.trustedUsers = ["root" "@wheel"];
+  nix.settings.trusted-users = ["root" "@wheel"];
 
   # Setup gpu
   hardware.graphics = {
