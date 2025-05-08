@@ -16,4 +16,26 @@
       "/var/lib/crafty-controller/import:/crafty/import"
     ];
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [25500];
+    allowedUDPPorts = [25500];
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    services.crafty.loadBalancer.servers = [
+      {
+        url = "https://localhost:8443";
+      }
+    ];
+
+    routers.crafty = {
+      rule = "Host(`crafty.cronyakatsuki.xyz`)";
+      tls = {
+        certResolver = "porkbun";
+      };
+      service = "crafty";
+      entrypoints = "websecure";
+    };
+  };
 }

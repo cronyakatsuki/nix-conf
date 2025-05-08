@@ -2,6 +2,7 @@
   services.traefik = {
     enable = true;
     staticConfigOptions = {
+      serversTransport.insecureSkipVerify = true;
       log = {level = "DEBUG";};
       certificatesResolvers = {
         porkbun = {
