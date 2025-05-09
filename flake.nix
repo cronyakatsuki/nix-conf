@@ -114,6 +114,15 @@
           path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.baldur;
         };
       };
+
+      bragi = {
+        hostname = "bragi";
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.bragi;
+        };
+      };
     };
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
@@ -158,6 +167,17 @@
           ./hosts/baldur/configuration.nix
           ./modules/servers/general
           ./modules/servers/baldur
+        ];
+      };
+
+      bragi = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          ./hosts/bragi/configuration.nix
+          ./modules/servers/general
+          ./modules/servers/bragi
         ];
       };
 
