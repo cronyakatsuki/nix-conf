@@ -20,4 +20,5 @@ in {
   "rclone.age".publicKeys = systems ++ users;
   "navidrome.age".publicKeys = systems ++ users;
   "forgejo-db.age".publicKeys = systems ++ users;
+  "plausible.age".publicKeys = systems ++ users;
 }
