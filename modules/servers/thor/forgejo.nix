@@ -31,4 +31,11 @@
       entrypoints = "websecure";
     };
   };
+
+  services.openssh = {
+    authorizedKeysFiles = ["/var/lib/%u/.ssh/authorized_keys"];
+    settings = {
+      AllowUsers = ["forgejo"];
+    };
+  };
 }
