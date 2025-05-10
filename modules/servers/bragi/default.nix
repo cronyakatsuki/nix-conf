@@ -4,5 +4,6 @@
     ./storage-box.nix
     ./secrets.nix
     ./navidrome.nix
+    ./umurmur.nix
   ];
 }
