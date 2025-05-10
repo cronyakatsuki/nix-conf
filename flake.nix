@@ -132,6 +132,15 @@
           path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.thor;
         };
       };
+
+      odin = {
+        hostname = "odin";
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.odin;
+        };
+      };
     };
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
@@ -198,6 +207,17 @@
           ./hosts/thor/configuration.nix
           ./modules/servers/general
           ./modules/servers/thor
+        ];
+      };
+
+      odin = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          ./hosts/odin/configuration.nix
+          ./modules/servers/general
+          ./modules/servers/odin
         ];
       };
 

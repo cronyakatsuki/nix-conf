@@ -5,6 +5,7 @@ let
   baldur = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOvZ7Z8GS4+1+9D6u/BDit4Eij5Ubbii2dzJ/+ecT8iR";
   bragi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBKMV2vqlDvIkUefl5oEuVjVtjgFLEXyDKX2LWhVQsWT";
   thor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZGQLUhyLwmkTYhSccqO8umQJN0QHk6YaD863x7lcGv";
+  odin = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBGfwv4CzZlPGsBukfoq5wBTlVfWJo7UHH7DP3ILP6/Z";
 
   # USERS
   root = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJLduAXHWJiglmfRfkBGKffzVWkJP6porxIzw6+Zz3W crony@cronyakatsuki.xyz";
@@ -12,7 +13,7 @@ let
   users = [
     root
   ];
-  systems = [heimdall loki baldur bragi thor];
+  systems = [heimdall loki baldur bragi thor odin];
 in {
   "traefik.age".publicKeys = systems ++ users;
   "wg-heimdall.age".publicKeys = systems ++ users;
