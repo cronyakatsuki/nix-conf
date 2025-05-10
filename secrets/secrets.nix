@@ -17,4 +17,5 @@ in {
   "wg-heimdall.age".publicKeys = systems ++ users;
   "wg-desktop.age".publicKeys = systems ++ users;
   "rclone.age".publicKeys = systems ++ users;
+  "navidrome.age".publicKeys = systems ++ users;
 }
