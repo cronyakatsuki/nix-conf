@@ -1,1 +1,5 @@
-{...}: {}
+{...}: {
+  imports = [
+    ./changedetection-io.nix
+  ];
+}
