@@ -7,6 +7,9 @@
       plausible = {
         file = ../../../secrets/plausible.age;
       };
+      conduit = {
+        file = ../../../secrets/conduit.age;
+      };
     };
   };
 }

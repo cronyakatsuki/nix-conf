@@ -22,4 +22,5 @@ in {
   "navidrome.age".publicKeys = systems ++ users;
   "forgejo-db.age".publicKeys = systems ++ users;
   "plausible.age".publicKeys = systems ++ users;
+  "conduit.age".publicKeys = systems ++ users;
 }

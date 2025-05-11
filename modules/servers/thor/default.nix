@@ -4,5 +4,6 @@
     ./forgejo.nix
     ./secrets.nix
     ./plausible.nix
+    ./conduit.nix
   ];
 }
