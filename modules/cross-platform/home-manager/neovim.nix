@@ -111,7 +111,6 @@ in {
 
           # Setup lsp's and languages
           languages = {
-            enableLSP = true;
             enableFormat = true;
             enableTreesitter = true;
             enableExtraDiagnostics = true;

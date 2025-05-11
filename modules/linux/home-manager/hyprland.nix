@@ -114,9 +114,11 @@ in {
     # Setup and enable mako
     services.mako = {
       enable = true;
-      defaultTimeout = 5000;
-      layer = "overlay";
-      width = 200;
+      settings = {
+        defaultTimeout = 5000;
+        layer = "overlay";
+        width = 200;
+      };
     };
 
     # Enable hyprpaper
