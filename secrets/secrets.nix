@@ -23,4 +23,5 @@ in {
   "forgejo-db.age".publicKeys = systems ++ users;
   "plausible.age".publicKeys = systems ++ users;
   "conduit.age".publicKeys = systems ++ users;
+  "searx.age".publicKeys = systems ++ users;
 }
