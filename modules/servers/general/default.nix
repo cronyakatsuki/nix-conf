@@ -5,5 +5,6 @@
     ./traefik.nix
     ./secrets.nix
     ./podman.nix
+    ./additional-pkgs.nix
   ];
 }
