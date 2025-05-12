@@ -73,6 +73,9 @@
 
     # secrets management
     agenix.url = "github:ryantm/agenix";
+
+    # My selfhosted service, inspired by 0x0.st
+    upfast.url = "git+https://git.cronyakatsuki.xyz/crony/UpFast";
   };
 
   outputs = {
@@ -211,6 +214,7 @@
       };
 
       odin = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         system = "aarch64-linux";
         modules = [
           disko.nixosModules.disko
