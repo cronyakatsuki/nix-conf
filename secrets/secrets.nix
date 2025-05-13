@@ -24,4 +24,5 @@ in {
   "plausible.age".publicKeys = systems ++ users;
   "conduit.age".publicKeys = systems ++ users;
   "searx.age".publicKeys = systems ++ users;
+  "miniflux.age".publicKeys = systems ++ users;
 }

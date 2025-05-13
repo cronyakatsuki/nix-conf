@@ -5,5 +5,6 @@
     ./syncyomi.nix
     ./wallabag.nix
     ./upfast.nix
+    ./miniflux.nix
   ];
 }
