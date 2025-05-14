@@ -24,6 +24,7 @@
       commitizen
       license-go
       just
+      dysk
     ];
 
     # Enable nix-index
