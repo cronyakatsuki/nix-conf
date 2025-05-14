@@ -6,5 +6,6 @@
     ./wallabag.nix
     ./upfast.nix
     ./miniflux.nix
+    ./website.nix
   ];
 }
