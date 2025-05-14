@@ -23,6 +23,7 @@
       aria2
       commitizen
       license-go
+      just
     ];
 
     # Enable nix-index
