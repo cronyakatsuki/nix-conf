@@ -13,6 +13,10 @@
     wg-quick.interfaces.wg0.configFile = "${config.age.secrets.wg-heimdall.path}";
   };
 
+  services.resolved.extraConfig = ''
+    DNSStubListener=no
+  '';
+
   services.dnsmasq = {
     enable = true;
     settings = {
