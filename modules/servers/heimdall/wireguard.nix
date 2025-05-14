@@ -13,12 +13,12 @@
     wg-quick.interfaces.wg0.configFile = "${config.age.secrets.wg-heimdall.path}";
   };
 
-  services.dnsmasq = {
-    enable = true;
-    settings = {
-      interface = "wg0";
-    };
-  };
+  # services.dnsmasq = {
+  #   enable = true;
+  #   settings = {
+  #     interface = "wg0";
+  #   };
+  # };
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 }
