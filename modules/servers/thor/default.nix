@@ -5,5 +5,6 @@
     ./secrets.nix
     ./plausible.nix
     ./conduit.nix
+    ./lemmy.nix
   ];
 }
