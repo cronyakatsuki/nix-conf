@@ -120,6 +120,7 @@
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
+    pmount
     neovim
     lm_sensors
     libva-utils

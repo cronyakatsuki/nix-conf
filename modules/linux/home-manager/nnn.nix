@@ -24,7 +24,6 @@
         v = "~/Videos";
       };
       extraPackages = with pkgs; [
-        pmount
         ffmpegthumbnailer
         mediainfo
         poppler_utils
