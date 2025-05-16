@@ -270,6 +270,8 @@
           # Still no specific modules here
           # ./modules/cross-platform/nixos
           agenix.nixosModules.default
+          # Use disko for creating filesystem
+          disko.nixosModules.disko
           # Setup home manager for my user
           home-manager.nixosModules.home-manager
           {
