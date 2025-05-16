@@ -25,4 +25,7 @@ in {
   "conduit.age".publicKeys = systems ++ users;
   "searx.age".publicKeys = systems ++ users;
   "miniflux.age".publicKeys = systems ++ users;
+  "crony-passwd-desktop.age".publicKeys = systems ++ users;
+  "crony-passwd-servers.age".publicKeys = systems ++ users;
+  "root-passwd.age".publicKeys = systems ++ users;
 }

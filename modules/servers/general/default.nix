@@ -6,5 +6,6 @@
     ./secrets.nix
     ./podman.nix
     ./additional-pkgs.nix
+    ./root.nix
   ];
 }

@@ -1,6 +1,6 @@
-{...}: {
+{config, ...}: {
   users.users.crony = {
-    password = "whatever i will change it right away";
+    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     isNormalUser = true;
     description = "crony";
     extraGroups = [
