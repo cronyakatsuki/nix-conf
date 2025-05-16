@@ -269,6 +269,7 @@
           ./modules/linux/nixos
           # Still no specific modules here
           # ./modules/cross-platform/nixos
+          # Use agenix for secrets
           agenix.nixosModules.default
           # Use disko for creating filesystem
           disko.nixosModules.disko
