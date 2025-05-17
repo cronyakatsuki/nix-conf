@@ -27,26 +27,26 @@
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
-  crony.nvidia.enable = lib.mkDefault true;
+  crony.nvidia.enable = lib.mkDefault false;
   crony.plasma.enable = lib.mkDefault false;
   crony.hibernation.disable = lib.mkDefault true;
-  crony.gaming.enable = lib.mkDefault true;
+  crony.gaming.enable = lib.mkDefault false;
   crony.zsh.enable = lib.mkDefault true;
   crony.stylix.enable = lib.mkDefault true;
-  crony.nbfc.enable = lib.mkDefault true;
-  crony.ryzenadj.enable = lib.mkDefault true;
-  crony.qemu.enable = lib.mkDefault true;
+  crony.nbfc.enable = lib.mkDefault false;
+  crony.ryzenadj.enable = lib.mkDefault false;
+  crony.qemu.enable = lib.mkDefault false;
   crony.amdgpu.enable = lib.mkDefault false;
   crony.nfs-share.enable = lib.mkDefault true;
-  crony.auto-cpufreq.enable = lib.mkDefault true;
-  crony.wireguard.enable = lib.mkDefault true;
+  crony.auto-cpufreq.enable = lib.mkDefault false;
+  crony.wireguard.enable = lib.mkDefault false;
   crony.hyprland-nixos.enable = lib.mkDefault true;
   crony.sddm.enable = lib.mkDefault true;
   crony.watchdog.disable = lib.mkDefault true;
   crony.general-services.enable = lib.mkDefault true;
-  crony.additional-hardware.enable = lib.mkDefault true;
-  crony.tailscale.enable = lib.mkDefault true;
-  crony.sunshine.enable = lib.mkDefault true;
+  crony.additional-hardware.enable = lib.mkDefault false;
+  crony.tailscale.enable = lib.mkDefault false;
+  crony.sunshine.enable = lib.mkDefault false;
   crony.nh.enable = lib.mkDefault true;
-  crony.ollama.enable = lib.mkDefault true;
+  crony.ollama.enable = lib.mkDefault false;
 }
