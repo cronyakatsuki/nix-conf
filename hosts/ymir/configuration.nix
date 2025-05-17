@@ -108,13 +108,13 @@
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
+    # hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat"];
   };
 
-  users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
+  # users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
 
-  users.mutableUsers = false;
+  # users.mutableUsers = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
