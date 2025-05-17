@@ -49,4 +49,5 @@
   crony.sunshine.enable = lib.mkDefault false;
   crony.nh.enable = lib.mkDefault true;
   crony.ollama.enable = lib.mkDefault false;
+  crony.secrets.enable = lib.mkDefault false;
 }
