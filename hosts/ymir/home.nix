@@ -28,6 +28,7 @@
   # Enable crony flake specific settings
   crony.mangohud.enable = true;
   crony.gaming.enable = true;
+  crony.flatpak.enable = true;
 
   # Fix gtkrc-2.0 collision
   home.file."/home/crony/.gtkrc-2.0".force = true;
