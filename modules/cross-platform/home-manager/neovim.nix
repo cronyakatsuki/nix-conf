@@ -131,10 +131,10 @@ in {
                 server = "nixd";
                 options = {
                   nixos = {
-                    expr = ''(builtins.getFlake "/home/crony/Repos/nixos").nixosConfigurations.CONFIGNAME.options'';
+                    expr = ''(builtins.getFlake "/home/crony/repos/nixos").nixosConfigurations.CONFIGNAME.options'';
                   };
                   home_manager = {
-                    expr = ''(builtins.getFlake "/home/crony/Repos/nixos").homeConfigurations.CONFIGNAME.options'';
+                    expr = ''(builtins.getFlake "/home/crony/repos/nixos").homeConfigurations.CONFIGNAME.options'';
                   };
                 };
               };
