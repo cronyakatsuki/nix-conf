@@ -22,11 +22,7 @@
               content = {
                 type = "luks";
                 name = "crypt";
-                passwordFile = "/tmp/secret.key"; # Interactive
-                settings = {
-                  allowDiscards = true;
-                  keyFile = "/tmp/secret.key";
-                };
+                settings.allowDiscards = true;
                 content = {
                   type = "btrfs";
                   extraArgs = ["-f"];
