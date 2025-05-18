@@ -13,6 +13,7 @@
     ./shell-additions.nix
     ./flatpak.nix
     ./newsboat.nix
+    ./xdg-user-dirs.nix
   ];
 
   crony.mangohud.enable = lib.mkDefault false;
@@ -28,4 +29,5 @@
   crony.shell-additions.enable = lib.mkDefault true;
   crony.flatpak.enable = lib.mkDefault false;
   crony.newsboat.enable = lib.mkDefault false;
+  crony.xdg-user-dirs.enable = lib.mkDefault true;
 }
