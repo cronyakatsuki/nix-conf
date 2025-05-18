@@ -8,11 +8,10 @@ let
   odin = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBGfwv4CzZlPGsBukfoq5wBTlVfWJo7UHH7DP3ILP6/Z";
 
   # USERS
-  root = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJLduAXHWJiglmfRfkBGKffzVWkJP6porxIzw6+Zz3W crony@cronyakatsuki.xyz";
+  root = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID2HeOFYaGmjP3OQzPuA+DSjkqfyYH4axoDPWKVP/jdU root@ymir";
+  crony = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJLduAXHWJiglmfRfkBGKffzVWkJP6porxIzw6+Zz3W crony@cronyakatsuki.xyz";
 
-  users = [
-    root
-  ];
+  users = [root crony];
   systems = [heimdall loki baldur bragi thor odin];
 in {
   "traefik.age".publicKeys = systems ++ users;

@@ -19,7 +19,7 @@
           file = ../../../secrets/root-passwd.age;
         };
       };
-      identityPaths = ["/home/crony/.ssh/main"];
+      identityPaths = ["/home/crony/.ssh/main" "/root/.ssh/id_ed25519"];
     };
   };
 }
