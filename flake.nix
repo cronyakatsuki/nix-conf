@@ -225,37 +225,6 @@
         ];
       };
 
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          # Get the system config
-          ./hosts/nixos/configuration.nix
-          # Enable stylix
-          inputs.stylix.nixosModules.stylix
-          # Load updated auto-cpufreq
-          auto-cpufreq.nixosModules.default
-          # Load my modules
-          ./modules/linux/nixos
-          # Still no specific modules here
-          # ./modules/cross-platform/nixos
-          agenix.nixosModules.default
-          # Setup home manager for my user
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.crony = {
-              imports = [
-                ./hosts/nixos/home.nix
-                ./modules/linux/home-manager
-                ./modules/cross-platform/home-manager
-              ];
-            };
-          }
-        ];
-      };
-
       ymir = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
