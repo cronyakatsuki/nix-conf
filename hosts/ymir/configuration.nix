@@ -119,6 +119,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Optimise storage
+  nix.optimise = {
+    automatic = true;
+    dates = ["weekly"];
+  };
+
   # Enable my flake specific settings
   crony.nvidia.enable = true;
   crony.gaming.enable = true;
