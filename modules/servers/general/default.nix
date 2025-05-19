@@ -7,5 +7,6 @@
     ./podman.nix
     ./additional-pkgs.nix
     ./root.nix
+    ./beszel-agent.nix
   ];
 }
