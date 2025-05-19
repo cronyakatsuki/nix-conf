@@ -122,7 +122,7 @@
   # Enable my flake specific settings
   crony.nvidia.enable = true;
   crony.gaming.enable = true;
-  # crony.nbfc.enable = true;
+  crony.nbfc.enable = true;
   crony.auto-cpufreq.enable = true;
   crony.wireguard.enable = true;
   crony.additional-hardware.enable = true;
