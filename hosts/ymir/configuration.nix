@@ -132,6 +132,8 @@
   crony.wireguard.enable = true;
   crony.additional-hardware.enable = true;
   crony.secrets.enable = true;
+  crony.ryzenadj.enable = true;
+  crony.auto-cpufreq.enable = true;
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
