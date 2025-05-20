@@ -405,7 +405,7 @@ in {
           "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
           "$mod,        w, exec, ${vpn-toggle}/bin/vpn-toggle"
 
-          "$mod,        F12, exec, ${grim} $HOME/Pictures/screenshots/$(date +'%s_grim.png')"
+          "$mod,        F12, exec, ${grim} ${config.xdg.userDirs.pictures}/screenshots/$(date +'%s_grim.png')"
 
           "$mod,        V, exec, cliphist list | tofi --horizontal false --height 380 | cliphist decode | wl-copy"
 
