@@ -12,6 +12,9 @@
         wg-desktop = {
           file = ../../../secrets/wg-desktop.age;
         };
+        wg-home = {
+          file = ../../../secrets/wg-home.age;
+        };
         crony-passwd = {
           file = ../../../secrets/crony-passwd-desktop.age;
         };
