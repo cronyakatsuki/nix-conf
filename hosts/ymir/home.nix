@@ -30,9 +30,6 @@
   crony.gaming.enable = true;
   crony.flatpak.enable = true;
 
-  # Fix gtkrc-2.0 collision
-  home.file."/home/crony/.gtkrc-2.0".force = true;
-
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.
 }
