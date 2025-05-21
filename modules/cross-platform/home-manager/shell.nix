@@ -65,6 +65,10 @@
       enableZshIntegration = true;
     };
 
+    home.sessionVariables = {
+      _ZO_EXCLUDE_DIRS = "$HOME:$HOME/docs/share:/mnt/share";
+    };
+
     # Install eza
     programs.eza = {
       enable = true;
