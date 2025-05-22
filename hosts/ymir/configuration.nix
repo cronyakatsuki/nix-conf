@@ -72,9 +72,6 @@
     options = "caps:escape";
   };
 
-  # Enable fstrim
-  services.fstrim.enable = true;
-
   # Enable seatd
   services.seatd.enable = true;
 
