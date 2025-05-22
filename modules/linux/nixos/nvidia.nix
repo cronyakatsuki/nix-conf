@@ -18,15 +18,15 @@
     # Setup nvidia drivers
     services.xserver.videoDrivers = ["nvidia"];
     hardware.nvidia = {
-      open = true;
+      open = false;
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
       prime = {
-        reverseSync.enable = true;
+        reverseSync.enable = false;
         offload = {
           enableOffloadCmd = true;
-          enable = false;
+          enable = true;
         };
 
         nvidiaBusId = "PCI:1:0:0";
