@@ -6,9 +6,6 @@
   git-check = git-hooks.lib.${pkgs.system}.run {
     src = ".";
     hooks = {
-      # General formaters
-      end-of-file-fixer.enable = true;
-      mixed-line-endings.enable = true;
       # Git commit lint
       commitizen.enable = true;
       # Nix section
