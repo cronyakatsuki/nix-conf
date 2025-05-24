@@ -153,6 +153,7 @@ in {
               extensions.render-markdown-nvim.enable = true;
             };
             html.enable = true;
+            csharp.enable = true;
           };
 
           # utility related plugins
