@@ -144,6 +144,15 @@
           path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.odin;
         };
       };
+
+      freyja = {
+        hostname = "freyja";
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.freyja;
+        };
+      };
     };
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
@@ -222,6 +231,18 @@
           ./hosts/odin/configuration.nix
           ./modules/servers/general
           ./modules/servers/odin
+        ];
+      };
+
+      freyja = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        system = "aarch64-linux";
+        modules = [
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          ./hosts/freyja/configuration.nix
+          ./modules/servers/general
+          ./modules/servers/freyja
         ];
       };
 
