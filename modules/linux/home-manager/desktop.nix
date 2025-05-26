@@ -18,6 +18,7 @@
       jellyfin-mpv-shim
       overskride
       galaxy-buds-client
+      tiled
     ];
 
     # Install thunderbird
