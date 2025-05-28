@@ -76,6 +76,9 @@
 
     # My selfhosted service, inspired by 0x0.st
     upfast.url = "git+https://git.cronyakatsuki.xyz/crony/UpFast";
+
+    # My custom script for downloading humble bundle scripts
+    hb-downloader.url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
   };
 
   outputs = {
