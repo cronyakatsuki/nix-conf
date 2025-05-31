@@ -66,7 +66,7 @@
     };
 
     home.sessionVariables = {
-      _ZO_EXCLUDE_DIRS = "$HOME:$HOME/docs/share:/mnt/share";
+      _ZO_EXCLUDE_DIRS = "$HOME:$HOME/docs/share:/mnt";
     };
 
     # Install eza
