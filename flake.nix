@@ -79,6 +79,9 @@
 
     # My custom script for downloading humble bundle scripts
     hb-downloader.url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
+
+    # Aagl launcher
+    aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
   };
 
   outputs = {
