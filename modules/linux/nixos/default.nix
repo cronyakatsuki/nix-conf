@@ -24,10 +24,8 @@
     ./nh.nix
     ./ollama.nix
     ./secrets.nix
-    ./aagl.nix
   ];
 
-  crony.aagl.enable = lib.mkDefault false;
   crony.bluetooth.enable = lib.mkDefault true;
   crony.nvidia.enable = lib.mkDefault false;
   crony.plasma.enable = lib.mkDefault false;

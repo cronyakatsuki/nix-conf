@@ -134,7 +134,6 @@
   crony.secrets.enable = true;
   crony.ryzenadj.enable = true;
   crony.auto-cpufreq.enable = true;
-  crony.aagl.enable = true;
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
