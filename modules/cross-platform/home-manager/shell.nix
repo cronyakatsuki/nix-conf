@@ -113,5 +113,8 @@
 
     # Install btop
     programs.btop.enable = true;
+
+    # Install lazygit
+    programs.lazygit.enable = true;
   };
 }
