@@ -92,8 +92,8 @@ in {
             "Super+Shift ," = "send-layout-cmd rivertile 'main-count -1'";
             "Super+Shift Space" = "toggle-float";
             "Super F" = "toggle-fullscreen";
-            "Super D" = "spawn 'tofi-run | xargs riverctl dispatch exec --'";
-            "Super+Shift D" = "spawn 'tofi-drun | xargs riverctl dispatch exec --'";
+            "Super D" = "spawn 'tofi-run | xargs riverctl spawn'";
+            "Super+Shift D" = "spawn 'tofi-drun | xargs riverctl spawn'";
             "Super+Shift L" = "spawn 'hyprlock --immediate'";
             "Super B" = "spawn qutebrowser";
             "Super+Shift B" = "spawn librewolf";
@@ -111,10 +111,10 @@ in {
           };
         };
         spawn = [
+          "waybar" # Start waybar on start
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
-          "waybar" # Start waybar on start
         ];
       };
       systemd = {
