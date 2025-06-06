@@ -75,10 +75,10 @@ in {
         map = {
           normal = {
             "Super Return" = "spawn foot";
-            "Super Q" = "close";
+            "Super+Shift Q" = "close";
             "Super+Ctrl E" = "exit";
-            "J" = "focus-view next";
-            "K" = "focus-view previous";
+            "Super J" = "focus-view next";
+            "Super K" = "focus-view previous";
             "Super+Shift J" = "swap next";
             "Super+Shift K" = "swap previous";
             "Super+Shift Return" = "zoom";
