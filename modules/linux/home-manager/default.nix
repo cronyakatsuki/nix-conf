@@ -15,8 +15,10 @@
     ./newsboat.nix
     ./xdg-user-dirs.nix
     ./qutebrowser.nix
+    ./wayland.nix
   ];
 
+  crony.wayland.enable = lib.mkDefault false;
   crony.qutebrowser.enable = lib.mkDefault true;
   crony.mangohud.enable = lib.mkDefault false;
   crony.nnn.enable = lib.mkDefault true;
