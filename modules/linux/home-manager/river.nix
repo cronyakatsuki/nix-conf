@@ -50,6 +50,7 @@ in {
     home.packages = with pkgs; [
       playerctl
       grim
+      libnotify
     ];
 
     wayland.windowManager.river = {
@@ -76,7 +77,7 @@ in {
           normal = {
             "Super Return" = "spawn foot";
             "Super+Shift Q" = "close";
-            "Super+Ctrl E" = "exit";
+            "Super+Control E" = "exit";
             "Super J" = "focus-view next";
             "Super K" = "focus-view previous";
             "Super+Shift J" = "swap next";
@@ -94,7 +95,7 @@ in {
             "Super B" = "spawn qutebrowser";
             "Super+Shift B" = "spawn librewolf";
             "Super F1" = "spawn '${toggle-sound-output}/bin/toggle-sound-output'";
-            "Super E" = "spawn '${power-menu}/bin/power-menu'";
+            "Super+Shift E" = "spawn '${power-menu}/bin/power-menu'";
             "Super F12" = "spawn 'grim ${config.xdg.userDirs.pictures}/screenshots/$(date +%s_grim.png)'";
             "Super V" = "spawn 'cliphist list | tofi --horizontal false --height 380 | cliphist decode | wl-copy'";
           };
@@ -137,7 +138,7 @@ in {
 
         for mode in normal locked
         do
-            riverctl map $mode None XF86AudioRaiseVolume  spawn 'pctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1 && ${volume-notify}/bin/volume-notify'
+            riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1 && ${volume-notify}/bin/volume-notify'
             riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1 && ${volume-notify}/bin/volume-notify'
             riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${volume-notify}/bin/volume-notify'
 
