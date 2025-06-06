@@ -66,6 +66,8 @@ in {
         rule-add = {
           "-app-id" = {
             "'bar'" = "csd";
+            "'steam'" = "ssd";
+            "'librewolf'" = "ssd";
             "'float*'" = {
               "-title" = {
                 "foo" = "float";
@@ -78,6 +80,7 @@ in {
             "Super Return" = "spawn foot";
             "Super+Shift Q" = "close";
             "Super+Control E" = "exit";
+            "Super Tab" = "focus-previous-tags";
             "Super J" = "focus-view next";
             "Super K" = "focus-view previous";
             "Super+Shift J" = "swap next";
