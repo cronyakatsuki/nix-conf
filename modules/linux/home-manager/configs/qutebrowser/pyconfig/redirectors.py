@@ -17,8 +17,6 @@ REDIRECT_MAP = {
     "www.tiktok.com": operator.methodcaller("setHost", "proxytok.cronyakatsuki.xyz"),
     "imgur.com": operator.methodcaller("setHost", "rimgo.cronyakatsuki.xyz"),
     "www.imgur.com": operator.methodcaller("setHost", "rimgo.cronyakatsuki.xyz"),
-    "github.com": operator.methodcaller("setHost", "gh.cronyakatsuki.xyz"),
-    "gist.github.com": operator.methodcaller("setHost", "gh.cronyakatsuki.xyz/gist"),
 }
 
 
