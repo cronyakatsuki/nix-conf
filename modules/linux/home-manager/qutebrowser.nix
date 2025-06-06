@@ -9,83 +9,16 @@
 
   config = lib.mkIf config.crony.qutebrowser.enable {
     home.file = {
-      ".config/qutebrowser/userscripts/buku" = {
-        text = ''
-          #!/usr/bin/env bash
-
-          # Qutebrowser userscript for interacting with buku
-          # requries buku and dmenu (with list patch)
-
-          get_bookmark() {
-          	buku --nostdin -p -f5 | sed 's/\t/;/g' | column -t -s ';' | tofi --horizontal false --height 380 --prompt-text "$1 bookmark: " | awk '{ print $1 }'
-          }
-
-          get_url() {
-          	buku --nostdin -p "$1" -f10
-          }
-
-          get_title() {
-          	buku --nostdin -p "$1" -f30
-          }
-
-          fifo() {
-          	printf '%s\n' "$1" >>"$QUTE_FIFO"
-          }
-
-          add() {
-          	buku --nostdin -a "$QUTE_URL"
-          	$TERMINAL --class badd,badd -e buku -w -1
-          	fifo "message-info 'Added current url to buku'"
-          }
-
-          open() {
-          	bookmark=$(get_bookmark "Open")
-          	[ -z "$bookmark" ] && fifo "message-info 'No Bookmark selected!!!'" && exit
-          	if [ "$1"  == "-t" ]; then
-          	  fifo "open -t $(get_url "$bookmark")"
-          	  fifo "message-info 'Opening bookmark $(get_title "$bookmark") in new tab.'"
-          	else
-          	  fifo "open $(get_url "$bookmark")"
-          	  fifo "message-info 'Opening bookmark $(get_title "$bookmark").'"
-          	fi
-          }
-
-          delete() {
-          	bookmark=$(get_bookmark "Delete")
-          	title=$(get_title "$bookmark")
-          	buku --nostdin -d "$bookmark" --tacit
-          	fifo "message-info 'Deleted bookmark $title.'"
-          }
-
-          edit() {
-          	bookmark=$(get_bookmark "Edit")
-          	fifo "message-info 'Editing bookmark $(get_title "$bookmark")'"
-          	$TERMINAL --class badd,badd -e buku -w "$bookmark"
-          }
-
-          main() {
-          	case "$1" in
-          	"add")
-          	  [ -n "$2" ] && QUTE_URL=$2
-          		add
-          		exit
-          		;;
-          	"open")
-          		open "$2"
-          		exit
-          		;;
-          	"delete")
-          		delete
-          		exit
-          		;;
-          	"edit")
-          		edit
-          		;;
-          	esac
-          }
-
-          main $@
-        '';
+      ".config/qutebrowser/userscripts" = {
+        source = ./configs/qutebrowser/userscripts;
+        executable = true;
+      };
+      ".config/qutebrowser/pyconfig" = {
+        source = ./configs/qutebrowser/pyconfig;
+        executable = true;
+      };
+      ".config/qutebrowser/greasemonkey" = {
+        source = ./configs/qutebrowser/greasemonkey;
         executable = true;
       };
     };
@@ -93,6 +26,9 @@
     programs.qutebrowser = {
       enable = true;
       loadAutoconfig = true;
+      extraConfig = ''
+        config.source("pyconfig/redirectors.py")
+      '';
       searchEngines = {
         DEFAULT = "https://searx.cronyakatsuki.xyz/?q={}";
         aw = "https://wiki.archlinux.org/?search={}";
