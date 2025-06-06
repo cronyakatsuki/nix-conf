@@ -30,6 +30,7 @@
   crony.gaming.enable = true;
   crony.flatpak.enable = true;
   crony.wayland.enable = true;
+  crony.river.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.

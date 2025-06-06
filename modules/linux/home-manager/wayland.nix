@@ -137,25 +137,21 @@
           padding-left: 10px;
         }
 
-        #workspaces {
+        #tags {
           background-color: @base01;
           margin: 0.25em;
           border-radius: 1em;
         }
-        #workspaces button {
+        #tags button {
           padding: 0 0.5em;
-          color: @base06;
-        }
-
-        #workspaces button.empty {
           color: @base03;
         }
 
-        #workspaces button.visible {
+        #tags button.occupied {
           color: @base06;
         }
 
-        #workspaces button.active {
+        #tags button.focused {
           color: @base0D;
         }
 
@@ -189,8 +185,8 @@
         mainBar = {
           height = 34;
           modules-left = [
-            "hyprland/workspaces"
-            "hyprland/window"
+            "river/tags"
+            "river/window"
           ];
           modules-center = [
           ];
@@ -203,10 +199,8 @@
             "clock"
             "tray"
           ];
-          "hyprland/workspaces" = {
-            persistent-workspaces = {
-              "*" = [1 2 3 4 5 6 7 8 9];
-            };
+          "river/window" = {
+            max-length = 50;
           };
           disk = {
             path = "/";

@@ -16,8 +16,10 @@
     ./xdg-user-dirs.nix
     ./qutebrowser.nix
     ./wayland.nix
+    ./river.nix
   ];
 
+  crony.river.enable = lib.mkDefault false;
   crony.wayland.enable = lib.mkDefault false;
   crony.qutebrowser.enable = lib.mkDefault true;
   crony.mangohud.enable = lib.mkDefault false;
