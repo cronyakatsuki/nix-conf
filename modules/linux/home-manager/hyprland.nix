@@ -398,7 +398,7 @@ in {
 
           "$mod SHIFT,  L, exec, hyprlock --immediate"
 
-          "$mod,        B, exec, chromium"
+          "$mod,        B, exec, qutebrowser"
           "$mod SHIFT,  B, exec, librewolf"
 
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
