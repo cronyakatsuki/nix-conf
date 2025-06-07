@@ -155,7 +155,7 @@ in {
         done
 
 
-        rivertile -view-padding 6 -outer-padding 6 &
+        rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
       '';
     };
   };
