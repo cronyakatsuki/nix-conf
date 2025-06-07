@@ -27,7 +27,7 @@
   crony.mpv.enable = lib.mkDefault true;
   crony.obs-studio.enable = lib.mkDefault true;
   crony.restic.enable = lib.mkDefault false;
-  crony.hyprland.enable = lib.mkDefault true;
+  crony.hyprland.enable = lib.mkDefault false;
   crony.browsers.enable = lib.mkDefault true;
   crony.emulators.enable = lib.mkDefault false;
   crony.desktop.enable = lib.mkDefault true;
