@@ -51,7 +51,27 @@ in {
       playerctl
       grim
       libnotify
+      wlopm
     ];
+
+    services.way-displays = {
+      enable = true;
+      settings = {
+        SCALING = false;
+        DISABLED = [
+          {
+            NAME_DESC = "eDP-1";
+            IF = [
+              {
+                PLUGGED = [
+                  "HDMI-A-1"
+                ];
+              }
+            ];
+          }
+        ];
+      };
+    };
 
     wayland.windowManager.river = {
       enable = true;

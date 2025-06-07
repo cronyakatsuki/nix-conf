@@ -104,10 +104,10 @@
   # Enable light for image control
   programs.light.enable = true;
 
-  programs.river = {
-    enable = true;
-    extraPackages = [];
-  };
+  # programs.river = {
+  #   enable = true;
+  #   extraPackages = [];
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.crony = {
@@ -139,6 +139,7 @@
   crony.secrets.enable = true;
   crony.ryzenadj.enable = true;
   crony.auto-cpufreq.enable = true;
+  crony.hyprland-nixos.enable = true;
 
   xdg.portal = {
     enable = true;

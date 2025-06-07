@@ -78,6 +78,38 @@ in {
   };
 
   config = lib.mkIf config.crony.hyprland.enable {
+    # Enable hyprpaper
+    services.hyprpaper.enable = true;
+
+    # Enable hypridle
+    services.hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "pidof hyprlock || hyprlock"; # avoid starting multiple hyprlock instances.
+          before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
+          after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
+        };
+
+        listener = [
+          {
+            timeout = 10; # 10 sec
+            on-timeout = "pidof hyprlock && hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
+            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
+          }
+          {
+            timeout = 300; # 5min
+            on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
+          }
+          {
+            timeout = 310; # 5min and 10 sec
+            on-timeout = "hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
+            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
+          }
+        ];
+      };
+    };
+
     # Setup and enable hyprland
     wayland.windowManager.hyprland = {
       enable = true;
@@ -95,10 +127,10 @@ in {
         ];
 
         exec-once = [
+          "waybar" # Start waybar on start
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
-          "waybar" # Start waybar on start
         ];
 
         monitor = [
@@ -107,25 +139,25 @@ in {
         ];
 
         animations = {
-          enabled = "yes";
+          enabled = false;
         };
 
         decoration = {
           blur = {
-            enabled = true;
+            enabled = false;
           };
 
           shadow = {
-            enabled = true;
+            enabled = false;
           };
 
-          rounding = 10;
+          rounding = 0;
         };
 
         general = {
-          border_size = 3;
-          gaps_in = 5;
-          gaps_out = 10;
+          border_size = 1;
+          gaps_in = 3;
+          gaps_out = 6;
           layout = "master";
           allow_tearing = true;
         };

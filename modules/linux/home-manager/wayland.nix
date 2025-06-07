@@ -52,36 +52,15 @@
       };
     };
 
-    # Enable hyprpaper
-    services.hyprpaper.enable = true;
-
-    # Enable hypridle
-    services.hypridle = {
+    services.swayidle = {
       enable = true;
-      settings = {
-        general = {
-          lock_cmd = "pidof hyprlock || hyprlock"; # avoid starting multiple hyprlock instances.
-          before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
-          after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
-        };
-
-        listener = [
-          {
-            timeout = 10; # 10 sec
-            on-timeout = "pidof hyprlock && hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
-            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
-          }
-          {
-            timeout = 300; # 5min
-            on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
-          }
-          {
-            timeout = 310; # 5min and 10 sec
-            on-timeout = "hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
-            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
-          }
-        ];
-      };
+      timeouts = [
+        {
+          timeout = 10;
+          command = "pidof hyprlock && ${pkgs.wlopm}/bin/wlopm --off '*'";
+          resumeCommand = "${pkgs.wlopm}/bin/wlopm --on '*'";
+        }
+      ];
     };
 
     # Enable hyprlock
@@ -137,21 +116,25 @@
           padding-left: 10px;
         }
 
-        #tags {
+        #workspaces {
           background-color: @base01;
           margin: 0.25em;
           border-radius: 1em;
         }
-        #tags button {
+        #workspaces button {
           padding: 0 0.5em;
-          color: @base03;
-        }
-
-        #tags button.occupied {
           color: @base06;
         }
 
-        #tags button.focused {
+        #workspaces button.empty {
+          color: @base03;
+        }
+
+        #workspaces button.visible {
+          color: @base06;
+        }
+
+        #workspaces button.active {
           color: @base0D;
         }
 
@@ -185,8 +168,8 @@
         mainBar = {
           height = 34;
           modules-left = [
-            "river/tags"
-            "river/window"
+            "hyprland/workspaces"
+            "hyprland/window"
           ];
           modules-center = [
           ];
@@ -199,8 +182,10 @@
             "clock"
             "tray"
           ];
-          "river/window" = {
-            max-length = 50;
+          "hyprland/workspaces" = {
+            persistent-workspaces = {
+              "*" = [1 2 3 4 5 6 7 8 9];
+            };
           };
           disk = {
             path = "/";
