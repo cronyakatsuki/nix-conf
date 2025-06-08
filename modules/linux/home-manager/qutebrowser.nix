@@ -104,6 +104,8 @@
           "<Ctrl-U>" = "jseval --quiet scrollHelper.scrollPage(-0.8)";
           "gg" = "jseval --quiet scrollHelper.scrollTo(0)";
           "G" = "jseval --quiet scrollHelper.scrollToPercent(100)";
+
+          "pw" = "spawn --userscript qute-keepassxc --key crony@cronyakatsuki.xyz";
         };
         insert = {
           "<Escape>" = "mode-leave ;; jseval -q document.activeElement.blur()";
