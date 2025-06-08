@@ -84,8 +84,8 @@
       nix-direnv.enable = true;
     };
 
-    # Install the fuck
-    programs.thefuck = {
+    # Install pay respects
+    programs.pay-respects = {
       enable = true;
       enableZshIntegration = true;
     };
