@@ -116,5 +116,19 @@
 
     # Install lazygit
     programs.lazygit.enable = true;
+
+    # Install and setup gpg
+    programs.gpg = {
+      enable = true;
+      homedir = "${config.home.homeDirectory}/.local/share/gnupg";
+    };
+    services.gpg-agent = {
+      enable = true;
+      enableZshIntegration = true;
+      pinentry = {
+        package = pkgs.pinentry-gtk2;
+        program = "pinentry-gtk-2";
+      };
+    };
   };
 }
