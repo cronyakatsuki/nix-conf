@@ -19,6 +19,7 @@
   # Default environmental variables
   home.sessionVariables = {
     EDITOR = "nvim";
+    TERMINAL = "foot";
     WINEPREFIX = "$HOME/.local/share/wineprefix/default";
   };
 
