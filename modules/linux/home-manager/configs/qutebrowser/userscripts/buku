@@ -21,7 +21,7 @@ fifo() {
 
 add() {
 	buku --nostdin -a "$QUTE_URL"
-	$TERMINAL --class badd,badd -e buku -w -1
+	$TERMINAL -a badd -e buku -w -1
 	fifo "message-info 'Added current url to buku'"
 }
 
@@ -39,6 +39,7 @@ open() {
 
 delete() {
 	bookmark=$(get_bookmark "Delete")
+	[ -z "$bookmark" ] && fifo "message-info 'No Bookmark selected!!!'" && exit
 	title=$(get_title "$bookmark")
 	buku --nostdin -d "$bookmark" --tacit
 	fifo "message-info 'Deleted bookmark $title.'"
@@ -46,8 +47,9 @@ delete() {
 
 edit() {
 	bookmark=$(get_bookmark "Edit")
+	[ -z "$bookmark" ] && fifo "message-info 'No Bookmark selected!!!'" && exit
 	fifo "message-info 'Editing bookmark $(get_title "$bookmark")'"
-	$TERMINAL --class badd,badd -e buku -w "$bookmark"
+	$TERMINAL -a badd -e buku -w "$bookmark"
 }
 
 main() {
