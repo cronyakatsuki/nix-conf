@@ -44,7 +44,7 @@
 
       scripts = with pkgs.mpvScripts; [
         mpris
-        sponsorblock
+        sponsorblock-minimal
         thumbfast
         quality-menu
       ];
