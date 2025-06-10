@@ -12,7 +12,6 @@
     programs.mpv = {
       enable = true;
       config = {
-        ytdl-format = "ytdl-format=bestvideo[height<=?1080][fps<=?60][vcodec!~='vp0?9'][vcodec!*=av01]+bestaudio/best";
         fs = true;
         force-window = "immediate";
         hr-seek-framedrop = "no";
