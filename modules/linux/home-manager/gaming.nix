@@ -20,6 +20,8 @@
       steam-rom-manager
       bolt-launcher
       space-cadet-pinball
+      gzdoom
+      qzdl
     ];
   };
 }
