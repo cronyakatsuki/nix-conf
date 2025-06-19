@@ -136,6 +136,7 @@ in {
   config = lib.mkIf config.crony.ryzenadj.enable {
     # Add ryzen-smu driver to allow reading values
     boot.extraModulePackages = with config.boot.kernelPackages; [ryzen-smu];
+    boot.kernelParams = ["iomem=relaxed"];
 
     # Install ryzenadj globally
     environment.systemPackages = with pkgs; [
