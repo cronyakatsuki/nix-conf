@@ -140,6 +140,7 @@
   crony.ryzenadj.enable = true;
   crony.auto-cpufreq.enable = true;
   crony.hyprland-nixos.enable = true;
+  crony.ollama.enable = true;
 
   xdg.portal = {
     enable = true;
