@@ -8,5 +8,6 @@
     ./additional-pkgs.nix
     ./root.nix
     ./beszel-agent.nix
+    ./optimise-storage.nix
   ];
 }
