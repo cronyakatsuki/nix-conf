@@ -20,6 +20,9 @@
     services.fwupd.enable = true;
 
     # Enable zram swap device
-    zramSwap.enable = true;
+    zramSwap = {
+      enable = true;
+      memoryPercent = 60;
+    };
   };
 }
