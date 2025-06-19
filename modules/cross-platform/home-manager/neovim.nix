@@ -124,7 +124,7 @@ in {
               format.type = "black-and-isort";
             };
             css.enable = true;
-            ts.enable = true;
+            ts.enable = false;
             nix = {
               enable = true;
               lsp = {
@@ -149,7 +149,7 @@ in {
               };
             };
             markdown = {
-              enable = true;
+              enable = false;
               extensions.render-markdown-nvim.enable = true;
             };
             html.enable = true;
