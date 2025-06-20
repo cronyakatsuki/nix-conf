@@ -24,6 +24,7 @@
     ./nh.nix
     ./ollama.nix
     ./secrets.nix
+    ./oom.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -50,4 +51,5 @@
   crony.nh.enable = lib.mkDefault true;
   crony.ollama.enable = lib.mkDefault false;
   crony.secrets.enable = lib.mkDefault false;
+  crony.oom.enable = lib.mkDefault true;
 }
