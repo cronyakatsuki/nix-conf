@@ -22,6 +22,10 @@
       space-cadet-pinball
       gzdoom
       qzdl
+      zeroad
+      xonotic
+      superTuxKart
+      cataclysm-dda
     ];
   };
 }
