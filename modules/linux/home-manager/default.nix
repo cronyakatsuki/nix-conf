@@ -17,6 +17,7 @@
     ./qutebrowser.nix
     ./wayland.nix
     ./river.nix
+    ./pipewire.nix
   ];
 
   crony.river.enable = lib.mkDefault false;
@@ -36,4 +37,5 @@
   crony.flatpak.enable = lib.mkDefault false;
   crony.newsboat.enable = lib.mkDefault false;
   crony.xdg-user-dirs.enable = lib.mkDefault true;
+  crony.pipewire.enable = lib.mkDefault true;
 }
