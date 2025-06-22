@@ -78,6 +78,10 @@ in {
   };
 
   config = lib.mkIf config.crony.hyprland.enable {
+    home.packages = with pkgs; [
+      hyprpolkitagent
+    ];
+
     # Enable hyprpaper
     services.hyprpaper.enable = true;
 
@@ -131,6 +135,7 @@ in {
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
+          "systemctl --user start hyprpolkitagent"
         ];
 
         monitor = [
