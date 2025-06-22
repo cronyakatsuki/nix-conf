@@ -3,7 +3,34 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  opts = {
+    paths = [
+      "/home/crony/.face"
+      "/home/crony/.librewolf"
+      "/home/crony/.ssh"
+      "/home/crony/.config/heroic"
+      "/home/crony/.config/nbfc.json"
+      "/home/crony/.config/OpenTabletDriver"
+      "/home/crony/.config/tridactyl"
+      "/home/crony/.local/share/gnupg"
+      "/home/crony/.local/share/osu"
+      "/home/crony/docs/sync"
+      "/home/crony/docs/wireguard-keys"
+      "/home/crony/pics"
+    ];
+    pruneOpts = [
+      "--keep-last 10"
+      "--keep-daily 7"
+      "--keep-weekly 5"
+      "--keep-monthly 12"
+    ];
+    checkOpts = [
+      "--read-data-subset=10%"
+      "--with-cache"
+    ];
+  };
+in {
   options = {
     crony.restic.enable = lib.mkEnableOption "Install and setup restic and backup services.";
   };
@@ -21,118 +48,21 @@
         local = {
           initialize = true;
           passwordFile = "/run/user/1000/agenix/restic-local-pass";
-          paths = [
-            "/home/crony/.face"
-            "/home/crony/.librewolf"
-            "/home/crony/.ssh"
-            "/home/crony/.config/heroic"
-            "/home/crony/.config/nbfc.json"
-            "/home/crony/.config/OpenTabletDriver"
-            "/home/crony/.config/tridactyl"
-            "/home/crony/.local/share/gnupg"
-            "/home/crony/.local/share/osu"
-            "/home/crony/docs/sync"
-            "/home/crony/docs/wireguard-keys"
-            "/home/crony/pics"
-          ];
           repository = "/home/crony/.local/backup";
+          paths = opts.paths;
+          pruneOpts = opts.pruneOpts;
+          checkOpts = opts.checkOpts;
         };
         backblaze = {
           initialize = true;
           passwordFile = "/run/user/1000/agenix/restic-backblaze-pass";
-          paths = [
-            "/home/crony/.face"
-            "/home/crony/.librewolf"
-            "/home/crony/.ssh"
-            "/home/crony/.config/heroic"
-            "/home/crony/.config/nbfc.json"
-            "/home/crony/.config/OpenTabletDriver"
-            "/home/crony/.config/tridactyl"
-            "/home/crony/.local/share/gnupg"
-            "/home/crony/.local/share/osu"
-            "/home/crony/docs/sync"
-            "/home/crony/docs/wireguard-keys"
-            "/home/crony/pics"
-          ];
           repositoryFile = "/run/user/1000/agenix/restic-backblaze-repo";
           environmentFile = "/run/user/1000/agenix/restic-backblaze-env";
+          paths = opts.paths;
+          pruneOpts = opts.pruneOpts;
+          checkOpts = opts.checkOpts;
         };
       };
     };
-
-    ##-- Restic Timers And Services --##
-
-    # Restic backup
-    # systemd.user.services = {
-    #   restic_backup = {
-    #     Unit.Description = "Restic backup service";
-    #     Service = {
-    #       Type = "oneshot";
-    #       ExecStart = toString (pkgs.writeShellScript "restic-backup" ''
-    #         . /etc/restic/local
-    #         restic backup --files-from /home/crony/.config/restic/list --verbose && restic forget --keep-last 10 --keep-daily 7 --keep-weekly 5 --keep-monthly 12
-    #         . /etc/restic/online
-    #         restic backup --files-from /home/crony/.config/restic/list --verbose && restic forget --keep-last 10 --keep-daily 7 --keep-weekly 5 --keep-monthly 12
-    #         rsync -avP --delete "$HOME/.local/backup/" "$HOME/Documents/Share/backup"
-    #       '');
-    #     };
-    #   };
-    # };
-    # systemd.user.timers = {
-    #   restic_backup = {
-    #     Unit.Description = "Restic backup timer";
-    #     Timer = {
-    #       OnBootSec = "5m";
-    #       OnUnitActiveSec = "6h";
-    #     };
-    #     Install.WantedBy = ["timers.target"];
-    #   };
-    # };
-    #
-    # # Restic check
-    # systemd.user.services = {
-    #   restic_check = {
-    #     Unit.Description = "Restic check service";
-    #     Service = {
-    #       Type = "oneshot";
-    #       ExecStart = toString (pkgs.writeShellScript "restic-check" ''
-    #         . /etc/restic/local
-    #         restic check --read-data-subset=10%
-    #         . /etc/restic/online
-    #         restic check --read-data-subset=10%
-    #       '');
-    #     };
-    #   };
-    # };
-    # systemd.user.timers = {
-    #   restic_check = {
-    #     Unit.Description = "Restic check timer";
-    #     Timer = {OnCalendar = "Thu *-*-* 18:00:00";};
-    #     Install.WantedBy = ["timers.target"];
-    #   };
-    # };
-    #
-    # # Restic prune
-    # systemd.user.services = {
-    #   restic_prune = {
-    #     Unit.Description = "Restic prune service";
-    #     Service = {
-    #       Type = "oneshot";
-    #       ExecStart = toString (pkgs.writeShellScript "restic-prune" ''
-    #         . /etc/restic/local
-    #         restic prune
-    #         . /etc/restic/online
-    #         restic prune
-    #       '');
-    #     };
-    #   };
-    # };
-    # systemd.user.timers = {
-    #   restic_prune = {
-    #     Unit.Description = "Restic prune timer";
-    #     Timer = {OnCalendar = "Fri *-*-* 18:00:00";};
-    #     Install.WantedBy = ["timers.target"];
-    #   };
-    # };
   };
 }
