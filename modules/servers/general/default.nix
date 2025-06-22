@@ -9,5 +9,6 @@
     ./root.nix
     ./beszel-agent.nix
     ./optimise-storage.nix
+    ./restic.nix
   ];
 }

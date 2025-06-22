@@ -33,4 +33,8 @@ in {
   "restic-backblaze-pass.age".publicKeys = systems ++ users;
   "restic-backblaze-repo.age".publicKeys = systems ++ users;
   "restic-backblaze-env.age".publicKeys = systems ++ users;
+  "restic-server-local-pass.age".publicKeys = systems ++ users;
+  "restic-server-pass.age".publicKeys = systems ++ users;
+  "restic-server-repo.age".publicKeys = systems ++ users;
+  "restic-server-env.age".publicKeys = systems ++ users;
 }

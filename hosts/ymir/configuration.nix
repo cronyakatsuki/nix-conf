@@ -76,7 +76,12 @@
   services.seatd.enable = true;
 
   # Enable flatpak
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "com.dec05eba.gpu_screen_recorder"
+    ];
+  };
 
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
@@ -103,6 +108,9 @@
 
   # Enable light for image control
   programs.light.enable = true;
+
+  # Enable polkit
+  security.polkit.enable = true;
 
   # programs.river = {
   #   enable = true;
