@@ -30,4 +30,7 @@ in {
   "crony-passwd-servers.age".publicKeys = systems ++ users;
   "root-passwd.age".publicKeys = systems ++ users;
   "restic-local-pass.age".publicKeys = systems ++ users;
+  "restic-backblaze-pass.age".publicKeys = systems ++ users;
+  "restic-backblaze-repo.age".publicKeys = systems ++ users;
+  "restic-backblaze-env.age".publicKeys = systems ++ users;
 }
