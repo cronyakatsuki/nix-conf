@@ -79,7 +79,6 @@
   services.flatpak = {
     enable = true;
     packages = [
-      "com.dec05eba.gpu_screen_recorder"
     ];
   };
 
