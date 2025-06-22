@@ -91,6 +91,7 @@
     deploy-rs,
     disko,
     agenix,
+    nix-flatpak,
     ...
   } @ inputs: {
     deploy.nodes = {
@@ -266,6 +267,8 @@
           agenix.nixosModules.default
           # Use disko for creating filesystem
           disko.nixosModules.disko
+          # Use flatpak for one package globally
+          nix-flatpak.nixosModules.nix-flatpak
           # Setup home manager for my user
           home-manager.nixosModules.home-manager
           {
