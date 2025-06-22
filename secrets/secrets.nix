@@ -29,4 +29,5 @@ in {
   "crony-passwd-desktop.age".publicKeys = systems ++ users;
   "crony-passwd-servers.age".publicKeys = systems ++ users;
   "root-passwd.age".publicKeys = systems ++ users;
+  "restic-local-pass.age".publicKeys = systems ++ users;
 }

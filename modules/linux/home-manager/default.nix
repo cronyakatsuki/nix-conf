@@ -18,6 +18,7 @@
     ./wayland.nix
     ./river.nix
     ./pipewire.nix
+    ./secrets.nix
   ];
 
   crony.river.enable = lib.mkDefault false;
@@ -38,4 +39,5 @@
   crony.newsboat.enable = lib.mkDefault false;
   crony.xdg-user-dirs.enable = lib.mkDefault true;
   crony.pipewire.enable = lib.mkDefault true;
+  crony.home-secrets.enable = lib.mkDefault false;
 }

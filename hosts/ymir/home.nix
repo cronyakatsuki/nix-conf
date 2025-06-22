@@ -7,6 +7,7 @@
     inputs.nvf.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    inputs.agenix.homeManagerModules.default
   ];
 
   # Some info
@@ -33,6 +34,8 @@
   crony.wayland.enable = true;
   crony.river.enable = false;
   crony.hyprland.enable = true;
+  crony.home-secrets.enable = true;
+  crony.restic.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.
