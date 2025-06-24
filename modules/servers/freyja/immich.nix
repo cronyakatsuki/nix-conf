@@ -24,4 +24,16 @@
       entrypoints = "websecure";
     };
   };
+
+  services.postgresqlBackup = {
+    enable = true;
+    databases = [
+      "immich"
+    ];
+  };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/immich" "/var/backup/postgresql"];
+    server.paths = ["/var/lib/immich" "/var/backup/postgresql"];
+  };
 }

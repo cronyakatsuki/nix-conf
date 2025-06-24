@@ -38,4 +38,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/crafty-controller"];
+    server.paths = ["/var/lib/crafty-controller"];
+  };
 }

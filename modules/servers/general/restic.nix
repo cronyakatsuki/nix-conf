@@ -27,8 +27,8 @@ in {
     server = {
       initialize = true;
       passwordFile = config.age.secrets.restic-server-pass.path;
-      repositoryFile = config.age.secrets.restic-server-pass.path;
-      environmentFile = config.age.secrets.restic-server-pass.path;
+      repositoryFile = config.age.secrets.restic-server-repo.path;
+      environmentFile = config.age.secrets.restic-server-env.path;
       paths = opts.paths;
       pruneOpts = opts.pruneOpts;
       checkOpts = opts.checkOpts;

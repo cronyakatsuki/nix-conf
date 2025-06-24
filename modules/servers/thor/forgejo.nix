@@ -38,4 +38,9 @@
       AllowUsers = ["forgejo"];
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/forgejo"];
+    server.paths = ["/var/lib/forgejo"];
+  };
 }

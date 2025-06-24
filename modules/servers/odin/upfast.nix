@@ -54,4 +54,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/upfast"];
+    server.paths = ["/var/lib/upfast"];
+  };
 }

@@ -44,4 +44,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/beszel"];
+    server.paths = ["/var/lib/beszel"];
+  };
 }

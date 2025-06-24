@@ -26,4 +26,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/syncyomi"];
+    server.paths = ["/var/lib/syncyomi"];
+  };
 }

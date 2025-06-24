@@ -30,4 +30,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/wallabag"];
+    server.paths = ["/var/lib/wallabag"];
+  };
 }

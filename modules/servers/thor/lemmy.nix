@@ -15,4 +15,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/lemmy"];
+    server.paths = ["/var/lib/lemmy"];
+  };
 }

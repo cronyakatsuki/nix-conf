@@ -24,4 +24,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/navidrome"];
+    server.paths = ["/var/lib/navidrome"];
+  };
 }

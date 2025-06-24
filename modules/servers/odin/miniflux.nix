@@ -25,4 +25,14 @@
       entrypoints = "websecure";
     };
   };
+
+  services.postgresqlBackup = {
+    enable = true;
+    databases = ["miniflux"];
+  };
+
+  services.restic.backups = {
+    local.paths = ["/var/backup/postgresql"];
+    server.paths = ["/var/backup/postgresql"];
+  };
 }

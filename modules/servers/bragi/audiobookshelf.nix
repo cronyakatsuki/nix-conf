@@ -19,4 +19,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/audiobookshelf"];
+    server.paths = ["/var/lib/audiobookshelf"];
+  };
 }

@@ -22,4 +22,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/changedetection-io"];
+    server.paths = ["/var/lib/changedetection-io"];
+  };
 }
