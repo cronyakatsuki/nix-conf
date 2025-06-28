@@ -33,7 +33,7 @@ in {
       enable = true;
       timerConfig = {
         OnBootSec = "1m";
-        # OnUnitActiveSec = "1m";
+        OnUnitActiveSec = "1m";
       };
       wantedBy = ["timers.target"];
     };
