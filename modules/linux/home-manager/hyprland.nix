@@ -289,8 +289,15 @@ in {
           # Make keepassxc floating
           "float, class:^(org.keepassxc.KeePassXC)$"
 
+          # Move to workspace 1
+          "workspace 1, class:^(org.qutebrowser.qutebrowser)$"
+
           # Move to workspace 5
           "workspace 5, class:^(vesktop)$"
+
+          # Move to workspace 6
+          "workspace 5, class:^(steam)$"
+          "workspace 5, class:^(heroic)$"
 
           # Enable inhibition for fullscreen apps
           "idleinhibit fullscreen, class:^(*)$"
