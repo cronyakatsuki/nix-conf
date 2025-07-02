@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+File="$1"
+FileOptimized="${File%.*}-optimized.mp4"
+
+ffmpeg -y -hwaccel cuda -hwaccel_output_format cuda -c:v h264_cuvid -i "$File" -c:v h264_nvenc -preset:v p7 -tune:v hq -rc:v vbr -cq:v 29 -b:v 0 -profile:v high "$FileOptimized"
