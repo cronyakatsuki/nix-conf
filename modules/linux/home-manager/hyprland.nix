@@ -296,8 +296,8 @@ in {
           "workspace 5, class:^(vesktop)$"
 
           # Move to workspace 6
-          "workspace 5, class:^(steam)$"
-          "workspace 5, class:^(heroic)$"
+          "workspace 6, class:^(steam)$"
+          "workspace 6, class:^(heroic)$"
 
           # Enable inhibition for fullscreen apps
           "idleinhibit fullscreen, class:^(*)$"
