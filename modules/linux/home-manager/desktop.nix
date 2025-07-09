@@ -19,7 +19,7 @@
       overskride
       galaxy-buds-client
       tiled
-      cbconvert-gui
+      # cbconvert-gui
     ];
 
     # Install thunderbird
