@@ -157,7 +157,7 @@
   crony.ryzenadj.enable = true;
   crony.auto-cpufreq.enable = true;
   crony.hyprland-nixos.enable = true;
-  crony.ollama.enable = true;
+  crony.ollama.enable = false;
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
