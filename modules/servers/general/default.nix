@@ -10,5 +10,6 @@
     ./beszel-agent.nix
     ./optimise-storage.nix
     ./restic.nix
+    ./nix-features.nix
   ];
 }
