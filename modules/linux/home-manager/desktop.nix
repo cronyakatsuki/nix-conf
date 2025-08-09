@@ -19,6 +19,7 @@
       overskride
       galaxy-buds-client
       tiled
+      nicotine-plus
       # cbconvert-gui
     ];
 
