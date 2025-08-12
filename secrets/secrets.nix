@@ -37,4 +37,5 @@ in {
   "restic-server-pass.age".publicKeys = systems ++ users;
   "restic-server-repo.age".publicKeys = systems ++ users;
   "restic-server-env.age".publicKeys = systems ++ users;
+  "lemmy.env.age".publicKeys = systems ++ users;
 }

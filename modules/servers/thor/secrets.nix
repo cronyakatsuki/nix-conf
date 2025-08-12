@@ -10,6 +10,9 @@
       conduit = {
         file = ../../../secrets/conduit.age;
       };
+      lemmy-env = {
+        file = ../../../secrets/lemmy.env.age;
+      };
     };
   };
 }
