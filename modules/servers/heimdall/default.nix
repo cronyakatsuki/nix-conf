@@ -6,5 +6,6 @@
     ./secrets.nix
     ./redlib.nix
     ./beszel-hub.nix
+    ./atuin.nix
   ];
 }
