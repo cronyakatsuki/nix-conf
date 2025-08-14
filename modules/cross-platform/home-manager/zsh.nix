@@ -42,7 +42,7 @@
       autosuggestion.enable = true;
       historySubstringSearch.enable = true;
 
-      dotDir = ".config/zsh";
+      dotDir = "${config.home.homeDirectory}.config/zsh";
 
       shellAliases = {
         # General aliases

@@ -10,7 +10,7 @@
   imports = [
     inputs.nvf.homeManagerModules.default
     ../../modules/cross-platform/home-manager
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
   ];
 
   stylix = {
