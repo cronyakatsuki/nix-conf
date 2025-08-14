@@ -11,6 +11,7 @@
 
   config = lib.mkIf config.crony.shell-additions.enable {
     home.packages = with pkgs; [
+      android-tools
       nix-output-monitor
       nvd
       nurl
