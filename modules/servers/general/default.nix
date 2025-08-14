@@ -11,5 +11,6 @@
     ./optimise-storage.nix
     ./restic.nix
     ./nix-features.nix
+    ./shell.nix
   ];
 }
