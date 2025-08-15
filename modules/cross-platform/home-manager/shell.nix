@@ -140,6 +140,9 @@
         auto_sync = true;
         sync_frequency = "5m";
         sync_address = "https://atuin.cronyakatsuki.xyz";
+        style = "compact";
+        workspaces = true;
+        keymap_mode = "vim-normal";
       };
     };
   };
