@@ -26,18 +26,6 @@
       vif = ''nvim $(fzf --preview="bat --color=always {}")'';
     };
 
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "zap-zsh/supercharge"
-        "zap-zsh/completions"
-        "zap-zsh/vim"
-        "chivalryq/git-alias"
-        "zdharma-continuum/fast-syntax-highlighting"
-        "zsh-users/zsh-history-substring-search"
-        "MichaelAquilina/zsh-you-should-use"
-      ];
-    };
     # antidote = {
     #   enable = true;
     #   plugins = [
