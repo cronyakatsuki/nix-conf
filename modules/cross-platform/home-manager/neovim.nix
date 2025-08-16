@@ -66,7 +66,6 @@ in {
             inlayHints.enable = true;
             lightbulb.enable = true;
             lspSignature.enable = true;
-            lspkind.enable = true;
             lspsaga.enable = true;
             otter-nvim.enable = true;
             trouble.enable = true;
@@ -88,13 +87,8 @@ in {
           };
 
           # Some git related stuff
-          git = {
-            git-conflict = {
-              enable = true;
-            };
-            gitlinker-nvim = {
-              enable = true;
-            };
+          git.git-conflict = {
+            enable = true;
           };
 
           # Autocompletion
@@ -159,9 +153,6 @@ in {
           # utility related plugins
           utility = {
             direnv = {
-              enable = true;
-            };
-            icon-picker = {
               enable = true;
             };
             snacks-nvim = {
