@@ -172,57 +172,72 @@
 
     nixosConfigurations = {
       heimdall = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/heimdall/configuration.nix
           ./modules/servers/general
           ./modules/servers/heimdall
+          ./modules/servers/home-manager
         ];
       };
 
       loki = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/loki/configuration.nix
           ./modules/servers/general
           ./modules/servers/loki
+          ./modules/servers/home-manager
         ];
       };
 
       baldur = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         system = "aarch64-linux";
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/baldur/configuration.nix
           ./modules/servers/general
           ./modules/servers/baldur
+          ./modules/servers/home-manager
         ];
       };
 
       bragi = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         system = "aarch64-linux";
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/bragi/configuration.nix
           ./modules/servers/general
           ./modules/servers/bragi
+          ./modules/servers/home-manager
         ];
       };
 
       thor = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         system = "aarch64-linux";
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/thor/configuration.nix
           ./modules/servers/general
           ./modules/servers/thor
+          ./modules/servers/home-manager
         ];
       };
 
@@ -232,9 +247,11 @@
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/odin/configuration.nix
           ./modules/servers/general
           ./modules/servers/odin
+          ./modules/servers/home-manager
         ];
       };
 
@@ -244,9 +261,11 @@
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           ./hosts/freyja/configuration.nix
           ./modules/servers/general
           ./modules/servers/freyja
+          ./modules/servers/home-manager
         ];
       };
 
