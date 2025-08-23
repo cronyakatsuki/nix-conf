@@ -9,6 +9,9 @@
       "--keep-weekly 5"
       "--keep-monthly 12"
     ];
+    pruneOptsLocal = [
+      "--keep-last 2"
+    ];
     checkOpts = [
       "--read-data-subset=10%"
       "--with-cache"
@@ -21,7 +24,7 @@ in {
       passwordFile = config.age.secrets.restic-server-local-pass.path;
       repository = "/var/lib/backup";
       paths = opts.paths;
-      pruneOpts = opts.pruneOpts;
+      pruneOpts = opts.pruneOptsLocal;
       checkOpts = opts.checkOpts;
     };
     server = {
