@@ -3,10 +3,6 @@
   pkgs,
   ...
 }: {
-  # basic info
-  home.username = "root";
-  home.homeDirectory = "/root";
-
   # Setup zsh
   programs.zsh = {
     enable = true;

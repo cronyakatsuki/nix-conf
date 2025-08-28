@@ -4,7 +4,12 @@
   home-manager.backupFileExtension = "backup";
   home-manager.users.root = {
     imports = [
-      ./home.nix
+      ./root.nix
+    ];
+  };
+  home-manager.users.crony = {
+    imports = [
+      ./crony.nix
     ];
   };
 }

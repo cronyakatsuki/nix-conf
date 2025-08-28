@@ -3,5 +3,9 @@
     shell = pkgs.zsh;
   };
 
+  users.extraUsers.crony = {
+    shell = pkgs.zsh;
+  };
+
   programs.zsh.enable = true;
 }
