@@ -11,7 +11,7 @@
       http = ":8090";
     };
     redisCreateLocally = true;
-    runInUwsgi = true;
+    configureUwsgi = true;
     environmentFile = "${config.age.secrets.searx.path}";
   };
 
