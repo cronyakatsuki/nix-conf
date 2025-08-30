@@ -1,4 +1,7 @@
 {config, ...}: {
+  # Not reall that safe but convenient af
+  security.sudo.wheelNeedsPassword = false;
+
   users.users.crony = {
     hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     isNormalUser = true;

@@ -24,6 +24,7 @@
 
     antidote = {
       enable = true;
+      useFriendlyNames = true;
       plugins = [
         "zap-zsh/supercharge"
         "zap-zsh/completions"
@@ -100,6 +101,20 @@
   # Let home manager install and manage itself
   programs.home-manager.enable = true;
 
+  # Install and setup atuin
+  programs.atuin = {
+    enable = true;
+    daemon.enable = true;
+    enableZshIntegration = true;
+    settings = {
+      auto_sync = true;
+      sync_frequency = "5m";
+      sync_address = "https://atuin.cronyakatsuki.xyz";
+      style = "compact";
+      workspaces = true;
+      keymap_mode = "vim-normal";
+    };
+  };
   # DO NOT CHANGE
   home.stateVersion = "24.11"; # Please read the comment before changing.
 }
