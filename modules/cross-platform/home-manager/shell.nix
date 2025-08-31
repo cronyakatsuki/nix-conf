@@ -143,6 +143,7 @@
         style = "compact";
         workspaces = true;
         keymap_mode = "vim-normal";
+        filter_mode = "directory";
       };
     };
   };
