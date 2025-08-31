@@ -11,6 +11,7 @@
   config = lib.mkIf config.crony.sunshine.enable {
     services.sunshine = {
       enable = true;
+      package = pkgs.sunshine.override {cudaSupport = true;};
       autoStart = false;
       capSysAdmin = true;
       openFirewall = true;
