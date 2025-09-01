@@ -79,6 +79,9 @@
 
     # My custom script for downloading humble bundle bundle's
     hb-downloader.url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
+
+    # Dev version of hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
