@@ -16,8 +16,7 @@
       nvd
       nurl
       termsonic
-      inputs.iamb.packages.x86_64-linux.default
-      toot
+      # inputs.iamb.packages.x86_64-linux.default
       inputs.agenix.packages.${system}.default
       inputs.deploy-rs.packages.${system}.default
       inputs.hb-downloader.packages.${system}.default

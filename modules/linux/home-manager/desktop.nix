@@ -15,7 +15,7 @@
       spice-gtk
       vesktop
       piper
-      jellyfin-mpv-shim
+      # jellyfin-mpv-shim
       overskride
       galaxy-buds-client
       tiled
