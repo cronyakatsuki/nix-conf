@@ -27,6 +27,7 @@
       superTuxKart
       cataclysm-dda
       nzportable
+      proton-ge-custom
     ];
   };
 }

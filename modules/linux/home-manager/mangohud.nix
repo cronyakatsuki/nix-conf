@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: {
@@ -11,6 +12,7 @@
     # Setup nice view for mangohud
     programs.mangohud = {
       enable = true;
+      package = pkgs.mangohud_git;
       settings = {
         fps_limit = "0,30,60,120,144";
         gpu_stats = true;
