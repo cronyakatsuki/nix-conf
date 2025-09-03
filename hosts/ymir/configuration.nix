@@ -19,7 +19,13 @@
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   # Use the xanmod kernel
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  services.scx = {
+    enable = true;
+    package = pkgs.scx_git.full;
+    scheduler = "scx_lavd";
+    extraArgs = ["--autopower"];
+  };
 
   # Get nicer hostname
   networking.hostName = "ymir"; # Define your hostname.

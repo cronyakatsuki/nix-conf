@@ -82,6 +82,9 @@
 
     # Dev version of hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+
+    # Chaotic repo for some of their packages
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = {
@@ -95,6 +98,7 @@
     disko,
     agenix,
     nix-flatpak,
+    chaotic,
     ...
   } @ inputs: {
     deploy.nodes = {
@@ -291,6 +295,8 @@
           disko.nixosModules.disko
           # Use flatpak for one package globally
           nix-flatpak.nixosModules.nix-flatpak
+          # Use chaotic for some packages
+          chaotic.nixosModules.default
           # Setup home manager for my user
           home-manager.nixosModules.home-manager
           {
