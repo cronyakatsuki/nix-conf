@@ -19,7 +19,7 @@
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   # Use the xanmod kernel
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
     enable = true;
     package = pkgs.scx_git.full;
@@ -173,7 +173,7 @@
   crony.wireguard.enable = true;
   crony.additional-hardware.enable = true;
   crony.secrets.enable = true;
-  crony.ryzenadj.enable = true;
+  crony.ryzenadj.enable = false;
   crony.auto-cpufreq.enable = true;
   crony.hyprland-nixos.enable = true;
   crony.ollama.enable = false;
