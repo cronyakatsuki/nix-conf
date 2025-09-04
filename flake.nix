@@ -81,7 +81,16 @@
     hb-downloader.url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
 
     # Dev version of hyprland
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Dev version of hyprlock
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Chaotic repo for some of their packages
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";

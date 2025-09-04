@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -66,6 +67,7 @@
     # Enable hyprlock
     programs.hyprlock = {
       enable = true;
+      package = inputs.hyprlock.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock;
       settings = {
         general = {
           disable_loading_bar = true;
