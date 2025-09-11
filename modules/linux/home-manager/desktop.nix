@@ -11,16 +11,11 @@
   config = lib.mkIf config.crony.desktop.enable {
     home.packages = with pkgs; [
       keepassxc
-      tutanota-desktop
-      spice-gtk
       vesktop
       piper
-      # jellyfin-mpv-shim
-      overskride
       galaxy-buds-client
       tiled
       nicotine-plus
-      # cbconvert-gui
     ];
 
     # Install thunderbird

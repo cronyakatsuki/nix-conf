@@ -17,8 +17,6 @@
       itch
       wineWowPackages.staging
       osu-lazer-bin
-      steam-rom-manager
-      bolt-launcher
       space-cadet-pinball
       gzdoom
       qzdl
@@ -27,7 +25,6 @@
       superTuxKart
       cataclysm-dda
       nzportable
-      proton-ge-custom
     ];
   };
 }

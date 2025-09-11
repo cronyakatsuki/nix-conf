@@ -24,6 +24,7 @@
       dolphin-emu
       rpcs3
       mame-tools
+      steam-rom-manager
     ];
   };
 }

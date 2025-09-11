@@ -84,12 +84,6 @@
       nix-direnv.enable = true;
     };
 
-    # Install pay respects
-    programs.pay-respects = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
     # Install tealdeer
     programs.tealdeer.enable = true;
 
@@ -145,14 +139,6 @@
         keymap_mode = "vim-normal";
         filter_mode = "directory";
       };
-    };
-
-    programs.password-store = {
-      enable = true;
-      settings = {
-        PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.password-store";
-      };
-      package = pkgs.pass.withExtensions (exts: [exts.pass-import exts.pass-update exts.pass-genphrase exts.pass-file exts.pass-audit]);
     };
   };
 }
