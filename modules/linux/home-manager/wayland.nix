@@ -28,7 +28,7 @@
         horizontal = true;
         history = false;
         require-match = false;
-        terminal = "ghostty";
+        terminal = "foot";
         outline-width = 0;
         border-width = 0;
         min-input-width = 120;
@@ -42,18 +42,6 @@
 
     # Install foot
     programs.foot.enable = true;
-
-    programs.ghostty = {
-      enable = true;
-      enableZshIntegration = true;
-      installVimSyntax = true;
-      settings = {
-        window-decoration = false;
-        mouse-hide-while-typing = true;
-        resize-overlay = "never";
-        window-padding-balance = true;
-      };
-    };
 
     # Setup and enable mako
     services.mako = {
