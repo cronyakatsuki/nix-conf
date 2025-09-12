@@ -127,7 +127,7 @@ in {
       settings = {
         "$mod" = "SUPER";
         "$menu" = "tofi";
-        "$terminal" = "foot";
+        "$terminal" = "ghostty";
 
         exec = [
           # Fix laptop monitor getting turned on while my external monitor connected
