@@ -49,6 +49,9 @@
       installVimSyntax = true;
       settings = {
         window-decoration = false;
+        mouse-hide-while-typing = true;
+        resize-overlay = "never";
+        window-padding-balance = true;
       };
     };
 
