@@ -46,5 +46,9 @@
         value = "1048576";
       }
     ];
+
+    # Setup switch pro controller
+    hardware.steam-hardware.enable = true;
+    services.joycond.enable = true;
   };
 }
