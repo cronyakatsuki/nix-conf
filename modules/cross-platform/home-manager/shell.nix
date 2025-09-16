@@ -75,6 +75,9 @@
       enableZshIntegration = true;
       git = true;
       icons = "always";
+      extraOptions = [
+        "--group-directories-first"
+      ];
     };
 
     # Install direnv
