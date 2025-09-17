@@ -24,7 +24,7 @@
       xonotic
       superTuxKart
       cataclysm-dda
-      nzportable
+      # nzportable
     ];
   };
 }
