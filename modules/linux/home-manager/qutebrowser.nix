@@ -37,6 +37,10 @@
         y = "https://www.youtube.com/results?search_query={}";
       };
       settings = {
+        url.start_pages = [
+          "192.168.0.16:3000"
+        ];
+
         colors.webpage = {
           preferred_color_scheme = "dark";
           darkmode.enabled = true;
