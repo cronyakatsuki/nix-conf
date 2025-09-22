@@ -12,7 +12,7 @@
     # Enable theming chromium + use ungoogled chromium package
     programs.chromium = {
       enable = true;
-      package = pkgs.ungoogled-chromium;
+      package = pkgs.brave;
       # Fix for wayland
       commandLineArgs = [
         "--ozone-platform-hint=auto"
