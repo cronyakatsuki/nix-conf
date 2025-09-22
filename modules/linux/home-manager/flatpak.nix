@@ -14,7 +14,6 @@
         "com.usebottles.bottles"
         "com.github.tchx84.Flatseal"
         "cafe.avery.Delfin"
-        "org.vinegarhq.Sober"
       ];
 
       update.auto = {

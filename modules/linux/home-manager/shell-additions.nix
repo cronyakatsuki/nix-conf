@@ -15,7 +15,7 @@
       nix-output-monitor
       nvd
       nurl
-      termsonic
+      # termsonic
       # inputs.iamb.packages.x86_64-linux.default
       inputs.agenix.packages.${system}.default
       inputs.deploy-rs.packages.${system}.default

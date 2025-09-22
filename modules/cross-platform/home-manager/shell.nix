@@ -11,20 +11,14 @@
 
   config = lib.mkIf config.crony.shell.enable {
     home.packages = with pkgs; [
-      alejandra
       age
-      entr
       ffmpeg
       imagemagick
-      glow
       buku
       unzip
       p7zip
       aria2
-      commitizen
-      license-go
       just
-      dysk
     ];
 
     # Enable nix-index

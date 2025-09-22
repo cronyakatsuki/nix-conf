@@ -17,13 +17,10 @@
       itch
       wineWowPackages.staging
       osu-lazer-bin
-      space-cadet-pinball
       gzdoom
       qzdl
-      zeroad
       xonotic
       superTuxKart
-      cataclysm-dda
       # nzportable
     ];
   };

@@ -14,7 +14,6 @@
       vesktop
       piper
       galaxy-buds-client
-      tiled
       nicotine-plus
     ];
 
