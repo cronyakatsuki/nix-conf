@@ -132,10 +132,10 @@ in {
         exec = [
           # Fix laptop monitor getting turned on while my external monitor connected
           "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
+          "pkill waybar; waybar" # Kill waybar and start new instance because everytime hyprland restarts breaks waybar
         ];
 
         exec-once = [
-          "waybar" # Start waybar on start
           "wl-paste --type text --watch cliphist store" # Stores only text data
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
