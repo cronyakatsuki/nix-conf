@@ -173,6 +173,15 @@
           path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.freyja;
         };
       };
+
+      tyr = {
+        hostname = "tyr";
+        profiles.system = {
+          sshUser = "root";
+          user = "root";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.tyr;
+        };
+      };
     };
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
@@ -282,6 +291,18 @@
           ./modules/servers/general
           ./modules/servers/freyja
           ./modules/servers/home-manager
+        ];
+      };
+
+      tyr = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          inputs.stylix.nixosModules.stylix
+          auto-cpufreq.nixosModules.default
+          ./hosts/tyr/configuration.nix
+          ./modules/linux/nixos
         ];
       };
 
