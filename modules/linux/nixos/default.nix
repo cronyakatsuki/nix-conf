@@ -42,7 +42,7 @@
   crony.auto-cpufreq.enable = lib.mkDefault false;
   crony.wireguard.enable = lib.mkDefault false;
   crony.hyprland-nixos.enable = lib.mkDefault false;
-  crony.sddm.enable = lib.mkDefault true;
+  crony.sddm.enable = lib.mkDefault false;
   crony.watchdog.disable = lib.mkDefault true;
   crony.general-services.enable = lib.mkDefault true;
   crony.additional-hardware.enable = lib.mkDefault false;
