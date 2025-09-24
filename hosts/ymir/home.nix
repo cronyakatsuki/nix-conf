@@ -22,6 +22,7 @@
     EDITOR = "nvim";
     TERMINAL = "foot";
     WINEPREFIX = "$HOME/.local/share/wineprefix/default";
+    SECOND_BRAIN = "$HOME/docs/sb";
   };
 
   # Let Home Manager install and manage itself.
