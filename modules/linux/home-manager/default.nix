@@ -23,18 +23,18 @@
 
   crony.river.enable = lib.mkDefault false;
   crony.wayland.enable = lib.mkDefault false;
-  crony.qutebrowser.enable = lib.mkDefault true;
+  crony.qutebrowser.enable = lib.mkDefault false;
   crony.mangohud.enable = lib.mkDefault false;
   crony.nnn.enable = lib.mkDefault true;
-  crony.mpv.enable = lib.mkDefault true;
+  crony.mpv.enable = lib.mkDefault false;
   crony.obs-studio.enable = lib.mkDefault false;
   crony.restic.enable = lib.mkDefault false;
   crony.hyprland.enable = lib.mkDefault false;
-  crony.browsers.enable = lib.mkDefault true;
+  crony.browsers.enable = lib.mkDefault false;
   crony.emulators.enable = lib.mkDefault false;
-  crony.desktop.enable = lib.mkDefault true;
+  crony.desktop.enable = lib.mkDefault false;
   crony.gaming.enable = lib.mkDefault false;
-  crony.shell-additions.enable = lib.mkDefault true;
+  crony.shell-additions.enable = lib.mkDefault false;
   crony.flatpak.enable = lib.mkDefault false;
   crony.newsboat.enable = lib.mkDefault false;
   crony.xdg-user-dirs.enable = lib.mkDefault true;

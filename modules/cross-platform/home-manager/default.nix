@@ -7,7 +7,7 @@
     ./zsh.nix
   ];
 
-  crony.neovim.enable = lib.mkDefault true;
+  crony.neovim.enable = lib.mkDefault false;
   crony.shell.enable = lib.mkDefault true;
   crony.tmux.enable = lib.mkDefault true;
   crony.zsh.enable = lib.mkDefault true;
