@@ -178,6 +178,7 @@
   crony.hyprland-nixos.enable = true;
   crony.ollama.enable = false;
   crony.sunshine.enable = true;
+  crony.nfs-share.enable = true;
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [

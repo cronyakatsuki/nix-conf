@@ -38,7 +38,7 @@
   crony.ryzenadj.enable = lib.mkDefault false;
   crony.qemu.enable = lib.mkDefault false;
   crony.amdgpu.enable = lib.mkDefault false;
-  crony.nfs-share.enable = lib.mkDefault true;
+  crony.nfs-share.enable = lib.mkDefault false;
   crony.auto-cpufreq.enable = lib.mkDefault false;
   crony.wireguard.enable = lib.mkDefault false;
   crony.hyprland-nixos.enable = lib.mkDefault false;
