@@ -134,18 +134,6 @@
   # Enable my specific settings
   crony.secrets.enable = true;
 
-  # Optimise storage
-  nix.optimise = {
-    automatic = true;
-    dates = "weekly";
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 10d";
-  };
-
   # setup podman for virtualisation
   virtualisation = {
     podman = {
