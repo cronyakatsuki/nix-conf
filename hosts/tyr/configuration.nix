@@ -17,6 +17,24 @@
   # Get nicer hostname
   networking.hostName = "tyr"; # Define your hostname.
 
+  # Enable and setup networking
+  networking.networkmanager.enable = true;
+  networking.interfaces.enp1s0.ipv4.addresses = [
+    {
+      address = "192.168.0.5";
+      prefixLength = 24;
+    }
+  ];
+  networking.defaultGateway = "192.168.0.1";
+  networking.nameservers = ["194.242.2.4#base.dns.mullvad.net"];
+  services.resolved = {
+    enable = true;
+    fallbackDns = ["194.242.2.4#base.dns.mullvad.net"];
+    dnssec = "true";
+    dnsovertls = "true";
+    domains = ["~."];
+  };
+
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
