@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   ...
@@ -67,16 +68,16 @@
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    # hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
+    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat" "realtime"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJLduAXHWJiglmfRfkBGKffzVWkJP6porxIzw6+Zz3W crony@cronyakatsuki.xyz"
     ];
   };
 
-  # users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
+  users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
 
-  # users.mutableUsers = false;
+  users.mutableUsers = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -126,11 +127,9 @@
 
   services.fail2ban = {
     enable = true;
-    ignoreIP = [
-      "65.21.241.194"
-    ];
   };
 
+  # Enable my specific settings
   crony.secrets.enable = true;
 
   # Enable nixd to see nixpkgs path

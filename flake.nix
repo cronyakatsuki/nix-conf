@@ -303,6 +303,19 @@
           auto-cpufreq.nixosModules.default
           ./hosts/tyr/configuration.nix
           ./modules/linux/nixos
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.crony = {
+              imports = [
+                ./modules/linux/home-manager
+                ./modules/cross-platform/home-manager
+                ./hosts/tyr/home.nix
+              ];
+            };
+          }
         ];
       };
 
