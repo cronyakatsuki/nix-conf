@@ -26,10 +26,10 @@
     }
   ];
   networking.defaultGateway = "192.168.0.1";
-  networking.nameservers = ["194.242.2.4#base.dns.mullvad.net"];
+  networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
   services.resolved = {
     enable = true;
-    fallbackDns = ["194.242.2.4#base.dns.mullvad.net"];
+    fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
     dnssec = "true";
     dnsovertls = "true";
     domains = ["~."];
