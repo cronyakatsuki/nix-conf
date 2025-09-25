@@ -19,6 +19,9 @@ in {
         wg-home = {
           file = ../../../secrets/wg-home.age;
         };
+        wg-ymir-home = {
+          file = ../../../secrets/wg-ymir-home.age;
+        };
         crony-passwd = {
           file = ../../../secrets/crony-passwd-desktop.age;
         };

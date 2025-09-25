@@ -39,4 +39,6 @@ in {
   "restic-server-repo.age".publicKeys = systems ++ users;
   "restic-server-env.age".publicKeys = systems ++ users;
   "lemmy.env.age".publicKeys = systems ++ users;
+  "wg-ymir-home.age".publicKeys = systems ++ users;
+  "wg-tyr.age".publicKeys = systems ++ users;
 }
