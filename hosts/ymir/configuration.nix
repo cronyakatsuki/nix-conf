@@ -44,10 +44,13 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.nameservers = ["192.168.0.10" "1.1.1.1"];
+  networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
   services.resolved = {
     enable = true;
-    fallbackDns = ["192.168.0.10" "1.1.1.1"];
+    fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+    dnssec = "true";
+    dnsovertls = "true";
+    domains = ["~."];
   };
 
   # Set your time zone.
