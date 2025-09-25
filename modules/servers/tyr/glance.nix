@@ -44,6 +44,12 @@
                     }
                   ];
                 }
+                {
+                  type = "videos";
+                  channels = [
+                    "UCR-DXc1voovS8nhAvccRZhg"
+                  ];
+                }
               ];
             }
             {
