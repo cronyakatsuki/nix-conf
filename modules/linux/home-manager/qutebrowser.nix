@@ -38,7 +38,7 @@
       };
       settings = {
         url.start_pages = [
-          "192.168.0.16:3000"
+          "192.168.0.5:8080"
         ];
 
         colors.webpage = {
