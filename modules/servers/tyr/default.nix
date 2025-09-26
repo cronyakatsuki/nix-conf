@@ -5,5 +5,6 @@
     ./wallos.nix
     ./wireguard.nix
     ./secrets.nix
+    ./nfs-server.nix
   ];
 }
