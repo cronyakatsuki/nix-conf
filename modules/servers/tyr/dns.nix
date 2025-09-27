@@ -14,12 +14,18 @@
         "127.0.0.1:553"
       ];
 
+      bootstrapDns = [
+        "tcp+udp:127.0.0.1:553"
+      ];
+
       blocking = {
         denylists = {
           "pro" = ["https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/wildcard/pro.txt"];
           "tif" = ["https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/wildcard/tif.txt"];
+          "fake" = ["https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/wildcard/fake.txt"];
+          "gambling" = ["https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/wildcard/gambling.txt"];
         };
-        clientGroupsBlock.default = ["pro" "tif"];
+        clientGroupsBlock.default = ["pro" "tif" "fake" "gambling"];
       };
 
       caching = {
@@ -38,6 +44,14 @@
         port = 553;
         do-ip4 = true;
         do-ip6 = false;
+        access-control = ["127.0.0.1 allow"];
+        harden-glue = true;
+        harden-dnssec-stripped = true;
+        use-caps-for-id = false;
+        edns-buffer-size = 1232;
+
+        hide-identity = true;
+        hide-version = true;
 
         prefetch = true;
         cache-max-ttl = 60;
