@@ -6,5 +6,6 @@
     ./wireguard.nix
     ./secrets.nix
     ./nfs-server.nix
+    ./dns.nix
   ];
 }

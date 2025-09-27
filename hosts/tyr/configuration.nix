@@ -26,13 +26,10 @@
     }
   ];
   networking.defaultGateway = "192.168.0.1";
-  networking.nameservers = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
+  networking.nameservers = ["127.0.0.1"];
   services.resolved = {
     enable = true;
-    fallbackDns = ["1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one"];
-    dnssec = "true";
-    dnsovertls = "true";
-    domains = ["~."];
+    fallbackDns = ["127.0.0.1"];
   };
 
   # Enable flakes
