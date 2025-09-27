@@ -41,4 +41,5 @@ in {
   "lemmy.env.age".publicKeys = systems ++ users;
   "wg-ymir-home.age".publicKeys = systems ++ users;
   "wg-tyr.age".publicKeys = systems ++ users;
+  "duckdns.age".publicKeys = systems ++ users;
 }

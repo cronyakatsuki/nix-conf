@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   services.resolved.extraConfig = ''
     DNSStubListener=no
   '';
@@ -45,5 +45,12 @@
         serve-original-ttl = true;
       };
     };
+  };
+
+  # Setup duck dns for dynamic dns
+  services.duckdns = {
+    enable = true;
+    domains = ["cronyakatsuki"];
+    tokenFile = "${config.age.secrets.duckdns.path}";
   };
 }
