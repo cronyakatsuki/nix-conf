@@ -14,9 +14,11 @@
         "127.0.0.1:553"
       ];
 
-      bootstrapDns = [
-        "tcp+udp:127.0.0.1:553"
-      ];
+      # For initially solving DoH/DoT Requests when no system Resolver is available.
+      bootstrapDns = {
+        upstream = "https://one.one.one.one/dns-query";
+        ips = ["1.1.1.1" "1.0.0.1"];
+      };
 
       blocking = {
         denylists = {
@@ -31,6 +33,11 @@
       caching = {
         prefetching = true;
         minTime = "1m";
+      };
+
+      clientLookup = {
+        upstream = "192.168.0.1";
+        singleNameOrder = [1];
       };
     };
   };
