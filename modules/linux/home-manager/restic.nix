@@ -53,6 +53,14 @@ in {
           pruneOpts = opts.pruneOpts;
           checkOpts = opts.checkOpts;
         };
+        nas = {
+          initialize = true;
+          passwordFile = "/run/user/1000/agenix/restic-local-pass";
+          repository = "/home/crony/docs/nfs";
+          paths = opts.paths;
+          pruneOpts = opts.pruneOpts;
+          checkOpts = opts.checkOpts;
+        };
         backblaze = {
           initialize = true;
           passwordFile = "/run/user/1000/agenix/restic-backblaze-pass";
