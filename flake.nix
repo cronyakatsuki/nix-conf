@@ -304,6 +304,7 @@
           ./hosts/tyr/configuration.nix
           ./modules/linux/nixos
           ./modules/servers/tyr
+          ./modules/servers/general/restic.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

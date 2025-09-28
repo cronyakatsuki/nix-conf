@@ -14,4 +14,9 @@
   networking.firewall = {
     allowedTCPPorts = [8282];
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/wallos"];
+    server.paths = ["/var/lib/wallos"];
+  };
 }

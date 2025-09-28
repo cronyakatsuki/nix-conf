@@ -8,4 +8,9 @@
   networking.firewall = {
     allowedTCPPorts = [8384];
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/syncthing"];
+    server.paths = ["/var/lib/syncthing"];
+  };
 }
