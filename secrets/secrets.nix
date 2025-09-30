@@ -12,8 +12,9 @@ let
   # USERS
   root = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID2HeOFYaGmjP3OQzPuA+DSjkqfyYH4axoDPWKVP/jdU root@ymir";
   crony = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJLduAXHWJiglmfRfkBGKffzVWkJP6porxIzw6+Zz3W crony@cronyakatsuki.xyz";
+  root-skadi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJ85a6FAJqM8QhtGcrT3BGDs2G8m7DFtWNDh2Vvkr0V root@skadi";
 
-  users = [root crony];
+  users = [root crony root-skadi];
   systems = [heimdall loki baldur bragi thor odin freyja tyr];
 in {
   "traefik.age".publicKeys = systems ++ users;
