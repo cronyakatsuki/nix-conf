@@ -358,6 +358,44 @@
           }
         ];
       };
+
+      skadi = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          # Get the system config
+          ./hosts/skadi/configuration.nix
+          # Enable stylix
+          inputs.stylix.nixosModules.stylix
+          # Load updated auto-cpufreq
+          auto-cpufreq.nixosModules.default
+          # Load my modules
+          ./modules/linux/nixos
+          # Still no specific modules here
+          # ./modules/cross-platform/nixos
+          # Use agenix for secrets
+          agenix.nixosModules.default
+          # Use disko for creating filesystem
+          disko.nixosModules.disko
+          # Use flatpak for one package globally
+          nix-flatpak.nixosModules.nix-flatpak
+          # Use chaotic for some packages
+          chaotic.nixosModules.default
+          # Setup home manager for my user
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.crony = {
+              imports = [
+                ./hosts/skadi/home.nix
+                ./modules/linux/home-manager
+                ./modules/cross-platform/home-manager
+              ];
+            };
+          }
+        ];
+      };
     };
 
     devShells = {
