@@ -33,16 +33,15 @@
   crony.gaming.enable = true;
   crony.flatpak.enable = true;
   crony.wayland.enable = true;
-  crony.river.enable = false;
   crony.hyprland.enable = true;
-  crony.home-secrets.enable = true;
-  crony.restic.enable = true;
   crony.neovim.enable = true;
   crony.qutebrowser.enable = true;
   crony.mpv.enable = true;
   crony.browsers.enable = true;
   crony.desktop.enable = true;
   crony.shell-additions.enable = true;
+  crony.home-secrets.enable = true;
+  crony.restic.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.

@@ -56,7 +56,7 @@ in {
         nas = {
           initialize = true;
           passwordFile = "/run/user/1000/agenix/restic-local-pass";
-          repository = "/home/crony/docs/nfs";
+          repository = "/home/crony/docs/nfs/backup";
           paths = opts.paths;
           pruneOpts = opts.pruneOpts;
           checkOpts = opts.checkOpts;

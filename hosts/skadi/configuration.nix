@@ -28,7 +28,7 @@
   };
 
   # Get nicer hostname
-  networking.hostName = "ymir"; # Define your hostname.
+  networking.hostName = "skadi"; # Define your hostname.
 
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -122,28 +122,20 @@
     binfmt = true;
   };
 
-  # Enable light for image control
-  programs.light.enable = true;
-
   # Enable polkit
   security.polkit.enable = true;
-
-  # programs.river = {
-  #   enable = true;
-  #   extraPackages = [];
-  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    # hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
+    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat" "realtime"];
   };
 
-  # users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
+  users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
 
-  # users.mutableUsers = false;
+  users.mutableUsers = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -176,19 +168,13 @@
   };
 
   # Enable my flake specific settings
-  # crony.nvidia.enable = true;
   crony.gaming.enable = true;
-  crony.nbfc.enable = true;
-  crony.wireguard.enable = true;
   crony.additional-hardware.enable = true;
-  crony.secrets.enable = true;
-  crony.ryzenadj.enable = false;
-  crony.auto-cpufreq.enable = true;
   crony.hyprland-nixos.enable = true;
-  crony.ollama.enable = false;
-  crony.sunshine.enable = true;
   crony.nfs-share.enable = true;
   crony.sddm.enable = true;
+  crony.wireguard.enable = true;
+  crony.secrets.enable = true;
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
