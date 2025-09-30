@@ -129,11 +129,23 @@ in {
         "$menu" = "tofi";
         "$terminal" = "foot";
 
+        env = [
+          "LIBVA_DRIVER_NAME,nvidia"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          # "WLR_NO_HARDWARE_CURSORS,1"
+          # " WLR_DRM_NO_ATOMIC,1"
+          "__GL_GSYNC_ALLOWED,1"
+        ];
+
         exec = [
           # Fix laptop monitor getting turned on while my external monitor connected
           "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
           "pkill waybar; waybar" # Kill waybar and start new instance because everytime hyprland restarts breaks waybar
         ];
+
+        cursor = {
+          no_hardware_cursors = true;
+        };
 
         exec-once = [
           "wl-paste --type text --watch cliphist store" # Stores only text data
@@ -174,7 +186,7 @@ in {
         };
 
         misc = {
-          vrr = 1;
+          vrr = 2;
         };
 
         input = {
