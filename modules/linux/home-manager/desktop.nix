@@ -15,6 +15,7 @@
       piper
       galaxy-buds-client
       nicotine-plus
+      ventoy
     ];
 
     # Install thunderbird
