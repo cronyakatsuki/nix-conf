@@ -294,18 +294,17 @@ in {
           # Disable animations for ueberzugpp
           "noanim, class:^(ueberzugpp.*)$"
 
-          # Allow tearing for sifu
-          "immediate, class:^(steam_app_2138710)$"
-          "immediate, class:^(steam_app_1145360)$"
-          "immediate, class:^(Graveyard Keeper.x86_64)$"
-          "immediate, class:^(gamescope)$"
-          "immediate, class:^(steam_app_1087760)$"
-
           # Make workspace 6 a floating layout
           "float, workspace:6"
 
           # Make keepassxc floating
           "float, class:^(org.keepassxc.KeePassXC)$"
+
+          # Setup settings for games
+          "fullscreen,class:^steam_app_\d+$"
+          "monitor 1,class:^steam_app_\d+$"
+          "workspace 6,class:^steam_app_\d+$"
+          "content game, class:^steam_app_\d+$"
 
           # Move to workspace 1
           "workspace 1, class:^(org.qutebrowser.qutebrowser)$"

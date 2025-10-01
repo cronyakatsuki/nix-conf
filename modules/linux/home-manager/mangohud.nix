@@ -26,6 +26,7 @@
         cpu_temp = true;
         cpu_text = "CPU";
         cpu_mhz = true;
+        cpu_power = true;
         cpu_load_change = true;
 
         vram = true;
