@@ -105,6 +105,9 @@
     nvidiaSupport = true;
   };
 
+  # Setup gpu fan curves
+  services.lact.enable = true;
+
   # Needed modules to have fan control
   boot.kernelModules = ["coretemp" "nct6775"];
 
