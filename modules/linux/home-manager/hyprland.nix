@@ -186,7 +186,7 @@ in {
         };
 
         misc = {
-          vrr = 0;
+          vrr = 2;
         };
 
         input = {
