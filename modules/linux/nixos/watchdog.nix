@@ -8,7 +8,6 @@
   };
 
   config = lib.mkIf config.crony.watchdog.disable {
-    boot.kernelParams = ["nmi_watchdog=0"];
     boot.blacklistedKernelModules = ["sp5100_tco"];
   };
 }

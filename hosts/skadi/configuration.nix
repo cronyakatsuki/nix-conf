@@ -103,11 +103,29 @@
   programs.noisetorch.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 256;
+        "default.clock.min-quantum" = 256;
+        "default.clock.max-quantum" = 256;
+      };
+    };
+    wireplumber.extraConfig = {
+      "10-disable-camera" = {
+        "wireplumber.profiles" = {
+          main = {
+            "monitor.libcamera" = "disabled";
+          };
+        };
+      };
+    };
+
     alsa = {
       enable = true;
       support32Bit = true;
@@ -175,6 +193,7 @@
   crony.sddm.enable = true;
   crony.wireguard.enable = true;
   crony.secrets.enable = true;
+  crony.boot.enable = true;
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
