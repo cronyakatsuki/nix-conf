@@ -18,6 +18,9 @@
   # Enable aarch64 emulation
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
+  # Disable intel watchdog for good
+  boot.blacklistedKernelModules = ["intel_pmc_bxt" "iTCO_vendor_support" "iTCO_wdt"];
+
   # Use the xanmod kernel
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
@@ -95,6 +98,15 @@
     packages = [
     ];
   };
+
+  # Enable coolercontrol to setup fancurves
+  programs.coolercontrol = {
+    enable = true;
+    nvidiaSupport = true;
+  };
+
+  # Needed modules to have fan control
+  boot.kernelModules = ["coretemp" "nct6775"];
 
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
