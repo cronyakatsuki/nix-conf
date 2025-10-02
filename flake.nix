@@ -83,7 +83,7 @@
     # Dev version of hyprland
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Dev version of hyprlock
