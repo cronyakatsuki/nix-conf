@@ -144,7 +144,9 @@ in {
         ];
 
         cursor = {
-          no_hardware_cursors = true;
+          no_break_fs_vrr = 1;
+          no_hardware_cursors = 1;
+          use_cpu_buffer = 0;
         };
 
         exec-once = [
