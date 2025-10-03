@@ -73,6 +73,12 @@
 
   '';
   playerctl = "${pkgs.playerctl}/bin/playerctl";
+  hypr-fix-vrr = pkgs.writeShellScriptBin "hypr-fix-vrr" ''
+    #!/usr/bin/env sh
+    hyprctl --batch "keyword cursor:no_break_fs_vrr 0; keyword cursor:no_hardware_cursors 0"
+    sleep 1
+    hyprctl --batch "keyword cursor:no_break_fs_vrr 1; keyword cursor:no_hardware_cursors 1"
+  '';
 in {
   options = {
     crony.hyprland.enable = lib.mkEnableOption "Enable hyprland and configure it for me";
@@ -106,7 +112,7 @@ in {
           {
             timeout = 10; # 10 sec
             on-timeout = "pidof hyprlock && hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
-            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
+            on-resume = "hyprctl dispatch dpms on && ${hypr-fix-vrr}/bin/hypr-fix-vrr"; # Turn on screen when activiy is detected after timeout has fired
           }
           {
             timeout = 300; # 5min
@@ -115,7 +121,7 @@ in {
           {
             timeout = 310; # 5min and 10 sec
             on-timeout = "hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
-            on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
+            on-resume = "hyprctl dispatch dpms on && ${hypr-fix-vrr}/bin/hypr-fix-vrr"; # Turn on screen when activiy is detected after timeout has fired
           }
         ];
       };
@@ -145,6 +151,7 @@ in {
           # Fix laptop monitor getting turned on while my external monitor connected
           "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
           "pkill waybar; waybar" # Kill waybar and start new instance because everytime hyprland restarts breaks waybar
+          "${hypr-fix-vrr}/bin/hypr-fix-vrr"
         ];
 
         cursor = {
