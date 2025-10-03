@@ -36,8 +36,8 @@
         fps_sampling_period = "1000";
         fps_color_change = true;
         gpu_name = true;
-        vulka_driver = true;
-        round_corder = "10";
+        vulkan_driver = true;
+        round_corner = "10";
         offset_x = "10";
         offset_y = "10";
 
