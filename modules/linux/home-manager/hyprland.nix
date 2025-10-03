@@ -86,6 +86,12 @@ in {
     # Enable hyprpaper
     services.hyprpaper.enable = true;
 
+    # Setup portal for hyprland
+    xdg.portal = {
+      enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    };
+
     # Enable hypridle
     services.hypridle = {
       enable = true;
