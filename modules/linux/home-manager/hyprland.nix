@@ -302,12 +302,6 @@ in {
           # Make keepassxc floating
           "float, class:^(org.keepassxc.KeePassXC)$"
 
-          # Setup settings for games
-          "fullscreen,class:^steam_app_\d+$"
-          "monitor 1,class:^steam_app_\d+$"
-          "workspace 6,class:^steam_app_\d+$"
-          "content game, class:^steam_app_\d+$"
-
           # Move to workspace 1
           "workspace 1, class:^(org.qutebrowser.qutebrowser)$"
 
