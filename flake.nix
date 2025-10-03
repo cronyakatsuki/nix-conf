@@ -124,15 +124,6 @@
         };
       };
 
-      loki = {
-        hostname = "loki";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.loki;
-        };
-      };
-
       baldur = {
         hostname = "baldur";
         profiles.system = {
@@ -210,20 +201,6 @@
           ./hosts/heimdall/configuration.nix
           ./modules/servers/general
           ./modules/servers/heimdall
-          ./modules/servers/home-manager
-        ];
-      };
-
-      loki = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/loki/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/loki
           ./modules/servers/home-manager
         ];
       };

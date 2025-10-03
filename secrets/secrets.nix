@@ -1,7 +1,6 @@
 let
   # SYSTEMS
   heimdall = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBs+qYjpeAEHPFUQeatNkhKbXz8+A1VAl21jgifDYJK8";
-  loki = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF+xpWCoBEO/pzAwS1ZZEsiLSarvSVkdxQEo49xma2PV";
   baldur = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOvZ7Z8GS4+1+9D6u/BDit4Eij5Ubbii2dzJ/+ecT8iR";
   bragi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBKMV2vqlDvIkUefl5oEuVjVtjgFLEXyDKX2LWhVQsWT";
   thor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHZGQLUhyLwmkTYhSccqO8umQJN0QHk6YaD863x7lcGv";
@@ -15,7 +14,7 @@ let
   root-skadi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJ85a6FAJqM8QhtGcrT3BGDs2G8m7DFtWNDh2Vvkr0V root@skadi";
 
   users = [root crony root-skadi];
-  systems = [heimdall loki baldur bragi thor odin freyja tyr];
+  systems = [heimdall baldur bragi thor odin freyja tyr];
 in {
   "traefik.age".publicKeys = systems ++ users;
   "wg-heimdall.age".publicKeys = systems ++ users;
