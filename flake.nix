@@ -94,6 +94,10 @@
 
     # Chaotic repo for some of their packages
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    # AAGL
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -366,6 +370,8 @@
           ./hosts/skadi/configuration.nix
           # Enable stylix
           inputs.stylix.nixosModules.stylix
+          # Enable AAGL
+          inputs.aagl.nixosModules.default
           # Load updated auto-cpufreq
           auto-cpufreq.nixosModules.default
           # Load my modules
