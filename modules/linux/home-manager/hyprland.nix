@@ -138,8 +138,6 @@ in {
         env = [
           "LIBVA_DRIVER_NAME,nvidia"
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          # "WLR_NO_HARDWARE_CURSORS,1"
-          # " WLR_DRM_NO_ATOMIC,1"
           "__GL_GSYNC_ALLOWED,1"
         ];
 
