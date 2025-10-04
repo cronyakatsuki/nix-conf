@@ -194,6 +194,23 @@
     ];
   };
 
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        # Fix for wl-clipboard not having support for not setting sensitive for password managers
+        wl-clipboard = prev.wl-clipboard.overrideAttrs (old: {
+          version = "24-04-25";
+          src = prev.fetchFromGitHub {
+            owner = "bugaevc";
+            repo = "wl-clipboard";
+            rev = "aaa927ee7f7d91bcc25a3b68f60d01005d3b0f7f";
+            hash = "sha256-V8JAai4gZ1nzia4kmQVeBwidQ+Sx5A5on3SJGSevrUU=";
+          };
+        });
+      })
+    ];
+  };
+
   nixpkgs.config.permittedInsecurePackages = [
     "qtwebengine-5.15.19"
     "ventoy-1.1.07"
