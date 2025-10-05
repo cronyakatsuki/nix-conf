@@ -16,6 +16,7 @@
       galaxy-buds-client
       nicotine-plus
       ventoy
+      feather
     ];
 
     # Install thunderbird

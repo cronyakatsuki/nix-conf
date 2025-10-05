@@ -14,6 +14,7 @@
         "com.usebottles.bottles"
         "com.github.tchx84.Flatseal"
         "cafe.avery.Delfin"
+        "app.zen_browser.zen"
       ];
 
       update.auto = {
