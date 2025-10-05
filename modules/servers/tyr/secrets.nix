@@ -19,6 +19,9 @@
       restic-server-env = {
         file = ../../../secrets/restic-server-env.age;
       };
+      glance = {
+        file = ../../../secrets/glance.age;
+      };
     };
   };
 }
