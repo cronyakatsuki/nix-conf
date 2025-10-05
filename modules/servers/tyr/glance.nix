@@ -295,12 +295,47 @@
                     "syncthing/syncthing"
                   ];
                 }
+                {
+                  type = "custom-api";
+                  title = "GitHub Notifications";
+                  url = "https://api.github.com/notifications?all=true&per_page=20";
+                  headers = {
+                    Authorization = "Bearer \${GITHUB_TOKEN}";
+                    Accept = "application/vnd.github+json";
+                  };
+                  template = ''
+                    <ul class="list list-gap-14 collapsible-container" data-collapse-after="6">
+                    {{ range .JSON.Array "" }}
+                      {{ $url := concat (.String "repository.html_url") "/actions" }}
+                      {{ if ne (.String "subject.url") "" }}
+                        {{
+                          $notification := newRequest (.String "subject.url")
+                            | withHeader "Authorization" "Bearer ''${GITHUB_TOKEN}"
+                            | getResponse
+                        }}
+                        {{ if eq $notification.Response.StatusCode 200 }}
+                          {{ $url = $notification.JSON.String "html_url" }}
+                        {{ else }}
+                          {{ $url = (.String "subject.url") | replaceMatches "repos\\/" "" | replaceMatches "api\\." "" | replaceAll "pulls" "pull" }}
+                        {{ end }}
+                      {{ end }}
+                      <li>
+                        <a href="{{ $url }}" class="size-title-dynamic {{ if .Bool "unread" }}color-primary-if-not-visited{{ else }}negative-color{{ end }}" target="_blank" rel="noreferrer">{{ .String "subject.title" }}</a>
+                        <ul class="list-horizontal-text flex-nowrap">
+                          <li class="min-width-0" {{ .String "updated_at" | parseTime "rfc3339" | toRelativeTime }}></li>
+                          <li class="min-width-0"><a target="_blank" href="{{ $url }}">{{ .String "repository.full_name" }}</a></li>
+                        </ul>
+                      </li>
+                    {{ end }}
+                    </ul>
+                  '';
+                }
               ];
             }
           ];
         }
         {
-          name = "gaming";
+          name = "Gaming";
           columns = [
             {
               size = "small";
@@ -358,6 +393,185 @@
                   limit = 7;
                   style = "vertical-cards";
                 }
+              ];
+            }
+          ];
+        }
+        {
+          name = "SelfHosted Services";
+          columns = [
+            {
+              size = "small";
+              widgets = [
+                {
+                  type = "custom-api";
+                  title = "Audiobookshelf";
+                  title-url = "\${AUDIOBOOKSHELF_URL}";
+                  options = {
+                    base-url = "\${AUDIOBOOKSHELF_URL}";
+                    api-key = "\${AUDIOBOOKSHELF_KEY}";
+                  };
+                  cache = "5m";
+                  template = ''
+                    {{ $baseURL := .Options.StringOr "base-url" "" }}
+                    {{ $apiKey := .Options.StringOr "api-key" "" }}
+
+                    {{ define "errorMsg" }}
+                      <div class="widget-error-header">
+                        <div class="color-negative size-h3">ERROR</div>
+                        <svg class="widget-error-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"></path>
+                        </svg>
+                      </div>
+                      <p class="break-all">{{ . }}</p>
+                    {{ end }}
+
+                    {{ $bearer := printf "Bearer %s" $apiKey }}
+                    {{ $librariesRequestURL := concat $baseURL "/api/libraries" }}
+                    {{ $librariesResponse := newRequest $librariesRequestURL
+                      | withHeader "Content-Type" "application/json"
+                      | withHeader "Authorization" $bearer
+                      | getResponse }}
+
+                    {{ if $librariesResponse.JSON.Exists "libraries" }}
+                      {{ $all_libraries := $librariesResponse.JSON.Array "libraries" }}
+
+                      {{ $books_count := 0 }}
+                      {{ $books_duration := 0 }}
+                      {{ $podcasts_count := 0 }}
+                      {{ $podcasts_duration := 0 }}
+
+                      {{ range $library := $all_libraries }}
+                        {{ $lib_id := $library.String "id" }}
+                        {{ $lib_request_url := concat $baseURL "/api/libraries/" $lib_id "/stats"}}
+                        {{ $lib_stats := newRequest $lib_request_url
+                          | withHeader "Content-Type" "application/json"
+                          | withHeader "Authorization" $bearer
+                          | getResponse }}
+                        {{ $lib_type := $library.String "mediaType" }}
+                        {{ $lib_item_count := $lib_stats.JSON.Int "totalItems" }}
+                        {{ $lib_total_duration := $lib_stats.JSON.Int "totalDuration" }}
+                        {{ if eq $lib_type "book" }}
+                          {{ $books_count = add $books_count $lib_item_count }}
+                          {{ $books_duration = add $books_duration $lib_total_duration }}
+                        {{ else if eq $lib_type "podcast" }}
+                          {{ $podcasts_count = add $podcasts_count $lib_item_count }}
+                          {{ $podcasts_duration = add $podcasts_duration $lib_total_duration }}
+                        {{ end }}
+                      {{ end }}
+
+                      {{ $books_duration = duration (concat (printf "%d" $books_duration) "s") }}
+                      {{ $podcasts_duration = duration (concat (printf "%d" $podcasts_duration) "s") }}
+
+                      <div class="flex flex-column gap-5">
+                        <div class="flex justify-between text-center">
+                          <div>
+                            <div class="color-highlight size-h3">{{ $books_count }}</div>
+                            <div class="size-h5 uppercase">Books</div>
+                          </div>
+                          <div>
+                            <div class="color-highlight size-h3">{{ $books_duration }}</div>
+                            <div class="size-h5 uppercase">Duration</div>
+                          </div>
+                          <div>
+                            <div class="color-highlight size-h3">{{ $podcasts_count }}</div>
+                            <div class="size-h5 uppercase">Podcasts</div>
+                          </div>
+                          <div>
+                            <div class="color-highlight size-h3">{{ $podcasts_duration }}</div>
+                            <div class="size-h5 uppercase">Duration</div>
+                          </div>
+                        </div>
+                      </div>
+                    {{ else }}
+                      {{ template "errorMsg" "Could not fetch data from API!" }}
+                    {{ end }}
+                  '';
+                }
+                {
+                  type = "custom-api";
+                  title = "Immich Stats";
+                  cache = "1d";
+                  url = "https://immich.cronyakatsuki.xyz/api/server/statistics";
+                  headers = {
+                    x-api-key = "\${IMMICH_API_KEY}";
+                    Accept = "application/json";
+                  };
+                  template = ''
+                    <div class="flex justify-between text-center">
+                      <div>
+                          <div class="color-highlight size-h3">{{ .JSON.Int "photos" | formatNumber }}</div>
+                          <div class="size-h6">PHOTOS</div>
+                      </div>
+                      <div>
+                          <div class="color-highlight size-h3">{{ .JSON.Int "videos" | formatNumber }}</div>
+                          <div class="size-h6">VIDEOS</div>
+                      </div>
+                      <div>
+                          <div class="color-highlight size-h3">{{ div (.JSON.Int "usage" | toFloat) 1073741824 | toInt | formatNumber }}GB</div>
+                          <div class="size-h6">USAGE</div>
+                      </div>
+                    </div>
+                  '';
+                }
+                {
+                  type = "custom-api";
+                  title = "Jellyfin Stats";
+                  base-url = "\${JELLYFIN_URL}";
+                  options = {
+                    url = "\${JELLYFIN_URL}";
+                    key = "\${JELLYFIN_KEY}";
+                  };
+                  template = ''
+                    {{ $url := .Options.StringOr "url" "" }}
+                    {{ $key := .Options.StringOr "key" "" }}
+
+                    {{- if or (eq $url "") (eq $key "") -}}
+
+                      <p>Error: The URL or API Key was not configured in the widget options.</p>
+
+                    {{- else -}}
+
+                      {{- $requestUrl := printf "%s/emby/Items/Counts?api_key=%s" $url $key -}}
+                      {{- $jellyfinData := newRequest $requestUrl | getResponse -}}
+
+                      {{- if eq $jellyfinData.Response.StatusCode 200 -}}
+                        <div class="flex flex-column gap-5">
+                          <div class="flex justify-between text-center">
+
+                            <div>
+                              <div class="color-highlight size-h3">{{ $jellyfinData.JSON.Int "MovieCount" | formatNumber }}</div>
+                              <div class="size-h5 uppercase">Movies</div>
+                            </div>
+
+                            <div>
+                              <div class="color-highlight size-h3">{{ $jellyfinData.JSON.Int "SeriesCount" | formatNumber }}</div>
+                              <div class="size-h5 uppercase">TV Shows</div>
+                            </div>
+
+                            <div>
+                              <div class="color-highlight size-h3">{{ $jellyfinData.JSON.Int "EpisodeCount" | formatNumber }}</div>
+                              <div class="size-h5 uppercase">Episodes</div>
+                            </div>
+
+                            <div>
+                              <div class="color-highlight size-h3">{{ $jellyfinData.JSON.Int "SongCount" | formatNumber }}</div>
+                              <div class="size-h5 uppercase">Songs</div>
+                            </div>
+
+                          </div>
+                        </div>
+                      {{- else -}}
+                        <p>Failed: {{ $jellyfinData.Response.Status }}</p>
+                      {{- end -}}
+                    {{- end -}}
+                  '';
+                }
+              ];
+            }
+            {
+              size = "full";
+              widgets = [
               ];
             }
           ];
