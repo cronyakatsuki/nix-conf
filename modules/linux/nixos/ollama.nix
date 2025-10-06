@@ -10,7 +10,7 @@
   config = lib.mkIf config.crony.ollama.enable {
     services.ollama = {
       enable = true;
-      loadModels = ["llama3.2:3b" "qwen2.5-coder:1.5b" "qwen2.5:3b"];
+      loadModels = ["deepseek-r1:8b"];
       acceleration = "cuda";
     };
     services.open-webui = {
