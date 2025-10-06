@@ -42,6 +42,7 @@
   crony.shell-additions.enable = true;
   crony.home-secrets.enable = true;
   crony.restic.enable = true;
+  crony.emulators.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.

@@ -10,21 +10,21 @@
 
   config = lib.mkIf config.crony.emulators.enable {
     home.packages = with pkgs; [
-      (retroarch.withCores (
-        cores:
-          with cores; [
-            beetle-saturn
-            mupen64plus
-            flycast
-            desmume
-          ]
-      ))
-      duckstation
-      pcsx2
-      dolphin-emu
+      # (retroarch.withCores (
+      #   cores:
+      #     with cores; [
+      #       beetle-saturn
+      #       mupen64plus
+      #       flycast
+      #       desmume
+      #     ]
+      # ))
+      # duckstation
+      # pcsx2
+      # dolphin-emu
       rpcs3
-      mame-tools
-      steam-rom-manager
+      # mame-tools
+      # steam-rom-manager
     ];
   };
 }
