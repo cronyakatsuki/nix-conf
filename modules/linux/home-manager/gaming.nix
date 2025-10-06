@@ -21,7 +21,7 @@
       qzdl
       xonotic
       superTuxKart
-      # nzportable
+      nzportable
     ];
   };
 }
