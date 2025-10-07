@@ -87,6 +87,7 @@ in {
   config = lib.mkIf config.crony.hyprland.enable {
     home.packages = with pkgs; [
       hyprpolkitagent
+      inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     # Enable hyprpaper
