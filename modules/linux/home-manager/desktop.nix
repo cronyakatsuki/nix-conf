@@ -17,6 +17,7 @@
       nicotine-plus
       ventoy
       feather
+      gparted
     ];
 
     # Install thunderbird
