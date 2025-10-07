@@ -234,6 +234,26 @@
   crony.ollama.enable = true;
   crony.plasma.enable = true;
 
+  # Mount additional drive for games
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/f747508e-6b2f-474a-88cf-759a221cff46";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
+  # Mount drives for backups
+  fileSystems."/mnt/backup" = {
+    device = "/dev/disk/by-uuid/3f2ab7ec-5b78-4686-b909-77fa6f4241b5";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     neovim
