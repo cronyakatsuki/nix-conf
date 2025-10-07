@@ -92,6 +92,9 @@ in {
     # Enable hyprpaper
     services.hyprpaper.enable = true;
 
+    # Disable it by default and have it started manually by hyprland
+    systemd.user.services.hyprpaper.Install.WantedBy = lib.mkForce [];
+
     # Setup portal for hyprland
     xdg.portal = {
       enable = true;
@@ -128,6 +131,8 @@ in {
         ];
       };
     };
+    # Disable it by default and have it started manually by hyprland
+    systemd.user.services.hypridle.Install.WantedBy = lib.mkForce [];
 
     # Setup and enable hyprland
     wayland.windowManager.hyprland = {
@@ -167,6 +172,8 @@ in {
           "wl-paste --type image --watch cliphist store" # Stores only image data
           "keepassxc" # Startup my password manager
           "systemctl --user start hyprpolkitagent"
+          "systemctl --user start hyprpaper"
+          "systemctl --user start hypridle"
         ];
 
         monitor = [
