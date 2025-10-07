@@ -23,6 +23,17 @@
                     "theprimeagen"
                   ];
                 }
+                {
+                  type = "rss";
+                  title = "Rss Feeds";
+                  cache = "1h";
+                  feeds = [
+                    {
+                      url = "https://github.com/NixOS/nixpkgs/commits/nixpkgs-unstable.atom";
+                      title = "Nixpkgs Unstable";
+                    }
+                  ];
+                }
               ];
             }
             {
