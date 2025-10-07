@@ -35,9 +35,9 @@
   crony.wayland.enable = true;
   crony.hyprland.enable = true;
   crony.neovim.enable = true;
-  crony.qutebrowser.enable = true;
+  # crony.qutebrowser.enable = true;
   crony.mpv.enable = true;
-  crony.browsers.enable = true;
+  # crony.browsers.enable = true;
   crony.desktop.enable = true;
   crony.shell-additions.enable = true;
   crony.home-secrets.enable = true;
