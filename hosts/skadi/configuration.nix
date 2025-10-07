@@ -232,6 +232,7 @@
   crony.secrets.enable = true;
   crony.boot.enable = true;
   crony.ollama.enable = true;
+  crony.plasma.enable = true;
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
