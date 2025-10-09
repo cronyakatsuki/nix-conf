@@ -24,5 +24,13 @@
       enable = true;
       memoryPercent = 60;
     };
+
+    # Setup swapfile
+    swapDevices = [
+      {
+        device = "/var/lib/swapfile";
+        size = 32 * 1024;
+      }
+    ];
   };
 }
