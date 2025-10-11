@@ -118,7 +118,12 @@ in {
               format.type = "black-and-isort";
             };
             css.enable = true;
-            ts.enable = false;
+            ts = {
+              enable = true;
+              extensions = {
+                ts-error-translator.enable = true;
+              };
+            };
             nix = {
               enable = true;
               lsp = {
