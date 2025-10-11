@@ -217,16 +217,17 @@ in {
           # Use telescope
           telescope = {
             enable = true;
-            setupOpts = {
-              extensions = {
-                fzf = {
-                  fuzzy = true;
-                  override_generic_sorter = true;
-                  override_file_sorter = true;
-                  case_mode = "smart_case";
-                };
-              };
-            };
+            extensions = [
+              {
+                name = "fzf";
+                packages = [pkgs.vimPlugins.telescope-fzf-native-nvim];
+                setup = {fzf = {fuzzy = true;};};
+              }
+              {
+                name = "ui-select";
+                packages = [pkgs.vimPlugins.telescope-ui-select-nvim];
+              }
+            ];
           };
 
           # Theme
@@ -273,23 +274,11 @@ in {
 
           navigation.harpoon.enable = true;
 
-          extraLuaFiles = [./nvim/autocommands.lua];
+          extraLuaFiles = [./nvim/autocommands.lua ./nvim/qmlls.lua];
 
           extraPlugins = with pkgs.vimPlugins; {
             friendly-snippets = {
               package = friendly-snippets;
-            };
-            telescope-fzf-native = {
-              package = telescope-fzf-native-nvim;
-              setup = ''
-                require('telescope').load_extension('fzf')
-              '';
-            };
-            telescope-ui-select = {
-              package = telescope-ui-select-nvim;
-              setup = ''
-                require('telescope').load_extension('fzf')
-              '';
             };
             markdown-table-mode-nvim = {
               package = markdown-table-mode;
