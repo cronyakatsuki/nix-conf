@@ -286,6 +286,7 @@
           ./modules/linux/nixos
           ./modules/servers/tyr
           ./modules/servers/general/restic.nix
+          ./modules/servers/general/podman.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

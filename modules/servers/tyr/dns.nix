@@ -71,6 +71,7 @@
           ''"glance.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"syncthing.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"wallos.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+          ''"assistant.home.cronyakatsuki.xyz IN A 192.168.0.5"''
         ];
       };
     };

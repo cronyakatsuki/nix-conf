@@ -8,5 +8,6 @@
     ./nfs-server.nix
     ./dns.nix
     ./traefik.nix
+    ./home-assistant.nix
   ];
 }
