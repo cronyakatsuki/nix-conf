@@ -11,12 +11,25 @@
     ];
   };
 
-  networking.firewall = {
-    allowedTCPPorts = [8282];
-  };
-
   services.restic.backups = {
     local.paths = ["/var/lib/wallos"];
     server.paths = ["/var/lib/wallos"];
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    services.wallos.loadBalancer.servers = [
+      {
+        url = "http://localhost:8282";
+      }
+    ];
+
+    routers.wallos = {
+      rule = "Host(`wallos.home.cronyakatsuki.xyz`)";
+      tls = {
+        certResolver = "porkbun";
+      };
+      service = "wallos";
+      entrypoints = "websecure";
+    };
   };
 }

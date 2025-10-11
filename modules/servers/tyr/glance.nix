@@ -1,7 +1,7 @@
 {config, ...}: {
   services.glance = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
     settings = {
       server = {
         host = "0.0.0.0";
@@ -593,5 +593,22 @@
 
   systemd.services.glance.serviceConfig = {
     EnvironmentFile = ["${config.age.secrets.glance.path}"];
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    services.glance.loadBalancer.servers = [
+      {
+        url = "http://localhost:8080";
+      }
+    ];
+
+    routers.glance = {
+      rule = "Host(`glance.home.cronyakatsuki.xyz`)";
+      tls = {
+        certResolver = "porkbun";
+      };
+      service = "glance";
+      entrypoints = "websecure";
+    };
   };
 }

@@ -22,6 +22,10 @@
       glance = {
         file = ../../../secrets/glance.age;
       };
+      traefik = {
+        file = ../../../secrets/traefik.age;
+        owner = "traefik";
+      };
     };
   };
 }

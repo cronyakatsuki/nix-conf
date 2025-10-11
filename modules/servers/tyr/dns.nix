@@ -64,6 +64,14 @@
         cache-max-ttl = 60;
         cache-max-negative-ttl = 60;
         serve-original-ttl = true;
+
+        local-zone = [''"home.cronyakatsuki.xyz." transparent''];
+
+        local-data = [
+          ''"glance.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+          ''"syncthing.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+          ''"wallos.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+        ];
       };
     };
   };

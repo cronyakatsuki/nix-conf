@@ -7,5 +7,6 @@
     ./secrets.nix
     ./nfs-server.nix
     ./dns.nix
+    ./traefik.nix
   ];
 }
