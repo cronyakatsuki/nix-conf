@@ -289,7 +289,11 @@ in {
             helpview-nvim.package = helpview-nvim;
           };
 
-          extraPackages = with pkgs.vimPlugins; [nvim-treesitter-parsers.qmljs];
+          treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+            qmljs
+            kdl
+            regex
+          ];
         };
       };
     };
