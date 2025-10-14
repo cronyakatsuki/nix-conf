@@ -68,6 +68,25 @@ Move backup files to a diff directory.
 (blink-cursor-mode -1) ;; disable blinking cursor
 #+end_src
 
+* FONTS
+
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil
+  :font "CommitMono Nerd Font"
+  :height 130
+  :weight 'medium)
+(set-face-attribute 'variable-pitch nil
+  :font "DejaVu Sans"
+  :height 150
+  :weight 'medium)
+(set-face-attribute 'fixed-pitch nil
+  :font "CommitMono Nerd Font"
+  :height 130
+  :weight 'medium)
+
+(add-to-list 'default-frame-alist '(font . "CommitMono Nerd Font-11"))
+#+end_src
+
 * ELECTRIC PAIR
 
 #+begin_src emacs-lisp
