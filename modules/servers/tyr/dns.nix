@@ -27,6 +27,13 @@
           "fake" = ["https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/wildcard/fake.txt"];
           "gambling" = ["https://codeberg.org/hagezi/mirror2/raw/branch/main/dns-blocklists/wildcard/gambling.txt"];
         };
+        allowlists = {
+          "pro" = [
+            ''
+              jnn-pa.googleapis.com
+            ''
+          ];
+        };
         clientGroupsBlock.default = ["pro" "tif" "fake" "gambling"];
       };
 
