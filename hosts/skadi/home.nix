@@ -43,6 +43,7 @@
   crony.home-secrets.enable = true;
   crony.restic.enable = true;
   crony.emulators.enable = true;
+  crony.emacs.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.

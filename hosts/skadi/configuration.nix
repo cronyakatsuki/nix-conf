@@ -210,6 +210,7 @@
           };
         });
       })
+      (import inputs.emacs-overlay)
     ];
   };
 

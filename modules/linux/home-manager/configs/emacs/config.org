@@ -1,0 +1,213 @@
+#+Title: Crony's Emacs Config
+#+AUTHOR: Crony Akatsuki
+#+DESCRIPTION: Crony's personal emacs config
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+#+PROPERTY: header-args:emacs-lisp :tangle ./config.el
+
+* GARBAGE COLLECTION
+
+#+begin_src emacs-lisp
+(defvar file-name-handler-alist-old file-name-handler-alist)
+
+(setq file-name-handler-alist nil
+      gc-cons-threshold most-positive-fixnum)
+
+(add-hook 'after-init-hook
+          `(lambda ()
+             (setq file-name-handler-alist file-name-handler-alist-old)
+             (setq gc-cons-threshold (* 2 1000 1000))
+             (setq gc-cons-percentage 0.1))
+          t)
+#+end_src(defvar file-name-handler-alist-old file-name-handler-alist)
+
+* BACKUPS
+
+Move backup files to a diff directory.
+
+#+begin_src emacs-lisp
+(setq backup-directory-alist '(("." . "~/.cache/emacs/"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+#+end_src
+
+* SANE DEFAULTS
+
+#+begin_src emacs-lisp
+(delete-selection-mode 1)    ;; You can select text and delete it by typing.
+(electric-indent-mode -1)    ;; Turn off the weird indenting that Emacs does by default.
+(global-auto-revert-mode t)  ;; Automatically show changes if the file has changed
+(setq initial-scratch-message nil) ;; disable the initial scratch message.
+(setq-default delete-pair-blink-delay 0) ;; remove delay when deleting pairs
+(prefer-coding-system 'utf-8) ;; utf-8
+(global-set-key [escape] 'keyboard-escape-quit) ;; escape minibuffers with ESC
+#+end_src
+
+* GUI TWEAKS
+
+#+begin_src emacs-lisp
+(global-visual-line-mode t)  ;; Enable truncated lines
+(menu-bar-mode -1)           ;; Disable the menu bar 
+(scroll-bar-mode -1)         ;; Disable the scroll bar
+(tool-bar-mode -1)           ;; Disable the tool bar
+(set-fringe-mode 10)         ;; Give me some breathing room
+(fset 'yes-or-no-p 'y-or-n-p) ;; don't ask to spell out "yes"
+(setq-default frame-resize-pixelwise t) ;; avoid leaving a gap beetween the frame and the screen
+(column-number-mode)         ;; Display line colums
+;; disable line numbers for following modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+(global-display-line-numbers-mode 1) ;; Display line numbers
+(blink-cursor-mode -1) ;; disable blinking cursor
+#+end_src
+
+* ELECTRIC PAIR
+
+#+begin_src emacs-lisp
+(electric-pair-mode 1)
+(add-hook 'org-mode-hook (lambda ()
+           (setq-local electric-pair-inhibit-predicate
+                   `(lambda (c)
+                  (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
+#+end_src
+
+* EVIL MODE
+
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-integration t
+        evil-want-keybinding nil
+        evil-want-C-u-scroll t
+        evil-want-C-i-jump nil
+        evil-vsplit-window-right t
+        evil-split-window-below t
+        evil-undo-system 'undo-redo)
+  :config
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+#+end_src
+
+* GENERAL KEYBINDINGS
+
+#+begin_src emacs-lisp
+(use-package general
+  :config
+)
+#+end_src
+
+* DIMINISH
+
+#+begin_src emacs-lisp
+(use-package diminish)
+#+end_src
+
+ ORG MODE
+
+** Update and setup org mode
+
+#+begin_src emacs-lisp
+
+;; fixes a bug where evil mnode bounds return key, so it isn't accesible
+(with-eval-after-load 'evil-maps
+  (define-key evil-motion-state-map (kbd "RET") nil))
+
+(defun crony/org-mode-setup ()
+  (org-indent-mode)
+  (visual-line-mode 1))
+
+;; Replace list hyphen with dot
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+(use-package org
+  :defer t
+  :init (require 'org-tempo)
+  :hook (org-mode . crony/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+  (setq org-edit-src-content-indentation 0)
+
+  ;; org agenda settings
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
+  (setq org-agenda-files 
+        '("~/docs/notes/tasks.org" 
+	  "~/docs/notes/birthdays.org"))
+
+  ;; refiling 
+  (setq org-refile-targets
+    '(("archive.org" :maxlevel . 1)
+      ("tasks.org" :maxlevel . 1)))
+
+  ;; save after refiling
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
+  (setq org-return-follows-link  t))
+#+end_src
+
+** Column width
+
+#+begin_src emacs-lisp
+(defun crony/org-mode-visual-fill ()
+  (setq visual-fill-column-width 110
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :defer t
+  :hook (org-mode . crony/org-mode-visual-fill))
+#+end_src
+
+** Enabling Org Bullets
+
+#+begin_src emacs-lisp
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode))
+#+end_src
+
+** Enabling Table of Contents
+
+#+begin_src emacs-lisp
+(use-package toc-org
+     :after org
+     :commands toc-org-enable
+     :init (add-hook 'org-mode-hook 'toc-org-enable))
+#+end_src
+
+* THEME
+
+#+begin_src emacs-lisp
+(use-package gruvbox-theme
+  :config
+  (load-theme 'gruvbox-dark-medium :no-confirm))
+#+end_src
+
+* HELPFUL
+
+#+begin_src emacs-lisp
+(use-package helpful
+  :bind
+  ([remap describe-function] . helpful-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-key] . helpful-key))
+#+end_src

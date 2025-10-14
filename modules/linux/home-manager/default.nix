@@ -19,6 +19,7 @@
     ./river.nix
     ./pipewire.nix
     ./secrets.nix
+    ./emacs.nix
   ];
 
   crony.river.enable = lib.mkDefault false;
@@ -40,4 +41,5 @@
   crony.xdg-user-dirs.enable = lib.mkDefault true;
   crony.pipewire.enable = lib.mkDefault true;
   crony.home-secrets.enable = lib.mkDefault false;
+  crony.emacs.enable = lib.mkDefault false;
 }

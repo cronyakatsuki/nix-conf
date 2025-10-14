@@ -98,6 +98,9 @@
     # AAGL
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Emacs, my enemy let me try to learn you again
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
   outputs = {
