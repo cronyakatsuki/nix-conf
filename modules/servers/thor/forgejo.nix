@@ -5,6 +5,11 @@
       session = {
         COOKIE_SECURE = true;
       };
+      service = {
+        REGISTER_MANUAL_CONFIRM = true;
+        ENABLE_CAPTCHA = true;
+        REQUIRE_CAPTCHA_FOR_LOGIN = true;
+      };
       server = {
         ROOT_URL = "https://git.cronyakatsuki.xyz";
         HTTP_ADDR = "127.0.0.1";
