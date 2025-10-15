@@ -26,6 +26,13 @@
         file = ../../../secrets/traefik.age;
         owner = "traefik";
       };
+      ddns = {
+        file = ../../../secrets/ddns.age;
+        path = "/var/lib/ddns-updater/config.json";
+        owner = "nobody";
+        group = "nogroup";
+        symlink = false;
+      };
     };
   };
 }

@@ -43,4 +43,5 @@ in {
   "wg-tyr.age".publicKeys = systems ++ users;
   "duckdns.age".publicKeys = systems ++ users;
   "glance.age".publicKeys = systems ++ users;
+  "ddns.age".publicKeys = systems ++ users;
 }

@@ -79,15 +79,29 @@
           ''"syncthing.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"wallos.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"assistant.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+          ''"ddns.home.cronyakatsuki.xyz IN A 192.168.0.5"''
         ];
       };
     };
   };
 
-  # Setup duck dns for dynamic dns
-  services.duckdns = {
-    enable = true;
-    domains = ["cronyakatsuki"];
-    tokenFile = "${config.age.secrets.duckdns.path}";
+  # Setup ddns-updater
+  services.ddns-updater.enable = true;
+
+  services.traefik.dynamicConfigOptions.http = {
+    services.ddns.loadBalancer.servers = [
+      {
+        url = "http://localhost:8000";
+      }
+    ];
+
+    routers.ddns = {
+      rule = "Host(`ddns.home.cronyakatsuki.xyz`)";
+      tls = {
+        certResolver = "porkbun";
+      };
+      service = "ddns";
+      entrypoints = "websecure";
+    };
   };
 }
