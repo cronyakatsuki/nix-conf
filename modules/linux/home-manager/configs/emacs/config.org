@@ -73,7 +73,7 @@ Move backup files to a diff directory.
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
   :font "CommitMono Nerd Font"
-  :height 130
+  :height 140
   :weight 'medium)
 (set-face-attribute 'variable-pitch nil
   :font "DejaVu Sans"
@@ -81,10 +81,10 @@ Move backup files to a diff directory.
   :weight 'medium)
 (set-face-attribute 'fixed-pitch nil
   :font "CommitMono Nerd Font"
-  :height 130
+  :height 140
   :weight 'medium)
 
-(add-to-list 'default-frame-alist '(font . "CommitMono Nerd Font-11"))
+(add-to-list 'default-frame-alist '(font . "CommitMono Nerd Font-14"))
 #+end_src
 
 * ELECTRIC PAIR
@@ -97,7 +97,9 @@ Move backup files to a diff directory.
                   (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
 #+end_src
 
-* EVIL MODE
+* TRANSFORM INTO VIM
+
+** EVIL MODE
 
 #+begin_src emacs-lisp
 (use-package evil
@@ -122,12 +124,73 @@ Move backup files to a diff directory.
   (evil-collection-init))
 #+end_src
 
+** MODELINE
+
+#+begin_src emacs-lisp
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-height 25
+        doom-modeline-bar-width 5
+        doom-modeline-persp-name t
+        doom-modeline-persp-icon t))
+#+end_src
+
+** VIM LIKE SCROLLING
+
+#+begin_src emacs-lisp
+;; Vim like scrolling
+(setq scroll-margin 10
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
+#+end_src
+
+* WHICH_KEY
+
+#+begin_src emacs-lisp
+(use-package which-key
+    :init
+    (which-key-mode 1)
+    :diminish
+    :config
+    (setq which-key-side-window-location 'bottom
+        which-key-sort-order #'which-key-key-order-alpha
+        which-key-sort-uppercase-first nil
+        which-key-add-column-padding 1
+        which-key-max-display-columns nil
+        which-key-min-display-lines 6
+        which-key-side-window-slot -10
+        which-key-side-window-max-height 0.25
+        which-key-idle-delay 0.3
+        which-key-max-description-length 25
+        which-key-allow-imprecise-window-fit nil
+        which-key-separator " → " ))
+#+end_src
+
 * GENERAL KEYBINDINGS
 
 #+begin_src emacs-lisp
 (use-package general
+  :ensure t
+  :init
+  (with-eval-after-load 'evil
+    (general-evil-setup))
+  (general-auto-unbind-keys)
   :config
-)
+  (general-override-mode)
+  (general-create-definer +config/leader-key
+    :keymaps 'override
+    :states  '(insert emacs normal hybrid motion visual operator)
+    :prefix "SPC"
+    :non-normal-prefix "s-SPC")
+  (general-create-definer +config/local-leader
+    :keymaps 'override
+    :states '(emacs normal hybrid motion visual operator)
+    :prefix "m"
+    :non-normal-prefix "s-m"
+    "" '(:ignore t :which-key (lambda (arg) `(,(cadr (split-string (car arg) " ")) . ,(replace-regexp-in-string "-mode$" "" (symbol-name major-mode)))))))
 #+end_src
 
 * DIMINISH
@@ -229,4 +292,173 @@ Move backup files to a diff directory.
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key))
+#+end_src
+
+* COMPLETION
+
+** VERTICO
+
+#+begin_src emacs-lisp
+(use-package vertico
+  :bind (:map vertico-map
+         ("C-j" . vertico-next)
+         ("C-k" . vertico-previous)
+         ("C-l" . vertico-exit)
+         :map minibuffer-local-map
+         ("C-h" . backward-kill-word))
+  :custom
+  (vertico-scroll-margin 0) ;; Different scroll margin
+  (vertico-count 15) ;; Show more candidates
+  (vertico-resize t) ;; Grow and shrink the Vertico minibuffer
+  (vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
+  :init
+  (vertico-mode))
+
+(use-package savehist
+  :ensure nil
+  :init
+  (savehist-mode))
+
+(use-package emacs
+  :ensure nil
+  :custom
+  (context-menu-mode t)
+  (enable-recursive-minibuffers t)
+  (read-extended-command-predicate #'command-completion-default-include-p)
+  (minibuffer-prompt-properties
+   '(read-only t cursor-intangible t face minibuffer-prompt)))
+#+end_src
+
+** MARGINALIA
+
+#+begin_src emacs-lisp
+(use-package marginalia
+  :bind (:map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+  :init
+  (marginalia-mode))
+#+end_src
+
+** CONSULT
+
+#+begin_src emacs-lisp
+(use-package consult
+  :after vertico
+  :custom
+  (completion-in-region-function #'consult-completion-in-region)
+  :config
+  (recentf-mode t))
+#+end_src
+
+** ORDERLESS
+
+#+begin_src emacs-lisp
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like substring
+#+end_src
+
+* IN BUFFER COMPLETION
+
+** CORFU
+
+Adds in buffer completion for code/snippets
+
+#+begin_src emacs-lisp
+(use-package corfu
+  ;; Optional customizations
+  :custom
+  (tab-always-indent 'complete)
+  (completion-cycle-threshold nil)
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.1)
+  (corfu-min-width 60)
+  (corfu-popupinfo-delay '(0.5 . 0.2))
+  (corfu-preview-current 'insert)
+  (corfu-preselect 'prompt)
+  (corfu-on-exact-match nil)
+
+  :bind (:map corfu-map
+              ("C-j"        . corfu-next)
+              ("C-k"      . corfu-previous)
+              ("C-l"        . corfu-insert))
+  :init
+  (corfu-history-mode)
+  (corfu-popupinfo-mode)
+  (global-corfu-mode)
+  :config
+  (add-hook 'eshell-mode-hook
+            (lambda () (setq-local corfu-quit-at-boundary t
+                              corfu-quit-no-match t
+                              corfu-auto nil)
+              (corfu-mode))))
+#+end_src
+
+** KIND ICON
+
+Eyecandy for corfu
+
+#+begin_src emacs-lisp
+(use-package kind-icon
+   :ensure t
+   :after corfu
+   :custom
+   (kind-icon-default-face 'corfu-default)
+   :config
+   (plist-put kind-icon-default-style :height 0.8)
+   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+#+end_src
+
+** CAPE
+
+extending corpu
+
+#+begin_src emacs-lisp
+(use-package cape
+  :defer 10
+  :bind ("C-c f" . cape-file)
+  :init
+  (defalias 'dabbrev-after-2 (cape-capf-prefix-length #'cape-dabbrev 2))
+  (add-to-list 'completion-at-point-functions 'dabbrev-after-2 t)
+  (cl-pushnew #'cape-file completion-at-point-functions)
+  :config
+  (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-silent)
+  (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-purify))
+#+end_src
+
+** YASNIPPET
+
+#+begin_src emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :init
+  (setq yas-nippet-dir "~/.config/emacs/snippets/")
+  (yas-global-mode))
+(use-package yasnippet-snippets
+  :ensure t
+  :after yasnippet)
+#+end_src
+
+* DIRED
+
+#+begin_src emacs-lisp
+(use-package dired-open
+  :config
+  (setq dired-open-extensions '(("mkv" . "mpv")
+                                ("mp4" . "mpv"))))
+
+(use-package peep-dired
+  :after dired
+  :hook (evil-normalize-keymaps . peep-dired-hook)
+  :config
+    (evil-define-key 'normal dired-mode-map (kbd "h") 'dired-up-directory)
+    (evil-define-key 'normal dired-mode-map (kbd "l") 'dired-open-file)
+    (evil-define-key 'normal peep-dired-mode-map (kbd "j") 'peep-dired-next-file)
+    (evil-define-key 'normal peep-dired-mode-map (kbd "k") 'peep-dired-prev-file)
+)
 #+end_src
