@@ -19,7 +19,6 @@ in {
   "traefik.age".publicKeys = systems ++ users;
   "wg-heimdall.age".publicKeys = systems ++ users;
   "wg-desktop.age".publicKeys = systems ++ users;
-  "wg-home.age".publicKeys = systems ++ users;
   "rclone.age".publicKeys = systems ++ users;
   "navidrome.age".publicKeys = systems ++ users;
   "forgejo-db.age".publicKeys = systems ++ users;

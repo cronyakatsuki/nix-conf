@@ -16,9 +16,6 @@ in {
         wg-desktop = {
           file = ../../../secrets/wg-desktop.age;
         };
-        wg-home = {
-          file = ../../../secrets/wg-home.age;
-        };
         wg-ymir-home = {
           file = ../../../secrets/wg-ymir-home.age;
         };
