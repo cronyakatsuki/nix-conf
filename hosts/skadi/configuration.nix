@@ -235,7 +235,6 @@
   crony.secrets.enable = true;
   crony.boot.enable = true;
   crony.ollama.enable = true;
-  crony.kanata.enable = true;
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {
