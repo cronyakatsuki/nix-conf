@@ -4,6 +4,14 @@
     staticConfigOptions = {
       serversTransport.insecureSkipVerify = true;
       log = {level = "DEBUG";};
+      experimental = {
+        plugins = {
+          fail2ban = {
+            moduleName = "github.com/tomMoulard/fail2ban";
+            version = "v0.8.7";
+          };
+        };
+      };
       certificatesResolvers = {
         porkbun = {
           acme = {
@@ -32,6 +40,29 @@
         };
         websecure = {
           address = ":443";
+          http.middlewares = [
+            "fail2ban"
+          ];
+        };
+      };
+    };
+    dynamicConfigOptions.http = {
+      middlewares = {
+        fail2ban = {
+          plugin = {
+            fail2ban = {
+              rules = {
+                bantime = "168h";
+                enabled = true;
+                findtime = "10m";
+                maxretry = 4;
+                statuscode = "400,401,403-499";
+              };
+              allowlist = {
+                ip = ["65.21.241.194"];
+              };
+            };
+          };
         };
       };
     };
