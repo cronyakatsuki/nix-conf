@@ -238,7 +238,7 @@ in {
 
           "$mod SHIFT,  L, exec, hyprlock --immediate"
 
-          "$mod,        B, exec, app.zen_browser.zen"
+          "$mod,        B, exec, zen"
           "$mod SHIFT,  B, exec, librewolf"
 
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
