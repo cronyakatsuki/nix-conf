@@ -15,6 +15,7 @@
         "com.github.tchx84.Flatseal"
         "cafe.avery.Delfin"
         "app.zen_browser.zen"
+        "com.valvesoftware.Steam.Utility.MangoHud"
       ];
 
       update.auto = {
