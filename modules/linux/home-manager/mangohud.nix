@@ -14,7 +14,11 @@
       enable = true;
       package = pkgs.mangohud_git;
       settings = {
+        af = "16";
+        background_alpha = lib.mkForce 0.2;
+
         fps_limit = "0,30,60,120,144";
+
         gpu_stats = true;
         gpu_temp = true;
         gpu_core_clock = true;
@@ -26,11 +30,11 @@
         cpu_temp = true;
         cpu_text = "CPU";
         cpu_mhz = true;
-        cpu_power = true;
         cpu_load_change = true;
 
         vram = true;
         ram = true;
+        swap = true;
 
         fps = true;
         fps_sampling_period = "1000";
