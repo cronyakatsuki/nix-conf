@@ -1,9 +1,13 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
 }: {
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
   options = {
     crony.zen-browser.enable = lib.mkEnableOption "Enable and setup zen browser";
   };

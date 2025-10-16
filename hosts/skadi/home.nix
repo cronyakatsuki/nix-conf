@@ -8,7 +8,6 @@
     inputs.nix-index-database.homeModules.nix-index
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     inputs.agenix.homeManagerModules.default
-    inputs.zen-browser.homeModules.beta
   ];
 
   # Some info
