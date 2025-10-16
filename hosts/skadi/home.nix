@@ -8,6 +8,7 @@
     inputs.nix-index-database.homeModules.nix-index
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     inputs.agenix.homeManagerModules.default
+    inputs.zen-browser.homeModules.beta
   ];
 
   # Some info
@@ -44,6 +45,7 @@
   crony.restic.enable = true;
   crony.emulators.enable = true;
   crony.emacs.enable = true;
+  crony.zen-browser.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.

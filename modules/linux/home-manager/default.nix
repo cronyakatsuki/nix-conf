@@ -20,6 +20,7 @@
     ./pipewire.nix
     ./secrets.nix
     ./emacs.nix
+    ./zen-browser.nix
   ];
 
   crony.river.enable = lib.mkDefault false;
@@ -42,4 +43,5 @@
   crony.pipewire.enable = lib.mkDefault true;
   crony.home-secrets.enable = lib.mkDefault false;
   crony.emacs.enable = lib.mkDefault false;
+  crony.zen-browser.enable = lib.mkDefault false;
 }
