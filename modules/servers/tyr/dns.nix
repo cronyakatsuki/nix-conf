@@ -31,6 +31,7 @@
           "pro" = [
             ''
               jnn-pa.googleapis.com
+              challenges.cloudflare.com
             ''
           ];
         };
