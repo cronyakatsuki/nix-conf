@@ -54,9 +54,15 @@
               rules = {
                 bantime = "168h";
                 enabled = true;
-                findtime = "10m";
-                maxretry = 4;
+                findtime = "5m";
+                maxretry = 50;
                 statuscode = "400,401,403-499";
+                urlregexps = [
+                  {
+                    regexp = "/*";
+                    mode = "allow";
+                  }
+                ];
               };
               allowlist = {
                 ip = ["65.21.241.194"];
