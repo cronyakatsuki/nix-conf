@@ -34,7 +34,7 @@
     *) volumep="100%" ;;
     esac
 
-    notify-send -h string:x-canonical-private-synchronous:sys-notify "🔊 Volume: ''${volumep}"
+    ${pkgs.libnotify}/bin/notify-send -h string:x-canonical-private-synchronous:sys-notify "🔊 Volume: ''${volumep}"
   '';
   toggle-sound-output = pkgs.writeShellScriptBin "toggle-sound-output" ''
     #!/usr/bin/env sh
@@ -65,10 +65,10 @@
 
     if [ "$(nmcli --overview -f GENERAL.STATE connection show hetz)" = "" ]; then
     	nmcli con up hetz
-      notify-send "VPN" "UP"
+      ${pkgs.libnotify}/bin/notify-send "VPN" "UP"
     else
     	nmcli con down hetz
-      notify-send "VPN" "DOWN"
+      ${pkgs.libnotify}/bin/notify-send "VPN" "DOWN"
     fi
 
   '';
