@@ -1,3 +1,6 @@
+
+
+
 #+Title: Crony's Emacs Config
 #+AUTHOR: Crony Akatsuki
 #+DESCRIPTION: Crony's personal emacs config
@@ -461,4 +464,77 @@ extending corpu
     (evil-define-key 'normal peep-dired-mode-map (kbd "j") 'peep-dired-next-file)
     (evil-define-key 'normal peep-dired-mode-map (kbd "k") 'peep-dired-prev-file)
 )
+#+end_src
+
+* ALL THE ICONS
+
+#+begin_src emacs-lisp
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p))
+
+;; dired icons
+(use-package all-the-icons-dired
+  :after all-the-icons
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+
+;; completion with marginalia
+(use-package all-the-icons-completion
+  :after (marginalia all-the-icons)
+  :hook (marginalia-mode . all-the-icons-completion-marginalia-setup)
+  :init
+  (all-the-icons-completion-mode))
+#+end_src
+
+* GIT
+
+** TIME MACHINE
+
+#+begin_src emacs-lisp
+(use-package git-timemachine
+  :after git-timemachine
+  :hook (evil-normalize-keymaps . git-timemachine-hook)
+  :config
+    (evil-define-key 'normal git-timemachine-mode-map (kbd "C-j") 'git-timemachine-show-previous-revision)
+    (evil-define-key 'normal git-timemachine-mode-map (kbd "C-k") 'git-timemachine-show-next-revision)
+)
+#+end_src
+
+** DIFF HIGHLIGHT
+
+#+begin_src emacs-lisp
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode t))
+#+end_src
+
+** MAGIT
+
+#+begin_src emacs-lisp
+(use-package magit)
+#+end_src
+
+* HIGHLIGHT TODO
+
+#+begin_src emacs-lisp
+(use-package hl-todo
+  :hook ((prog-mode . hl-todo-mode))
+  :config
+  (setq hl-todo-highlight-punctuation ":"
+        hl-todo-keyword-faces
+        `(("TODO"       warning bold)
+          ("FIXME"      error bold)
+          ("HACK"       font-lock-constant-face bold)
+          ("REVIEW"     font-lock-keyword-face bold)
+          ("NOTE"       success bold)
+          ("DEPRECATED" font-lock-doc-face bold))))
+#+end_src
+
+* PROJECTS LIST
+
+#+begin_src emacs-lisp
+(use-package projectile
+  :diminish
+  :config 
+  (projectile-mode 1))
 #+end_src
