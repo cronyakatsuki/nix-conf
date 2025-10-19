@@ -28,6 +28,18 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Easyeffects
+  services.easyeffects.enable = true;
+
+  # Fix missing icons
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+  };
+
   # Enable crony flake specific settings
   crony.mangohud.enable = true;
   crony.gaming.enable = true;

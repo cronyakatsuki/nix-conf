@@ -114,8 +114,8 @@
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
 
-  # Enable noisetorch
-  programs.noisetorch.enable = true;
+  # Enable dconf
+  programs.dconf.enable = true;
 
   # Enable AAGL
   programs.anime-game-launcher.enable = true;
