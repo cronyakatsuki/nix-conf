@@ -33,17 +33,13 @@ in {
       withNodeJs = true;
       withPython3 = true;
       withRuby = true;
-      extraWrapperArgs = [
-        "--suffix"
-        "LIBRARY_PATH"
-        ":"
-        "${lib.makeLibraryPath [pkgs.stdenv.cc.cc pkgs.zlib]}"
-        "--suffix"
-        "PKG_CONFIG_PATH"
-        ":"
-        "${lib.makeSearchPathOutput "dev" "lib/pkgconfig" [pkgs.stdenv.cc.cc pkgs.zlib]}"
+      extraPackages = [
+        # for treesitter
+        pkgs.gcc
+        # For nix
+        pkgs.nixd
+        pkgs.alejandra
       ];
-      extraPackages = [pkgs.gcc];
     };
 
     # Setup neovim with nvf
