@@ -25,6 +25,7 @@
       rpcs3
       # mame-tools
       # steam-rom-manager
+      shadps4
     ];
   };
 }
