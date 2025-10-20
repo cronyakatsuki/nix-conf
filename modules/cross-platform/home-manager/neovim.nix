@@ -22,10 +22,33 @@ in {
   config = lib.mkIf config.crony.neovim.enable {
     # Disable stylix for nvf, I wan't to use a properly implemented theme sorry.
     stylix.targets.nvf.enable = false;
+    stylix.targets.neovim.enable = false;
 
-    # Setup neovim
-    programs.nvf = {
+    # Setup neovim with default home manager options
+    programs.neovim = {
       enable = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      withNodeJs = true;
+      withPython3 = true;
+      withRuby = true;
+      extraWrapperArgs = [
+        "--suffix"
+        "LIBRARY_PATH"
+        ":"
+        "${lib.makeLibraryPath [pkgs.stdenv.cc.cc pkgs.zlib]}"
+        "--suffix"
+        "PKG_CONFIG_PATH"
+        ":"
+        "${lib.makeSearchPathOutput "dev" "lib/pkgconfig" [pkgs.stdenv.cc.cc pkgs.zlib]}"
+      ];
+      extraPackages = [pkgs.gcc];
+    };
+
+    # Setup neovim with nvf
+    programs.nvf = {
+      enable = false;
       settings = {
         vim = {
           # Use the nighly package
