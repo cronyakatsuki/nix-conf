@@ -44,6 +44,8 @@ in {
         pkgs.lua-language-server
         # for webdevelopment json/html/...
         pkgs.vscode-langservers-extracted
+        # for markdown
+        pkgs.marksman
       ];
     };
 
