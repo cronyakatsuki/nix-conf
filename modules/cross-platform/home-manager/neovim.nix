@@ -40,6 +40,10 @@ in {
         # For nix
         pkgs.nixd
         pkgs.alejandra
+        # for lua
+        pkgs.lua-language-server
+        # for webdevelopment json/html/...
+        pkgs.vscode-langservers-extracted
       ];
     };
 
