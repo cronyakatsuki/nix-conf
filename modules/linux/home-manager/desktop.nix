@@ -18,6 +18,7 @@
       ventoy
       feather
       gparted
+      cameractrls-gtk4
     ];
 
     # Install thunderbird
