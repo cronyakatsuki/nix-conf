@@ -55,7 +55,7 @@
   crony.home-secrets.enable = true;
   crony.restic.enable = true;
   crony.emulators.enable = true;
-  crony.emacs.enable = true;
+  # crony.emacs.enable = true;
   crony.zen-browser.enable = true;
 
   # DO NOT CHANGE ALSO
