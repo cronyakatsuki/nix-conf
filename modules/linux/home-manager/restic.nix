@@ -36,11 +36,6 @@ in {
   };
 
   config = lib.mkIf config.crony.restic.enable {
-    # Install restic package
-    home.packages = with pkgs; [
-      restic
-    ];
-
     # Restic home manager service
     services.restic = {
       enable = true;

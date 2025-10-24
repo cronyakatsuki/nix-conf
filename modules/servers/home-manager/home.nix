@@ -52,8 +52,10 @@
   home.packages = with pkgs; [
     unzip
     p7zip
-    aria2
   ];
+
+  # Install aria2
+  programs.aria2.enable = true;
 
   # Install fzf
   programs.fzf = {

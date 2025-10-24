@@ -10,8 +10,6 @@
 
   config = lib.mkIf config.crony.desktop.enable {
     home.packages = with pkgs; [
-      keepassxc
-      vesktop
       piper
       galaxy-buds-client
       nicotine-plus
@@ -20,6 +18,12 @@
       gparted
       cameractrls-gtk4
     ];
+
+    # Install keepassxc
+    programs.keepassxc.enable = true;
+
+    # Install vesktop
+    programs.vesktop.enable = true;
 
     # Install thunderbird
     programs.thunderbird = {

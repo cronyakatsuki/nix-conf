@@ -85,9 +85,9 @@ in {
   };
 
   config = lib.mkIf config.crony.hyprland.enable {
-    home.packages = with pkgs; [
-      hyprpolkitagent
-    ];
+    # Enable hyprpolkitagent
+    services.hyprpolkitagent.enable = true;
+    systemd.user.services.hyprpolkitagent.Install.WantedBy = lib.mkForce [];
 
     # Enable hyprpaper
     services.hyprpaper.enable = true;
