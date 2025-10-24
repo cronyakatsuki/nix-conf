@@ -61,6 +61,11 @@
     fallbackDns = ["192.168.0.5"];
   };
 
+  # Enable wake on lan
+  networking.interfaces."enp4s0".wakeOnLan.policy = [
+    "magic"
+  ];
+
   # Set your time zone.
   time.timeZone = "Europe/Zagreb";
 
