@@ -22,13 +22,13 @@
   boot.blacklistedKernelModules = ["intel_pmc_bxt" "iTCO_vendor_support" "iTCO_wdt"];
 
   # Use the xanmod kernel
-  # boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
-  # services.scx = {
-  #   enable = true;
-  #   package = pkgs.scx_git.full;
-  #   scheduler = "scx_lavd";
-  #   extraArgs = ["--autopower"];
-  # };
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  services.scx = {
+    enable = true;
+    package = pkgs.scx_git.full;
+    scheduler = "scx_lavd";
+    extraArgs = ["--autopower"];
+  };
 
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
@@ -109,7 +109,7 @@
   services.lact.enable = true;
 
   # Needed modules to have fan control
-  boot.kernelModules = ["coretemp" "nct6775"];
+  boot.kernelModules = ["coretemp" "nct6775" "ntsync"];
 
   # Enable ratbagd to customize mouse options
   services.ratbagd.enable = true;
