@@ -22,13 +22,13 @@
   boot.blacklistedKernelModules = ["intel_pmc_bxt" "iTCO_vendor_support" "iTCO_wdt"];
 
   # Use the xanmod kernel
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
-  services.scx = {
-    enable = true;
-    package = pkgs.scx_git.full;
-    scheduler = "scx_lavd";
-    extraArgs = ["--autopower"];
-  };
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  # services.scx = {
+  #   enable = true;
+  #   package = pkgs.scx_git.full;
+  #   scheduler = "scx_lavd";
+  #   extraArgs = ["--autopower"];
+  # };
 
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
@@ -60,11 +60,6 @@
     enable = true;
     fallbackDns = ["192.168.0.5"];
   };
-
-  # Enable wake on lan
-  networking.interfaces."enp4s0".wakeOnLan.policy = [
-    "magic"
-  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Zagreb";
