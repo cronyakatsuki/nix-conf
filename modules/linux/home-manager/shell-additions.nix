@@ -20,7 +20,9 @@
       inputs.agenix.packages.${system}.default
       inputs.deploy-rs.packages.${system}.default
       inputs.hb-downloader.packages.${system}.default
+      inputs.note.packages.${system}.default
       beets
+      croc
     ];
   };
 }

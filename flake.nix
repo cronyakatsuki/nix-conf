@@ -77,6 +77,9 @@
     # My selfhosted service, inspired by 0x0.st
     upfast.url = "git+https://git.cronyakatsuki.xyz/crony/UpFast";
 
+    # My note management app
+    note.url = "git+https://git.cronyakatsuki.xyz/crony/note";
+
     # My custom script for downloading humble bundle bundle's
     hb-downloader.url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
 

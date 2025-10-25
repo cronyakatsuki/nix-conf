@@ -29,7 +29,5 @@ with pkgs;
         --prefix PATH : ${lib.makeBinPath [ffmpeg cudatoolkit]}
 
       # Add dependencis for note script
-      wrapProgram $out/bin/note \
-        --prefix PATH : ${lib.makeBinPath [eza]}
     '';
   }
