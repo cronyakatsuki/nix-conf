@@ -43,6 +43,11 @@
     # Install foot
     programs.foot.enable = true;
 
+    # Install kitty
+    programs.kitty = {
+      enable = true;
+    };
+
     # Setup and enable mako
     services.mako = {
       enable = true;

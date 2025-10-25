@@ -146,7 +146,7 @@ in {
       settings = {
         "$mod" = "SUPER";
         "$menu" = "tofi";
-        "$terminal" = "foot";
+        "$terminal" = "kitty";
 
         env = [
           "LIBVA_DRIVER_NAME,nvidia"
