@@ -59,6 +59,22 @@
     LC_TIME = "hr_HR.UTF-8";
   };
 
+  # Setup bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;
+    };
+  };
+
+  # Setup dbus broker
+  services.dbus = {
+    enable = true;
+    implementation = "broker";
+  };
+
   # Enable seatd
   services.seatd.enable = true;
 

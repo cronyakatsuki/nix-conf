@@ -5,8 +5,13 @@
     ports = [
       "8123:8123"
     ];
+    capabilities = {
+      NET_ADMIN = true;
+      NET_RAW = true;
+    };
     volumes = [
       "/var/lib/homeassistant:/config"
+      "/run/dbus:/run/dbus:ro"
     ];
     environment = {
       TZ = "Europe/Berlin";
