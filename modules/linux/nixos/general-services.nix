@@ -12,10 +12,6 @@
     # Enable upower
     services.upower.enable = true;
 
-    # Setup udev for android rules
-    services.udev.packages = [
-      pkgs.android-udev-rules
-    ];
     # Enable firmware updater
     services.fwupd.enable = true;
 
