@@ -108,7 +108,10 @@
   # Setup gpu fan curves
   services.lact.enable = true;
 
-  # Needed modules to have fan control
+  # Setup rgb control
+  services.hardware.openrgb.enable = true;
+
+  # Needed modules to have fan control and ntsync
   boot.kernelModules = ["coretemp" "nct6775" "ntsync"];
 
   # Enable ratbagd to customize mouse options
