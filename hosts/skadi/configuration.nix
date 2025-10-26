@@ -105,7 +105,7 @@
     nvidiaSupport = true;
   };
 
-  # Setup gpu fan curves
+  # Setup gpu fan curves and light undervolt
   services.lact.enable = true;
 
   # Setup rgb control
