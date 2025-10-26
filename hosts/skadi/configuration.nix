@@ -27,7 +27,7 @@
     enable = true;
     package = pkgs.scx_git.full;
     scheduler = "scx_lavd";
-    extraArgs = ["--autopower"];
+    extraArgs = ["--autopilot"];
   };
 
   # Get nicer hostname
