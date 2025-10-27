@@ -5,17 +5,17 @@
     ports = [
       "8123:8123"
     ];
+    privileged = true;
     capabilities = {
       NET_ADMIN = true;
       NET_RAW = true;
     };
+    extraOptions = ["--network=host"];
     volumes = [
+      "/etc/localtime:/etc/localtime:ro"
       "/var/lib/homeassistant:/config"
       "/run/dbus:/run/dbus:ro"
     ];
-    environment = {
-      TZ = "Europe/Berlin";
-    };
   };
 
   services.restic.backups = {
