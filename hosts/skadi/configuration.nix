@@ -23,12 +23,12 @@
 
   # Use the xanmod kernel
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
-  services.scx = {
-    enable = true;
-    package = pkgs.scx_git.full;
-    scheduler = "scx_lavd";
-    extraArgs = ["--autopilot"];
-  };
+  # services.scx = {
+  #   enable = true;
+  #   package = pkgs.scx_git.full;
+  #   scheduler = "scx_lavd";
+  #   extraArgs = ["--autopilot"];
+  # };
 
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
@@ -133,6 +133,7 @@
       support32Bit = true;
     };
   };
+
   # Fix not saving my state
   hardware.alsa.enablePersistence = true;
 
@@ -219,6 +220,7 @@
   crony.secrets.enable = true;
   crony.boot.enable = true;
   crony.ollama.enable = true;
+  crony.sunshine.enable = true;
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {
