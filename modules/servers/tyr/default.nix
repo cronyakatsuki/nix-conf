@@ -9,5 +9,6 @@
     ./dns.nix
     ./traefik.nix
     ./home-assistant.nix
+    ./mosquitto.nix
   ];
 }
