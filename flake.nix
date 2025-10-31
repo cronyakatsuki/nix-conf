@@ -83,6 +83,9 @@
     # My custom script for downloading humble bundle bundle's
     hb-downloader.url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
 
+    # My flake for installing lnxlink
+    lnxlink.url = "git+https://git.cronyakatsuki.xyz/crony/lnxlink-flake";
+
     # Dev version of hyprland
     hyprland = {
       url = "github:hyprwm/Hyprland";
