@@ -5,6 +5,9 @@
     ports = [
       "8123:8123"
     ];
+    devices = [
+      "/dev/ttyUSB0:/dev/ttyUSB0"
+    ];
     privileged = true;
     capabilities = {
       NET_ADMIN = true;
