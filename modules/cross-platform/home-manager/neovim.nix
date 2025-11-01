@@ -46,6 +46,8 @@ in {
         pkgs.vscode-langservers-extracted
         # for markdown
         pkgs.marksman
+        # for yaml
+        pkgs.yaml-language-server
       ];
     };
 
