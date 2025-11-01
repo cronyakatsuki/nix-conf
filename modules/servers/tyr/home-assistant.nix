@@ -22,6 +22,7 @@
       "/var/lib/homeassistant:/config"
       "/run/dbus:/run/dbus:ro"
     ];
+    podman.user = "crony";
   };
 
   services.restic.backups = {

@@ -97,6 +97,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.crony = {
+    linger = true;
     isNormalUser = true;
     description = "Crony";
     hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
