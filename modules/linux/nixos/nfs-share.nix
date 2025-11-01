@@ -42,12 +42,5 @@ in {
       serviceConfig.Type = "oneshot";
       serviceConfig.ExecStart = "${auto_mount}/bin/auto_mount";
     };
-
-    # Nfs homeassistant
-    fileSystems."/mnt/homeassistant" = {
-      device = "192.168.0.5:/var/lib/homeassistant";
-      fsType = "nfs";
-      options = ["_netdev" "noauto" "x-systemd.automount" "x-systemd.mount-timeout=10" "timeo=14" "x-systemd.idle-timeout=600"];
-    };
   };
 }
