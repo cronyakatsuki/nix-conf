@@ -57,28 +57,7 @@
   crony.emulators.enable = true;
   # crony.emacs.enable = true;
   crony.zen-browser.enable = true;
-
-  home.packages = [
-    inputs.lnxlink.packages.${pkgs.system}.default
-  ];
-
-  systemd.user.services.lnxlink = {
-    Unit = {
-      Description = "LNXLlink";
-      After = ["network-online.target" "mutli-user.target" "graphical.target"];
-      PartOf = ["graphical-session.target"];
-    };
-    Install = {
-      WantedBy = ["default.target"];
-    };
-    Service = {
-      WorkingDirectory = "/home/crony/.config/lnxlink";
-      Type = "simple";
-      Restart = "always";
-      RestartSec = 5;
-      ExecStart = "${inputs.lnxlink.packages.${pkgs.system}.default}/bin/lnxlink --config /home/crony/.config/lnxlink/config.yaml";
-    };
-  };
+  crony.lnxlink.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.

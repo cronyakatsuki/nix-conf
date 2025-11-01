@@ -21,6 +21,7 @@
     ./secrets.nix
     ./emacs.nix
     ./zen-browser.nix
+    ./lnxlink.nix
   ];
 
   crony.river.enable = lib.mkDefault false;
@@ -44,4 +45,5 @@
   crony.home-secrets.enable = lib.mkDefault false;
   crony.emacs.enable = lib.mkDefault false;
   crony.zen-browser.enable = lib.mkDefault false;
+  crony.lnxlink.enable = lib.mkDefault false;
 }

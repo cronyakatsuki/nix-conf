@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  home,
   pkgs,
   lib,
   ...
@@ -24,5 +25,32 @@
       beets
       croc
     ];
+
+    programs.rclone = {
+      enable = true;
+      remotes = {
+        homeassistant = {
+          config = {
+            type = "sftp";
+            host = "assistant.home.cronyakatsuki.xyz";
+            user = "root";
+            key_file = "${home.homeDirectory} ~/.ssh/main";
+          };
+          mounts = {
+            "/var/lib/homeassistant" = {
+              enable = true;
+              mountPoint = "/home/crony/docs/assistant";
+              options = {
+                default-premissions = true;
+                vfs-cache-mode = "writes";
+                buffer-size = "64M";
+                multi-thread-streams = 4;
+                multi-thread-cutoff = "250M";
+              };
+            };
+          };
+        };
+      };
+    };
   };
 }
