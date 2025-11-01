@@ -8,6 +8,9 @@
       "19132:19132"
       "25500-25600:25500-25600"
     ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     volumes = [
       "/var/lib/crafty-controller/backups:/crafty/backups"
       "/var/lib/crafty-controller/logs:/crafty/logs"

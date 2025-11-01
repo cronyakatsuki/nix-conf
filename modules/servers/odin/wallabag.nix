@@ -8,6 +8,9 @@
     environment = {
       "SYMFONY__ENV__DOMAIN_NAME" = "https://wallabag.cronyakatsuki.xyz";
     };
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     volumes = [
       "/var/lib/wallabag/data:/var/www/wallabag/data"
       "/var/lib/wallabag/images:/var/www/wallabag/web/assets/images"

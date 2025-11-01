@@ -1,6 +1,6 @@
 {
   virtualisation.oci-containers.containers.homeassistant = {
-    image = "homeassistant/home-assistant:stable";
+    image = "docker.io/homeassistant/home-assistant:stable";
     autoStart = true;
     ports = [
       "8123:8123"
@@ -12,6 +12,9 @@
     capabilities = {
       NET_ADMIN = true;
       NET_RAW = true;
+    };
+    labels = {
+      "io.containers.autoupdate" = "registry";
     };
     extraOptions = ["--network=host"];
     volumes = [

@@ -1,10 +1,13 @@
 {
   virtualisation.oci-containers.containers.wallos = {
-    image = "bellamy/wallos:latest";
+    image = "docker.io/bellamy/wallos:latest";
     autoStart = true;
     ports = [
       "8282:80/tcp"
     ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     volumes = [
       "/var/lib/wallos/db:/var/www/html/db"
       "/var/lib/wallos/logos:/var/www/html/images/uploads/logos"

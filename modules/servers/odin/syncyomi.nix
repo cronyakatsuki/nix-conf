@@ -5,6 +5,9 @@
     ports = [
       "8282:8282"
     ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     volumes = [
       "/var/lib/syncyomi:/config"
     ];

@@ -5,6 +5,9 @@
     ports = [
       "8001:80"
     ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     volumes = [
       "/var/lib/website:/usr/share/nginx/html:ro"
     ];
