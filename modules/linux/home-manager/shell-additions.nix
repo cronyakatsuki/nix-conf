@@ -34,14 +34,14 @@
             type = "sftp";
             host = "assistant.home.cronyakatsuki.xyz";
             user = "root";
-            key_file = "${home.homeDirectory} ~/.ssh/main";
+            key_file = "${config.home.homeDirectory}/.ssh/main";
           };
           mounts = {
             "/var/lib/homeassistant" = {
               enable = true;
               mountPoint = "/home/crony/docs/assistant";
               options = {
-                default-premissions = true;
+                default-permissions = true;
                 vfs-cache-mode = "writes";
                 buffer-size = "64M";
                 multi-thread-streams = 4;
