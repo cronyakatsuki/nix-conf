@@ -1475,11 +1475,11 @@
         "pre-commit-hooks": "pre-commit-hooks_3"
       },
       "locked": {
-        "lastModified": 1761903767,
-        "narHash": "sha256-V4IClC+CQGZ9X6qdSyo/kid1wpi5oMCH3CQ2X6BKNJg=",
+        "lastModified": 1761995514,
+        "narHash": "sha256-e+6giA9FkLY8EWoSJUfVC1KCcC3r2MpZf7XwHnqJ9Sk=",
         "ref": "refs/heads/main",
-        "rev": "835f3823eccc83dfff818dcc2ec8ba67e2fdd8d9",
-        "revCount": 2,
+        "rev": "98fae59837707264b82f68149297903ca8c1aa63",
+        "revCount": 4,
         "type": "git",
         "url": "https://git.cronyakatsuki.xyz/crony/lnxlink-flake"
       },
