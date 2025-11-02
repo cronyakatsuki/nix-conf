@@ -18,10 +18,10 @@
       nurl
       # termsonic
       # inputs.iamb.packages.x86_64-linux.default
-      inputs.agenix.packages.${system}.default
-      inputs.deploy-rs.packages.${system}.default
-      inputs.hb-downloader.packages.${system}.default
-      inputs.note.packages.${system}.default
+      inputs.agenix.packages.${stdenv.hostPlatform.system}.default
+      inputs.deploy-rs.packages.${stdenv.hostPlatform.system}.default
+      inputs.hb-downloader.packages.${stdenv.hostPlatform.system}.default
+      inputs.note.packages.${stdenv.hostPlatform.system}.default
       beets
       croc
     ];
