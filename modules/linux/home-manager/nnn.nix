@@ -26,7 +26,7 @@
       extraPackages = with pkgs; [
         ffmpegthumbnailer
         mediainfo
-        poppler_utils
+        poppler-utils
         gnome-epub-thumbnailer
         nsxiv
         libarchive

@@ -102,7 +102,6 @@
   # Enable coolercontrol to setup fancurves
   programs.coolercontrol = {
     enable = true;
-    nvidiaSupport = true;
   };
 
   # Setup gpu fan curves and light undervolt
@@ -163,8 +162,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Setup community cache
+  # Allow Broken Packages
+  nixpkgs.config.allowBroken = true;
 
+  # Setup community cache
   nix.settings = {
     substituters = [
       "https://nix-community.cachix.org"
@@ -181,6 +182,7 @@
     ];
   };
 
+  # setup custom packages
   nixpkgs = {
     overlays = [
       (final: prev: {
@@ -199,8 +201,8 @@
     ];
   };
 
+  # Permit some insecure pacakges
   nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
     "ventoy-1.1.07"
   ];
 
