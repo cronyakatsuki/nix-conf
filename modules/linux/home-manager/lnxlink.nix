@@ -18,8 +18,10 @@
       Unit = {
         Description = "LNXLlink";
         After = ["network-online.target" "mutli-user.target" "graphical.target"];
+        Requires = ["wireplumber.service"];
         PartOf = ["graphical-session.target"];
       };
+
       Install = {
         WantedBy = ["default.target"];
       };
