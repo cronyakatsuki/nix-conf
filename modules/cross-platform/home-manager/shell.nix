@@ -33,8 +33,12 @@
     # Enable git
     programs.git = {
       enable = true;
-      userName = "Crony Akatsuki";
-      userEmail = "crony@cronyakatsuki.xyz";
+      settings = {
+        user = {
+          name = "Crony Akatsuki";
+          email = "crony@cronyakatsuki.xyz";
+        };
+      };
     };
 
     # Install fzf
