@@ -114,6 +114,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow broken packages
+  nixpkgs.config.allowBroken = true;
+
   # Setup community cache
   nix.settings = {
     substituters = [
