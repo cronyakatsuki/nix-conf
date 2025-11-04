@@ -26,6 +26,7 @@
       croc
     ];
 
+    # Setup rclone
     programs.rclone = {
       enable = true;
       remotes = {
