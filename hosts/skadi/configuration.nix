@@ -23,12 +23,11 @@
 
   # Use the xanmod kernel
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
-  # services.scx = {
-  #   enable = true;
-  #   package = pkgs.scx_git.full;
-  #   scheduler = "scx_lavd";
-  #   extraArgs = ["--autopilot"];
-  # };
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+    extraArgs = ["--performance" "--no-core-compaction"];
+  };
 
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
