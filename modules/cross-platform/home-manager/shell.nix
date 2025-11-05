@@ -141,5 +141,51 @@
         filter_mode = "directory";
       };
     };
+
+    # Install and setup yazi
+    programs.yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      shellWrapperName = "y";
+      settings = {
+        mgr = {
+          ratio = [0 4 4];
+          sort_by = "natural";
+          show_hidden = true;
+          show_symlink = false;
+        };
+      };
+      plugins = {
+        full-border = pkgs.yaziPlugins.full-border;
+        smart-enter = pkgs.yaziPlugins.smart-enter;
+        smart-tab = ./yazi/smart-tab;
+        folder-rules = ./yazi/folder-rules;
+      };
+      initLua = ''
+        require("full-border"):setup({
+          type = ui.Border.ROUNDED,
+        })
+
+        require("smart-enter"):setup({
+          open_multi = true,
+        })
+
+        require("folder-rules"):setup()
+      '';
+      keymap = {
+        mgr.prepend_keymap = [
+          {
+            on = "l";
+            run = "plugin smart-enter";
+            desc = "Enter the child directory, or open the file";
+          }
+          {
+            on = "t";
+            run = "plugin smart-tab";
+            desc = "Create a tab and enter the howered directory";
+          }
+        ];
+      };
+    };
   };
 }
