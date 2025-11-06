@@ -18,25 +18,6 @@ mvln () {
     ln -s $to $from
 }
 
-# nnn
-n () {
-    # Block nesting of nnn in subshells
-    [ "${NNNLVL:-0}" -eq 0 ] || {
-        echo "nnn is already running"
-        return
-    }
-
-    # Tempfile location
-    NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    nnn "$@"
-
-    [ ! -f "$NNN_TMPFILE" ] || {
-        . "$NNN_TMPFILE"
-        rm -f "$NNN_TMPFILE" > /dev/null
-    }
-}
-
 # upfast
 upfast () {
     curl -F "file=@$(readlink -f $1)" "https://upfast.cronyakatsuki.xyz/"
