@@ -130,14 +130,17 @@
           {
             on = "K";
             run = "plugin parent-arrow -1";
+            desc = "Move directory without leaving cwd in parent directory";
           }
           {
             on = "J";
             run = "plugin parent-arrow 1";
+            desc = "Move directory without leaving cwd in parent directory";
           }
           {
             on = ["g" "r"];
             run = "shell -- ya emit cd \"$(git rev-parse --show-toplevel)\"";
+            desc = "Go to root of git repository";
           }
           {
             on = ["c" "m"];
@@ -153,6 +156,16 @@
             on = "M";
             run = "plugin mount";
             desc = "Manage mounting disks";
+          }
+          {
+            on = ["g" "c"];
+            run = "cd ~/repos/nixos";
+            desc = "Go ~/repos/nixos";
+          }
+          {
+            on = ["g" "d"];
+            run = "cd ~/downs";
+            desc = "Go ~/downs";
           }
         ];
       };
