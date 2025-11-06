@@ -75,16 +75,28 @@
     agenix.url = "github:ryantm/agenix";
 
     # My selfhosted service, inspired by 0x0.st
-    upfast.url = "git+https://git.cronyakatsuki.xyz/crony/UpFast";
+    upfast = {
+      url = "git+https://git.cronyakatsuki.xyz/crony/UpFast";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # My note management app
-    note.url = "git+https://git.cronyakatsuki.xyz/crony/note";
+    note = {
+      url = "git+https://git.cronyakatsuki.xyz/crony/note";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # My custom script for downloading humble bundle bundle's
-    hb-downloader.url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
+    hb-downloader = {
+      url = "git+https://git.cronyakatsuki.xyz/crony/hb-downloader";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # My flake for installing lnxlink
-    lnxlink.url = "git+https://git.cronyakatsuki.xyz/crony/lnxlink-flake";
+    lnxlink = {
+      url = "git+https://git.cronyakatsuki.xyz/crony/lnxlink-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Dev version of hyprland
     hyprland = {
