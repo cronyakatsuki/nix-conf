@@ -39,7 +39,6 @@
           email = "crony@cronyakatsuki.xyz";
         };
       };
-      delta.enable = true;
     };
 
     # Install fzf
@@ -64,10 +63,6 @@
       enableZshIntegration = true;
     };
 
-    home.sessionVariables = {
-      _ZO_EXCLUDE_DIRS = "$HOME:$HOME/docs/share:/mnt";
-    };
-
     # Install eza
     programs.eza = {
       enable = true;
@@ -76,6 +71,7 @@
       icons = "always";
       extraOptions = [
         "--group-directories-first"
+        "--group"
       ];
     };
 
@@ -87,7 +83,10 @@
     };
 
     # Install tealdeer
-    programs.tealdeer.enable = true;
+    programs.tealdeer = {
+      enable = true;
+      enableAutoUpdates = true;
+    };
 
     # Install bat
     programs.bat.enable = true;
@@ -107,8 +106,8 @@
       enable = true;
     };
 
-    # Install btop
-    programs.btop.enable = true;
+    # Install htop
+    programs.htop.enable = true;
 
     # Install lazygit
     programs.lazygit.enable = true;
