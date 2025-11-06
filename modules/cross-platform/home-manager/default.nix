@@ -5,6 +5,7 @@
     ./scripts.nix
     ./tmux.nix
     ./zsh.nix
+    ./yazi.nix
   ];
 
   crony.neovim.enable = lib.mkDefault false;
@@ -12,4 +13,5 @@
   crony.tmux.enable = lib.mkDefault true;
   crony.zsh.enable = lib.mkDefault true;
   crony.scripts.enable = lib.mkDefault true;
+  crony.yazi.enable = lib.mkDefault false;
 }
