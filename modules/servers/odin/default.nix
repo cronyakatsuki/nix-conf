@@ -7,5 +7,6 @@
     ./upfast.nix
     ./miniflux.nix
     ./website.nix
+    ./filebrowser.nix
   ];
 }
