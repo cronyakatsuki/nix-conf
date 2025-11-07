@@ -17,6 +17,7 @@
       feather
       gparted
       cameractrls-gtk4
+      delfin
     ];
 
     # Install keepassxc
