@@ -20,16 +20,19 @@
     # NVF FOR SUPER NVIM
     nvf = {
       url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # auto-cpufreq latest version, for optimizing my laptop's thermal's
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # use custom nbfc that has the config for my laptop
     nbfc-linux = {
       url = "github:cronyakatsuki/nbfc-linux/a715-41g";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # use prebuild nix-index ( crashes on me cause little ram )
@@ -47,6 +50,7 @@
     # iamb, a matrix tui client. Latest possible version
     iamb = {
       url = "github:ulyssa/iamb";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Support for android
@@ -57,13 +61,21 @@
     };
 
     # Declare flatpak easilly
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
 
     # Neovim nightly
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Deploy-rs
-    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Disko
     disko = {
@@ -72,7 +84,10 @@
     };
 
     # secrets management
-    agenix.url = "github:ryantm/agenix";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # My selfhosted service, inspired by 0x0.st
     upfast = {
@@ -111,14 +126,20 @@
     };
 
     # Chaotic repo for some of their packages
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # AAGL
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
 
     # Emacs, my enemy let me try to learn you again
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # zen browser
     zen-browser = {
