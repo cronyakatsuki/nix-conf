@@ -233,7 +233,7 @@ in {
 
           "$mod SHIFT,  L, exec, hyprlock --immediate"
 
-          "$mod,        B, exec, zen"
+          "$mod,        B, exec, zen-beta"
           "$mod SHIFT,  B, exec, librewolf"
 
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
