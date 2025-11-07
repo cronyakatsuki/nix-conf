@@ -17,12 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # NVF FOR SUPER NVIM
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # auto-cpufreq latest version, for optimizing my laptop's thermal's
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";

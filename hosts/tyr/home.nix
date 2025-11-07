@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = [
-    inputs.nvf.homeManagerModules.default
     inputs.nix-index-database.homeModules.nix-index
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     inputs.agenix.homeManagerModules.default

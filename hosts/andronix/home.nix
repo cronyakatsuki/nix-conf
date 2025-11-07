@@ -8,7 +8,6 @@
 
   # Import modules I need
   imports = [
-    inputs.nvf.homeManagerModules.default
     ../../modules/cross-platform/home-manager
     inputs.nix-index-database.homeModules.nix-index
   ];
