@@ -21,6 +21,7 @@
       qzdl
       xonotic
       superTuxKart
+      faugus-launcher
       # nzportable
     ];
   };
