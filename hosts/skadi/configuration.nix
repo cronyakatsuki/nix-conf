@@ -95,7 +95,15 @@
   services.flatpak = {
     enable = true;
     packages = [
+      "com.dec05eba.gpu_screen_recorder"
     ];
+
+    uninstallUnmanaged = true;
+
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+    };
   };
 
   # Enable coolercontrol to setup fancurves
