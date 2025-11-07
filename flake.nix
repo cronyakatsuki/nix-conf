@@ -80,7 +80,7 @@
     # My selfhosted service, inspired by 0x0.st
     upfast = {
       url = "git+https://git.cronyakatsuki.xyz/crony/UpFast";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # My note management app
