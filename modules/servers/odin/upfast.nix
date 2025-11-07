@@ -38,6 +38,31 @@
     wantedBy = ["multi-user.target"];
   };
 
+  systemd.services.upfast-cleaner = {
+    description = "Script to automatically delete common types of payloads/keygens.";
+
+    requires = ["upfast.service"];
+    after = ["upfast.service"];
+
+    serviceConfig = {
+      Type = "oneshot";
+      User = "upfast";
+      Group = "upfast";
+      WorkingDirectory = "/var/lib/upfast";
+    };
+
+    script = "${./upfast-cleaner.sh} 'http://localhost:8383'";
+  };
+
+  systemd.timers.upfast-cleaner = {
+    enable = true;
+    timerConfig = {
+      OnBootSec = "1m";
+      OnUnitActiveSec = "1m";
+    };
+    wantedBy = ["timers.target"];
+  };
+
   services.traefik.dynamicConfigOptions.http = {
     services.upfast.loadBalancer.servers = [
       {
