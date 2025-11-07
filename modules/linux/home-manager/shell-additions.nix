@@ -17,7 +17,6 @@
       nvd
       nurl
       # termsonic
-      # inputs.iamb.packages.x86_64-linux.default
       inputs.agenix.packages.${stdenv.hostPlatform.system}.default
       inputs.deploy-rs.packages.${stdenv.hostPlatform.system}.default
       inputs.hb-downloader.packages.${stdenv.hostPlatform.system}.default

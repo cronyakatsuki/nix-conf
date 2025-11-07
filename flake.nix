@@ -41,12 +41,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # iamb, a matrix tui client. Latest possible version
-    iamb = {
-      url = "github:ulyssa/iamb";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Support for android
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
