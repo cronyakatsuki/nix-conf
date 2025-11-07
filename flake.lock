@@ -2053,11 +2053,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762529914,
-        "narHash": "sha256-UZ3Rq9HZBAjPT6z4c0GVvV1Z/Jf6oww0gxXWireYjMQ=",
+        "lastModified": 1762535805,
+        "narHash": "sha256-lJLvSk3dPxJaExnfLm5FYJfEbtJCkem0WLPGXVCdAcg=",
         "ref": "refs/heads/main",
-        "rev": "6f4757a1e9d6a4bf679d00ac9cf622271816a5e2",
-        "revCount": 108,
+        "rev": "a59c8920870c1f47813641f979e6cbb5a5b8f386",
+        "revCount": 109,
         "type": "git",
         "url": "https://git.cronyakatsuki.xyz/crony/UpFast"
       },
