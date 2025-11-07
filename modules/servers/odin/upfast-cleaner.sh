@@ -1,6 +1,4 @@
-#!/usr/bin/env sh
-
-instance="$*"
+instance="http://127.0.0.1:8383"
 
 files=$(curl -s "$instance"/files/)
 

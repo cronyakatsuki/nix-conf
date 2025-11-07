@@ -1,4 +1,15 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: let
+  upfast-cleaner = pkgs.writeShellApplication {
+    name = "upfast-cleaner";
+    runtimeInputs = with pkgs; [curl];
+    text = ./upfast-cleaner.sh;
+  };
+in {
   fileSystems."/var/lib/upfast" = {
     device = "/root/10gb";
     fsType = "ext4";
@@ -51,7 +62,7 @@
       WorkingDirectory = "/var/lib/upfast";
     };
 
-    script = "${./upfast-cleaner.sh} 'http://localhost:8383'";
+    script = "${lib.getExe upfast-cleaner}; 'http://localhost:8383'";
   };
 
   systemd.timers.upfast-cleaner = {
