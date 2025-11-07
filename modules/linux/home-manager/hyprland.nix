@@ -39,17 +39,16 @@
   toggle-sound-output = pkgs.writeShellScriptBin "toggle-sound-output" ''
     #!/usr/bin/env sh
 
-    speakers="alsa_output.pci-0000_05_00.1.hdmi-stereo"
-    headphones="alsa_output.usb-Xtrfy_SC1_Xtrfy_SC1-00.analog-stereo"
+    speakers="alsa_output.pci-0000_01_00.1.hdmi-stereo"
+    headphones="alsa_output.pci-0000_00_1f.3.analog-stereo"
 
     current="$(wpctl status -n | grep Audio/Sink | grep -oE '[^ ]+$')"
 
     if [ "''${current}" = "''${headphones}" ]; then
-    	wpctl set-default "$(pw-cli info $speakers | head -n 1 | awk '{print $2}')"
+      wpctl set-default "$(pw-cli info $speakers | head -n 1 | awk '{print $2}')"
     else
-    	wpctl set-default "$(pw-cli info $headphones | head -n 1 | awk '{print $2}')"
+      wpctl set-default "$(pw-cli info $headphones | head -n 1 | awk '{print $2}')"
     fi
-
   '';
   power-menu = pkgs.writeShellScriptBin "power-menu" ''
     #!/usr/bin/env sh
