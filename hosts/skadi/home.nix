@@ -55,6 +55,7 @@
   crony.zen-browser.enable = true;
   crony.lnxlink.enable = true;
   crony.yazi.enable = true;
+  crony.obs-studio.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "24.11"; # Please read the comment before changing.
