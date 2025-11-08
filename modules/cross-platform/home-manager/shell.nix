@@ -41,6 +41,93 @@
       };
     };
 
+    # Install fastfetch
+    programs.fastfetch = {
+      enable = true;
+      settings = {
+        display = {
+          separator = "  ";
+        };
+        modules = [
+          {
+            type = "os";
+            key = " OS";
+            keyColor = "yellow";
+          }
+          {
+            type = "kernel";
+            key = "│ ├";
+            keyColor = "yellow";
+          }
+          {
+            type = "packages";
+            key = "│ ├󰏖";
+            keyColor = "yellow";
+          }
+          {
+            type = "shell";
+            key = "│ └";
+            keyColor = "yellow";
+          }
+          {
+            type = "wm";
+            key = " wm";
+            keyColor = "blue";
+          }
+          {
+            type = "lm";
+            key = "│ ├󰧨";
+            keyColor = "blue";
+          }
+          {
+            type = "terminal";
+            key = "│ └";
+            keyColor = "blue";
+          }
+          {
+            type = "host";
+            key = " HOST";
+            keyColor = "green";
+          }
+          {
+            type = "cpu";
+            key = "│ ├";
+            keyColor = "green";
+          }
+          {
+            type = "gpu";
+            key = "│ ├󰍛";
+            keyColor = "green";
+          }
+          {
+            type = "disk";
+            key = "│ ├";
+            keyColor = "green";
+          }
+          {
+            type = "memory";
+            key = "│ ├󰑭";
+            keyColor = "green";
+          }
+          {
+            type = "swap";
+            key = "│ ├󰓡";
+            keyColor = "green";
+          }
+          {
+            type = "uptime";
+            key = "│ ├󰅐";
+            keyColor = "green";
+          }
+          {
+            type = "display";
+            key = "│ └󰍹";
+            keyColor = "green";
+          }
+        ];
+      };
+    };
+
     # Install fzf
     programs.fzf = {
       enable = true;

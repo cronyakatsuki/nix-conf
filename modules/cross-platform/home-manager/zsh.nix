@@ -19,7 +19,7 @@
     })
     ({...}: {
       programs.zsh.initContent = ''
-        ${pkgs.nerdfetch}/bin/nerdfetch
+        ${pkgs.fastfetch}/bin/fastfetch
         # VI Mode escape timeout fix
         export KEYTIMEOUT=1
 
