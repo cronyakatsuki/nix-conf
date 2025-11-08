@@ -58,17 +58,6 @@
       };
     };
 
-    services.swayidle = {
-      enable = true;
-      timeouts = [
-        {
-          timeout = 10;
-          command = "pidof hyprlock && ${pkgs.wlopm}/bin/wlopm --off '*'";
-          resumeCommand = "${pkgs.wlopm}/bin/wlopm --on '*'";
-        }
-      ];
-    };
-
     # Enable hyprlock
     programs.hyprlock = {
       enable = true;
