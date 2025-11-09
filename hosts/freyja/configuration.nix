@@ -17,6 +17,8 @@
     efiInstallAsRemovable = true;
   };
 
+  nixpkgs.config.allowUnsupportedSystem = true;
+
   environment.systemPackages = map lib.lowPrio [
     pkgs.curl
     pkgs.neovim
