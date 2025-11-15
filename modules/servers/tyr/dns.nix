@@ -87,7 +87,13 @@
   };
 
   # Setup ddns-updater
-  services.ddns-updater.enable = true;
+  services.ddns-updater = {
+    enable = true;
+    environment = {
+      RESOLVER_ADDRESS = "127.0.0.1:53";
+      PERIOD = "30s";
+    };
+  };
 
   services.traefik.dynamicConfigOptions.http = {
     services.ddns.loadBalancer.servers = [
