@@ -106,6 +106,8 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [42000 42001];
+
   # Enable coolercontrol to setup fancurves
   programs.coolercontrol = {
     enable = true;

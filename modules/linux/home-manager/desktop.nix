@@ -18,6 +18,7 @@
       gparted
       cameractrls-gtk4
       delfin
+      warpinator
     ];
 
     # Install keepassxc
