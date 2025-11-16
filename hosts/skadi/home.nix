@@ -51,7 +51,7 @@
   crony.shell-additions.enable = true;
   crony.home-secrets.enable = true;
   crony.restic.enable = true;
-  crony.emulators.enable = true;
+  # crony.emulators.enable = true;
   crony.zen-browser.enable = true;
   crony.lnxlink.enable = true;
   crony.yazi.enable = true;
