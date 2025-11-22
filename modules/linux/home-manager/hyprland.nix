@@ -298,38 +298,38 @@ in {
           "$mod ALT, mouse:272, resizewindow"
         ];
 
-        windowrulev2 = [
+        windowrule = [
           # Hide xwaylandvideobridge
-          "opacity 0.0 override, class:^(xwaylandvideobridge)$"
-          "noanim, class:^(xwaylandvideobridge)$"
-          "noinitialfocus, class:^(xwaylandvideobridge)$"
-          "maxsize 1 1, class:^(xwaylandvideobridge)$"
-          "noblur, class:^(xwaylandvideobridge)$"
-          "nofocus, class:^(xwaylandvideobridge)$"
+          "opacity 0.0 override, match:class ^(xwaylandvideobridge)$"
+          "no_anim match:class ^(xwaylandvideobridge)$"
+          "no_initial_focus match:class ^(xwaylandvideobridge)$"
+          "max_size 1 1, match:class ^(xwaylandvideobridge)$"
+          "no_blur match:class ^(xwaylandvideobridge)$"
+          "no_focus match:class ^(xwaylandvideobridge)$"
 
           # Disable animations for ueberzugpp
-          "noanim, class:^(ueberzugpp.*)$"
+          "no_anim match:class ^(ueberzugpp.*)$"
 
           # Make workspace 6 a floating layout
-          "float, workspace:6"
+          "float match:workspace 6"
 
           # Make keepassxc floating
-          "float, class:^(org.keepassxc.KeePassXC)$"
+          "float match:class ^(org.keepassxc.KeePassXC)$"
 
           # Move to workspace 1
-          "workspace 1, class:^(org.qutebrowser.qutebrowser)$"
+          "workspace 1, match:class ^(org.qutebrowser.qutebrowser)$"
 
           # Move to workspace 5
-          "workspace 5, class:^(vesktop)$"
+          "workspace 5, match:class ^(vesktop)$"
 
           # Move to workspace 6
-          "workspace 6, class:^(steam)$"
-          "workspace 6, class:^(heroic)$"
+          "workspace 6, match:class ^(steam)$"
+          "workspace 6, match:class ^(heroic)$"
 
           # Enable inhibition for fullscreen apps
-          "idleinhibit fullscreen, class:^(*)$"
-          "idleinhibit fullscreen, title:^(*)$"
-          "idleinhibit fullscreen, fullscreen:1"
+          "idle_inhibit fullscreen, match:class ^(*)$"
+          "idle_inhibit fullscreen, match:title ^(*)$"
+          "idle_inhibit fullscreen, match:fullscreen 1"
         ];
       };
     };
