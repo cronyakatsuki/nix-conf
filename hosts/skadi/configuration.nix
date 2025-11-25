@@ -193,7 +193,7 @@
     isNormalUser = true;
     description = "Crony";
     hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
-    extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat" "realtime" "uinput"];
+    extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat" "pipewire"];
   };
 
   users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
