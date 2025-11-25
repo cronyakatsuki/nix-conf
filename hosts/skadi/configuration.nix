@@ -179,8 +179,6 @@
   # Fix not saving my state
   hardware.alsa.enablePersistence = true;
 
-  programs.niri.enable = true;
-
   # Enable appimages
   programs.appimage = {
     enable = true;
@@ -293,7 +291,6 @@
     lm_sensors
     libva-utils
     alsa-utils
-    xwayland-satellite
   ];
 
   # Enable nixd to see nixpkgs path
