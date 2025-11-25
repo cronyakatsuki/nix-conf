@@ -31,6 +31,9 @@
           softrealtime = "auto";
           renice = 10;
         };
+        cpu = {
+          pin_cores = "no";
+        };
         custom = {
           start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
           end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
