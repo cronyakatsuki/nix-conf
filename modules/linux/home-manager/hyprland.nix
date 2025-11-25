@@ -155,7 +155,7 @@ in {
 
         cursor = {
           # Breaks mouse in fullscreen
-          # no_break_fs_vrr = 1;
+          no_break_fs_vrr = 1;
           no_hardware_cursors = 1;
           # use_cpu_buffer = 0;
         };
@@ -202,7 +202,7 @@ in {
         };
 
         misc = {
-          vrr = 2;
+          vrr = 3;
         };
 
         input = {
@@ -330,6 +330,15 @@ in {
           "idle_inhibit fullscreen, match:class ^(*)$"
           "idle_inhibit fullscreen, match:title ^(*)$"
           "idle_inhibit fullscreen, match:fullscreen 1"
+
+          # Set game type for gamescope windows
+          "match:class ^(gamescope)$, content game"
+
+          # Set game type for steam_app games
+          "match:class ^(steam_app_.*), content game"
+
+          # Enable tearing for games
+          "immediate yes, match:content 3"
         ];
       };
     };
