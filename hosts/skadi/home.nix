@@ -27,9 +27,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Easyeffects
-  services.easyeffects.enable = true;
-
   # Fix missing icons
   gtk = {
     enable = true;
