@@ -25,8 +25,8 @@
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   services.scx = {
     enable = true;
-    scheduler = "scx_lavd";
-    extraArgs = ["--performance" "--no-core-compaction"];
+    scheduler = "scx_bpfland";
+    # extraArgs = ["--perf" "1024"];
   };
 
   # Get nicer hostname
