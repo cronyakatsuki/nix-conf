@@ -19,7 +19,7 @@
     # Enable gamescope
     programs.gamescope = {
       enable = true;
-      capSysNice = true;
+      # capSysNice = true;
       package = pkgs.gamescope_git;
     };
     # Install gamemode
