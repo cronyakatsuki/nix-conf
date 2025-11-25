@@ -22,6 +22,20 @@
       # capSysNice = true;
       package = pkgs.gamescope_git;
     };
+
+    # Manage gamescope using ananicy
+    services.ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-cpp;
+      extraRules = [
+        {
+          "name" = "gamescope";
+          "nice" = -20;
+        }
+      ];
+    };
+
     # Install gamemode
     programs.gamemode = {
       enable = true;
