@@ -317,7 +317,7 @@ in {
           "float 1, match:class ^(org.keepassxc.KeePassXC)$"
 
           # Move to workspace 1
-          "workspace 1, match:class ^(org.qutebrowser.qutebrowser)$"
+          "workspace 1, match:class ^(zen-beta)$"
 
           # Move to workspace 5
           "workspace 5, match:class ^(vesktop)$"
