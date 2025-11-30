@@ -311,10 +311,10 @@ in {
           "no_anim match:class ^(ueberzugpp.*)$"
 
           # Make workspace 6 a floating layout
-          "float match:workspace 6"
+          "float 1, match:workspace 6"
 
           # Make keepassxc floating
-          "float match:class ^(org.keepassxc.KeePassXC)$"
+          "float 1, match:class ^(org.keepassxc.KeePassXC)$"
 
           # Move to workspace 1
           "workspace 1, match:class ^(org.qutebrowser.qutebrowser)$"
