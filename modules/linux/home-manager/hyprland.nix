@@ -150,7 +150,6 @@ in {
         exec = [
           # Fix laptop monitor getting turned on while my external monitor connected
           "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
-          "pkill waybar; waybar" # Kill waybar and start new instance because everytime hyprland restarts breaks waybar
         ];
 
         cursor = {
@@ -168,6 +167,7 @@ in {
           "systemctl --user start hyprpolkitagent"
           "systemctl --user start hyprpaper"
           "systemctl --user start hypridle"
+          "systemctl --user start waybar"
         ];
 
         monitor = [
