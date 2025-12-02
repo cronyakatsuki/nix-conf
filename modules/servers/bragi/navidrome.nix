@@ -8,6 +8,11 @@
     environmentFile = "${config.age.secrets.navidrome.path}";
   };
 
+  systemd.services.navidrome = {
+    after = ["mnt.mount"];
+    bindsTo = ["mnt.mount"];
+  };
+
   services.traefik.dynamicConfigOptions.http = {
     services.navidrome.loadBalancer.servers = [
       {

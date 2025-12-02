@@ -3,6 +3,11 @@
     enable = true;
   };
 
+  systemd.services.audiobookshelf = {
+    after = ["mnt.mount"];
+    bindsTo = ["mnt.mount"];
+  };
+
   services.traefik.dynamicConfigOptions.http = {
     services.audiobookshelf.loadBalancer.servers = [
       {
