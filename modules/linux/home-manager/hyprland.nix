@@ -276,9 +276,14 @@ in {
         ];
 
         bindel = [
+          # Volume bindings
           ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1 && ${volume-notify}/bin/volume-notify"
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1 && ${volume-notify}/bin/volume-notify"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ${volume-notify}/bin/volume-notify"
+
+          # Brightness bindings
+          "$mod, XF86AudioRaiseVolume, exec, ddcutil -d 1 setvcp 10 + 5"
+          "$mod, XF86AudioLowerVolume, exec, ddcutil -d 1 setvcp 10 - 5"
         ];
 
         # Requires playerctl
