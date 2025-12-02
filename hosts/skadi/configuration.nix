@@ -116,6 +116,9 @@
   # Setup gpu fan curves and light undervolt
   services.lact.enable = true;
 
+  # Setup display brightness changing using ddcutil
+  hardware.i2c.enable = true;
+
   # Setup rgb control
   services.hardware.openrgb.enable = true;
 
@@ -291,6 +294,7 @@
     lm_sensors
     libva-utils
     alsa-utils
+    ddcutil
   ];
 
   # Enable nixd to see nixpkgs path
