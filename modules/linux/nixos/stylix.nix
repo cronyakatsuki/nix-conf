@@ -13,7 +13,7 @@
     stylix.enable = true;
     stylix.autoEnable = true;
     stylix.image = ./background.png;
-    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
 
     # Change Cursor
     stylix.cursor.package = pkgs.bibata-cursors;
