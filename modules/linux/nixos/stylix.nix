@@ -12,7 +12,7 @@
     # Enable sytling using stylix
     stylix.enable = true;
     stylix.autoEnable = true;
-    stylix.image = ./background.png;
+    stylix.image = ./tokyonight.png;
     stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
 
     # Change Cursor
