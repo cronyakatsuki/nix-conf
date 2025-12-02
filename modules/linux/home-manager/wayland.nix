@@ -214,7 +214,8 @@
           };
           temperature = {
             critical-threshold = 80;
-            hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+            hwmon-path-abs = "/sys/devices/platform/coretemp.0/hwmon/hwmon1";
+            input-filename = "temp2_input";
             format = " {temperatureC}°C";
           };
           battery = {
