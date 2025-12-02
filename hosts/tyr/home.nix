@@ -12,6 +12,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  crony.pipewire.enable = false;
+
   # DO NOT CHANGE
   home.stateVersion = "24.11"; # Please read the comment before changing.
 }
