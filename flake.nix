@@ -160,14 +160,14 @@
         };
       };
 
-      baldur = {
-        hostname = "baldur";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.baldur;
-        };
-      };
+      # baldur = {
+      #   hostname = "baldur";
+      #   profiles.system = {
+      #     sshUser = "root";
+      #     user = "root";
+      #     path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.baldur;
+      #   };
+      # };
 
       bragi = {
         hostname = "bragi";
@@ -241,19 +241,19 @@
         ];
       };
 
-      baldur = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "aarch64-linux";
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/baldur/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/baldur
-          ./modules/servers/home-manager
-        ];
-      };
+      # baldur = nixpkgs.lib.nixosSystem {
+      #   specialArgs = {inherit inputs;};
+      #   system = "aarch64-linux";
+      #   modules = [
+      #     disko.nixosModules.disko
+      #     agenix.nixosModules.default
+      #     home-manager.nixosModules.home-manager
+      #     ./hosts/baldur/configuration.nix
+      #     ./modules/servers/general
+      #     ./modules/servers/baldur
+      #     ./modules/servers/home-manager
+      #   ];
+      # };
 
       bragi = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
