@@ -16,7 +16,7 @@
 
   # Containers
   virtualisation.oci-containers.containers."lemmy-backend" = {
-    image = "dessalines/lemmy:0.19.11";
+    image = "dessalines/lemmy:0.19.13";
     environmentFiles = [
       "/run/agenix/lemmy-env"
     ];
@@ -157,7 +157,7 @@
     ];
   };
   virtualisation.oci-containers.containers."lemmy-ui" = {
-    image = "dessalines/lemmy-ui:0.19.11";
+    image = "dessalines/lemmy-ui:0.19.13";
     environmentFiles = [
       "/run/agenix/lemmy-env"
     ];
