@@ -12,6 +12,7 @@
       enable = true;
       packages = [
         "com.github.tchx84.Flatseal"
+        "com.stremio.Stremio"
       ];
 
       update.auto = {
