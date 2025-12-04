@@ -672,11 +672,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759991118,
-        "narHash": "sha256-pDyrtUQyeP1lVTMIYqJtftzDtsXEZaJjYy9ZQ/SGhL8=",
+        "lastModified": 1763982521,
+        "narHash": "sha256-ur4QIAHwgFc0vXiaxn5No/FuZicxBr2p0gmT54xZkUQ=",
         "owner": "nix-community",
         "repo": "gomod2nix",
-        "rev": "7f8d7438f5870eb167abaf2c39eea3d2302019d1",
+        "rev": "02e63a239d6eabd595db56852535992c898eba72",
         "type": "github"
       },
       "original": {
@@ -1628,11 +1628,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761426592,
-        "narHash": "sha256-xFiFhWyy6Jx3kvdteIQWuKKxMBRMkKob5aPF+cw8hsA=",
+        "lastModified": 1764876817,
+        "narHash": "sha256-hV/n14/7XlXK2JLKjICbetgFySbZyhGgwNeunww0xTE=",
         "ref": "refs/heads/main",
-        "rev": "e6eaf8db54d2d0c4cafce37fa3800aa83e4056ff",
-        "revCount": 5,
+        "rev": "974790dce7ad65f4623fbff7884a4f9a3b8e5cf4",
+        "revCount": 7,
         "type": "git",
         "url": "https://git.cronyakatsuki.xyz/crony/note"
       },
