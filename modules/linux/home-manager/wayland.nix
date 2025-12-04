@@ -63,28 +63,25 @@
       enable = true;
       package = inputs.hyprlock.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock;
       settings = {
-        general = {
-          disable_loading_bar = true;
-          grace = 0;
-          hide_cursor = true;
-          no_fade_in = false;
-        };
-
         image = {
           path = "$HOME/.face";
           size = 150;
           border_size = 4;
-          border_color = "rgb(d5c4a1)";
+          border_color = "rgb(${config.lib.stylix.colors.base0D})";
           position = "0, 385";
           halign = "center";
           valign = "center";
+        };
+
+        background = {
+          blur_passes = 4;
         };
 
         label = [
           {
             text = "$TIME";
             font_size = 90;
-            color = "rgb(d5c4a1)";
+            color = "rgb(${config.lib.stylix.colors.base06})";
             position = "0, 245";
             halign = "center";
             valight = "center";
@@ -92,7 +89,7 @@
           {
             text = ''cmd[update:43200000] date +"%Y %m %d"'';
             font_size = 25;
-            color = "rgb(d5c4a1)";
+            color = "rgb(${config.lib.stylix.colors.base06})";
             position = "0, -225";
             halign = "center";
             valign = "center";
