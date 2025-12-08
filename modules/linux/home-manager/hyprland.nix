@@ -59,18 +59,6 @@
     esac
   '';
   grim = "${pkgs.grim}/bin/grim";
-  vpn-toggle = pkgs.writeShellScriptBin "vpn-toggle" ''
-    #!/usr/bin/env sh
-
-    if [ "$(nmcli --overview -f GENERAL.STATE connection show hetz)" = "" ]; then
-    	nmcli con up hetz
-      ${pkgs.libnotify}/bin/notify-send "VPN" "UP"
-    else
-    	nmcli con down hetz
-      ${pkgs.libnotify}/bin/notify-send "VPN" "DOWN"
-    fi
-
-  '';
   playerctl = "${pkgs.playerctl}/bin/playerctl";
 in {
   options = {
@@ -84,8 +72,6 @@ in {
 
     # Enable hyprpaper
     services.hyprpaper.enable = true;
-
-    # Disable it by default and have it started manually by hyprland
     systemd.user.services.hyprpaper.Install.WantedBy = lib.mkForce [];
 
     # Setup portal for hyprland
@@ -124,7 +110,6 @@ in {
         ];
       };
     };
-    # Disable it by default and have it started manually by hyprland
     systemd.user.services.hypridle.Install.WantedBy = lib.mkForce [];
 
     # Setup and enable hyprland
@@ -153,10 +138,9 @@ in {
         ];
 
         cursor = {
-          # Breaks mouse in fullscreen
           no_break_fs_vrr = 1;
           no_hardware_cursors = 1;
-          # use_cpu_buffer = 0;
+          use_cpu_buffer = 0;
         };
 
         exec-once = [
@@ -174,7 +158,7 @@ in {
           "HDMI-A-1, 1920x1080@144, 0x0, 1"
           "DP-1, 1920x1080@165, 0x0, 1"
           "eDP-1, 1920x1080, 0x0, 1"
-          "sunshine, 1920x1080@144, 0x0, 1"
+          "sunshine, 1920x1080@165, 0x0, 1"
         ];
 
         animations = {
@@ -207,7 +191,7 @@ in {
 
         input = {
           kb_layout = "us,hr";
-          kb_options = "caps:escape,grp:alt_space_toggle";
+          kb_options = "grp:alt_space_toggle";
           accel_profile = "flat";
         };
 
@@ -230,7 +214,7 @@ in {
 
           "$mod,        F, fullscreen"
 
-          "$mod SHIFT,  L, exec, hyprlock --immediate"
+          "$mod SHIFT,  L, exec, hyprlock"
 
           "$mod,        B, exec, zen-beta"
           "$mod SHIFT,  B, exec, librewolf"
@@ -238,7 +222,6 @@ in {
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
           "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
           "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
-          "$mod,        w, exec, ${vpn-toggle}/bin/vpn-toggle"
 
           "$mod,        F12, exec, ${grim} ${config.xdg.userDirs.pictures}/screenshots/$(date +'%s_grim.png')"
 
