@@ -160,6 +160,44 @@
       enable = true;
       support32Bit = true;
     };
+    wireplumber.extraConfig = {
+      "51-disable-suspension" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              {
+                node.name = "~alsa_input.*";
+              }
+              {
+                node.name = "~alsa_output.*";
+              }
+            ];
+            actions = {
+              update-props = {
+                "session.suspend-timeout-seconds" = 0;
+              };
+            };
+          }
+        ];
+        "monitor.bluez.rules" = [
+          {
+            matches = [
+              {
+                node.name = "~alsa_input.*";
+              }
+              {
+                node.name = "~alsa_output.*";
+              }
+            ];
+            actions = {
+              update-props = {
+                "session.suspend-timeout-seconds" = 0;
+              };
+            };
+          }
+        ];
+      };
+    };
     extraConfig = {
       pipewire."99-silent.bell.conf" = {
         "context.properties" = {
