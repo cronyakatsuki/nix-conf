@@ -27,6 +27,7 @@
     ./oom.nix
     ./boot.nix
     ./kanata.nix
+    ./keyd.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -56,4 +57,5 @@
   crony.oom.enable = lib.mkDefault true;
   crony.boot.enable = lib.mkDefault false;
   crony.kanata.enable = lib.mkDefault false;
+  crony.keyd.enable = lib.mkDefault true;
 }
