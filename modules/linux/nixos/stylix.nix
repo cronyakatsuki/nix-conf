@@ -16,8 +16,8 @@
     stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     # Change Cursor
-    stylix.cursor.package = pkgs.rose-pine-cursor;
-    stylix.cursor.name = "BreezeX-RosePineDawn";
+    stylix.cursor.package = pkgs.bibata-cursors;
+    stylix.cursor.name = "Bibata-Modern-Ice";
     stylix.cursor.size = 32;
 
     # Fix stuff not automatically using dark theme on websites
