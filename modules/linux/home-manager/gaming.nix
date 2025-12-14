@@ -17,7 +17,6 @@
       protontricks
       itch
       wineWowPackages.staging
-      osu-lazer-bin
       inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
       gzdoom
       qzdl
