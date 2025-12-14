@@ -177,8 +177,6 @@
   crony.ryzenadj.enable = false;
   crony.auto-cpufreq.enable = true;
   crony.hyprland-nixos.enable = true;
-  crony.ollama.enable = false;
-  crony.sunshine.enable = true;
   crony.nfs-share.enable = true;
   crony.sddm.enable = true;
 
