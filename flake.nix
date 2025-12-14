@@ -134,6 +134,9 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Some gaming related stuff ( actual osu! )
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {
