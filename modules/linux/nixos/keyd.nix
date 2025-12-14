@@ -15,7 +15,11 @@
         settings = {
           main = {
             capslock = "overload(control, esc)";
-            esc = "capslock";
+            esc = "toggle(gaming)";
+          };
+          gaming = {
+            capslock = "esc";
+            rightshift = "rightshift";
           };
         };
       };
