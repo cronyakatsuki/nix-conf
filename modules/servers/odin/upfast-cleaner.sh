@@ -19,3 +19,11 @@ if echo "$files" | grep -i ".php" >> /dev/null; then
     fi
   done
 fi
+
+# Delete kernel object files
+if echo "$files" | grep -iE ".*.ko" >> /dev/null; then
+  for file in $(echo "$files" | grep -iE ".*.ko"); do
+    echo "Deleting file $file"
+    curl -X DELETE "$instance/files/$file"
+  done
+fi
