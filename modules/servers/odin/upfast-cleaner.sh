@@ -20,6 +20,16 @@ if echo "$files" | grep -i ".php" >> /dev/null; then
   done
 fi
 
+# Delete all shell scripts that make direct mention of my upfast instance
+if echo "$files" | grep -i ".sh" >> /dev/null; then
+  for file in $(echo "$files" | grep -i ".sh"); do
+    if curl -s "$instance/files/$file" | grep -i "upfast.cronyakatsuki.xyz/files" >> /dev/null; then
+      echo "Found payload, deleting file $file"
+      curl -X DELETE "$instance/files/$file"
+    fi
+  done
+fi
+
 # Delete kernel object files
 if echo "$files" | grep -iE ".*.ko" >> /dev/null; then
   for file in $(echo "$files" | grep -iE ".*.ko"); do
