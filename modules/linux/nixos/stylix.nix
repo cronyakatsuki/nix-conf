@@ -12,7 +12,7 @@
     # Enable sytling using stylix
     stylix.enable = true;
     stylix.autoEnable = true;
-    stylix.image = ./tokyonight.png;
+    stylix.image = ./rose-pine.png;
     stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     # Change Cursor
