@@ -10,6 +10,14 @@ if echo "$files" | grep -i "keygen" >> /dev/null; then
   done
 fi
 
+# Check for common payload names on server
+if echo "$files" | grep -iE "dorpxy|mner|mnpxy" >> /dev/null; then
+  for file in $(echo "$files" | grep -iE "dorpxy|mner|mnpxy"); do
+    echo "Deleting file $file"
+    curl -X DELETE "$instance/files/$file"
+  done
+fi
+
 # Delete common php payloads
 if echo "$files" | grep -i ".php" >> /dev/null; then
   for file in $(echo "$files" | grep -i ".php"); do
