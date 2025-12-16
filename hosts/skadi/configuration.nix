@@ -307,6 +307,7 @@
   crony.boot.enable = true;
   # crony.ollama.enable = true;
   crony.sunshine.enable = true;
+  crony.bluetooth.enable = true;
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {

@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   # Enable bluetooth
@@ -9,13 +10,19 @@
   };
 
   config = lib.mkIf config.crony.bluetooth.enable {
-    hardware.bluetooth.enable = true;
-    hardware.bluetooth.powerOnBoot = true;
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      package = pkgs.bluez-experimental;
 
-    hardware.bluetooth.settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-        Experimental = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+        Policy = {
+          AutoEnable = true;
+        };
       };
     };
 
