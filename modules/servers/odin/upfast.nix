@@ -62,7 +62,7 @@ in {
       WorkingDirectory = "/var/lib/upfast";
     };
 
-    script = "${lib.getExe upfast-cleaner}; 'http://localhost:8383'";
+    script = "${lib.getExe upfast-cleaner}";
   };
 
   systemd.timers.upfast-cleaner = {
