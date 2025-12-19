@@ -19,6 +19,7 @@
       cameractrls-gtk4
       delfin
       warpinator
+      qbittorrent
     ];
 
     # Install keepassxc
