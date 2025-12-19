@@ -16,10 +16,11 @@
           main = {
             capslock = "overload(control, esc)";
             esc = "toggle(gaming)";
+            rightshift = "rightshift";
+            rightctrl = "rightctrl";
           };
           gaming = {
             capslock = "esc";
-            rightshift = "rightshift";
           };
         };
       };
