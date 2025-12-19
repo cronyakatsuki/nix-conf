@@ -309,6 +309,9 @@
   crony.sunshine.enable = true;
   crony.bluetooth.enable = true;
 
+  # Setup spice usb redirection
+  virtualisation.spiceUSBRedirection.enable = true;
+
   # Mount additional drive for games
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/f747508e-6b2f-474a-88cf-759a221cff46";
@@ -336,6 +339,7 @@
     libva-utils
     alsa-utils
     ddcutil
+    quickemu
   ];
 
   # Enable nixd to see nixpkgs path
