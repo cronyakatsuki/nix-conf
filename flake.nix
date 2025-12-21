@@ -95,6 +95,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # My custom script for downloading humble bundle bundle's
+    extract-romset = {
+      url = "git+https://git.cronyakatsuki.xyz/crony/extract-romset-dat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # My flake for installing lnxlink
     lnxlink = {
       url = "git+https://git.cronyakatsuki.xyz/crony/lnxlink-flake";

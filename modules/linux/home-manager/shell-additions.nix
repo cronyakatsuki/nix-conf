@@ -20,6 +20,7 @@
       inputs.agenix.packages.${stdenv.hostPlatform.system}.default
       inputs.deploy-rs.packages.${stdenv.hostPlatform.system}.default
       inputs.hb-downloader.packages.${stdenv.hostPlatform.system}.default
+      inputs.extract-romset.packages.${stdenv.hostPlatform.system}.default
       inputs.note.packages.${stdenv.hostPlatform.system}.default
       beets
       croc
