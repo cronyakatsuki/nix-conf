@@ -22,9 +22,20 @@
       inputs.hb-downloader.packages.${stdenv.hostPlatform.system}.default
       inputs.extract-romset.packages.${stdenv.hostPlatform.system}.default
       inputs.note.packages.${stdenv.hostPlatform.system}.default
-      beets
       croc
     ];
+
+    programs.beets = {
+      enable = true;
+      settings = {
+        directory = "~/music/to-listen/";
+        library = "~/.local/share/beets.db";
+        plugins = "fromfilename chroma embedart fetchart duplicates";
+        import = {
+          move = true;
+        };
+      };
+    };
 
     # Setup rclone
     programs.rclone = {
