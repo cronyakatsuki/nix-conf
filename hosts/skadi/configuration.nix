@@ -26,7 +26,6 @@
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
-    # extraArgs = ["--perf" "1024"];
   };
 
   # Get nicer hostname
@@ -308,6 +307,7 @@
   # crony.ollama.enable = true;
   crony.sunshine.enable = true;
   crony.bluetooth.enable = true;
+  crony.localsend.enable = true;
 
   # Setup spice usb redirection
   virtualisation.spiceUSBRedirection.enable = true;

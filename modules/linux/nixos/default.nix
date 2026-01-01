@@ -28,6 +28,7 @@
     ./boot.nix
     ./kanata.nix
     ./keyd.nix
+    ./localsend.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -58,4 +59,5 @@
   crony.boot.enable = lib.mkDefault false;
   crony.kanata.enable = lib.mkDefault false;
   crony.keyd.enable = lib.mkDefault true;
+  crony.localsend.enable = lib.mkDefault false;
 }
