@@ -166,6 +166,11 @@
     enable = true;
   };
 
+  services.iperf3 = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # Enable my specific settings
   crony.secrets.enable = true;
 
