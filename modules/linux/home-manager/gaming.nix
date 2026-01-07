@@ -23,7 +23,7 @@
       xonotic
       superTuxKart
       faugus-launcher
-      # nzportable
+      nzportable
     ];
   };
 }

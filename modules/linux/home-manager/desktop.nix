@@ -13,7 +13,7 @@
       piper
       galaxy-buds-client
       nicotine-plus
-      ventoy
+      # ventoy
       feather
       gparted
       cameractrls-gtk4
