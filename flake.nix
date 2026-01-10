@@ -142,7 +142,7 @@
     };
 
     # Some gaming related stuff ( actual osu! )
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = "github:cronyakatsuki/nix-gaming";
   };
 
   outputs = {

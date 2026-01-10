@@ -1514,15 +1514,15 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1767838011,
-        "narHash": "sha256-d2rO0MBg6+b6gwVxQEqnihiG5LuMq9u0QruJ3x0AZyk=",
-        "owner": "fufexan",
+        "lastModified": 1768062066,
+        "narHash": "sha256-HB6IT+VND0r4rRbChz4jnbJhf/qF5VbrmpCYp4V3UNM=",
+        "owner": "cronyakatsuki",
         "repo": "nix-gaming",
-        "rev": "568772891364aaa7e29da6dd4f0b2f626f3a62ae",
+        "rev": "a73562801f690cfe3655bb33232d71d682082049",
         "type": "github"
       },
       "original": {
-        "owner": "fufexan",
+        "owner": "cronyakatsuki",
         "repo": "nix-gaming",
         "type": "github"
       }
