@@ -43,4 +43,6 @@ in {
   "duckdns.age".publicKeys = systems ++ users;
   "glance.age".publicKeys = systems ++ users;
   "ddns.age".publicKeys = systems ++ users;
+  "linkwarden.age".publicKeys = systems ++ users;
+  "linkwarden-db.age".publicKeys = systems ++ users;
 }

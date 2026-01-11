@@ -14,7 +14,6 @@
       age
       ffmpeg
       imagemagick
-      buku
       unzip
       p7zip
       aria2

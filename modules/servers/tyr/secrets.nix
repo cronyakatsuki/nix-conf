@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   age = {
     secrets = {
       wg-tyr = {
@@ -32,6 +32,13 @@
         owner = "nobody";
         group = "nogroup";
         symlink = false;
+      };
+      linkwarden = {
+        file = ../../../secrets/linkwarden.age;
+        owner = config.services.linkwarden.user;
+      };
+      linkwarden-db = {
+        file = ../../../secrets/linkwarden.age;
       };
     };
   };

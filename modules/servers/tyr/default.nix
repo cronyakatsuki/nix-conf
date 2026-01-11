@@ -10,5 +10,6 @@
     ./traefik.nix
     ./home-assistant.nix
     ./mosquitto.nix
+    ./linkwarden.nix
   ];
 }
