@@ -12,5 +12,6 @@
     ./mosquitto.nix
     ./linkwarden.nix
     ./paperless-ngx.nix
+    ./komga.nix
   ];
 }
