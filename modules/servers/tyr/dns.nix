@@ -87,6 +87,7 @@
           ''"assistant.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"ddns.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"linkwarden.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+          ''"paperless.home.cronyakatsuki.xyz IN A 192.168.0.5"''
         ];
       };
     };

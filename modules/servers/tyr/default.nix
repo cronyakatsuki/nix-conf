@@ -11,5 +11,6 @@
     ./home-assistant.nix
     ./mosquitto.nix
     ./linkwarden.nix
+    ./paperless-ngx.nix
   ];
 }

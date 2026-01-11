@@ -45,4 +45,5 @@ in {
   "ddns.age".publicKeys = systems ++ users;
   "linkwarden.age".publicKeys = systems ++ users;
   "linkwarden-db.age".publicKeys = systems ++ users;
+  "paperless-ngx.age".publicKeys = systems ++ users;
 }

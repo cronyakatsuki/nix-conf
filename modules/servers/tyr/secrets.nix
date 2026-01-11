@@ -40,6 +40,9 @@
       linkwarden-db = {
         file = ../../../secrets/linkwarden.age;
       };
+      paperless-ngx = {
+        file = ../../../secrets/paperless-ngx.age;
+      };
     };
   };
 }
