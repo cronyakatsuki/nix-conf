@@ -56,5 +56,11 @@
     # Setup switch pro controller
     hardware.steam-hardware.enable = true;
     services.joycond.enable = true;
+
+    # Enable AAGL
+    programs.anime-game-launcher.enable = false;
+
+    # Enable sleepy launcher
+    programs.sleepy-launcher.enable = true;
   };
 }

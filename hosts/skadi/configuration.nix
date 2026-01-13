@@ -130,9 +130,6 @@
   # Enable dconf
   programs.dconf.enable = true;
 
-  # Enable AAGL
-  programs.anime-game-launcher.enable = false;
-
   # Enable sound with pipewire.
   security.rtkit.enable = true;
   services.pipewire = {
