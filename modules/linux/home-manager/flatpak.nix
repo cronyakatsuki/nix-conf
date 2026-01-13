@@ -14,6 +14,7 @@
         "com.github.tchx84.Flatseal"
         "com.stremio.Stremio"
         "org.raspberrypi.rpi-imager"
+        "com.hypixel.HytaleLauncher"
       ];
 
       update.auto = {
