@@ -25,4 +25,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/ntfy-sh"];
+    server.paths = ["/var/lib/ntfy-sh"];
+  };
 }

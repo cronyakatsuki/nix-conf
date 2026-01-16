@@ -26,4 +26,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/paperless"];
+    server.paths = ["/var/lib/paperless"];
+  };
 }

@@ -21,4 +21,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/uptime-kuma"];
+    server.paths = ["/var/lib/uptime-kuma"];
+  };
 }

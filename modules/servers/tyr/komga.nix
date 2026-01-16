@@ -20,4 +20,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/komga"];
+    server.paths = ["/var/lib/komga"];
+  };
 }

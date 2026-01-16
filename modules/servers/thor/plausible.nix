@@ -23,4 +23,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/plausible"];
+    server.paths = ["/var/lib/plausible"];
+  };
 }

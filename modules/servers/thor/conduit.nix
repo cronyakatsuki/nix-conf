@@ -31,4 +31,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/matrix-conduit"];
+    server.paths = ["/var/lib/matrix-conduit"];
+  };
 }

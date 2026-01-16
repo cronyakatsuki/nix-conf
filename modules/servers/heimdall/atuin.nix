@@ -20,4 +20,9 @@
       entrypoints = "websecure";
     };
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/backup/postgresql"];
+    server.paths = ["/var/backup/postgresql"];
+  };
 }
