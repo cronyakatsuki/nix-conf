@@ -7,6 +7,11 @@
     };
   };
 
+  services.restic.backups = {
+    local.paths = ["/var/lib/linkwarden"];
+    server.paths = ["/var/lib/linkwarden"];
+  };
+
   services.traefik.dynamicConfigOptions.http = {
     services.linkwarden.loadBalancer.servers = [
       {
