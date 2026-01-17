@@ -13,13 +13,10 @@
       enable = true;
       package = pkgs.ollama-cuda;
       loadModels = ["gpt-oss:20b"];
+      environmentVariables = {OLLAMA_KEEP_ALIVE = "2m";};
     };
-    # services.open-webui = {
-    #   enable = true;
-    # };
 
-    systemd.services.ollama.wantedBy = lib.mkForce [];
-    systemd.services.ollama-model-loader.wantedBy = lib.mkForce [];
-    # systemd.services.open-webui.wantedBy = lib.mkForce [];
+    # systemd.services.ollama.wantedBy = lib.mkForce [];
+    # systemd.services.ollama-model-loader.wantedBy = lib.mkForce [];
   };
 }
