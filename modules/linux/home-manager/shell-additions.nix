@@ -27,6 +27,25 @@
 
     programs.opencode = {
       enable = true;
+      settings = {
+        model = "ollama/gpt-oss:20b";
+        provider = {
+          ollama = {
+            npm = "@ai-sdk/openai-compatible";
+            name = "Ollama";
+            options = {
+              baseURL = "http://127.0.0.1:11434/v1";
+            };
+            models = {
+              "gpt-oss:20b" = {
+                name = "gpt-oss:20b";
+                reasoning = true;
+                tools = true;
+              };
+            };
+          };
+        };
+      };
     };
 
     programs.beets = {
