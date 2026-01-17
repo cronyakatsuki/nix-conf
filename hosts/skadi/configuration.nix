@@ -130,6 +130,12 @@
   # Enable dconf
   programs.dconf.enable = true;
 
+  # Enable AAGL
+  # programs.anime-game-launcher.enable = true;
+
+  # Enable sleepy launcher
+  programs.sleepy-launcher.enable = true;
+
   # Enable sound with pipewire.
   security.rtkit.enable = true;
   services.pipewire = {
