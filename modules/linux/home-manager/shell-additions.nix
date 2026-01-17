@@ -25,6 +25,10 @@
       croc
     ];
 
+    programs.opencode = {
+      enable = true;
+    };
+
     programs.beets = {
       enable = true;
       settings = {
