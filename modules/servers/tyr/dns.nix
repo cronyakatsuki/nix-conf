@@ -1,8 +1,4 @@
 {config, ...}: {
-  services.resolved.extraConfig = ''
-    DNSStubListener=no
-  '';
-
   # Setup blocky for adblocking
   services.blocky = {
     enable = true;

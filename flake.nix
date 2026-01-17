@@ -155,71 +155,24 @@
     nix-flatpak,
     chaotic,
     ...
-  } @ inputs: {
-    deploy.nodes = {
-      heimdall = {
-        hostname = "heimdall";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.heimdall;
-        };
-      };
-
-      # baldur = {
-      #   hostname = "baldur";
-      #   profiles.system = {
-      #     sshUser = "root";
-      #     user = "root";
-      #     path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.baldur;
-      #   };
-      # };
-
-      bragi = {
-        hostname = "bragi";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.bragi;
-        };
-      };
-
-      thor = {
-        hostname = "thor";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.thor;
-        };
-      };
-
-      odin = {
-        hostname = "odin";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.odin;
-        };
-      };
-
-      freyja = {
-        hostname = "freyja";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.freyja;
-        };
-      };
-
-      tyr = {
-        hostname = "tyr";
-        profiles.system = {
-          sshUser = "root";
-          user = "root";
-          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.tyr;
-        };
+  } @ inputs: let
+    mkDeployNode = hostname: arch: {
+      inherit hostname;
+      profiles.system = {
+        sshUser = "root";
+        user = "root";
+        path = deploy-rs.lib.${arch}.activate.nixos self.nixosConfigurations.${hostname};
       };
     };
+  in {
+    deploy.nodes = nixpkgs.lib.mapAttrs' (
+      hostname: meta: let
+        arch = meta.arch;
+      in {
+        name = hostname;
+        value = mkDeployNode hostname arch;
+      }
+    ) (import ./hosts.nix);
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       modules = [inputs.stylix.nixOnDroidModules.stylix ./hosts/andronix/configuration.nix];
