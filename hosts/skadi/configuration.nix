@@ -301,7 +301,7 @@
   crony.wireguard.enable = true;
   crony.secrets.enable = true;
   crony.boot.enable = true;
-  # crony.ollama.enable = true;
+  crony.ollama.enable = true;
   crony.sunshine.enable = true;
   crony.bluetooth.enable = true;
   crony.localsend.enable = true;
