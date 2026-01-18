@@ -3,9 +3,10 @@
   security.sudo.wheelNeedsPassword = false;
 
   users.users.crony = {
-    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
+    linger = true;
     isNormalUser = true;
     description = "crony";
+    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     extraGroups = [
       "wheel"
     ];
