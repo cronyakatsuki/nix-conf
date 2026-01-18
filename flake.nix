@@ -156,6 +156,7 @@
     git-hooks,
     nix-on-droid,
     deploy-rs,
+    aagl,
     disko,
     agenix,
     nix-flatpak,
@@ -166,7 +167,6 @@
     hostsData = import ./hosts.nix;
     serversOnly = nixpkgs.lib.filterAttrs (n: v: v.type == "server") hostsData;
     mkDeployNode = hostname: arch: {
-      name = hostname;
       inherit hostname;
       profiles.system = {
         sshUser = "root";
@@ -174,6 +174,34 @@
         path = deploy-rs.lib.${arch}.activate.nixos self.nixosConfigurations.${hostname};
       };
     };
+    mkHost = name: host: let
+      lib = nixpkgs.lib;
+      hostModule = ./hosts/${name}/configuration.nix;
+
+      inherit
+        (import ./helpers.nix {inherit lib inputs host name;})
+        baseModules
+        clientDefaults
+        serverExtras
+        specialModules
+        homeManagerModules
+        ;
+
+      allModules = lib.concatLists [
+        baseModules
+        [hostModule]
+        host.extraModules or [] # clientExtras stays here
+        clientDefaults
+        serverExtras
+        homeManagerModules
+        specialModules
+      ];
+    in
+      nixpkgs.lib.nixosSystem {
+        system = host.arch;
+        specialArgs = {inherit inputs;};
+        modules = allModules;
+      };
   in {
     deploy.nodes =
       nixpkgs.lib.mapAttrs' (
@@ -197,170 +225,12 @@
       };
     };
 
-    nixosConfigurations = {
-      heimdall = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/heimdall/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/heimdall
-          ./modules/servers/home-manager
-        ];
-      };
-
-      bragi = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "aarch64-linux";
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/bragi/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/bragi
-          ./modules/servers/home-manager
-        ];
-      };
-
-      thor = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "aarch64-linux";
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/thor/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/thor
-          ./modules/servers/home-manager
-        ];
-      };
-
-      odin = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "aarch64-linux";
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/odin/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/odin
-          ./modules/servers/home-manager
-        ];
-      };
-
-      freyja = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "aarch64-linux";
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/freyja/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/freyja
-          ./modules/servers/home-manager
-        ];
-      };
-
-      tyr = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          ./hosts/tyr/configuration.nix
-          ./modules/servers/general
-          ./modules/servers/tyr
-          ./modules/servers/home-manager
-        ];
-      };
-
-      ymir = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          # Get the system config
-          ./hosts/ymir/configuration.nix
-          # Enable stylix
-          inputs.stylix.nixosModules.stylix
-          # Load updated auto-cpufreq
-          auto-cpufreq.nixosModules.default
-          # Load my modules
-          ./modules/linux/nixos
-          # Still no specific modules here
-          # ./modules/cross-platform/nixos
-          # Use agenix for secrets
-          agenix.nixosModules.default
-          # Use disko for creating filesystem
-          disko.nixosModules.disko
-          # Use flatpak for one package globally
-          nix-flatpak.nixosModules.nix-flatpak
-          # Use chaotic for some packages
-          chaotic.nixosModules.default
-          # Setup home manager for my user
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.crony = {
-              imports = [
-                ./hosts/ymir/home.nix
-                ./modules/linux/home-manager
-                ./modules/cross-platform/home-manager
-              ];
-            };
-          }
-        ];
-      };
-
-      skadi = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          # Get the system config
-          ./hosts/skadi/configuration.nix
-          # Enable stylix
-          inputs.stylix.nixosModules.stylix
-          # Enable AAGL
-          inputs.aagl.nixosModules.default
-          # Load updated auto-cpufreq
-          auto-cpufreq.nixosModules.default
-          # Load my modules
-          ./modules/linux/nixos
-          # Still no specific modules here
-          # ./modules/cross-platform/nixos
-          # Use agenix for secrets
-          agenix.nixosModules.default
-          # Use disko for creating filesystem
-          disko.nixosModules.disko
-          # Use flatpak for one package globally
-          nix-flatpak.nixosModules.nix-flatpak
-          # Use chaotic for some packages
-          chaotic.nixosModules.default
-          # Setup secure boot
-          lanzaboote.nixosModules.lanzaboote
-          # Setup home manager for my user
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.crony = {
-              imports = [
-                ./hosts/skadi/home.nix
-                ./modules/linux/home-manager
-                ./modules/cross-platform/home-manager
-              ];
-            };
-          }
-        ];
-      };
-    };
+    nixosConfigurations =
+      nixpkgs.lib.mapAttrs' (name: host: {
+        name = name;
+        value = mkHost name host;
+      })
+      hostsData;
 
     devShells = {
       x86_64-linux.default = let

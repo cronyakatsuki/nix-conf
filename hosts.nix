@@ -23,14 +23,9 @@
     type = "server";
     arch = "x86_64-linux";
   };
-  ymir = {
-    type = "client";
-    arch = "x86_64-linux";
-    extraModules = [./modules/linux/nixos];
-  };
   skadi = {
     type = "client";
     arch = "x86_64-linux";
-    extraModules = [./modules/linux/nixos];
+    extraModules = [];
   };
 }
