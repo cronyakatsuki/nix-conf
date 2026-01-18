@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+lib.mkIf (config.networking.hostName != "tyr") {
   systemd.services.beszel-agent = {
     enable = true;
     description = "Beszel Agent";
