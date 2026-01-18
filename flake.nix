@@ -156,6 +156,8 @@
     chaotic,
     ...
   } @ inputs: let
+    hostsData = import ./hosts.nix;
+    serversOnly = nixpkgs.lib.filterAttrs (n: v: v.type == "server") hostsData;
     mkDeployNode = hostname: arch: {
       inherit hostname;
       profiles.system = {
@@ -165,14 +167,16 @@
       };
     };
   in {
-    deploy.nodes = nixpkgs.lib.mapAttrs' (
-      hostname: meta: let
-        arch = meta.arch;
-      in {
-        name = hostname;
-        value = mkDeployNode hostname arch;
-      }
-    ) (import ./hosts.nix);
+    deploy.nodes =
+      nixpkgs.lib.mapAttrs' (
+        hostname: meta: let
+          arch = meta.arch;
+        in {
+          name = hostname;
+          value = mkDeployNode hostname arch;
+        }
+      )
+      serversOnly;
 
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       modules = [inputs.stylix.nixOnDroidModules.stylix ./hosts/andronix/configuration.nix];

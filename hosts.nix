@@ -20,9 +20,9 @@
     arch = "aarch64-linux";
   };
   tyr = {
-    type = "client";
+    type = "server";
     arch = "x86_64-linux";
-    extraModules = [./modules/servers/tyr];
+    # extraModules = [./modules/servers/tyr];
   };
   ymir = {
     type = "client";
