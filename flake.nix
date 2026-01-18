@@ -212,20 +212,6 @@
         ];
       };
 
-      # baldur = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {inherit inputs;};
-      #   system = "aarch64-linux";
-      #   modules = [
-      #     disko.nixosModules.disko
-      #     agenix.nixosModules.default
-      #     home-manager.nixosModules.home-manager
-      #     ./hosts/baldur/configuration.nix
-      #     ./modules/servers/general
-      #     ./modules/servers/baldur
-      #     ./modules/servers/home-manager
-      #   ];
-      # };
-
       bragi = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "aarch64-linux";
