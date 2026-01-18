@@ -166,6 +166,7 @@
     hostsData = import ./hosts.nix;
     serversOnly = nixpkgs.lib.filterAttrs (n: v: v.type == "server") hostsData;
     mkDeployNode = hostname: arch: {
+      name = hostname;
       inherit hostname;
       profiles.system = {
         sshUser = "root";
@@ -286,26 +287,11 @@
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
-          inputs.stylix.nixosModules.stylix
-          auto-cpufreq.nixosModules.default
-          ./hosts/tyr/configuration.nix
-          ./modules/linux/nixos
-          ./modules/servers/tyr
-          ./modules/servers/general/restic.nix
-          ./modules/servers/general/podman.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.crony = {
-              imports = [
-                ./modules/linux/home-manager
-                ./modules/cross-platform/home-manager
-                ./hosts/tyr/home.nix
-              ];
-            };
-          }
+          ./hosts/tyr/configuration.nix
+          ./modules/servers/general
+          ./modules/servers/tyr
+          ./modules/servers/home-manager
         ];
       };
 
