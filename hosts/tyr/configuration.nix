@@ -89,6 +89,7 @@
       support32Bit = true;
     };
   };
+
   # Fix not saving my state
   hardware.alsa.enablePersistence = true;
 
