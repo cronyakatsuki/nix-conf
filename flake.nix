@@ -140,6 +140,12 @@
 
     # Some gaming related stuff ( actual osu! )
     nix-gaming.url = "github:cronyakatsuki/nix-gaming";
+
+    # Secure boot with nixos
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -154,6 +160,7 @@
     agenix,
     nix-flatpak,
     chaotic,
+    lanzaboote,
     ...
   } @ inputs: let
     hostsData = import ./hosts.nix;
@@ -363,6 +370,8 @@
           nix-flatpak.nixosModules.nix-flatpak
           # Use chaotic for some packages
           chaotic.nixosModules.default
+          # Setup secure boot
+          lanzaboote.nixosModules.lanzaboote
           # Setup home manager for my user
           home-manager.nixosModules.home-manager
           {

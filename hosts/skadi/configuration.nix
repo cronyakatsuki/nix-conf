@@ -2,6 +2,7 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -11,9 +12,20 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  # For tpm unlock
+  boot.initrd.systemd.enable = true;
+
+  # To explicitly disable systemd-boot, lanzaboote takes care of that.
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+    autoEnrollKeys = {
+      enable = true;
+    };
+  };
 
   # Enable aarch64 emulation
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
