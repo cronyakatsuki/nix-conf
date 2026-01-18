@@ -11,7 +11,7 @@
 
   config = lib.mkIf config.crony.lnxlink.enable {
     home.packages = [
-      inputs.lnxlink.packages.${pkgs.system}.default
+      inputs.lnxlink.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     systemd.user.services.lnxlink = {
@@ -30,7 +30,7 @@
         Type = "simple";
         Restart = "always";
         RestartSec = 5;
-        ExecStart = "${inputs.lnxlink.packages.${pkgs.system}.default}/bin/lnxlink --config /home/crony/.config/lnxlink/config.yaml";
+        ExecStart = "${inputs.lnxlink.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/lnxlink --config /home/crony/.config/lnxlink/config.yaml";
       };
     };
   };
