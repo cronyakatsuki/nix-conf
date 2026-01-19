@@ -19,8 +19,7 @@
   serverExtras =
     if host.type == "server"
     then [
-      # ./modules/servers/general
-      ./modules/servers/${name}
+      ./modules/servers/per-server/${name}
       ./modules/servers/home-manager
     ]
     else [];

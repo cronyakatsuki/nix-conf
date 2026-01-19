@@ -2,10 +2,10 @@
   age = {
     secrets = {
       rclone = {
-        file = ../../../secrets/rclone.age;
+        file = ../../../../secrets/rclone.age;
       };
       navidrome = {
-        file = ../../../secrets/navidrome.age;
+        file = ../../../../secrets/navidrome.age;
       };
     };
   };

@@ -2,10 +2,10 @@
   age = {
     secrets = {
       searx = {
-        file = ../../../secrets/searx.age;
+        file = ../../../../secrets/searx.age;
       };
       miniflux = {
-        file = ../../../secrets/miniflux.age;
+        file = ../../../../secrets/miniflux.age;
       };
     };
   };
