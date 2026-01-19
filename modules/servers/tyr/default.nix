@@ -1,17 +1,15 @@
-{
-  imports = [
-    ./syncthing.nix
-    ./glance.nix
-    ./wallos.nix
-    ./wireguard.nix
-    ./secrets.nix
-    ./nfs-server.nix
-    ./dns.nix
-    ./traefik.nix
-    ./home-assistant.nix
-    ./mosquitto.nix
-    ./linkwarden.nix
-    ./paperless-ngx.nix
-    ./komga.nix
-  ];
+{...}: let
+  servicesDir = ./services;
+  serviceFiles =
+    builtins.filter
+    (name: builtins.match "^.*\\.nix$" name != null)
+    (builtins.attrNames (builtins.readDir servicesDir));
+  hostModules = map (fn: import "${servicesDir}/${fn}") serviceFiles;
+in {
+  imports =
+    [
+      ../general
+      ./secrets.nix
+    ]
+    ++ hostModules;
 }
