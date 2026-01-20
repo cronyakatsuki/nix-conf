@@ -29,7 +29,7 @@
   networking.nameservers = ["127.0.0.1"];
   services.resolved = {
     enable = true;
-    settings.Resolve.FallbackDns = ["127.0.0.1"];
+    settings.Resolve.FallbackDND = ["127.0.0.1"];
   };
 
   # Setup gpu

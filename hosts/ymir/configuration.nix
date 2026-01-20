@@ -47,7 +47,7 @@
   networking.nameservers = ["192.168.0.5"];
   services.resolved = {
     enable = true;
-    fallbackDns = ["192.168.0.5"];
+    settings.Resolve.fallbackDNS = ["192.168.0.5"];
   };
 
   # Set your time zone.
