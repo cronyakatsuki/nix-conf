@@ -28,5 +28,8 @@
         size = 32 * 1024;
       }
     ];
+
+    # Setup ntp
+    services.timesyncd.enable = true;
   };
 }
