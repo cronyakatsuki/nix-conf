@@ -55,6 +55,8 @@
     enable32Bit = true;
   };
 
+  hardware.opengl.enable = true;
+
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
@@ -89,15 +91,15 @@
     LC_TIME = "hr_HR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-    options = "caps:escape";
-  };
+  # # Enable the X11 windowing system.
+  # services.xserver.enable = true;
+  #
+  # # Configure keymap in X11
+  # services.xserver.xkb = {
+  #   layout = "us";
+  #   variant = "";
+  #   options = "caps:escape";
+  # };
 
   # Enable seatd
   services.seatd.enable = true;
@@ -258,9 +260,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Allow Broken Packages
-  nixpkgs.config.allowBroken = true;
-
   # Setup community cache
   nix.settings = {
     substituters = [
@@ -300,11 +299,6 @@
       (import inputs.emacs-overlay)
     ];
   };
-
-  # Permit some insecure pacakges
-  nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.07"
-  ];
 
   # Optimise storage
   nix.optimise = {
