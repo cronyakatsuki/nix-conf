@@ -1,4 +1,8 @@
 {config, ...}: {
+  services.resolved.settings.Resolve = {
+    DNSStubListener = "no";
+  };
+
   networking = {
     nat = {
       enable = true;
