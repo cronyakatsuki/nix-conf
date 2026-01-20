@@ -12,5 +12,6 @@
       "vm.swappiness" = 10;
       "kernel.nmi_watchdog" = 0;
     };
+    boot.kernelParams = ["quiet"];
   };
 }
