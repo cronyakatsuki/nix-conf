@@ -17,15 +17,19 @@
   # Get nicer hostname
   networking.hostName = "tyr"; # Define your hostname.
 
+  networking.useNetworkd = true;
+
   # Enable and setup networking
-  networking.networkmanager.enable = true;
   networking.interfaces.enp1s0.ipv4.addresses = [
     {
       address = "192.168.0.5";
       prefixLength = 24;
     }
   ];
-  networking.defaultGateway = "192.168.0.1";
+  networking.defaultGateway = {
+    interface = "enp1s0";
+    address = "192.168.0.1";
+  };
   networking.nameservers = ["127.0.0.1"];
   services.resolved = {
     enable = true;
