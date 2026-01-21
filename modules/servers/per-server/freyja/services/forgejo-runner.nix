@@ -18,6 +18,17 @@
         ## optionally provide native execution on the host:
         "native:host"
       ];
+      hostPackages = with pkgs; [
+        bash
+        coreutils
+        curl
+        gawk
+        gitMinimal
+        gnused
+        nodejs
+        wget
+        nix
+      ];
     };
   };
 }
