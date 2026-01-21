@@ -1,0 +1,16 @@
+name: default
+on:
+  push:
+
+env:
+  NIX_CONFIG: "accept-flake-config = true"
+
+jobs:
+  build:
+    runs-on: native
+    steps:
+      - uses: https://code.forgejo.org/actions/checkout@v4
+      - run: nix flake check
+        continue-on-error: true
+      - run: nix build .#tyr
+      - run: nix build .#heimdall
