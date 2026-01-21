@@ -95,7 +95,9 @@
     enable = true;
     environment = {
       RESOLVER_ADDRESS = "127.0.0.1:53";
-      PERIOD = "30s";
+      PERIOD = "2m30s";
+      PUBLICIP_DNS_TIMEOUT = "10s";
+      TZ = "Europe/Zagreb";
     };
   };
 
