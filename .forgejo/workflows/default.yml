@@ -7,7 +7,7 @@ env:
 
 jobs:
   build:
-    runs-on: nix
+    runs-on: native
     steps:
       - uses: https://code.forgejo.org/actions/checkout@v4
       - run: nix flake check
