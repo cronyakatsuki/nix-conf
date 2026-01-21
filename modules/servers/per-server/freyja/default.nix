@@ -9,6 +9,7 @@ in {
   imports =
     [
       ../../common
+      ./secrets.nix
     ]
     ++ hostModules;
 }
