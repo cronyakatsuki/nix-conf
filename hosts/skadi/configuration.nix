@@ -266,6 +266,7 @@
       "https://ezkea.cachix.org"
       "https://nix-gaming.cachix.org"
       "https://cache.nixos-cuda.org"
+      "https://deploy-rs.cachix.org"
     ];
     trusted-substituters = [
       "https://hyprland.cachix.org"
@@ -276,6 +277,7 @@
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      "deploy-rs.cachix.org-1:xfNobmiwF/vzvK1gpfediPwpdIP0rpDV2rYqx40zdSI="
     ];
   };
 
