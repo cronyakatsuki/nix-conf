@@ -12,7 +12,7 @@ jobs:
       - uses: https://code.forgejo.org/actions/checkout@v4
       - run: nix flake check
         continue-on-error: true
-      - run: nix build .#bragi
-      - run: nix build .#thor
-      - run: nix build .#odin
-      - run: nix build .#freyja
+      - run: nix build .#nixosConfigurations.bragi
+      - run: nix build .#nixosConfigurations.thor
+      - run: nix build .#nixosConfigurations.odin
+      - run: nix build .#nixosConfigurations.freyja
