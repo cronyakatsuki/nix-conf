@@ -31,5 +31,8 @@
 
     # Setup ntp
     services.timesyncd.enable = true;
+
+    # Setup fstrim
+    services.fstrim.enable = true;
   };
 }
