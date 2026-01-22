@@ -28,7 +28,10 @@
         nodejs
         wget
         nix
+        attic-client
       ];
     };
   };
+
+  environment.systemPackages = with pkgs; [attic-client];
 }
