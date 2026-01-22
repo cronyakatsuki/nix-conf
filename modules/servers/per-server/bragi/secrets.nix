@@ -7,6 +7,9 @@
       navidrome = {
         file = ../../../../secrets/navidrome.age;
       };
+      attic-env = {
+        file = ../../../../secrets/attic-env.age;
+      };
     };
   };
 }

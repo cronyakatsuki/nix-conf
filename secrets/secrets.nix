@@ -47,4 +47,5 @@ in {
   "linkwarden-db.age".publicKeys = systems ++ users;
   "paperless-ngx.age".publicKeys = systems ++ users;
   "forgejo-runner-token.age".publicKeys = systems ++ users;
+  "attic-env.age".publicKeys = systems ++ users;
 }
