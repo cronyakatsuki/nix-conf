@@ -151,17 +151,9 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
-    auto-cpufreq,
     git-hooks,
     nix-on-droid,
     deploy-rs,
-    aagl,
-    disko,
-    agenix,
-    nix-flatpak,
-    chaotic,
-    lanzaboote,
     ...
   } @ inputs: let
     hostsData = import ./hosts.nix;
