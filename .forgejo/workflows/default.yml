@@ -10,8 +10,6 @@ jobs:
     runs-on: native
     steps:
       - uses: https://code.forgejo.org/actions/checkout@v4
-      - run: nix flake check
-        continue-on-error: true
       - run: nix build .#nixosConfigurations.bragi.config.system.build.toplevel
       - run: nix build .#nixosConfigurations.thor.config.system.build.toplevel
       - run: nix build .#nixosConfigurations.odin.config.system.build.toplevel
