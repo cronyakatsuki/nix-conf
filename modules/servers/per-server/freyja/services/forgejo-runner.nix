@@ -13,9 +13,8 @@
       # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
       tokenFile = config.age.secrets.forgejo-runner-token.path;
       labels = [
-        "node:docker://node:22-bookworm"
-        "nix:docker://forgejo-runner-nix"
         ## optionally provide native execution on the host:
+        "debian-latest:docker://node:18-bullseye"
         "native:host"
       ];
       hostPackages = with pkgs; [
