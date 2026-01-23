@@ -10,8 +10,8 @@ jobs:
     runs-on: debian-latest
     steps:
       - uses: https://code.forgejo.org/actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: https://github.com/DeterminateSystems/nix-installer-action@main
+      - uses: https://github.com/DeterminateSystems/magic-nix-cache-action@main
       - run: nix build .#nixosConfigurations.bragi.config.system.build.toplevel
       - run: nix build .#nixosConfigurations.thor.config.system.build.toplevel
       - run: nix build .#nixosConfigurations.odin.config.system.build.toplevel
