@@ -15,5 +15,5 @@ jobs:
       - run: nix build .#nixosConfigurations.odin.config.system.build.toplevel
       - run: nix build .#nixosConfigurations.freyja.config.system.build.toplevel
       - run: |
-          attic login server https://cache.cronyakatsuki.xyz ${{ secrets.ATTIC_TOKEN }}
+          attic login actions https://cache.cronyakatsuki.xyz ${{ secrets.ATTIC_TOKEN }}
           attic push system result -j 2

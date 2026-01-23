@@ -1,6 +1,4 @@
 {config, ...}: {
-  # imports = [inputs.attic.nixosModules.atticd];
-
   services.atticd = {
     enable = true;
 
