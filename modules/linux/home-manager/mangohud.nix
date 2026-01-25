@@ -12,7 +12,6 @@
     # Setup nice view for mangohud
     programs.mangohud = {
       enable = true;
-      package = pkgs.mangohud_git;
       settings = {
         af = "16";
         background_alpha = lib.mkForce 0.2;

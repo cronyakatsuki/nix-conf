@@ -12,14 +12,10 @@
     # Install steam
     programs.steam = {
       enable = true;
-      extraCompatPackages = [
-        pkgs.proton-ge-custom
-      ];
     };
     # Enable gamescope
     programs.gamescope = {
       enable = true;
-      package = pkgs.gamescope_git;
     };
 
     # Install gamemode
