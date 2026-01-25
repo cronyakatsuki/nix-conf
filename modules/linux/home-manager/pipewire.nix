@@ -156,6 +156,7 @@ in {
               "playback.props" = {
                 "node.name" = "effect_output.eq6";
                 "node.passive" = true;
+                "node.target" = "alsa_output.usb-Creative_Technology_Ltd_Creative_Stage_Air_V2_Creative_Lab-01.analog-stereo";
               };
             };
           }
