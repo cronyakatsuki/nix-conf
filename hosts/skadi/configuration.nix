@@ -35,6 +35,8 @@
 
   # Use the xanmod kernel
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+
+  # Setup userspace schedulers
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
@@ -42,12 +44,6 @@
 
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
-
-  # Enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Enable trusted users
-  nix.settings.trusted-users = ["root" "@wheel"];
 
   # Setup gpu
   hardware.graphics = {
@@ -90,150 +86,7 @@
     LC_TIME = "hr_HR.UTF-8";
   };
 
-  # # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  #
-  # # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "us";
-  #   variant = "";
-  #   options = "caps:escape";
-  # };
-
-  # Enable seatd
-  services.seatd.enable = true;
-
-  # Enable flatpak
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "com.dec05eba.gpu_screen_recorder"
-    ];
-
-    uninstallUnmanaged = true;
-
-    update.auto = {
-      enable = true;
-      onCalendar = "weekly";
-    };
-  };
-
   networking.firewall.allowedTCPPorts = [42000 42001];
-
-  # Enable coolercontrol to setup fancurves
-  programs.coolercontrol = {
-    enable = true;
-  };
-
-  # Setup gpu fan curves and light undervolt
-  services.lact.enable = true;
-
-  # Setup display brightness changing using ddcutil
-  hardware.i2c.enable = true;
-
-  # Setup rgb control
-  services.hardware.openrgb.enable = true;
-
-  # Needed modules to have fan control and ntsync
-  boot.kernelModules = ["coretemp" "nct6775" "ntsync"];
-
-  # Enable ratbagd to customize mouse options
-  services.ratbagd.enable = true;
-
-  # Enable dconf
-  programs.dconf.enable = true;
-
-  # Enable AAGL
-  # programs.anime-game-launcher.enable = true;
-
-  # Enable sleepy launcher
-  programs.sleepy-launcher.enable = true;
-
-  # Enable sound with pipewire.
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa = {
-      enable = true;
-      support32Bit = true;
-    };
-    wireplumber.extraConfig = {
-      "51-disable-suspension" = {
-        "monitor.alsa.rules" = [
-          {
-            matches = [
-              {
-                node.name = "~alsa_input.*";
-              }
-              {
-                node.name = "~alsa_output.*";
-              }
-            ];
-            actions = {
-              update-props = {
-                "session.suspend-timeout-seconds" = 0;
-              };
-            };
-          }
-        ];
-        "monitor.bluez.rules" = [
-          {
-            matches = [
-              {
-                node.name = "~alsa_input.*";
-              }
-              {
-                node.name = "~alsa_output.*";
-              }
-            ];
-            actions = {
-              update-props = {
-                "session.suspend-timeout-seconds" = 0;
-              };
-            };
-          }
-        ];
-      };
-    };
-    extraConfig = {
-      pipewire."99-silent.bell.conf" = {
-        "context.properties" = {
-          "modules.x11.bell" = false;
-        };
-      };
-      pipewire."92-low-latency" = {
-        "context.properties" = {
-          "default.clock.rate" = 48000;
-          "default.clock.quantum" = 64;
-          "default.clock.min-quantum" = 64;
-          "default.clock.max-quantum" = 64;
-        };
-      };
-      pipewire-pulse."92-low-latency" = {
-        "context.properties" = [
-          {
-            name = "libpipewire-module-protocol-pulse";
-            args = {};
-          }
-        ];
-        "pulse.properties" = {
-          "pulse.min.req" = "64/48000";
-          "pulse.default.req" = "64/48000";
-          "pulse.max.req" = "64/48000";
-          "pulse.min.quantum" = "64/48000";
-          "pulse.max.quantum" = "64/48000";
-        };
-        "stream.properties" = {
-          "node.latency" = "64/48000";
-          "resample.quality" = 1;
-        };
-      };
-    };
-  };
-
-  # Fix not saving my state
-  hardware.alsa.enablePersistence = true;
 
   # Enable appimages
   programs.appimage = {
@@ -256,60 +109,6 @@
 
   users.mutableUsers = false;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Setup community cache
-  nix.settings = {
-    substituters = [
-      "https://nix-community.cachix.org"
-      "https://hyprland.cachix.org"
-      "https://ezkea.cachix.org"
-      "https://nix-gaming.cachix.org"
-      "https://cache.nixos-cuda.org"
-      "https://deploy-rs.cachix.org"
-      "https://attic.xuyh0120.win/lantian"
-    ];
-    trusted-substituters = [
-      "https://hyprland.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-      "deploy-rs.cachix.org-1:xfNobmiwF/vzvK1gpfediPwpdIP0rpDV2rYqx40zdSI="
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-    ];
-  };
-
-  # setup custom packages
-  nixpkgs = {
-    overlays = [
-      (final: prev: {
-        # Fix for wl-clipboard not having support for not setting sensitive for password managers
-        wl-clipboard = prev.wl-clipboard.overrideAttrs (old: {
-          version = "24-04-25";
-          src = prev.fetchFromGitHub {
-            owner = "bugaevc";
-            repo = "wl-clipboard";
-            rev = "aaa927ee7f7d91bcc25a3b68f60d01005d3b0f7f";
-            hash = "sha256-V8JAai4gZ1nzia4kmQVeBwidQ+Sx5A5on3SJGSevrUU=";
-          };
-        });
-      })
-      (import inputs.emacs-overlay)
-      inputs.nix-cachyos-kernel.overlays.pinned
-    ];
-  };
-
-  # Optimise storage
-  nix.optimise = {
-    automatic = true;
-    dates = ["weekly"];
-  };
-
   # Enable my flake specific settings
   crony.gaming.enable = true;
   crony.additional-hardware.enable = true;
@@ -323,9 +122,10 @@
   crony.sunshine.enable = true;
   crony.bluetooth.enable = true;
   crony.localsend.enable = true;
-
-  # Setup spice usb redirection
-  virtualisation.spiceUSBRedirection.enable = true;
+  crony.flatpak.enable = true;
+  crony.qemu.enable = true;
+  crony.pc-services.enable = true;
+  crony.pipewire.enable = true;
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {
@@ -354,11 +154,7 @@
     libva-utils
     alsa-utils
     ddcutil
-    quickemu
   ];
-
-  # Enable nixd to see nixpkgs path
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # DO NOT CHANGE
   system.stateVersion = "24.11";

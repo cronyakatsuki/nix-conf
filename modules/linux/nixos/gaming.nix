@@ -9,6 +9,9 @@
     crony.gaming.enable = lib.mkEnableOption "enable gaming related stuff, like steam and gamemode";
   };
   config = lib.mkIf config.crony.gaming.enable {
+    # Setup ntsync
+    boot.kernelModules = ["ntsync"];
+
     # Install steam
     programs.steam = {
       enable = true;
@@ -36,6 +39,7 @@
         };
       };
     };
+
     # Setup esync
     systemd.settings.Manager = {
       DefaultLimitNOFILE = 1048576;
@@ -48,6 +52,9 @@
         value = "1048576";
       }
     ];
+
+    # Enable sleepy launcher
+    programs.sleepy-launcher.enable = true;
 
     # Setup switch pro controller
     hardware.steam-hardware.enable = true;

@@ -29,6 +29,10 @@
     ./kanata.nix
     ./keyd.nix
     ./localsend.nix
+    ./nix-options.nix
+    ./flatpak.nix
+    ./pc-services.nix
+    ./pipewire.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -60,4 +64,7 @@
   crony.kanata.enable = lib.mkDefault false;
   crony.keyd.enable = lib.mkDefault true;
   crony.localsend.enable = lib.mkDefault false;
+  crony.flatpak.enable = lib.mkDefault false;
+  crony.pc-services.enable = lib.mkDefault false;
+  crony.pipewire.enable = lib.mkDefault false;
 }

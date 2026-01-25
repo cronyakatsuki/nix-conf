@@ -15,7 +15,6 @@
     };
     networking.wg-quick.interfaces.wg1 = {
       autostart = false;
-      # configFile = "${config.age.secrets.wg-home.path}";
       configFile = "${config.age.secrets.wg-ymir-home.path}";
     };
   };

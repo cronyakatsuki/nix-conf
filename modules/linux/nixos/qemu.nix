@@ -15,5 +15,8 @@
       qemu
       quickemu
     ];
+
+    # Setup spice usb redirection
+    virtualisation.spiceUSBRedirection.enable = true;
   };
 }

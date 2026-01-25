@@ -15,8 +15,5 @@
       loadModels = ["gpt-oss:20b"];
       environmentVariables = {OLLAMA_KEEP_ALIVE = "2m";};
     };
-
-    # systemd.services.ollama.wantedBy = lib.mkForce [];
-    # systemd.services.ollama-model-loader.wantedBy = lib.mkForce [];
   };
 }

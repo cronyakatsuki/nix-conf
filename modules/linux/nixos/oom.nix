@@ -8,7 +8,6 @@
   };
 
   config = lib.mkIf config.crony.oom.enable {
-    nix.settings.max-jobs = 8;
     services.earlyoom = {
       enable = true;
       enableNotifications = true;
