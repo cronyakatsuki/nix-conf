@@ -34,7 +34,7 @@
   boot.blacklistedKernelModules = ["intel_pmc_bxt" "iTCO_vendor_support" "iTCO_wdt"];
 
   # Use the xanmod kernel
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
@@ -267,6 +267,7 @@
       "https://nix-gaming.cachix.org"
       "https://cache.nixos-cuda.org"
       "https://deploy-rs.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
     ];
     trusted-substituters = [
       "https://hyprland.cachix.org"
@@ -278,6 +279,7 @@
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "deploy-rs.cachix.org-1:xfNobmiwF/vzvK1gpfediPwpdIP0rpDV2rYqx40zdSI="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 
@@ -297,6 +299,7 @@
         });
       })
       (import inputs.emacs-overlay)
+      inputs.nix-cachyos-kernel.overlays.pinned
     ];
   };
 

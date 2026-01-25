@@ -29,7 +29,6 @@
       inputs.aagl.nixosModules.default
       inputs.auto-cpufreq.nixosModules.default
       inputs.nix-flatpak.nixosModules.nix-flatpak
-      inputs.chaotic.nixosModules.default
       inputs.lanzaboote.nixosModules.lanzaboote
     ]
     else [];
