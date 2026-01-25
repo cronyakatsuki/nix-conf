@@ -55,12 +55,13 @@
     enable32Bit = true;
   };
 
+  # Setup nvidia drivers
   services.xserver.videoDrivers = ["nvidia"];
-
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
     nvidiaSettings = true;
+    powerManagement.enable = true;
   };
 
   # Enable networking
