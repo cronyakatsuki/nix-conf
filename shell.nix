@@ -3,7 +3,7 @@
   git-hooks,
   ...
 }: let
-  git-check = git-hooks.lib.${pkgs.system}.run {
+  git-check = git-hooks.lib.${pkgs.stdenv.hostPlatform.system}.run {
     src = ".";
     hooks = {
       # Git commit lint
