@@ -61,7 +61,10 @@
   };
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
   networking.nameservers = ["192.168.0.5"];
   services.resolved = {
     enable = true;
