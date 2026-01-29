@@ -17,6 +17,7 @@
       cliphist
       wl-clipboard
       waylock
+      inputs.pyprland.packages.${pkgs.stdenv.hostPlatform.system}.pyprland
     ];
 
     # Enable and setup tofi

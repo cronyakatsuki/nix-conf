@@ -115,6 +115,9 @@
       url = "github:hyprwm/hyprlock";
     };
 
+    # Pyland for hyprland plugins
+    pyprland.url = "github:hyprland-community/pyprland";
+
     # AAGL
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
