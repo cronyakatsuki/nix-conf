@@ -113,7 +113,6 @@
     # Dev version of hyprlock
     hyprlock = {
       url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # AAGL
