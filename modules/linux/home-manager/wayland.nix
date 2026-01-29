@@ -16,6 +16,7 @@
       '')
       cliphist
       wl-clipboard
+      waylock
     ];
 
     # Enable and setup tofi
@@ -60,7 +61,7 @@
 
     # Enable hyprlock
     programs.hyprlock = {
-      enable = true;
+      enable = false;
       package = inputs.hyprlock.packages.${pkgs.stdenv.hostPlatform.system}.hyprlock;
       settings = {
         image = {

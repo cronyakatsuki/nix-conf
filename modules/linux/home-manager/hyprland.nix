@@ -85,7 +85,7 @@ in {
       enable = true;
       settings = {
         general = {
-          lock_cmd = "pidof hyprlock || hyprlock"; # avoid starting multiple hyprlock instances.
+          lock_cmd = "pidof waylock || waylock"; # avoid starting multiple waylock instances.
           before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
           after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
           ignore_dbus_inhibit = 1;
@@ -95,7 +95,7 @@ in {
         listener = [
           {
             timeout = 10; # 10 sec
-            on-timeout = "pidof hyprlock && hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
+            on-timeout = "pidof waylock && hyprctl dispatch dpms off"; # Turn off screen if waylock is running
             on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
           }
           {
@@ -104,7 +104,7 @@ in {
           }
           {
             timeout = 310; # 5min and 10 sec
-            on-timeout = "hyprctl dispatch dpms off"; # Turn off screen if hyprlock is running
+            on-timeout = "hyprctl dispatch dpms off"; # Turn off screen if waylock is running
             on-resume = "hyprctl dispatch dpms on"; # Turn on screen when activiy is detected after timeout has fired
           }
         ];
@@ -214,7 +214,7 @@ in {
 
           "$mod,        F, fullscreen"
 
-          "$mod SHIFT,  L, exec, hyprlock"
+          "$mod SHIFT,  L, exec, waylock"
 
           "$mod,        B, exec, zen-beta"
           "$mod SHIFT,  B, exec, librewolf"
