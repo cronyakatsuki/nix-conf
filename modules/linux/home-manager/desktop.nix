@@ -19,6 +19,7 @@
       delfin
       warpinator
       qbittorrent
+      pavucontrol
     ];
 
     # Install keepassxc

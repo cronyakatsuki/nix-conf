@@ -36,20 +36,6 @@
 
     ${pkgs.libnotify}/bin/notify-send -h string:x-canonical-private-synchronous:sys-notify "🔊 Volume: ''${volumep}"
   '';
-  toggle-sound-output = pkgs.writeShellScriptBin "toggle-sound-output" ''
-    #!/usr/bin/env sh
-
-    speakers="alsa_output.pci-0000_01_00.1.hdmi-stereo"
-    headphones="alsa_output.pci-0000_00_1f.3.analog-stereo"
-
-    current="$(wpctl status -n | grep Audio/Sink | grep -oE '[^ ]+$')"
-
-    if [ "''${current}" = "''${headphones}" ]; then
-      wpctl set-default "$(pw-cli info $speakers | head -n 1 | awk '{print $2}')"
-    else
-      wpctl set-default "$(pw-cli info $headphones | head -n 1 | awk '{print $2}')"
-    fi
-  '';
   power-menu = pkgs.writeShellScriptBin "power-menu" ''
     #!/usr/bin/env sh
 
@@ -152,6 +138,7 @@ in {
           "systemctl --user start hyprpaper"
           "systemctl --user start hypridle"
           "systemctl --user start waybar"
+          "pypr"
         ];
 
         monitor = [
@@ -220,7 +207,6 @@ in {
           "$mod SHIFT,  B, exec, librewolf"
 
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
-          "$mod,        F1, exec, ${toggle-sound-output}/bin/toggle-sound-output"
           "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
 
           "$mod,        F12, exec, ${grim} ${config.xdg.userDirs.pictures}/screenshots/$(date +'%s_grim.png')"
@@ -256,6 +242,8 @@ in {
           "$mod SHIFT,  7, movetoworkspacesilent, 7"
           "$mod SHIFT,  8, movetoworkspacesilent, 8"
           "$mod SHIFT,  9, movetoworkspacesilent, 9"
+
+          "$mod,        F1, exec, pypr toggle volume"
         ];
 
         bindel = [
