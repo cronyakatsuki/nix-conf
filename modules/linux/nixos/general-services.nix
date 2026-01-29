@@ -43,5 +43,8 @@
 
     # Enable dconf
     programs.dconf.enable = true;
+
+    # Setup dbus broker
+    # services.dbus.implementation = "broker";
   };
 }
