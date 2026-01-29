@@ -24,6 +24,7 @@
       superTuxKart
       faugus-launcher
       nzportable
+      protonup-qt
     ];
   };
 }
