@@ -39,7 +39,7 @@
   # Setup userspace schedulers
   services.scx = {
     enable = true;
-    scheduler = "scx_lavd";
+    scheduler = "scx_bpfland";
   };
 
   # Get nicer hostname
