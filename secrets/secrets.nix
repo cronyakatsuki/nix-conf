@@ -48,4 +48,6 @@ in {
   "paperless-ngx.age".publicKeys = systems ++ users;
   "forgejo-runner-token.age".publicKeys = systems ++ users;
   "attic-env.age".publicKeys = systems ++ users;
+  "wg-wireproxy.age".publicKeys = systems ++ users;
+  "wireproxy.age".publicKeys = systems ++ users;
 }
