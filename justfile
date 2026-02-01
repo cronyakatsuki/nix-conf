@@ -25,5 +25,6 @@ test:
 switch:
   nh os switch -a
 
-commit-update:
+commit-lock:
+  git add flake.lock
   git commit -m "feat: update flake.lock"
