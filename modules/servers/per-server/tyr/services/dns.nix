@@ -90,31 +90,15 @@
     };
   };
 
-  # Setup ddns-updater
-  services.ddns-updater = {
+  services.oink = {
     enable = true;
-    environment = {
-      RESOLVER_ADDRESS = "127.0.0.1:53";
-      PERIOD = "2m30s";
-      PUBLICIP_DNS_TIMEOUT = "10s";
-      TZ = "Europe/Zagreb";
-    };
-  };
-
-  services.traefik.dynamicConfigOptions.http = {
-    services.ddns.loadBalancer.servers = [
+    domains = [
       {
-        url = "http://localhost:8000";
+        domain = "cronyakatsuki.xyz";
+        subdomain = "home";
       }
     ];
-
-    routers.ddns = {
-      rule = "Host(`ddns.home.cronyakatsuki.xyz`)";
-      tls = {
-        certResolver = "porkbun";
-      };
-      service = "ddns";
-      entrypoints = "websecure";
-    };
+    apiKeyFile = "${config.age.secrets.oink-apikey.path}";
+    secretApiKeyFile = "${config.age.secrets.oink-secret-apikey.path}";
   };
 }

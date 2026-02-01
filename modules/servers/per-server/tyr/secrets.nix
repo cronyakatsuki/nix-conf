@@ -30,13 +30,6 @@
         file = "${inputs.secrets}/secrets/traefik.age";
         owner = "traefik";
       };
-      ddns = {
-        file = "${inputs.secrets}/secrets/ddns.age";
-        path = "/var/lib/ddns-updater/config.json";
-        owner = "nobody";
-        group = "nogroup";
-        symlink = false;
-      };
       linkwarden = {
         file = "${inputs.secrets}/secrets/linkwarden.age";
         owner = config.services.linkwarden.user;
@@ -46,6 +39,12 @@
       };
       paperless-ngx = {
         file = "${inputs.secrets}/secrets/paperless-ngx.age";
+      };
+      oink-apikey = {
+        file = "${inputs.secrets}/secrets/oink-apikey.age";
+      };
+      oink-secret-apikey = {
+        file = "${inputs.secrets}/secrets/oink-secret-apikey.age";
       };
     };
   };
