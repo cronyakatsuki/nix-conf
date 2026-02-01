@@ -47,18 +47,6 @@
       paperless-ngx = {
         file = "${inputs.secrets}/secrets/paperless-ngx.age";
       };
-      wg-wireproxy = {
-        file = "${inputs.secrets}/secrets/wg-wireproxy.age";
-        owner = "wireproxy";
-        group = "wireproxy";
-      };
-      wireproxy = {
-        file = "${inputs.secrets}/secrets/wireproxy.age";
-        path = "/etc/wireproxy/wireproxy.conf";
-        owner = "wireproxy";
-        group = "wireproxy";
-        symlink = false;
-      };
     };
   };
 }
