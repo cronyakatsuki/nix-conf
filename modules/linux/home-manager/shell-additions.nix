@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  home,
   pkgs,
   lib,
   ...
@@ -13,16 +12,12 @@
   config = lib.mkIf config.crony.shell-additions.enable {
     home.packages = with pkgs; [
       android-tools
-      nix-output-monitor
-      nvd
       nurl
-      # termsonic
       inputs.agenix.packages.${stdenv.hostPlatform.system}.default
       inputs.deploy-rs.packages.${stdenv.hostPlatform.system}.default
       inputs.hb-downloader.packages.${stdenv.hostPlatform.system}.default
       inputs.extract-romset.packages.${stdenv.hostPlatform.system}.default
       inputs.note.packages.${stdenv.hostPlatform.system}.default
-      croc
     ];
 
     programs.opencode = {
