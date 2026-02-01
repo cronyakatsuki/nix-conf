@@ -39,6 +39,8 @@
         pkgs.yaml-language-server
         # for shell scripts
         pkgs.bash-language-server
+        # for justfile
+        pkgs.just-lsp
       ];
     };
   };
