@@ -1,8 +1,8 @@
-{
+{inputs, ...}: {
   age = {
     secrets = {
       wg-heimdall = {
-        file = ../../../../secrets/wg-heimdall.age;
+        file = "${inputs.secrets}/secrets/wg-heimdall.age";
       };
     };
   };

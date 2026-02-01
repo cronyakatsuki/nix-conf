@@ -1,17 +1,17 @@
-{
+{inputs, ...}: {
   age = {
     secrets = {
       forgejo-db = {
-        file = ../../../../secrets/forgejo-db.age;
+        file = "${inputs.secrets}/secrets/forgejo-db.age";
       };
       plausible = {
-        file = ../../../../secrets/plausible.age;
+        file = "${inputs.secrets}/secrets/plausible.age";
       };
       conduit = {
-        file = ../../../../secrets/conduit.age;
+        file = "${inputs.secrets}/secrets/conduit.age";
       };
       lemmy-env = {
-        file = ../../../../secrets/lemmy.env.age;
+        file = "${inputs.secrets}/secrets/lemmy.env.age";
       };
     };
   };

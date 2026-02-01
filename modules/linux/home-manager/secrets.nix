@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   ...
 }: {
   options = {
@@ -10,16 +11,16 @@
     age = {
       secrets = {
         restic-local-pass = {
-          file = ../../../secrets/restic-local-pass.age;
+          file = "${inputs.secrets}/secrets/restic-local-pass.age";
         };
         restic-backblaze-pass = {
-          file = ../../../secrets/restic-backblaze-pass.age;
+          file = "${inputs.secrets}/secrets/restic-backblaze-pass.age";
         };
         restic-backblaze-repo = {
-          file = ../../../secrets/restic-backblaze-repo.age;
+          file = "${inputs.secrets}/secrets/restic-backblaze-repo.age";
         };
         restic-backblaze-env = {
-          file = ../../../secrets/restic-backblaze-env.age;
+          file = "${inputs.secrets}/secrets/restic-backblaze-env.age";
         };
       };
       identityPaths = ["/home/crony/.ssh/main" "/root/.ssh/id_ed25519"];

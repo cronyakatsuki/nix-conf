@@ -77,6 +77,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Secrets repo
+    secrets = {
+      url = "git+https://git.cronyakatsuki.xyz/crony/nixos-secrets";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.agenix.follows = "agenix";
+    };
+
     # My selfhosted service, inspired by 0x0.st
     upfast = {
       url = "git+https://git.cronyakatsuki.xyz/crony/UpFast";

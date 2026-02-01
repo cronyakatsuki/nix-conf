@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   ...
 }: let
   default_keys = map (e: e.path) (
@@ -14,16 +15,16 @@ in {
     age = {
       secrets = {
         wg-desktop = {
-          file = ../../../secrets/wg-desktop.age;
+          file = "${inputs.secrets}/secrets/wg-desktop.age";
         };
         wg-ymir-home = {
-          file = ../../../secrets/wg-ymir-home.age;
+          file = "${inputs.secrets}/secrets/wg-ymir-home.age";
         };
         crony-passwd = {
-          file = ../../../secrets/crony-passwd-desktop.age;
+          file = "${inputs.secrets}/secrets/crony-passwd-desktop.age";
         };
         root-passwd = {
-          file = ../../../secrets/root-passwd.age;
+          file = "${inputs.secrets}/secrets/root-passwd.age";
         };
       };
       identityPaths = ["/home/crony/.ssh/main" "/root/.ssh/id_ed25519"] ++ default_keys;

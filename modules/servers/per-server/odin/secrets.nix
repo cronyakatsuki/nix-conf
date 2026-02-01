@@ -1,11 +1,11 @@
-{
+{inputs, ...}: {
   age = {
     secrets = {
       searx = {
-        file = ../../../../secrets/searx.age;
+        file = "${inputs.secrets}/secrets/searx.age";
       };
       miniflux = {
-        file = ../../../../secrets/miniflux.age;
+        file = "${inputs.secrets}/secrets/miniflux.age";
       };
     };
   };

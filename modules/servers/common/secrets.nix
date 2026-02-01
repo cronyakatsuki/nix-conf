@@ -1,27 +1,27 @@
-{
+{inputs, ...}: {
   age = {
     secrets = {
       traefik = {
-        file = ../../../secrets/traefik.age;
+        file = "${inputs.secrets}/secrets/traefik.age";
         owner = "traefik";
       };
       crony-passwd = {
-        file = ../../../secrets/crony-passwd-servers.age;
+        file = "${inputs.secrets}/secrets/crony-passwd-servers.age";
       };
       root-passwd = {
-        file = ../../../secrets/root-passwd.age;
+        file = "${inputs.secrets}/secrets/root-passwd.age";
       };
       restic-server-local-pass = {
-        file = ../../../secrets/restic-server-local-pass.age;
+        file = "${inputs.secrets}/secrets/restic-server-local-pass.age";
       };
       restic-server-pass = {
-        file = ../../../secrets/restic-server-pass.age;
+        file = "${inputs.secrets}/secrets/restic-server-pass.age";
       };
       restic-server-repo = {
-        file = ../../../secrets/restic-server-repo.age;
+        file = "${inputs.secrets}/secrets/restic-server-repo.age";
       };
       restic-server-env = {
-        file = ../../../secrets/restic-server-env.age;
+        file = "${inputs.secrets}/secrets/restic-server-env.age";
       };
     };
   };

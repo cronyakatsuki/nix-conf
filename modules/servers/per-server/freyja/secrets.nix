@@ -1,8 +1,8 @@
-{
+{inputs, ...}: {
   age = {
     secrets = {
       forgejo-runner-token = {
-        file = ../../../../secrets/forgejo-runner-token.age;
+        file = "${inputs.secrets}/secrets/forgejo-runner-token.age";
       };
     };
   };

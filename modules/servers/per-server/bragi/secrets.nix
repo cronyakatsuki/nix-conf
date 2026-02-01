@@ -1,14 +1,14 @@
-{
+{inputs, ...}: {
   age = {
     secrets = {
       rclone = {
-        file = ../../../../secrets/rclone.age;
+        file = "${inputs.secrets}/secrets/rclone.age";
       };
       navidrome = {
-        file = ../../../../secrets/navidrome.age;
+        file = "${inputs.secrets}/secrets/navidrome.age";
       };
       attic-env = {
-        file = ../../../../secrets/attic-env.age;
+        file = "${inputs.secrets}/secrets/attic-env.age";
       };
     };
   };
