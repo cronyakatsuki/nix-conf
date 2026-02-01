@@ -15,3 +15,15 @@ deploy-all:
 
 reboot server:
   ssh -t root@{{server}} "reboot"
+
+update:
+  nh os test -u -a && nh os switch
+
+test:
+  nh os test -a
+
+switch:
+  nh os switch -a
+
+commit-update:
+  git commit -m "feat: update flake.lock"
