@@ -48,3 +48,4 @@ switch:
 commit-lock:
     git add flake.lock
     git commit -m "feat: update flake.lock"
+    git push
