@@ -125,6 +125,12 @@
     # Pyland for hyprland plugins
     pyprland.url = "github:hyprland-community/pyprland";
 
+    # Hyprland layout per workspace
+    hyprWorkspaceLayouts = {
+      url = "github:zakk4223/hyprWorkspaceLayouts";
+      inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
+    };
+
     # AAGL
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";

@@ -107,6 +107,8 @@ in {
 
       systemd.enable = false; # Using USWM globally
 
+      plugins = [inputs.hyprWorkspaceLayouts.packages.${pkgs.stdenv.hostPlatform.system}.default];
+
       settings = {
         "$mod" = "SUPER";
         "$menu" = "tofi";
@@ -122,6 +124,13 @@ in {
           # Fix laptop monitor getting turned on while my external monitor connected
           "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
         ];
+
+        # Setup plugins
+        plugin = {
+          wslayout = {
+            default_layout = "master";
+          };
+        };
 
         cursor = {
           no_break_fs_vrr = 1;
@@ -168,7 +177,7 @@ in {
           border_size = 1;
           gaps_in = 3;
           gaps_out = 6;
-          layout = "master";
+          layout = "workspacelayout";
           allow_tearing = true;
         };
 
