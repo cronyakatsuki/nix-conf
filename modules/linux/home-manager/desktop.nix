@@ -20,6 +20,7 @@
       warpinator
       qbittorrent
       pavucontrol
+      fluffychat
     ];
 
     # Install keepassxc
