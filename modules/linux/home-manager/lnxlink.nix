@@ -28,8 +28,7 @@
       Service = {
         WorkingDirectory = "/home/crony/.config/lnxlink";
         Type = "simple";
-        Restart = "always";
-        RestartSec = 5;
+        Restart = "on-failure";
         ExecStart = "${inputs.lnxlink.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/lnxlink --config /home/crony/.config/lnxlink/config.yaml";
       };
     };
