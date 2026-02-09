@@ -42,6 +42,18 @@
     scheduler = "scx_bpfland";
   };
 
+  # Setup ananicy with cachyos rules
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    rulesProvider = pkgs.ananicy-rules-cachyos;
+  };
+
+  # Setup power profiles daemon
+  services.power-profiles-daemon = {
+    enable = true;
+  };
+
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
 
@@ -70,6 +82,9 @@
     enable = true;
     settings.Resolve.FallbackDns = ["192.168.0.5"];
   };
+
+  # Enable bpftune for better networking
+  services.bpftune.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Zagreb";

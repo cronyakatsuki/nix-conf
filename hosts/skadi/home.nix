@@ -22,6 +22,7 @@
     TERMINAL = "foot";
     WINEPREFIX = "$HOME/.local/share/wineprefix/default";
     SECOND_BRAIN = "$HOME/docs/sb";
+    __GL_SHADER_DISK_CACHE_SIZE = "12000000000";
   };
 
   # Let Home Manager install and manage itself.
