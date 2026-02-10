@@ -21,6 +21,7 @@
       qbittorrent
       pavucontrol
       fluffychat
+      element-desktop
     ];
 
     # Install keepassxc
