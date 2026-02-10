@@ -10,6 +10,11 @@
       conduit = {
         file = "${inputs.secrets}/secrets/conduit.age";
       };
+      tuwunel = {
+        file = "${inputs.secrets}/secrets/tuwunel.age";
+        owner = "tuwunel";
+        group = "tuwunel";
+      };
       lemmy-env = {
         file = "${inputs.secrets}/secrets/lemmy.env.age";
       };
