@@ -2312,11 +2312,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769973847,
-        "narHash": "sha256-GqXaMSTGrxDxt/+w9EX5Pmk0azWcuKatA2zIoRxRk00=",
+        "lastModified": 1770749966,
+        "narHash": "sha256-eJtTHzphmJ4psijangHza0ElEYWLSxzL+WdzTwBNQKU=",
         "ref": "refs/heads/main",
-        "rev": "8b4b79afd2926ea771ac4d78b2e182e90884b159",
-        "revCount": 2,
+        "rev": "ba142217f65207a484a5bce1995f941bcc631de1",
+        "revCount": 3,
         "type": "git",
         "url": "https://git.cronyakatsuki.xyz/crony/nixos-secrets"
       },
