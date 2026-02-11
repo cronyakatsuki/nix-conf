@@ -14,7 +14,7 @@
       flake = "/home/crony/repos/nixos";
       clean = {
         enable = true;
-        extraArgs = "--keep 5 --keep-since 3d";
+        extraArgs = "--keep 20 --keep-since 1w --optimise";
         dates = "daily";
       };
     };
