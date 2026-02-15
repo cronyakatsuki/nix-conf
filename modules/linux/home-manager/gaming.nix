@@ -14,7 +14,6 @@
       heroic
       prismlauncher
       protonup-qt
-      protontricks
       itch
       inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
       gzdoom

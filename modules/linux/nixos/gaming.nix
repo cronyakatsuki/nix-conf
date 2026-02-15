@@ -15,6 +15,8 @@
     # Install steam
     programs.steam = {
       enable = true;
+      protontricks.enable = true;
+      localNetworkGameTransfers.openFirewall = true;
     };
     # Enable gamescope
     programs.gamescope = {
