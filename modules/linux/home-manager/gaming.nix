@@ -16,7 +16,6 @@
       protonup-qt
       protontricks
       itch
-      wineWowPackages.staging
       inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
       gzdoom
       qzdl
