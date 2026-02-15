@@ -19,7 +19,7 @@
         main = {};
       };
       policies = {
-        AutofillAddressEnabled = true;
+        AutofillAddressEnabled = false;
         AutofillCreditCardEnabled = false;
         DisableAppUpdate = true;
         DisableFeedbackCommands = true;
