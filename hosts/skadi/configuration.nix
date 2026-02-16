@@ -64,7 +64,7 @@
   };
 
   # Setup nvidia drivers
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = lib.mkIf (config.specialisation != {}) ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
@@ -90,6 +90,12 @@
       };
     nvidiaSettings = true;
     powerManagement.enable = true;
+  };
+
+  specialisation = {
+    nvk.configuration = {
+      hardware.nvidia.open = lib.mkDefault false;
+    };
   };
 
   # Enable networking
