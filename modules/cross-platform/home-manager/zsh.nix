@@ -52,12 +52,16 @@
         mkd = "mkdir -pv";
         less = "less -R";
         df = "df -h -x devtmpfs -x tmpfs -x usbfs -x loop";
-        free = "free -mht";
         # nnn on crack
         nnn = ''LC_COLLATE="C" nnn -xeaiH'';
         # fzf shenanigans
         vif = ''nvim $(fzf --preview="bat --color=always {}")'';
         emacs = "emacs --init-dir ~/.config/emacs";
+        # bat colors to commands
+        man = "batman";
+        lsblk = "lsblk | bat -l conf -p";
+        free = "free -mht | bat -l cpuinfo -p";
+        sensors = "sensors | bat -l cpuinfo -p";
       };
 
       antidote = {
