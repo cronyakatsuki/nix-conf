@@ -166,6 +166,7 @@
     git-hooks,
     nix-on-droid,
     deploy-rs,
+    home-manager,
     ...
   } @ inputs: let
     hostsData = import ./hosts.nix;
@@ -235,6 +236,12 @@
         value = mkHost name host;
       })
       hostsData;
+
+    homeConfigurations."crony" = home-manager.lib.homeManagerConfiguration {
+      extraSpecialArgs = {inherit inputs;};
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [./hosts/gentoo/home.nix];
+    };
 
     devShells = {
       x86_64-linux.default = let
