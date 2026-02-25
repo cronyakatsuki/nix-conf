@@ -8,6 +8,7 @@
 
   home.packages = [
     pkgs.sesh
+    pkgs.tree-sitter
   ];
 
   home.sessionVariables = {
