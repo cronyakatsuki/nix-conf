@@ -15,4 +15,7 @@
     };
   };
 in
-  pkgs.mkShell {inherit (git-check) shellHook;}
+  pkgs.mkShell {
+    buildInputs = with pkgs; [alejandra nixd];
+    inherit (git-check) shellHook;
+  }
