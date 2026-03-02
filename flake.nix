@@ -247,11 +247,11 @@
       x86_64-linux.default = let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-      in (import ./shell.nix {inherit pkgs git-hooks;});
+      in (import ./shell.nix {inherit inputs pkgs git-hooks;});
       aarch64-linux.default = let
         system = "aarch64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-      in (import ./shell.nix {inherit pkgs git-hooks;});
+      in (import ./shell.nix {inherit inputs pkgs git-hooks;});
     };
   };
 }
