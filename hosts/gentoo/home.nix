@@ -11,6 +11,8 @@
     pkgs.tree-sitter
   ];
 
+  programs.vesktop.enable = true;
+
   home.sessionVariables = {
   };
 
@@ -18,7 +20,12 @@
 
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = ["nix-command" "flakes"];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
   programs.nh = {
