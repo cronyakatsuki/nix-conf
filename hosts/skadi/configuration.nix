@@ -16,16 +16,16 @@
   boot.initrd.systemd.enable = true;
 
   # To explicitly disable systemd-boot, lanzaboote takes care of that.
-  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.loader.systemd-boot.enable = lib.mkForce true;
 
   # Bootloader.
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
-    autoEnrollKeys = {
-      enable = true;
-    };
-  };
+  # boot.lanzaboote = {
+  #   enable = true;
+  #   pkiBundle = "/var/lib/sbctl";
+  #   autoEnrollKeys = {
+  #     enable = true;
+  #   };
+  # };
 
   # Enable aarch64 emulation
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
@@ -33,7 +33,7 @@
   # Disable intel watchdog for good
   boot.blacklistedKernelModules = ["intel_pmc_bxt" "iTCO_vendor_support" "iTCO_wdt"];
 
-  # Use the xanmod kernel
+  # Use the cachyos kernel
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
   # Setup userspace schedulers
@@ -145,38 +145,38 @@
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
+    # hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat" "pipewire"];
   };
 
-  users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
+  # users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
 
-  users.mutableUsers = false;
+  # users.mutableUsers = false;
 
   # Enable my flake specific settings
-  crony.gaming.enable = true;
-  crony.additional-hardware.enable = true;
-  crony.hyprland-nixos.enable = true;
-  crony.nfs-share.enable = true;
-  crony.sddm.enable = true;
-  crony.wireguard.enable = true;
-  crony.secrets.enable = true;
-  crony.boot.enable = true;
-  crony.ollama.enable = true;
-  crony.sunshine.enable = true;
-  crony.bluetooth.enable = true;
-  crony.localsend.enable = true;
-  crony.flatpak.enable = true;
-  crony.qemu.enable = true;
-  crony.pc-services.enable = true;
-  crony.pipewire.enable = true;
+  # crony.gaming.enable = true;
+  # crony.additional-hardware.enable = true;
+  # crony.hyprland-nixos.enable = true;
+  # crony.nfs-share.enable = true;
+  # crony.sddm.enable = true;
+  # crony.wireguard.enable = true;
+  # crony.secrets.enable = true;
+  # crony.boot.enable = true;
+  # crony.ollama.enable = true;
+  # crony.sunshine.enable = true;
+  # crony.bluetooth.enable = true;
+  # crony.localsend.enable = true;
+  # crony.flatpak.enable = true;
+  # crony.qemu.enable = true;
+  # crony.pc-services.enable = true;
+  # crony.pipewire.enable = true;
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/f747508e-6b2f-474a-88cf-759a221cff46";
     fsType = "btrfs";
     options = [
-      "compress=zstd"
+      "compress-force=zstd:3"
       "noatime"
     ];
   };
@@ -186,7 +186,7 @@
     device = "/dev/disk/by-uuid/3f2ab7ec-5b78-4686-b909-77fa6f4241b5";
     fsType = "btrfs";
     options = [
-      "compress=zstd"
+      "compress-force=zstd:3"
       "noatime"
     ];
   };
