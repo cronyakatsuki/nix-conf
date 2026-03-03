@@ -157,19 +157,19 @@
   # crony.gaming.enable = true;
   # crony.additional-hardware.enable = true;
   # crony.hyprland-nixos.enable = true;
-  # crony.nfs-share.enable = true;
+  crony.nfs-share.enable = true;
   # crony.sddm.enable = true;
   # crony.wireguard.enable = true;
   # crony.secrets.enable = true;
-  # crony.boot.enable = true;
+  crony.boot.enable = true;
   # crony.ollama.enable = true;
   # crony.sunshine.enable = true;
-  # crony.bluetooth.enable = true;
+  crony.bluetooth.enable = true;
   # crony.localsend.enable = true;
   # crony.flatpak.enable = true;
   # crony.qemu.enable = true;
-  # crony.pc-services.enable = true;
-  # crony.pipewire.enable = true;
+  crony.pc-services.enable = true;
+  crony.pipewire.enable = true;
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {

@@ -28,7 +28,7 @@
   crony.wayland.enable = lib.mkDefault false;
   crony.qutebrowser.enable = lib.mkDefault false;
   crony.mangohud.enable = lib.mkDefault false;
-  crony.nnn.enable = lib.mkDefault true;
+  crony.nnn.enable = lib.mkDefault false;
   crony.mpv.enable = lib.mkDefault false;
   crony.obs-studio.enable = lib.mkDefault false;
   crony.restic.enable = lib.mkDefault false;

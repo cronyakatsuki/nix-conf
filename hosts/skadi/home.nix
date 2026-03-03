@@ -43,16 +43,16 @@
   # crony.flatpak.enable = true;
   # crony.wayland.enable = true;
   # crony.hyprland.enable = true;
-  # crony.neovim.enable = true;
-  # crony.mpv.enable = true;
+  crony.neovim.enable = true;
+  crony.mpv.enable = true;
   # crony.desktop.enable = true;
-  # crony.shell-additions.enable = true;
+  crony.shell-additions.enable = true;
   # crony.home-secrets.enable = true;
   # crony.restic.enable = true;
   # crony.emulators.enable = true;
   # crony.zen-browser.enable = true;
   # crony.lnxlink.enable = true;
-  # crony.yazi.enable = true;
+  crony.yazi.enable = true;
   # crony.obs-studio.enable = true;
 
   # DO NOT CHANGE ALSO
