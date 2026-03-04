@@ -21,6 +21,7 @@
       # Disable watchdog
       "kernel.nmi_watchdog" = 0;
     };
-    boot.kernelParams = ["quiet"];
+    boot.consoleLogLevel = 3;
+    boot.kernelParams = ["quiet" "udev.log_priority=3"];
   };
 }
