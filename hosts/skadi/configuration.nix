@@ -170,6 +170,7 @@
   crony.flatpak.enable = true;
   crony.qemu.enable = true;
   crony.pc-services.enable = true;
+  crony.cachyos.settings.enable = true;
 
   # # Try out greetd with tuigreet
   # services.greetd = {

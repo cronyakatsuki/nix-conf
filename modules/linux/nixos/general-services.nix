@@ -15,23 +15,6 @@
     # Enable firmware updater
     services.fwupd.enable = true;
 
-    # Enable zram swap device
-    zramSwap = {
-      enable = true;
-      memoryPercent = 60;
-    };
-
-    # Setup swapfile
-    swapDevices = [
-      {
-        device = "/var/lib/swapfile";
-        size = 32 * 1024;
-      }
-    ];
-
-    # Setup ntp
-    services.timesyncd.enable = true;
-
     # Setup fstrim
     services.fstrim.enable = true;
 

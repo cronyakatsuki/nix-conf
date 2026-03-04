@@ -33,6 +33,7 @@
     ./flatpak.nix
     ./pc-services.nix
     ./pipewire.nix
+    ./cachyos-settings.nix
   ];
 
   crony.bluetooth.enable = lib.mkDefault true;
@@ -67,4 +68,5 @@
   crony.flatpak.enable = lib.mkDefault false;
   crony.pc-services.enable = lib.mkDefault false;
   crony.pipewire.enable = lib.mkDefault false;
+  crony.cachyos.settings.enable = lib.mkDefault false;
 }

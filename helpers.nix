@@ -30,6 +30,7 @@
       inputs.auto-cpufreq.nixosModules.default
       inputs.nix-flatpak.nixosModules.nix-flatpak
       inputs.lanzaboote.nixosModules.lanzaboote
+      inputs.cachyos-settings-nix.nixosModules.default
     ]
     else [];
   homeManagerModules =

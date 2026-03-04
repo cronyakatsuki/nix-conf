@@ -198,6 +198,26 @@
         "type": "github"
       }
     },
+    "cachyos-settings-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1772570303,
+        "narHash": "sha256-6Ln0SnXvNIL7vko8ZpLkegajsfbdVbkuoT0jLMDefYA=",
+        "owner": "Daaboulex",
+        "repo": "cachyos-settings-nix",
+        "rev": "e0d227d4394dc59bf5ced7ef7fc128685370c592",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Daaboulex",
+        "repo": "cachyos-settings-nix",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1765145449,
@@ -2215,6 +2235,7 @@
         "aagl": "aagl",
         "agenix": "agenix",
         "auto-cpufreq": "auto-cpufreq",
+        "cachyos-settings-nix": "cachyos-settings-nix",
         "deploy-rs": "deploy-rs",
         "disko": "disko",
         "emacs-overlay": "emacs-overlay",

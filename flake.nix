@@ -155,6 +155,12 @@
 
     # Proton cachyos
     proton-cachyos.url = "github:powerofthe69/proton-cachyos-nix";
+
+    # Cachyos settings
+    cachyos-settings-nix = {
+      url = "github:Daaboulex/cachyos-settings-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
