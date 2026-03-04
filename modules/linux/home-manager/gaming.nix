@@ -19,7 +19,7 @@
       gzdoom
       qzdl
       xonotic
-      superTuxKart
+      supertuxkart
       faugus-launcher
       nzportable
       protonup-qt

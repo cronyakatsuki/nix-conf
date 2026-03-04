@@ -15,6 +15,7 @@
   config = lib.mkIf config.crony.zen-browser.enable {
     programs.zen-browser = {
       enable = true;
+      suppressXdgMigrationWarning = true;
       profiles = {
         main = {};
       };

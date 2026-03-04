@@ -50,7 +50,7 @@
     };
 
     programs.beets = {
-      enable = true;
+      enable = false;
       settings = {
         directory = "~/music/to-listen/";
         library = "~/.local/share/beets.db";
