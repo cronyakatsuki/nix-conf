@@ -322,6 +322,9 @@ in {
           # Set game type for steam_app games
           "match:class ^(steam_app_.*), content game"
 
+          # Set game type for megabonk
+          "match:class ^(Megabonk.x86_64), content game"
+
           # Enable tearing for games
           "immediate yes, match:content 3"
         ];
