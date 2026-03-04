@@ -16,11 +16,8 @@
       feather
       gparted
       cameractrls-gtk4
-      delfin
-      warpinator
       qbittorrent
       pavucontrol
-      fluffychat
       element-desktop
     ];
 
