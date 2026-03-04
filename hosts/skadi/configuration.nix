@@ -154,22 +154,43 @@
   # users.mutableUsers = false;
 
   # Enable my flake specific settings
-  # crony.gaming.enable = true;
-  # crony.additional-hardware.enable = true;
-  # crony.hyprland-nixos.enable = true;
-  crony.nfs-share.enable = true;
-  # crony.sddm.enable = true;
-  # crony.wireguard.enable = true;
-  # crony.secrets.enable = true;
-  crony.boot.enable = true;
-  # crony.ollama.enable = true;
-  # crony.sunshine.enable = true;
-  crony.bluetooth.enable = true;
-  # crony.localsend.enable = true;
-  # crony.flatpak.enable = true;
-  # crony.qemu.enable = true;
-  crony.pc-services.enable = true;
   crony.pipewire.enable = true;
+  crony.gaming.enable = true;
+  crony.additional-hardware.enable = true;
+  crony.hyprland-nixos.enable = true;
+  crony.nfs-share.enable = true;
+  crony.sddm.enable = true;
+  crony.secrets.enable = true;
+  crony.wireguard.enable = true;
+  crony.boot.enable = true;
+  crony.ollama.enable = true;
+  crony.sunshine.enable = true;
+  crony.bluetooth.enable = true;
+  crony.localsend.enable = true;
+  crony.flatpak.enable = true;
+  crony.qemu.enable = true;
+  crony.pc-services.enable = true;
+
+  # # Try out greetd with tuigreet
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = "${pkgs.tuigreet}/bin/tuigreet exec uwsm start hyprland.desktop";
+  #       user = "greeter";
+  #     };
+  #   };
+  # };
+  #
+  # systemd.services.greetd.serviceConfig = {
+  #   Type = "idle";
+  #   StandardInput = "tty";
+  #   StandardOutput = "tty";
+  #   StandardError = "journal";
+  #   TTYReset = true;
+  #   TTYVHangup = true;
+  #   TTYVTDisallocate = true;
+  # };
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {
