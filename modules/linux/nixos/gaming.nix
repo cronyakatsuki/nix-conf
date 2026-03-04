@@ -17,6 +17,9 @@
       enable = true;
       protontricks.enable = true;
       localNetworkGameTransfers.openFirewall = true;
+      extraCompatPackages = with pkgs; [
+        proton-cachyos-x86_64_v3
+      ];
     };
     # Enable gamescope
     programs.gamescope = {

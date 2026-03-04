@@ -152,6 +152,9 @@
 
     # Cachy os kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    # Proton cachyos
+    proton-cachyos.url = "github:powerofthe69/proton-cachyos-nix";
   };
 
   outputs = {

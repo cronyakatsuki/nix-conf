@@ -1785,6 +1785,22 @@
     },
     "nixpkgs_10": {
       "locked": {
+        "lastModified": 1772542754,
+        "narHash": "sha256-WGV2hy+VIeQsYXpsLjdr4GvHv5eECMISX1zKLTedhdg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "8c809a146a140c5c8806f13399592dbcb1bb5dc4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_11": {
+      "locked": {
         "lastModified": 1719082008,
         "narHash": "sha256-jHJSUH619zBQ6WdC21fFAlDxHErKVDJ5fpN0Hgx4sjs=",
         "owner": "NixOS",
@@ -2134,10 +2150,28 @@
         "type": "github"
       }
     },
+    "proton-cachyos": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_10"
+      },
+      "locked": {
+        "lastModified": 1772601901,
+        "narHash": "sha256-QN/2iE3gbqUH0p3lAEi40023PAireKB2IDPtLLTAINc=",
+        "owner": "powerofthe69",
+        "repo": "proton-cachyos-nix",
+        "rev": "1e5b1871a6ec6b0e4c24e92a01ed52212f1f932c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "powerofthe69",
+        "repo": "proton-cachyos-nix",
+        "type": "github"
+      }
+    },
     "pyprland": {
       "inputs": {
         "flake-compat": "flake-compat_10",
-        "nixpkgs": "nixpkgs_10",
+        "nixpkgs": "nixpkgs_11",
         "pyproject-nix": "pyproject-nix",
         "systems": "systems_10"
       },
@@ -2201,6 +2235,7 @@
         "nix-on-droid": "nix-on-droid",
         "nixpkgs": "nixpkgs_9",
         "note": "note",
+        "proton-cachyos": "proton-cachyos",
         "pyprland": "pyprland",
         "secrets": "secrets",
         "stylix": "stylix",
