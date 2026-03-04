@@ -123,13 +123,6 @@ in {
           "hyprctl monitors | grep 'HDMI' && hyprctl keyword monitor 'eDP-1, disable'"
         ];
 
-        # Setup plugins
-        plugin = {
-          wslayout = {
-            default_layout = "master";
-          };
-        };
-
         cursor = {
           no_break_fs_vrr = 1;
           no_hardware_cursors = 1;
@@ -176,6 +169,7 @@ in {
           gaps_in = 3;
           gaps_out = 6;
           allow_tearing = true;
+          layout = "master";
         };
 
         misc = {
@@ -196,6 +190,11 @@ in {
         binds = {
           allow_workspace_cycles = true;
         };
+
+        workspace = [
+          "1, layout:monocle"
+          "5, layout:monocle"
+        ];
 
         bind = [
           "$mod,        Return, exec, $terminal"
