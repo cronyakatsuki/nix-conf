@@ -107,8 +107,6 @@ in {
 
       systemd.enable = false; # Using USWM globally
 
-      plugins = [inputs.hyprWorkspaceLayouts.packages.${pkgs.stdenv.hostPlatform.system}.default];
-
       settings = {
         "$mod" = "SUPER";
         "$menu" = "tofi";
@@ -177,7 +175,6 @@ in {
           border_size = 1;
           gaps_in = 3;
           gaps_out = 6;
-          layout = "workspacelayout";
           allow_tearing = true;
         };
 
