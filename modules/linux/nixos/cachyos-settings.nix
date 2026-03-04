@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   ...
 }: {
@@ -11,7 +10,7 @@
   config = lib.mkIf config.crony.cachyos.settings.enable {
     cachyos.settings = {
       enable = true;
-      nvidia.enable = true;
+      nvidia.enable = lib.mkIf (config.specialisation != {}) true;
     };
   };
 }
