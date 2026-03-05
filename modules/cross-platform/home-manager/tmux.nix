@@ -14,10 +14,6 @@
       TINTED_TMUX_OPTION_STATUSBAR = 1;
     };
 
-    home.packages = with pkgs; [
-      sesh
-    ];
-
     # Setup tmux
     programs.tmux = {
       enable = true;
@@ -60,24 +56,6 @@
 
         # Bar to top
         set-option -g status-position top
-
-        # Sesh section
-        bind-key "T" run-shell "sesh connect \"$(
-          sesh list --icons | fzf-tmux -p 80%,70% \
-            --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-            --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
-            --bind 'tab:down,btab:up' \
-            --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-            --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
-            --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
-            --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
-            --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
-            --preview-window 'right:55%' \
-            --preview 'sesh preview {}'
-        )\""
-
-        bind -N "last-session (via sesh) " L run-shell "sesh last"
       '';
 
       plugins = with pkgs.tmuxPlugins; [
@@ -86,5 +64,13 @@
         fzf-tmux-url
       ];
     };
+    programs.sesh = {
+      enable = true;
+      enableAlias = true;
+      enableTmuxIntegration = true;
+      icons = true;
+      tmuxKey = "T";
+    };
+    programs.fzf.tmux.enableShellIntegration = true;
   };
 }
