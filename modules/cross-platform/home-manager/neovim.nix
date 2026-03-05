@@ -41,6 +41,8 @@
         pkgs.bash-language-server
         # for justfile
         pkgs.just-lsp
+        # for treesitter
+        inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.tree-sitter
       ];
     };
   };
