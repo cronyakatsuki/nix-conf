@@ -305,6 +305,7 @@ in {
 
           # Move to workspace 5
           "workspace 5, match:class ^(vesktop)$"
+          "workspace 5, match:class ^(Element)$"
 
           # Move to workspace 6
           "workspace 6, match:class ^(steam)$"
