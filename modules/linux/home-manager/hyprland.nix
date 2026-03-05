@@ -40,8 +40,8 @@
     #!/usr/bin/env sh
 
     case "$(printf "shutdown\\nreboot" | tofi --prompt "Choose your poison")" in
-    "shutdown") systemctl poweroff ;;
-    "reboot") systemctl reboot ;;
+    "shutdown") poweroff ;;
+    "reboot") reboot ;;
     esac
   '';
   grim = "${pkgs.grim}/bin/grim";
