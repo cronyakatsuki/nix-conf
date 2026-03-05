@@ -27,7 +27,10 @@
     # Enable dconf
     programs.dconf.enable = true;
 
+    # Enable gnome keyring
+    services.gnome.gnome-keyring.enable = true;
+
     # Setup dbus broker
-    # services.dbus.implementation = "broker";
+    services.dbus.implementation = "broker";
   };
 }
