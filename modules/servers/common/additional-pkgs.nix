@@ -4,5 +4,6 @@
     unzip
     lm_sensors
     neovim
+    git
   ];
 }
