@@ -23,7 +23,10 @@
     ];
     services.displayManager.sddm = {
       enable = true;
-      wayland.enable = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
       theme = "where_is_my_sddm_theme";
     };
   };
