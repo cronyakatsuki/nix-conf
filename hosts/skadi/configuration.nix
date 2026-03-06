@@ -16,16 +16,16 @@
   boot.initrd.systemd.enable = true;
 
   # To explicitly disable systemd-boot, lanzaboote takes care of that.
-  boot.loader.systemd-boot.enable = lib.mkForce true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
 
   # Bootloader.
-  # boot.lanzaboote = {
-  #   enable = true;
-  #   pkiBundle = "/var/lib/sbctl";
-  #   autoEnrollKeys = {
-  #     enable = true;
-  #   };
-  # };
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+    # autoEnrollKeys = {
+    #   enable = true;
+    # };
+  };
 
   # Enable aarch64 emulation
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
