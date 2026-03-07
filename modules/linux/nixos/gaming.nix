@@ -52,9 +52,6 @@
       }
     ];
 
-    # Enable sleepy launcher
-    programs.sleepy-launcher.enable = true;
-
     # Setup switch pro controller
     hardware.steam-hardware.enable = true;
     services.joycond.enable = true;
