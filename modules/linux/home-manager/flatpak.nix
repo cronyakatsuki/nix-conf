@@ -23,7 +23,6 @@
           origin = "flathub-beta";
         }
         "org.raspberrypi.rpi-imager"
-        # "com.hypixel.HytaleLauncher"
       ];
 
       update.auto = {
