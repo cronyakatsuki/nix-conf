@@ -42,6 +42,10 @@
       };
     };
 
+    services.udev.extraRules = ''
+      SUBSYSTEM=="powercap", KERNEL=="intel-rapl:0", RUN+="${pkgs.coreutils}/bin/chgrp wheel /sys/%p/energy_uj", RUN+="${pkgs.coreutils}/bin/chmod g+r /sys/%p/energy_uj"
+    '';
+
     # Setup esync
     security.pam.loginLimits = [
       {
