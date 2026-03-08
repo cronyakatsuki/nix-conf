@@ -54,6 +54,10 @@
     services.mako = {
       enable = true;
       settings = {
+        on-button-left = "invoke-default-action";
+        on-button-middle = "dismiss-group";
+        on-button-right = "dismiss";
+        on-touch = "invoke-default-action";
         default-timeout = 5000;
         layer = "overlay";
         width = 200;
