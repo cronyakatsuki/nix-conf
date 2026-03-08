@@ -5,5 +5,6 @@
     lm_sensors
     neovim
     git
+    htop
   ];
 }

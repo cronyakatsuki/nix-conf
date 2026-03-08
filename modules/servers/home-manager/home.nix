@@ -97,9 +97,6 @@
     ignores = ["~/Documents/Share" ".git"];
   };
 
-  # Install btop
-  programs.btop.enable = true;
-
   # Let home manager install and manage itself
   programs.home-manager.enable = true;
 
