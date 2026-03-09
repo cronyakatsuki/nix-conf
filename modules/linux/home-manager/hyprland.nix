@@ -124,8 +124,8 @@ in {
         ];
 
         cursor = {
-          no_break_fs_vrr = 1;
-          no_hardware_cursors = 1;
+          no_break_fs_vrr = 0;
+          no_hardware_cursors = 0;
           use_cpu_buffer = 0;
         };
 
@@ -301,7 +301,7 @@ in {
           "workspace 1, match:class ^(zen-beta)$"
 
           # Move to workspace 4
-          "workspace 4, match:class ^(com.stremio.stremio)$"
+          "workspace 4, match:class ^(com.stremio.Stremio)$"
 
           # Move to workspace 5
           "workspace 5, match:class ^(vesktop)$"
@@ -327,6 +327,9 @@ in {
 
           # Enable tearing for games
           "immediate yes, match:content 3"
+
+          # Set video type to stremio
+          "match:class ^(com.stremio.Stremio), content video"
         ];
       };
     };
