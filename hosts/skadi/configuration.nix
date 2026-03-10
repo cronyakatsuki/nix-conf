@@ -36,6 +36,13 @@
   # Use the cachyos kernel
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
+  # Setup zfs with cachyos kernel
+  boot.supportedFilesystems.zfs = true;
+  boot.zfs.package = config.boot.kernelPackages.zfs_cachyos;
+
+  # setup host id for zfs
+  networking.hostId = "65663637";
+
   # Setup userspace schedulers
   services.scx = {
     enable = true;
@@ -125,13 +132,13 @@
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    # hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
+    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat" "pipewire"];
   };
 
-  # users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
+  users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
 
-  # users.mutableUsers = false;
+  users.mutableUsers = false;
 
   # Enable my flake specific settings
   crony.pipewire.enable = true;
