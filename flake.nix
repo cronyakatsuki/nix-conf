@@ -79,7 +79,7 @@
 
     # Secrets repo
     secrets = {
-      url = "git+https://git.cronyakatsuki.xyz/crony/nixos-secrets";
+      url = "git+ssh://forgejo@git.cronyakatsuki.xyz/crony/nixos-secrets.git";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.agenix.follows = "agenix";
     };
