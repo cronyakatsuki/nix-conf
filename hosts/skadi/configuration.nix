@@ -187,6 +187,9 @@
     options = [
       "compress-force=zstd:3"
       "noatime"
+      "ssd"
+      "discard=async"
+      "space_cache=v2"
     ];
   };
 
@@ -197,6 +200,9 @@
     options = [
       "compress-force=zstd:3"
       "noatime"
+      "ssd"
+      "discard=async"
+      "space_cache=v2"
     ];
   };
 

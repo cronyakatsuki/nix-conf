@@ -32,6 +32,9 @@
                       mountOptions = [
                         "compress-force=zstd:1"
                         "noatime"
+                        "ssd"
+                        "discard=async"
+                        "space_cache=v2"
                       ];
                     };
                     "@home" = {
@@ -39,6 +42,9 @@
                       mountOptions = [
                         "compress-force=zstd:1"
                         "noatime"
+                        "ssd"
+                        "discard=async"
+                        "space_cache=v2"
                       ];
                     };
                     "@nix" = {
@@ -46,6 +52,9 @@
                       mountOptions = [
                         "compress-force=zstd:1"
                         "noatime"
+                        "ssd"
+                        "discard=async"
+                        "space_cache=v2"
                       ];
                     };
                   };
