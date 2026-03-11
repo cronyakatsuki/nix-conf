@@ -40,6 +40,9 @@
   boot.supportedFilesystems.zfs = true;
   boot.zfs.package = config.boot.kernelPackages.zfs_cachyos;
 
+  # Setup tmp as tmpfs
+  boot.tmp.useTmpfs = true;
+
   # setup host id for zfs
   networking.hostId = "65663637";
 
@@ -60,6 +63,9 @@
   services.power-profiles-daemon = {
     enable = true;
   };
+
+  # Setup profiles sync daemon
+  services.psd.enable = true;
 
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
@@ -158,27 +164,6 @@
   crony.qemu.enable = true;
   crony.pc-services.enable = true;
   crony.cachyos.settings.enable = true;
-
-  # # Try out greetd with tuigreet
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.tuigreet}/bin/tuigreet exec uwsm start hyprland.desktop";
-  #       user = "greeter";
-  #     };
-  #   };
-  # };
-  #
-  # systemd.services.greetd.serviceConfig = {
-  #   Type = "idle";
-  #   StandardInput = "tty";
-  #   StandardOutput = "tty";
-  #   StandardError = "journal";
-  #   TTYReset = true;
-  #   TTYVHangup = true;
-  #   TTYVTDisallocate = true;
-  # };
 
   # Mount additional drive for games
   fileSystems."/mnt/games" = {
