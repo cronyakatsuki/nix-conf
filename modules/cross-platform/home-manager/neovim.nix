@@ -43,6 +43,8 @@
         pkgs.just-lsp
         # for treesitter
         inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.tree-sitter
+        # for quickshell
+        pkgs.kdePackages.qtdeclarative
       ];
     };
   };
