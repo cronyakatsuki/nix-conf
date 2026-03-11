@@ -19,6 +19,7 @@
       waylock
       inputs.pyprland.packages.${pkgs.stdenv.hostPlatform.system}.pyprland
       hyprshutdown
+      inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     # Enable and setup tofi

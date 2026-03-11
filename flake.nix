@@ -167,6 +167,13 @@
       url = "github:Daaboulex/cachyos-settings-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Quickshell for a better shell
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
