@@ -18,6 +18,7 @@
       wl-clipboard
       waylock
       inputs.pyprland.packages.${pkgs.stdenv.hostPlatform.system}.pyprland
+      hyprshutdown
     ];
 
     # Enable and setup tofi
@@ -106,6 +107,40 @@
 
     # Disable stylix to add full css, I only need it to add colors
     stylix.targets.waybar.addCss = false;
+
+    programs.wleave = {
+      enable = true;
+      settings = {
+        margin = 200;
+        buttons-per-row = "1/1";
+        delay-command-ms = 100;
+        close-on-lost-focus = true;
+        show-keybinds = true;
+        buttons = [
+          {
+            label = "logout";
+            action = "hyprshutdown";
+            text = "Logout";
+            keybind = "e";
+            icon = "${pkgs.wleave}/share/wleave/icons/logout.svg";
+          }
+          {
+            label = "shutdown";
+            action = "systemctl poweroff";
+            text = "Shutdown";
+            keybind = "s";
+            icon = "${pkgs.wleave}/share/wleave/icons/shutdown.svg";
+          }
+          {
+            label = "reboot";
+            action = "systemctl reboot";
+            text = "Reboot";
+            keybind = "r";
+            icon = "${pkgs.wleave}/share/wleave/icons/reboot.svg";
+          }
+        ];
+      };
+    };
 
     # Enable and install waybar
     programs.waybar = {

@@ -36,14 +36,6 @@
 
     ${pkgs.libnotify}/bin/notify-send -h string:x-canonical-private-synchronous:sys-notify "🔊 Volume: ''${volumep}"
   '';
-  power-menu = pkgs.writeShellScriptBin "power-menu" ''
-    #!/usr/bin/env sh
-
-    case "$(printf "shutdown\\nreboot" | tofi --prompt "Choose your poison")" in
-    "shutdown") poweroff ;;
-    "reboot") reboot ;;
-    esac
-  '';
   grim = "${pkgs.grim}/bin/grim";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
 in {
@@ -199,7 +191,6 @@ in {
         bind = [
           "$mod,        Return, exec, $terminal"
           "$mod SHIFT,  Q, killactive"
-          "$mod CTRL,   E, exit"
           "$mod SHIFT,  Space, togglefloating"
           "$mod,        D, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod SHIFT,  D, exec, tofi-drun | xargs hyprctl dispatch exec --"
@@ -212,7 +203,7 @@ in {
           "$mod SHIFT,  B, exec, librewolf"
 
           "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
-          "$mod SHIFT,  E, exec, ${power-menu}/bin/power-menu"
+          "$mod SHIFT,  E, exec, wleave"
 
           "$mod,        F12, exec, ${grim} ${config.xdg.userDirs.pictures}/screenshots/$(date +'%s_grim.png')"
 
