@@ -141,6 +141,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # firefox/zen-browser extensinos
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Some gaming related stuff ( actual osu! )
     nix-gaming.url = "github:cronyakatsuki/nix-gaming";
 

@@ -16,7 +16,18 @@
     programs.zen-browser = {
       enable = true;
       profiles = {
-        main = {};
+        main = {
+          extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+            ublock-origin
+            dearrow
+            keepassxc-browser
+            libredirect
+            sponsorblock
+          ];
+          mods = [
+            "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better unloaded tabs
+          ];
+        };
       };
       policies = {
         AutofillAddressEnabled = false;

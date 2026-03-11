@@ -340,6 +340,28 @@
         "url": "https://git.cronyakatsuki.xyz/crony/extract-romset-dat"
       }
     },
+    "firefox-addons": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1773201798,
+        "narHash": "sha256-TZQwHvIBz9hr/fci/G/AIjPSKCMtxQm/xFm3MNJ/mVg=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "016edd132727d8ac364454a6b443ef46c2d1c7e4",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -2240,6 +2262,7 @@
         "disko": "disko",
         "emacs-overlay": "emacs-overlay",
         "extract-romset": "extract-romset",
+        "firefox-addons": "firefox-addons",
         "git-hooks": "git-hooks",
         "hb-downloader": "hb-downloader",
         "home-manager": "home-manager_2",
