@@ -7,13 +7,11 @@
   opts = {
     paths = [
       "/home/crony/.face"
-      # "/home/crony/.librewolf"
+      "/home/crony/.config/zen"
       "/home/crony/.ssh"
-      "/home/crony/.config/heroic"
       # "/home/crony/.config/nbfc.json"
       # "/home/crony/.config/OpenTabletDriver"
       # "/home/crony/.config/tridactyl"
-      "/home/crony/.local/share/gnupg"
       # "/home/crony/.local/share/osu"
       "/home/crony/docs/sync"
       "/home/crony/docs/wireguard-keys"
