@@ -2380,11 +2380,11 @@
         "rev": "7a2404c604ca81edfaf5f762aeeca469517df88b",
         "revCount": 8,
         "type": "git",
-        "url": "ssh://forgejo@git.cronyakatsuki.xyz/crony/nixos-secrets.git"
+        "url": "https://git.cronyakatsuki.xyz/crony/nixos-secrets.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://forgejo@git.cronyakatsuki.xyz/crony/nixos-secrets.git"
+        "url": "https://git.cronyakatsuki.xyz/crony/nixos-secrets.git"
       }
     },
     "stylix": {
