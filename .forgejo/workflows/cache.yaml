@@ -2,10 +2,12 @@ on: [push]
 
 jobs:
   cache:
-    runs-on: native
+    runs-on: debian-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+      - name: Install nix
+        uses: https://github.com/cachix/install-nix-action
       - name: Setup Attic cache
         uses: https://github.com/ryanccn/attic-action@v0
         with:
