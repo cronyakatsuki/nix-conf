@@ -8,6 +8,11 @@ jobs:
         uses: actions/checkout@v5
       - name: Install nix
         uses: https://github.com/cachix/install-nix-action@v31
+      - name: Setup system cache
+        uses: actions/cache@v3
+        with:
+          path: /nix/store
+          key: nix-cache
       - name: Setup Attic cache
         uses: https://github.com/ryanccn/attic-action@v0
         with:
