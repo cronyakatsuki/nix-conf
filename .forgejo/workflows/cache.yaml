@@ -4,6 +4,8 @@ jobs:
   cache:
     runs-on: native
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Setup Attic cache
         uses: https://github.com/ryanccn/attic-action@v0
         with:
@@ -11,4 +13,4 @@ jobs:
           cache: ${{ secrets.ATTIC_CACHE }}
           token: ${{ secrets.ATTIC_TOKEN }}
       - name: Build freyja configuration
-        run: nix build .nixosConfigurations.freyja.config.system.build.toplevel
+        run: nix build .#nixosConfigurations.freyja.config.system.build.toplevel
