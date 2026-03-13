@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  cache:
+    runs-on: native
+    steps:
+      - name: Setup Attic cache
+        uses: ryanccn/attic-action@v0
+        with:
+          endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+          cache: ${{ secrets.ATTIC_CACHE }}
+          token: ${{ secrets.ATTIC_TOKEN }}
+      - name: Build freyja configuration
+        run: nix build .nixosConfigurations.freyja.config.system.build.toplevel
