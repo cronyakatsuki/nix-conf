@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
   cache:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
