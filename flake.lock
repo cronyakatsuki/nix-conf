@@ -2374,11 +2374,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772640794,
-        "narHash": "sha256-GQu4lHyxKrJaYX7JTZs8MOtwW+PiA2iT/TCmupjaocY=",
+        "lastModified": 1773387148,
+        "narHash": "sha256-EWPGkR5omFJppWXpCifB9gWLGkrAfLNK3WdwpfkUVJw=",
         "ref": "refs/heads/main",
-        "rev": "35355fe747b9c3ad251746e25f7ece34f6fc313b",
-        "revCount": 7,
+        "rev": "7a2404c604ca81edfaf5f762aeeca469517df88b",
+        "revCount": 8,
         "type": "git",
         "url": "ssh://forgejo@git.cronyakatsuki.xyz/crony/nixos-secrets.git"
       },
