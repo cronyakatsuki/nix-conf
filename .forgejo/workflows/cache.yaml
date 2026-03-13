@@ -5,7 +5,7 @@ jobs:
     runs-on: native
     steps:
       - name: Setup Attic cache
-        uses: github.com/ryanccn/attic-action@v0
+        uses: https://github.com/ryanccn/attic-action@v0
         with:
           endpoint: ${{ secrets.ATTIC_ENDPOINT }}
           cache: ${{ secrets.ATTIC_CACHE }}
