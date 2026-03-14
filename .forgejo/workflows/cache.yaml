@@ -19,5 +19,7 @@ jobs:
           endpoint: ${{ secrets.ATTIC_ENDPOINT }}
           cache: ${{ secrets.ATTIC_CACHE }}
           token: ${{ secrets.ATTIC_TOKEN }}
+      - name: Echo secrets
+        run: echo "${{secrets.ATTIC_CACHE}}\n${{ATTIC_ENDPOINT}}\n${{secrets.ATTIC_TOKEN}}"
       - name: Build freyja configuration
         run: nix build .#nixosConfigurations.freyja.config.system.build.toplevel
