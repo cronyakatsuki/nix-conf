@@ -13,7 +13,7 @@
         type = "s3";
         region = "us-east-005";
         bucket = "76302220-b368-4328-b566-2a038235b314--attic";
-        endpoint = "s3.us-east-005.backblazeb2.com";
+        endpoint = "https://s3.us-east-005.backblazeb2.com";
       };
 
       jwt = {};
