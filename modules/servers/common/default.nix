@@ -13,5 +13,6 @@
     ./shell.nix
     ./fail2ban.nix
     ./beszel-agent.nix
+    ./basic-services.nix
   ];
 }
