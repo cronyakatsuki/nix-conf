@@ -9,13 +9,12 @@
       enable = true;
       name = "monolith";
       url = "https://git.cronyakatsuki.xyz";
-      # Obtaining the path to the runner token file may differ
-      # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
       tokenFile = config.age.secrets.forgejo-runner-token.path;
       labels = [
         ## optionally provide native execution on the host:
         "debian-latest:docker://node:18-bullseye"
         "native:host"
+        "ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-24.04"
       ];
       hostPackages = with pkgs; [
         bash
@@ -33,4 +32,13 @@
   };
 
   environment.systemPackages = with pkgs; [attic-client];
+
+  nix.settings.trusted-users = ["root" "gitea-runner" "@wheel"];
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16 GB
+    }
+  ];
 }
