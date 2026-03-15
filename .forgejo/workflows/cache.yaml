@@ -6,18 +6,19 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
-      # - name: Install nix
-      #   uses: https://github.com/cachix/install-nix-action@v31
-      # - name: Setup system cache
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: /nix/store
-      #     key: nix-cache
       - name: Setup Attic cache
         uses: https://github.com/ryanccn/attic-action@v0
         with:
           endpoint: ${{ secrets.ATTIC_ENDPOINT }}
           cache: ${{ secrets.ATTIC_CACHE }}
           token: ${{ secrets.ATTIC_TOKEN }}
+      - name: Build baldur configuration
+        run: nix build .#nixosConfigurations.baldur.config.system.build.toplevel
+      - name: Build bragi configuration
+        run: nix build .#nixosConfigurations.bragi.config.system.build.toplevel
+      - name: Build thor configuration
+        run: nix build .#nixosConfigurations.thor.config.system.build.toplevel
+      - name: Build odin configuration
+        run: nix build .#nixosConfigurations.odin.config.system.build.toplevel
       - name: Build freyja configuration
         run: nix build .#nixosConfigurations.freyja.config.system.build.toplevel
