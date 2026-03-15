@@ -20,4 +20,4 @@ jobs:
           cache: ${{ secrets.ATTIC_CACHE }}
           token: ${{ secrets.ATTIC_TOKEN }}
       - name: Build freyja configuration
-        run: nix build --max-jobs=1 .#nixosConfigurations.freyja.config.system.build.toplevel
+        run: nix build .#nixosConfigurations.freyja.config.system.build.toplevel
