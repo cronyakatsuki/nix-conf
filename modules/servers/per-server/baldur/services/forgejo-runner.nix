@@ -41,4 +41,6 @@
       size = 16 * 1024; # 16 GB
     }
   ];
+
+  nix.settings.max-jobs = 1;
 }
