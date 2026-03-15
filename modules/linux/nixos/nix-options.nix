@@ -15,6 +15,7 @@
       "https://cache.nixos-cuda.org"
       "https://deploy-rs.cachix.org"
       "https://attic.xuyh0120.win/lantian"
+      "https://cache.cronyakatsuki.xyz/server"
     ];
     trusted-substituters = [
       "https://hyprland.cachix.org"
@@ -27,6 +28,7 @@
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "deploy-rs.cachix.org-1:xfNobmiwF/vzvK1gpfediPwpdIP0rpDV2rYqx40zdSI="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "server:H3UiSzK++1xgvbI/0BgWc2Ug/srJ45x05Zc9DqNUsxM="
     ];
   };
 
