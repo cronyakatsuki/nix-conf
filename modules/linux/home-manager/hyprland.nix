@@ -122,15 +122,15 @@ in {
         };
 
         exec-once = [
-          "wl-paste --type text --watch cliphist store" # Stores only text data
-          "wl-paste --type image --watch cliphist store" # Stores only image data
-          "keepassxc" # Startup my password manager
-          "cameractrlsd" # Start service to configure my webcam settings
+          "app2unit -- wl-paste --type text --watch cliphist store" # Stores only text data
+          "app2unit -- wl-paste --type image --watch cliphist store" # Stores only image data
+          "app2unit -- keepassxc" # Startup my password manager
+          "app2unit -- cameractrlsd" # Start service to configure my webcam settings
           "systemctl --user start hyprpolkitagent"
           "systemctl --user start hyprpaper"
           "systemctl --user start hypridle"
           # "systemctl --user start waybar"
-          "pypr"
+          "app2unit -- pypr"
         ];
 
         monitor = [
@@ -189,21 +189,19 @@ in {
         ];
 
         bind = [
-          "$mod,        Return, exec, $terminal"
+          "$mod,        Return, exec, app2unit $terminal"
           "$mod SHIFT,  Q, killactive"
           "$mod SHIFT,  Space, togglefloating"
-          "$mod,        D, exec, tofi-run | xargs hyprctl dispatch exec --"
-          "$mod SHIFT,  D, exec, tofi-drun | xargs hyprctl dispatch exec --"
+          "$mod,        D, exec, tofi-run | xargs app2unit --"
+          "$mod SHIFT,  D, exec, tofi-drun | xargs app2unit --"
 
           "$mod,        F, fullscreen"
 
-          "$mod SHIFT,  L, exec, waylock"
+          "$mod SHIFT,  L, exec, app2unit -- waylock"
 
-          "$mod,        B, exec, zen-beta"
-          "$mod SHIFT,  B, exec, librewolf"
+          "$mod,        B, exec, app2unit -- zen-beta"
 
-          "$mod,        G, exec, ${hyprgamemode}/bin/gamemode"
-          "$mod SHIFT,  E, exec, wleave"
+          "$mod SHIFT,  E, exec, app2unit -- wleave"
 
           "$mod,        F12, exec, ${grim} ${config.xdg.userDirs.pictures}/screenshots/$(date +'%s_grim.png')"
 
@@ -238,8 +236,6 @@ in {
           "$mod SHIFT,  7, movetoworkspacesilent, 7"
           "$mod SHIFT,  8, movetoworkspacesilent, 8"
           "$mod SHIFT,  9, movetoworkspacesilent, 9"
-
-          "$mod,        F1, exec, pypr toggle volume"
         ];
 
         bindel = [
