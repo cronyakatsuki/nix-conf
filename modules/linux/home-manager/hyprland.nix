@@ -122,14 +122,14 @@ in {
         };
 
         exec-once = [
+          "systemctl --user start waybar"
+          "systemctl --user start hyprpolkitagent"
+          "systemctl --user start hyprpaper"
+          "systemctl --user start hypridle"
           "app2unit -- wl-paste --type text --watch cliphist store" # Stores only text data
           "app2unit -- wl-paste --type image --watch cliphist store" # Stores only image data
           "app2unit -- keepassxc" # Startup my password manager
           "app2unit -- cameractrlsd" # Start service to configure my webcam settings
-          "systemctl --user start hyprpolkitagent"
-          "systemctl --user start hyprpaper"
-          "systemctl --user start hypridle"
-          # "systemctl --user start waybar"
           "app2unit -- pypr"
         ];
 
