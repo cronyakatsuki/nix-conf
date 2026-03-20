@@ -15,10 +15,21 @@
     environmentFile = "${config.age.secrets.searx.path}";
   };
 
+  # Setup anubis to block fucking ai bots
+  services.anubis.instances.searx = {
+    settings = {
+      TARGET = "http://127.0.0.1:8090";
+      BIND_NETWORK = "tcp";
+      BIND = "127.0.0.1:8082";
+      SERVE_ROBOTS_TXT = true;
+      DIFFICULTY = 5;
+    };
+  };
+
   services.traefik.dynamicConfigOptions.http = {
     services.searx.loadBalancer.servers = [
       {
-        url = "http://localhost:8090";
+        url = "http://localhost:8082";
       }
     ];
 
