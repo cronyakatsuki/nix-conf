@@ -6,6 +6,8 @@
       server.port = "8090";
       server.bind_address = "127.0.0.1";
       server.secret_key = "@SEARX_SECRET_KEY@";
+      server.public_instance = true;
+      server.image_proxy = true;
     };
     uwsgiConfig = {
       http = ":8090";
