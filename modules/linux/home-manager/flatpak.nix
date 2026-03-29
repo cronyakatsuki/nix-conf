@@ -18,10 +18,7 @@
       ];
       packages = [
         "com.github.tchx84.Flatseal"
-        {
-          appId = "com.stremio.Stremio";
-          origin = "flathub-beta";
-        }
+        "com.stremio.Stremio"
         "org.raspberrypi.rpi-imager"
       ];
 
