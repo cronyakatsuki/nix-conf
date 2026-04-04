@@ -289,6 +289,7 @@ in {
 
           # Move to workspace 4
           "workspace 4, match:class ^(com.stremio.Stremio)$"
+          "workspace 4, match:class ^(com.stremio.stremio)$"
 
           # Move to workspace 5
           "workspace 5, match:class ^(vesktop)$"
