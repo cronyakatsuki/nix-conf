@@ -117,8 +117,8 @@ in {
 
         cursor = {
           no_break_fs_vrr = 0;
-          no_hardware_cursors = 0;
-          use_cpu_buffer = 0;
+          no_hardware_cursors = 1;
+          use_cpu_buffer = 1;
         };
 
         exec-once = [
