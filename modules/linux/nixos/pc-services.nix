@@ -43,7 +43,7 @@
             static_speed: 0.5
             temperature_key: edge
           gpu_clock_offsets:
-            0: 300
+            0: 275
           max_core_clock: 2900
           min_core_clock: 180
       version: 5
