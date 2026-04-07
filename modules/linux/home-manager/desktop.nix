@@ -19,6 +19,7 @@
       qbittorrent
       pavucontrol
       element-desktop
+      bambu-studio
     ];
 
     # Install keepassxc
