@@ -6,6 +6,7 @@
   systemd.services.audiobookshelf = {
     after = ["mnt.mount"];
     bindsTo = ["mnt.mount"];
+    requires = ["mnt.mount"];
   };
 
   services.traefik.dynamicConfigOptions.http = {
