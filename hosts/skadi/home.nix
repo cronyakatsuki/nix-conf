@@ -56,5 +56,5 @@
   crony.obs-studio.enable = true;
 
   # DO NOT CHANGE ALSO
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 }
