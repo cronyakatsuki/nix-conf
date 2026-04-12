@@ -23,6 +23,7 @@
       faugus-launcher
       nzportable
       protonup-qt
+      wine-staging
     ];
   };
 }
