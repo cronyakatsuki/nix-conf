@@ -135,10 +135,13 @@ in {
 
         monitor = [
           "HDMI-A-1, 1920x1080@144, 0x0, 1"
-          "DP-1, 1920x1080@165, 0x0, 1"
+          "DP-1, 1920x1080@165, 0x0, 1, bitdepth, 10, cm, auto"
+          "DP-2, 2560x1440@179.98, 0x0, 1, bitdepth, 10"
           "eDP-1, 1920x1080, 0x0, 1"
           "sunshine, 1920x1080@165, 0x0, 1"
         ];
+
+        render.cm_fs_passthrough = 1;
 
         animations = {
           enabled = false;
