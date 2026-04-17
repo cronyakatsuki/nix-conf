@@ -18,7 +18,7 @@
     # Change Cursor
     stylix.cursor.package = pkgs.bibata-cursors;
     stylix.cursor.name = "Bibata-Modern-Ice";
-    stylix.cursor.size = 32;
+    stylix.cursor.size = 48;
 
     # Fix stuff not automatically using dark theme on websites
     stylix.polarity = "dark";
@@ -48,10 +48,10 @@
 
     # Change font sizes
     stylix.fonts.sizes = {
-      applications = 15;
-      desktop = 13;
-      popups = 13;
-      terminal = 15;
+      applications = 17;
+      desktop = 15;
+      popups = 15;
+      terminal = 17;
     };
 
     # Change chrome settings
