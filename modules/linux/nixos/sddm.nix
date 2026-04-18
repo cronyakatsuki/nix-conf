@@ -11,7 +11,7 @@
   config = lib.mkIf config.crony.sddm.enable {
     environment.systemPackages = [
       (pkgs.where-is-my-sddm-theme.override {
-        variants = ["qt6" "qt5"];
+        variants = ["qt6"];
         themeConfig.General = {
           showSessionsByDefault = true;
 
