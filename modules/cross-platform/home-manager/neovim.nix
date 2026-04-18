@@ -23,6 +23,7 @@
       withNodeJs = true;
       withPython3 = true;
       withRuby = true;
+      sideloadInitLua = true; # Fix hm creating a init.lua so I can use my personal config
       extraPackages = [
         # for treesitter
         pkgs.gcc
