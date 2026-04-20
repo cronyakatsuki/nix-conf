@@ -141,7 +141,10 @@ in {
           "sunshine, 1920x1080@165, 0x0, 1"
         ];
 
-        render.cm_fs_passthrough = 1;
+        render = {
+          direct_scanout = 2; # Reduce latency for games
+          cm_auto_hdr = 2; # Switch to hdr automatically when needed
+        };
 
         animations = {
           enabled = false;
