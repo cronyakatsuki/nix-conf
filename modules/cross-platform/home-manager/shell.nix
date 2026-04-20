@@ -18,6 +18,7 @@
       p7zip
       aria2
       just
+      trash-cli
     ];
 
     # Enable nix-index
