@@ -105,6 +105,9 @@
   # Enable bpftune for better networking
   services.bpftune.enable = true;
 
+  # Setup vial udev rule
+  hardware.keyboard.qmk.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Zagreb";
 
@@ -198,8 +201,9 @@
     libva-utils
     alsa-utils
     ddcutil
+    vial
   ];
 
   # DO NOT CHANGE
-  system.stateVersion = "26.05";
+  system.stateVersion = "24.11";
 }
