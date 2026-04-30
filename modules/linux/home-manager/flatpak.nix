@@ -20,6 +20,7 @@
         "com.github.tchx84.Flatseal"
         "com.stremio.Stremio"
         "org.raspberrypi.rpi-imager"
+        "net.shadps4.shadPS4"
       ];
 
       update.auto = {

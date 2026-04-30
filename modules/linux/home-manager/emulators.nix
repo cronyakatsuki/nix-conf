@@ -25,7 +25,7 @@
       rpcs3
       # mame-tools
       # steam-rom-manager
-      shadps4
+      # shadps4 # flatpak version just works
     ];
   };
 }
