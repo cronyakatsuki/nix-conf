@@ -63,7 +63,7 @@
   crony.oom.enable = lib.mkDefault true;
   crony.boot.enable = lib.mkDefault false;
   crony.kanata.enable = lib.mkDefault false;
-  crony.keyd.enable = lib.mkDefault true;
+  crony.keyd.enable = lib.mkDefault false;
   crony.localsend.enable = lib.mkDefault false;
   crony.flatpak.enable = lib.mkDefault false;
   crony.pc-services.enable = lib.mkDefault false;
