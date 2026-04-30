@@ -24,23 +24,23 @@
     };
 
     # Install gamemode
-    programs.gamemode = {
-      enable = true;
-      enableRenice = true;
-      settings = {
-        general = {
-          softrealtime = "auto";
-          renice = 10;
-        };
-        cpu = {
-          pin_cores = "no";
-        };
-        custom = {
-          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
-        };
-      };
-    };
+    # programs.gamemode = {
+    #   enable = true;
+    #   enableRenice = true;
+    #   settings = {
+    #     general = {
+    #       softrealtime = "auto";
+    #       renice = 10;
+    #     };
+    #     cpu = {
+    #       pin_cores = "no";
+    #     };
+    #     custom = {
+    #       start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+    #       end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+    #     };
+    #   };
+    # };
 
     services.udev.extraRules = ''
       SUBSYSTEM=="powercap", KERNEL=="intel-rapl:0", RUN+="${pkgs.coreutils}/bin/chgrp wheel /sys/%p/energy_uj", RUN+="${pkgs.coreutils}/bin/chmod g+r /sys/%p/energy_uj"
