@@ -46,6 +46,8 @@
         inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.tree-sitter
         # for quickshell
         pkgs.kdePackages.qtdeclarative
+        # for c/cpp
+        pkgs.clang-tools
       ];
     };
   };
