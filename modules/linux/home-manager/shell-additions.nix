@@ -13,6 +13,8 @@
     home.packages = with pkgs; [
       android-tools
       nurl
+      qmk
+      dos2unix
       inputs.agenix.packages.${stdenv.hostPlatform.system}.default
       inputs.deploy-rs.packages.${stdenv.hostPlatform.system}.default
       inputs.hb-downloader.packages.${stdenv.hostPlatform.system}.default
