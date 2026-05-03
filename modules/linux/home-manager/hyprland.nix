@@ -175,8 +175,9 @@ in {
         };
 
         input = {
-          kb_layout = "us,hr";
-          kb_options = "grp:alt_space_toggle";
+          kb_layout = "hr";
+          kb_variant = "us";
+          # kb_options = "";
           accel_profile = "flat";
         };
 
