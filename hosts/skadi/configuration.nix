@@ -67,6 +67,9 @@
   # Setup profiles sync daemon
   services.psd.enable = true;
 
+  # Setup automatic usb device mounting
+  services.udisks2.enable = true;
+
   # Get nicer hostname
   networking.hostName = "skadi"; # Define your hostname.
 
