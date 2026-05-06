@@ -19,7 +19,6 @@
       qbittorrent
       pavucontrol
       element-desktop
-      bambu-studio
       thunar
     ];
 
