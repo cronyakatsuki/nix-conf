@@ -20,6 +20,7 @@
       pavucontrol
       element-desktop
       bambu-studio
+      thunar
     ];
 
     # Install keepassxc
