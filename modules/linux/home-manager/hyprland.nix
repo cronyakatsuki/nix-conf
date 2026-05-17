@@ -99,6 +99,7 @@ in {
 
       systemd.enable = false; # Using USWM globally
 
+      configType = "hyprlang";
       settings = {
         "$mod" = "SUPER";
         "$menu" = "tofi";
