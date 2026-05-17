@@ -20,6 +20,7 @@
       pavucontrol
       element-desktop
       thunar
+      filezilla
     ];
 
     # Install keepassxc
