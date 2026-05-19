@@ -22,6 +22,7 @@
         "org.raspberrypi.rpi-imager"
         "net.shadps4.shadPS4"
         "com.bambulab.BambuStudio"
+        "net.rpcs3.RPCS3"
       ];
 
       update.auto = {
