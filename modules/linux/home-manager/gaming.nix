@@ -16,14 +16,13 @@
       protonup-qt
       itch
       inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
-      gzdoom
-      qzdl
       xonotic
       supertuxkart
       faugus-launcher
       nzportable
       protonup-qt
       wine-staging
+      sm64coopdx
     ];
   };
 }
