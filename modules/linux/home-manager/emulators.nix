@@ -30,12 +30,12 @@
       ))
       pcsx2
       dolphin-emu
-      rpcs3
+      # rpcs3
       xemu
       xenia-canary
       cemu
       # mame-tools
-      # steam-rom-manager
+      steam-rom-manager
       # shadps4 # flatpak version just works
     ];
   };
