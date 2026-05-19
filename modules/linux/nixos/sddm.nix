@@ -3,31 +3,24 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  theme = pkgs.sddm-astronaut;
+in {
   options = {
     crony.sddm.enable = lib.mkEnableOption "Enable sddm.";
   };
 
   config = lib.mkIf config.crony.sddm.enable {
     environment.systemPackages = [
-      (pkgs.where-is-my-sddm-theme.override {
-        variants = ["qt6" "qt5"];
-        themeConfig.General = {
-          showSessionsByDefault = true;
-
-          background = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          backgroundFill = "#282828";
-          backgroundMode = "none";
-        };
-      })
+      theme
     ];
     services.displayManager.sddm = {
       enable = true;
+      extraPackages = [theme];
       wayland = {
         enable = true;
-        compositor = "kwin";
       };
-      theme = "where_is_my_sddm_theme";
+      theme = "sddm-astronaut-theme";
     };
   };
 }
