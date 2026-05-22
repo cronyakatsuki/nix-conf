@@ -19,6 +19,7 @@
       aria2
       just
       trash-cli
+      gptfdisk
     ];
 
     # Enable nix-index
