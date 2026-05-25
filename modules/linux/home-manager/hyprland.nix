@@ -145,7 +145,10 @@ in {
         render = {
           direct_scanout = 2; # Reduce latency for games
           cm_auto_hdr = 2; # Switch to hdr automatically when needed
+          cm_enabled = 1;
         };
+
+        quirks.prefer_hdr = 1;
 
         animations = {
           enabled = false;
