@@ -18,8 +18,8 @@
     # Setup fstrim
     services.fstrim.enable = true;
 
-    # Enable seatd
-    services.seatd.enable = true;
+    # Enable seatd, actually let's use logind
+    services.logind.enable = true;
 
     # Enable ratbagd to customize mouse options
     services.ratbagd.enable = true;
