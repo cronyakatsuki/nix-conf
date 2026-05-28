@@ -118,7 +118,7 @@ in {
 
         cursor = {
           no_break_fs_vrr = 0;
-          no_hardware_cursors = 1;
+          no_hardware_cursors = 0;
           use_cpu_buffer = 1;
         };
 
@@ -170,7 +170,7 @@ in {
           border_size = 1;
           gaps_in = 3;
           gaps_out = 6;
-          allow_tearing = true;
+          # allow_tearing = true;
           layout = "master";
         };
 
@@ -328,7 +328,7 @@ in {
           "match:class ^(love), content game"
 
           # Enable tearing for games
-          "immediate yes, match:content 3"
+          # "immediate yes, match:content 3"
 
           # Set video type to stremio
           "match:class ^(com.stremio.Stremio), content video"
