@@ -54,6 +54,7 @@
   crony.lnxlink.enable = true;
   crony.yazi.enable = true;
   crony.obs-studio.enable = true;
+  crony.pico8.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "26.05"; # Please read the comment before changing.

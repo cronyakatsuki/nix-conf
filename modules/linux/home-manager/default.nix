@@ -22,6 +22,7 @@
     ./emacs.nix
     ./zen-browser.nix
     ./lnxlink.nix
+    ./pico-8.nix
   ];
 
   crony.river.enable = lib.mkDefault false;
@@ -46,4 +47,5 @@
   crony.emacs.enable = lib.mkDefault false;
   crony.zen-browser.enable = lib.mkDefault false;
   crony.lnxlink.enable = lib.mkDefault false;
+  crony.pico8.enable = lib.mkDefault false;
 }

@@ -167,6 +167,12 @@
       url = "github:Daaboulex/cachyos-settings-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Pico 8 zip file
+    pico-8 = {
+      url = "path:/home/crony/downs/pico-8_0.2.7_amd64.zip";
+      flake = false;
+    };
   };
 
   outputs = {

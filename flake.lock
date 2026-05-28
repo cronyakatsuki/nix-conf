@@ -2130,6 +2130,19 @@
         "type": "github"
       }
     },
+    "pico-8": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779821912,
+        "narHash": "sha256-3hecWV+H4lieQNOU2+XnClDqAKajbhrU+CWEhfrPX2k=",
+        "path": "/home/crony/downs/pico-8_0.2.7_amd64.zip",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/crony/downs/pico-8_0.2.7_amd64.zip",
+        "type": "path"
+      }
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat_8",
@@ -2323,6 +2336,7 @@
         "nix-on-droid": "nix-on-droid",
         "nixpkgs": "nixpkgs_8",
         "note": "note",
+        "pico-8": "pico-8",
         "proton-cachyos": "proton-cachyos",
         "pyprland": "pyprland",
         "secrets": "secrets",
