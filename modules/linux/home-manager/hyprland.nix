@@ -311,8 +311,8 @@ in {
           "workspace 6, match:class ^(heroic)$"
 
           # Enable inhibition for fullscreen apps
-          "idle_inhibit fullscreen, match:class ^(*)$"
-          "idle_inhibit fullscreen, match:title ^(*)$"
+          "idle_inhibit fullscreen, match:class ^(.*)$"
+          "idle_inhibit fullscreen, match:title ^(.*)$"
           "idle_inhibit fullscreen, match:fullscreen 1"
 
           # Set game type for gamescope windows
