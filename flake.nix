@@ -169,10 +169,10 @@
     };
 
     # Pico 8 zip file
-    pico-8 = {
-      url = "path:/home/crony/downs/pico-8_0.2.7_amd64.zip";
-      flake = false;
-    };
+    # pico-8 = {
+    #   url = "path:/home/crony/downs/pico-8_0.2.7_amd64.zip";
+    #   flake = false;
+    # };
   };
 
   outputs = {
@@ -252,10 +252,15 @@
       })
       hostsData;
 
-    homeConfigurations."crony" = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."crony@cachyos-x8664" = home-manager.lib.homeManagerConfiguration {
       extraSpecialArgs = {inherit inputs;};
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [./hosts/gentoo/home.nix];
+      modules = [
+        ./hosts/cachyos-x8664/home.nix
+        inputs.agenix.homeManagerModules.default
+        ./modules/linux/home-manager/restic.nix
+        ./modules/linux/home-manager/secrets.nix
+      ];
     };
 
     devShells = {
