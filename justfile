@@ -23,6 +23,11 @@ deploy-force server:
 deploy-all:
     deploy "." --magic-rollback=false -s
 
+# Deploy all servers available
+[group('deploy')]
+deploy-all-boot:
+    deploy "." --magic-rollback=false -s --boot
+
 # Reboot the server
 [group('ssh')]
 reboot server:
