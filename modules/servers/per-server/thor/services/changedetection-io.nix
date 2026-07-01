@@ -1,6 +1,6 @@
 {...}: {
   services.changedetection-io = {
-    enable = true;
+    enable = false;
     playwrightSupport = true;
     baseURL = "https://changedetection.cronyakatsuki.xyz";
     behindProxy = true;
