@@ -6,16 +6,15 @@
 }: let
   opts = {
     paths = [
-      "/home/crony/.face"
+      # "/home/crony/.face"
       "/home/crony/.config/zen"
+      "/home/crony/.thunderbird"
       "/home/crony/.ssh"
-      # "/home/crony/.config/nbfc.json"
-      # "/home/crony/.config/OpenTabletDriver"
-      # "/home/crony/.config/tridactyl"
-      # "/home/crony/.local/share/osu"
-      "/home/crony/docs/sync"
-      "/home/crony/docs/wireguard-keys"
-      "/home/crony/pics"
+      "/home/crony/doc/sync"
+      # "/home/crony/docs/wireguard-keys"
+      "/home/crony/pic"
+      "/home/crony/ED-DE"
+      "/home/crony/org"
     ];
     pruneOpts = [
       "--keep-last 10"
