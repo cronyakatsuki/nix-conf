@@ -28,6 +28,11 @@ deploy-all:
 deploy-all-boot:
     deploy "." --magic-rollback=false -s --boot
 
+# Deploy but apply on boot
+[group('deploy')]
+deploy-boot server:
+    deploy ".#{{ server }}" --magic-rollback=false -s --boot
+
 # Reboot the server
 [group('ssh')]
 reboot server:
@@ -36,12 +41,7 @@ reboot server:
 # Reboot all servers
 [group('ssh')]
 reboot-all:
-    for server in $( awk '{
-    if ($0 ~ /server/) {
-    print prev
-    }
-    prev = $0
-    }' hosts.nix | awk '{ print $1 }' ); do
+    for server in $( awk '{ if ($0 ~ /server/) { print prev } prev = $0 }' hosts.nix | awk '{ print $1 }' ); do
     just reboot $server;
     done
 
