@@ -23,9 +23,15 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/crony/Repos/nix-conf";
-    homeFlake = "/home/crony/Repos/nix-conf";
+    flake = "/home/crony/repos/nix-conf";
+    homeFlake = "/home/crony/repos/nix-conf";
   };
+
+  home.packages = with pkgs; [
+    copilot-language-server
+  ];
+
+  nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "25.11"; # Please read the comment before changing.
 }
