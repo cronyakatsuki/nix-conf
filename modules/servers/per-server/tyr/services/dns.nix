@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # Setup blocky for adblocking
   services.blocky = {
     enable = true;
@@ -101,5 +105,27 @@
     ];
     apiKeyFile = "${config.age.secrets.oink-apikey.path}";
     secretApiKeyFile = "${config.age.secrets.oink-secret-apikey.path}";
+  };
+
+  systemd.services.oink = {
+    after = ["blocky.service" "unbound.service"];
+    requires = ["blocky.service" "unbound.service"];
+    preStart = ''
+      until ${pkgs.dig}/bin/dig +short +time=2 +tries=1 @127.0.0.1 example.com >/dev/null 2>&1; do
+        echo "waiting for blocky DNS to resolve…";
+        sleep 2;
+      done
+    '';
+  };
+
+  systemd.services.traefik = {
+    after = ["blocky.service" "unbound.service"];
+    requires = ["blocky.service" "unbound.service"];
+    preStart = ''
+      until ${pkgs.dig}/bin/dig +short +time=2 +tries=1 @127.0.0.1 example.com >/dev/null 2>&1; do
+        echo "waiting for blocky DNS to resolve…";
+        sleep 2;
+      done
+    '';
   };
 }
