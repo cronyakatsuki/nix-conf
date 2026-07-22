@@ -8,7 +8,7 @@
     src = ".";
     hooks = {
       # Git commit lint
-      commitizen.enable = true;
+      # commitizen.enable = true;
       # Nix section
       alejandra.enable = true;
       # deadnix.enable = true;
