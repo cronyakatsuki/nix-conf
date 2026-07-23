@@ -13,7 +13,7 @@
       "/home/crony/doc/sync"
       # "/home/crony/docs/wireguard-keys"
       "/home/crony/pic"
-      "/home/crony/ED-DE"
+      "/home/crony/ES-DE"
       "/home/crony/org"
     ];
     pruneOpts = [
