@@ -18,7 +18,7 @@
     device = "/dev/disk/by-uuid/2bb231c9-9f88-4cfc-bfc2-bc9b9d672387";
     fsType = "btrfs";
     options = [
-      "nofail"
+      # "nofail"
       "exec"
       "compress=zstd:1"
     ];
