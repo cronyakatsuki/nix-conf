@@ -46,6 +46,9 @@
       oink-secret-apikey = {
         file = "${inputs.secrets}/secrets/oink-secret-apikey.age";
       };
+      newt-env = {
+        file = "${inputs.secrets}/secrets/newt.env.age";
+      };
     };
   };
 }
