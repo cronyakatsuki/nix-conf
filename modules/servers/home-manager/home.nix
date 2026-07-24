@@ -62,6 +62,8 @@
     enable = true;
     enableZshIntegration = true;
     defaultCommand = "fd --type f";
+    # Disable fzf's Ctrl-R widget to avoid conflict with atuin
+    historyWidget.zsh.command = "";
   };
 
   # Install starship
