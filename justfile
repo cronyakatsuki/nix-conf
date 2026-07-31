@@ -41,9 +41,7 @@ reboot server:
 # Reboot all servers
 [group('ssh')]
 reboot-all:
-    for server in $( awk '{ if ($0 ~ /server/) { print prev } prev = $0 }' hosts.nix | awk '{ print $1 }' ); do
-    just reboot $server;
-    done
+    for server in $( awk '{ if ($0 ~ /server/) { print prev } prev = $0 }' hosts.nix | awk '{ print $1 }' ); do just reboot $server; done
 
 # Update current nixos install
 [group('nixos')]
