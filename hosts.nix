@@ -3,10 +3,6 @@
     type = "server";
     arch = "x86_64-linux";
   };
-  baldur = {
-    type = "server";
-    arch = "aarch64-linux";
-  };
   bragi = {
     type = "server";
     arch = "aarch64-linux";
@@ -16,10 +12,6 @@
     arch = "aarch64-linux";
   };
   odin = {
-    type = "server";
-    arch = "aarch64-linux";
-  };
-  freyja = {
     type = "server";
     arch = "aarch64-linux";
   };
