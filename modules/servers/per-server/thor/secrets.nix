@@ -15,9 +15,6 @@
         owner = "tuwunel";
         group = "tuwunel";
       };
-      lemmy-env = {
-        file = "${inputs.secrets}/secrets/lemmy.env.age";
-      };
     };
   };
 }
