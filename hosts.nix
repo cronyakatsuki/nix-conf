@@ -3,10 +3,6 @@
     type = "server";
     arch = "x86_64-linux";
   };
-  bragi = {
-    type = "server";
-    arch = "aarch64-linux";
-  };
   thor = {
     type = "server";
     arch = "aarch64-linux";
