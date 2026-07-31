@@ -9,23 +9,6 @@
     adminCredentialsFile = "${config.age.secrets.miniflux.path}";
   };
 
-  services.traefik.dynamicConfigOptions.http = {
-    services.miniflux.loadBalancer.servers = [
-      {
-        url = "http://localhost:8000";
-      }
-    ];
-
-    routers.miniflux = {
-      rule = "Host(`feed.cronyakatsuki.xyz`)";
-      tls = {
-        certResolver = "porkbun";
-      };
-      service = "miniflux";
-      entrypoints = "websecure";
-    };
-  };
-
   services.postgresqlBackup = {
     enable = true;
     databases = ["miniflux"];

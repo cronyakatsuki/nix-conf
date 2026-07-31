@@ -39,6 +39,9 @@
       newt-env = {
         file = "${inputs.secrets}/secrets/newt.env.age";
       };
+      miniflux = {
+        file = "${inputs.secrets}/secrets/miniflux.age";
+      };
     };
   };
 }
