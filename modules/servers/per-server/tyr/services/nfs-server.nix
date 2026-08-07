@@ -6,8 +6,8 @@
     statdPort = 4000;
     extraNfsdConfig = '''';
     exports = ''
-      /export/nfs     192.168.0.0/24(rw,sync,no_subtree_check) 172.16.0.0/24(rw,sync,no_subtree_check)
-      /mnt/adata-hdd     192.168.0.0/24(rw,sync,no_subtree_check) 172.16.0.0/24(rw,sync,no_subtree_check)
+      /export/nfs     192.168.0.0/24(rw,async,no_subtree_check) 172.16.0.0/24(rw,async,no_subtree_check)
+      /mnt/adata-hdd     192.168.0.0/24(rw,async,no_subtree_check) 172.16.0.0/24(rw,async,no_subtree_check)
     '';
   };
   networking.firewall.allowedTCPPorts = [111 2049 4000 4001 4002 20048];
