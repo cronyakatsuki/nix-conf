@@ -7,7 +7,12 @@
   services.blocky = {
     enable = true;
     settings = {
-      ports.dns = 53;
+      ports.dns = [
+        "127.0.0.1:53"
+        "192.168.0.5:53"
+        "[::1]:53"
+        "[2a00:1bb8:11e:d8f::5]:53"
+      ];
       connectIPVersion = "v4";
 
       upstreams.groups.default = [
@@ -55,6 +60,12 @@
     };
   };
 
+  # Let LAN clients reach blocky on 192.168.0.5:53 (matching the bind addresses above).
+  networking.firewall = {
+    allowedUDPPorts = [53];
+    allowedTCPPorts = [53];
+  };
+
   # Setup unbound for recursive dns
   services.unbound = {
     enable = true;
@@ -88,6 +99,14 @@
           ''"paperless.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"esphome.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"actual.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+
+          ''"syncthing.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
+          ''"assistant.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
+          ''"ddns.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
+          ''"linkwarden.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
+          ''"paperless.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
+          ''"esphome.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
+          ''"actual.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
         ];
       };
     };
