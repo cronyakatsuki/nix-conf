@@ -3,10 +3,46 @@
   pkgs,
   ...
 }: {
+  # Setup ssl cert for dot
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "cront@cronyakatuski.xyz";
+
+    certs."dns.cronyakatsuki.xyz" = {
+      dnsProvider = "porkbun";
+      environmentFile = "/run/agenix/traefik";
+      group = "blocky";
+      reloadServices = ["blocky.service"];
+    };
+  };
+
   # Setup blocky for adblocking
   services.blocky = {
     enable = true;
     settings = {
+      ports.tls = [
+        "127.0.0.1:853"
+        "192.168.0.5:853"
+        "[::1]:853"
+        "[2a00:1bb8:11e:d8f::5]:853"
+      ];
+      certFile = "/var/lib/acme/dns.cronyakatsuki.xyz/fullchain.pem";
+      keyFile = "/var/lib/acme/dns.cronyakatsuki.xyz/key.pem";
+
+      rateLimit = {
+        enable = true;
+        rate = 50;
+        burst = 100;
+        ipv4Prefix = 32;
+        ipv6Prefix = 64;
+        allowlist = ["10.0.0.0/8" "192.168.0.0/16"];
+      };
+
+      rebindingProtection = {
+        enable = true;
+        allowedDomains = ["home.example.com"];
+      };
+
       ports.dns = [
         "127.0.0.1:53"
         "192.168.0.5:53"
@@ -63,7 +99,7 @@
   # Let LAN clients reach blocky on 192.168.0.5:53 (matching the bind addresses above).
   networking.firewall = {
     allowedUDPPorts = [53];
-    allowedTCPPorts = [53];
+    allowedTCPPorts = [53 853];
   };
 
   # Setup unbound for recursive dns
