@@ -24,7 +24,6 @@
         "127.0.0.1:853"
         "192.168.0.5:853"
         "[::1]:853"
-        "[2a00:1bb8:11e:d8f::5]:853"
       ];
       certFile = "/var/lib/acme/dns.cronyakatsuki.xyz/fullchain.pem";
       keyFile = "/var/lib/acme/dns.cronyakatsuki.xyz/key.pem";
@@ -47,7 +46,6 @@
         "127.0.0.1:53"
         "192.168.0.5:53"
         "[::1]:53"
-        "[2a00:1bb8:11e:d8f::5]:53"
       ];
       connectIPVersion = "v4";
 
