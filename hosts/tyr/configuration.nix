@@ -26,12 +26,6 @@
       prefixLength = 24;
     }
   ];
-  networking.interfaces.enp1s0.ipv6.addresses = [
-    {
-      address = "2a00:1bb8:11e:d8f::5";
-      prefixLength = 64;
-    }
-  ];
   networking.defaultGateway = {
     interface = "enp1s0";
     address = "192.168.0.1";
