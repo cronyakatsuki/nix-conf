@@ -135,14 +135,6 @@
           ''"paperless.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"esphome.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"actual.home.cronyakatsuki.xyz IN A 192.168.0.5"''
-
-          ''"syncthing.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
-          ''"assistant.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
-          ''"ddns.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
-          ''"linkwarden.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
-          ''"paperless.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
-          ''"esphome.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
-          ''"actual.home.cronyakatsuki.xyz IN AAAA 2a00:1bb8:11e:d8f::5"''
         ];
       };
     };
