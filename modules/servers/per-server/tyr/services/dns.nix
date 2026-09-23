@@ -6,7 +6,7 @@
   # Setup ssl cert for dot
   security.acme = {
     acceptTerms = true;
-    defaults.email = "cront@cronyakatuski.xyz";
+    defaults.email = "crony@cronyakatsuki.xyz";
 
     certs."dns.cronyakatsuki.xyz" = {
       dnsProvider = "porkbun";
@@ -40,7 +40,7 @@
 
       rebindingProtection = {
         enable = true;
-        allowedDomains = ["home.example.com"];
+        allowedDomains = ["home.cronyakatsuki.xyz"];
       };
 
       ports.dns = [
