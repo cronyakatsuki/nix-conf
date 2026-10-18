@@ -133,6 +133,7 @@
           ''"paperless.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"esphome.home.cronyakatsuki.xyz IN A 192.168.0.5"''
           ''"actual.home.cronyakatsuki.xyz IN A 192.168.0.5"''
+          ''"n8n.home.cronyakatsuki.xyz IN A 192.168.0.5"''
         ];
       };
     };

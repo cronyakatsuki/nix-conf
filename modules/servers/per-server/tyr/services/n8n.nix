@@ -274,4 +274,26 @@
     };
     wantedBy = ["multi-user.target"];
   };
+
+  services.restic.backups = {
+    local.paths = ["/var/lib/n8n"];
+    server.paths = ["/var/lib/n8n"];
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    services.n8n.loadBalancer.servers = [
+      {
+        url = "http://localhost:5678";
+      }
+    ];
+
+    routers.n8n = {
+      rule = "Host(`n8n.home.cronyakatsuki.xyz`)";
+      tls = {
+        certResolver = "porkbun";
+      };
+      service = "n8n";
+      entrypoints = "websecure";
+    };
+  };
 }
