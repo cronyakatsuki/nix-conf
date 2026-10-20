@@ -26,6 +26,8 @@
       "/home/crony/.local/share/Xenia"
       "/home/crony/.local/share/PrismLauncher"
       "/home/crony/.local/share/osu"
+      "/home/crony/.config/obs-studio"
+      "/home/crony/.local/share/easyeffects"
       "/home/crony/.pi"
     ];
     excludes = [
