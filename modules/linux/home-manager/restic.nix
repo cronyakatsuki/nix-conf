@@ -26,6 +26,15 @@
       "/home/crony/.local/share/Xenia"
       "/home/crony/.local/share/PrismLauncher"
       "/home/crony/.local/share/osu"
+      "/home/crony/.pi"
+    ];
+    excludes = [
+      # npm = node_modules of installed pi extensions, regenerable via just pi-extensions
+      "/home/crony/.pi/agent/npm"
+      # stow-managed from ~/dotfiles/pi, version-controlled
+      "/home/crony/.pi/agent/extensions"
+      "/home/crony/.pi/agent/tmp"
+      "/home/crony/.pi/agent/logs"
     ];
     pruneOpts = [
       "--keep-last 10"
@@ -53,6 +62,7 @@ in {
           passwordFile = "/run/user/1000/agenix/restic-local-pass";
           repository = "/mnt/backup";
           paths = opts.paths;
+          exclude = opts.excludes;
           pruneOpts = opts.pruneOpts;
           checkOpts = opts.checkOpts;
         };
@@ -61,6 +71,7 @@ in {
           passwordFile = "/run/user/1000/agenix/restic-local-pass";
           repository = "/mnt/share/backup";
           paths = opts.paths;
+          exclude = opts.excludes;
           pruneOpts = opts.pruneOpts;
           checkOpts = opts.checkOpts;
         };
@@ -70,6 +81,7 @@ in {
           repositoryFile = "/run/user/1000/agenix/restic-backblaze-repo";
           environmentFile = "/run/user/1000/agenix/restic-backblaze-env";
           paths = opts.paths;
+          exclude = opts.excludes;
           pruneOpts = opts.pruneOpts;
           checkOpts = opts.checkOpts;
         };
