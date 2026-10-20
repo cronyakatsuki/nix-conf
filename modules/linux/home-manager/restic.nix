@@ -13,8 +13,19 @@
       "/home/crony/doc/sync"
       # "/home/crony/docs/wireguard-keys"
       "/home/crony/pic"
-      "/home/crony/ES-DE"
       "/home/crony/org"
+      # ES-DE (ROMs) moved to NAS (/mnt/share/roms/ES-DE), removed from restic 2026-10-20
+      # Game saves & emulator data
+      "/home/crony/.config/retroarch"
+      "/home/crony/.config/rpcs3"
+      "/home/crony/.config/dolphin-emu"
+      "/home/crony/.local/share/dolphin-emu"
+      "/home/crony/.local/share/Steam/userdata"
+      "/home/crony/.local/share/Steam/steamapps/compatdata"
+      "/home/crony/.local/share/atuin"
+      "/home/crony/.local/share/Xenia"
+      "/home/crony/.local/share/PrismLauncher"
+      "/home/crony/.local/share/osu"
     ];
     pruneOpts = [
       "--keep-last 10"
