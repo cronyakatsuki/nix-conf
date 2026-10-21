@@ -20,36 +20,21 @@
       inputs.hb-downloader.packages.${stdenv.hostPlatform.system}.default
       inputs.extract-romset.packages.${stdenv.hostPlatform.system}.default
       inputs.note.packages.${stdenv.hostPlatform.system}.default
+      (pkgs.symlinkJoin {
+        name = "pi-coding-agent";
+        buildInputs = [pkgs.makeWrapper];
+        paths = [pkgs.pi-coding-agent];
+        postBuild = ''
+          wrapProgram $out/bin/pi \
+            --set NPM_CONFIG_PREFIX ${config.home.homeDirectory}/.pi/npm/ \
+            --prefix PATH : ${
+            pkgs.lib.makeBinPath [
+              pkgs.nodejs_latest
+            ]
+          }
+        '';
+      })
     ];
-
-    programs.opencode = {
-      enable = true;
-      settings = {
-        model = "ollama/gpt-oss-20b-high-32k";
-        provider = {
-          ollama = {
-            npm = "@ai-sdk/openai-compatible";
-            name = "Ollama";
-            options = {
-              baseURL = "http://127.0.0.1:11434/v1";
-            };
-            models = {
-              "gpt-oss-20b-high-32k" = {
-                name = "gpt oss";
-                id = "gpt-oss-20b-32k";
-                reasoning = true;
-                tools = true;
-                options = {
-                  extraBody = {
-                    think = "high";
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
-    };
 
     programs.beets = {
       enable = false;
