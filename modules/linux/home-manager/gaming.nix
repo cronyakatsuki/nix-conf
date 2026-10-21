@@ -15,14 +15,8 @@
       prismlauncher
       protonup-qt
       itch
-      inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
-      xonotic
-      supertuxkart
-      faugus-launcher
-      nzportable
-      protonup-qt
       wine-staging
-      sm64coopdx
+      lutris
     ];
   };
 }
