@@ -39,7 +39,7 @@
   crony.bluetooth.enable = lib.mkDefault true;
   crony.nvidia.enable = lib.mkDefault false;
   crony.plasma.enable = lib.mkDefault false;
-  crony.hibernation.disable = lib.mkDefault true;
+  crony.hibernation.disable = lib.mkDefault false;
   crony.gaming.enable = lib.mkDefault false;
   crony.zsh.enable = lib.mkDefault true;
   crony.stylix.enable = lib.mkDefault true;
