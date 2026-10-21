@@ -48,6 +48,9 @@
         pkgs.kdePackages.qtdeclarative
         # for c/cpp
         pkgs.clang-tools
+        # for blink.cmp
+        pkgs.cargo
+        pkgs.rustc
       ];
     };
   };
