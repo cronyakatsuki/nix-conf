@@ -11,16 +11,12 @@
   config = lib.mkIf config.crony.desktop.enable {
     home.packages = with pkgs; [
       piper
-      galaxy-buds-client
       nicotine-plus
       feather
       gparted
       cameractrls-gtk4
       qbittorrent
       pavucontrol
-      element-desktop
-      thunar
-      filezilla
     ];
 
     # Install keepassxc
