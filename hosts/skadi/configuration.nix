@@ -36,15 +36,8 @@
   # Use the cachyos kernel
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
-  # Setup zfs with cachyos kernel
-  boot.supportedFilesystems.zfs = true;
-  boot.zfs.package = config.boot.kernelPackages.zfs_cachyos;
-
   # Setup tmp as tmpfs
   boot.tmp.useTmpfs = true;
-
-  # setup host id for zfs
-  networking.hostId = "65663637";
 
   # Setup userspace schedulers
   services.scx = {
@@ -88,9 +81,23 @@
     powerManagement.enable = true;
   };
 
+  # Early KMS: load nvidia in the initrd so it owns the framebuffer from the
+  # very start of boot, instead of simpledrm holding it for several seconds
+  # and fbcon re-drawing stale firmware-logo content at the wrong stride when
+  # nvidia-drm takes over mid-boot (the torn/tiled ASUS logo). Same order the
+  # nvidia nixos module itself uses for its (late) boot.kernelModules.
+  boot.initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_drm"];
+
+  # NOTE: tried nvidia-drm.fbdev=0 here to stop fbcon replaying a stale
+  # console snapshot at DRM-master handoffs. Reverted: it removes the vt
+  # framebuffer entirely, which made Hyprland's VT takeover racy (worked
+  # once, failed/corrupted twice in a row) - not worth it for a cosmetic fix.
+
   specialisation = {
     nvk.configuration = {
-      hardware.nvidia.open = lib.mkDefault false;
+      hardware.nvidia.open = lib.mkForce false;
+      # Don't pull nvidia into the initrd under the nvk specialisation.
+      boot.initrd.kernelModules = lib.mkForce [];
     };
   };
 
@@ -144,13 +151,13 @@
   users.users.crony = {
     isNormalUser = true;
     description = "Crony";
-    hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
+    # hashedPasswordFile = "${config.age.secrets.crony-passwd.path}";
     extraGroups = ["networkmanager" "wheel" "video" "input" "audio" "gamemode" "seat" "pipewire"];
   };
 
-  users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
+  # users.users.root.hashedPasswordFile = "${config.age.secrets.root-passwd.path}";
 
-  users.mutableUsers = false;
+  # users.mutableUsers = false;
 
   # Enable my flake specific settings
   crony.pipewire.enable = true;
@@ -162,12 +169,12 @@
   crony.secrets.enable = true;
   crony.wireguard.enable = true;
   crony.boot.enable = true;
-  crony.ollama.enable = true;
-  crony.sunshine.enable = true;
+  # crony.ollama.enable = true;
+  # crony.sunshine.enable = true;
   crony.bluetooth.enable = true;
   crony.localsend.enable = true;
   crony.flatpak.enable = true;
-  crony.qemu.enable = true;
+  # crony.qemu.enable = true;
   crony.pc-services.enable = true;
   crony.cachyos.settings.enable = true;
 

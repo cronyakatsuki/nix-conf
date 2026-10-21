@@ -22,7 +22,6 @@
     TERMINAL = "foot";
     WINEPREFIX = "$HOME/.local/share/wineprefix/default";
     SECOND_BRAIN = "$HOME/docs/sb";
-    __GL_SHADER_DISK_CACHE_SIZE = "12000000000";
   };
 
   # Let Home Manager install and manage itself.
@@ -51,10 +50,10 @@
   crony.restic.enable = true;
   crony.emulators.enable = true;
   crony.zen-browser.enable = true;
-  crony.lnxlink.enable = true;
+  # crony.lnxlink.enable = true;
   crony.yazi.enable = true;
   crony.obs-studio.enable = true;
-  crony.pico8.enable = true;
+  # crony.pico8.enable = true;
 
   # DO NOT CHANGE ALSO
   home.stateVersion = "26.05"; # Please read the comment before changing.
