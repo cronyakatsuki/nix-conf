@@ -14,8 +14,7 @@
       "https://nix-gaming.cachix.org"
       "https://cache.nixos-cuda.org"
       "https://deploy-rs.cachix.org"
-      "https://attic.xuyh0120.win/lantian"
-      "https://cache.cronyakatsuki.xyz/server"
+      "https://cache.xinux.uz"
     ];
     trusted-substituters = [
       "https://hyprland.cachix.org"
@@ -27,8 +26,7 @@
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "deploy-rs.cachix.org-1:xfNobmiwF/vzvK1gpfediPwpdIP0rpDV2rYqx40zdSI="
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-      "server:H3UiSzK++1xgvbI/0BgWc2Ug/srJ45x05Zc9DqNUsxM="
+      "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
     ];
   };
 
