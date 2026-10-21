@@ -23,25 +23,6 @@
       enable = true;
     };
 
-    # Install gamemode
-    # programs.gamemode = {
-    #   enable = true;
-    #   enableRenice = true;
-    #   settings = {
-    #     general = {
-    #       softrealtime = "auto";
-    #       renice = 10;
-    #     };
-    #     cpu = {
-    #       pin_cores = "no";
-    #     };
-    #     custom = {
-    #       start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-    #       end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
-    #     };
-    #   };
-    # };
-
     # setup gaming device udev rules
     services.udev = {
       extraRules = ''
