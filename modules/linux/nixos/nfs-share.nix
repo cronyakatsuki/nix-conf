@@ -29,6 +29,12 @@ in {
       options = ["_netdev" "noauto" "x-systemd.automount" "x-systemd.mount-timeout=10" "timeo=14" "x-systemd.idle-timeout=600"];
     };
 
+    fileSystems."/mnt/roms" = {
+      device = "192.168.0.5:/mnt/adata-hdd";
+      fsType = "nfs";
+      options = ["_netdev" "noauto" "x-systemd.automount" "x-systemd.mount-timeout=10" "timeo=14" "x-systemd.idle-timeout=600"];
+    };
+
     systemd.timers.auto_mount = {
       enable = true;
       timerConfig = {
