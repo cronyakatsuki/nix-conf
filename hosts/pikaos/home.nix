@@ -28,9 +28,15 @@
   };
 
   home.packages = with pkgs; [
-    copilot-language-server
+    sesh
   ];
 
+       home.sessionPath = [
+       "$HOME/.nix-profile/bin"
+     ];
+
+  programs.qmd.enable = true;
+  
   nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "25.11"; # Please read the comment before changing.

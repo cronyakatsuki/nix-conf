@@ -8,9 +8,11 @@
     paths = [
       # "/home/crony/.face"
       "/home/crony/.config/zen"
+      # Zen flatpak profile (chrome css is in ~/dotfiles, but bookmarks/history/sessions live here)
+      "/home/crony/.var/app/app.zen_browser.zen/.zen"
       "/home/crony/.thunderbird"
       "/home/crony/.ssh"
-      "/home/crony/doc/sync"
+      "/home/crony/docs/sync"
       # "/home/crony/docs/wireguard-keys"
       "/home/crony/pic"
       "/home/crony/org"
@@ -37,6 +39,10 @@
       "/home/crony/.pi/agent/extensions"
       "/home/crony/.pi/agent/tmp"
       "/home/crony/.pi/agent/logs"
+      # zen flatpak caches (regenerable)
+      "/home/crony/.var/app/app.zen_browser.zen/.zen/main/cache2"
+      "/home/crony/.var/app/app.zen_browser.zen/.zen/main/startupCache"
+      "/home/crony/.var/app/app.zen_browser.zen/.zen/main/shader-cache"
     ];
     pruneOpts = [
       "--keep-last 10"
