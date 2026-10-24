@@ -173,7 +173,7 @@
     #   url = "path:/home/crony/downs/pico-8_0.2.7_amd64.zip";
     #   flake = false;
     # };
-    
+
     qmd.url = "github:tobi/qmd";
   };
 
@@ -254,11 +254,11 @@
       })
       hostsData;
 
-    homeConfigurations."crony@pikaos" = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."crony@cachyos" = home-manager.lib.homeManagerConfiguration {
       extraSpecialArgs = {inherit inputs;};
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
-        ./hosts/pikaos/home.nix
+        ./hosts/cachyos/home.nix
         inputs.agenix.homeManagerModules.default
         inputs.qmd.homeModules.default
         ./modules/linux/home-manager/restic.nix
