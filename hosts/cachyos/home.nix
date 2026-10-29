@@ -28,7 +28,7 @@
   };
 
   home.packages = with pkgs; [
-    sesh
+    commitizen
   ];
 
   nixpkgs.config.allowUnfree = true;
