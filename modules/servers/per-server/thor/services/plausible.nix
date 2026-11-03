@@ -25,7 +25,7 @@
   };
 
   services.restic.backups = {
-    local.paths = ["/var/lib/plausible"];
-    server.paths = ["/var/lib/plausible"];
+    local.paths = ["/var/lib/plausible" "/var/lib/clickhouse"];
+    server.paths = ["/var/lib/plausible" "/var/lib/clickhouse"];
   };
 }
