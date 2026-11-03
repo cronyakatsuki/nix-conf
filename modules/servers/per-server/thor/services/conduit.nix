@@ -26,7 +26,7 @@
   };
 
   services.restic.backups = {
-    local.paths = ["/var/lib/matrix-tuwunel"];
-    server.paths = ["/var/lib/matrix-tuwunel"];
+    local.paths = ["/var/lib/private/tuwunel"];
+    server.paths = ["/var/lib/private/tuwunel"];
   };
 }
