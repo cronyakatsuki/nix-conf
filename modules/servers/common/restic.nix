@@ -1,4 +1,11 @@
 {config, ...}: let
+  offsiteBackupTimes = {
+    tyr = "*-*-* 00:00:00 UTC";
+    odin = "*-*-* 02:00:00 UTC";
+    heimdall = "*-*-* 04:00:00 UTC";
+    thor = "*-*-* 06:00:00 UTC";
+  };
+
   opts = {
     paths = [
       "/var/lib/private"
@@ -29,6 +36,7 @@ in {
     };
     server = {
       initialize = true;
+      timerConfig.OnCalendar = offsiteBackupTimes.${config.networking.hostName};
       passwordFile = config.age.secrets.restic-server-pass.path;
       repositoryFile = config.age.secrets.restic-server-repo.path;
       environmentFile = config.age.secrets.restic-server-env.path;
