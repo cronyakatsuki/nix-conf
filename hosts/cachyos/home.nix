@@ -29,6 +29,7 @@
 
   home.packages = with pkgs; [
     commitizen
+    attic-client
   ];
 
   nixpkgs.config.allowUnfree = true;
