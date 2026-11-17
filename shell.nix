@@ -23,5 +23,5 @@ in
       inputs.deploy-rs.packages.${stdenv.hostPlatform.system}.default
     ];
 
-    inherit (git-check) shellHook;
+    # inherit (git-check) shellHook;
   }
