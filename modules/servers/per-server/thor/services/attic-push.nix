@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   # Automatically push every path that enters thor's store to the attic cache
   # (covers everything the PC-dispatched remote builds produce)
   systemd.services.attic-watch-store = {
@@ -7,8 +7,6 @@
     after = ["network-online.target"];
     wants = ["network-online.target"];
     wantedBy = ["multi-user.target"];
-
-    path = [];
 
     environment.HOME = "/root";
 
