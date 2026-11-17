@@ -8,24 +8,24 @@
   # Setup community cache
   nix.settings = {
     substituters = [
+      "https://cache.cronyakatsuki.xyz/server"
       "https://nix-community.cachix.org"
       "https://hyprland.cachix.org"
       "https://ezkea.cachix.org"
       "https://nix-gaming.cachix.org"
       "https://cache.nixos-cuda.org"
-      "https://deploy-rs.cachix.org"
       "https://cache.xinux.uz"
     ];
     trusted-substituters = [
       "https://hyprland.cachix.org"
     ];
     trusted-public-keys = [
+      "server:ldTPuxHGjcPq3hKgl9yXIdWeBrG6UFiiGgZ9z5wAw3M="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-      "deploy-rs.cachix.org-1:xfNobmiwF/vzvK1gpfediPwpdIP0rpDV2rYqx40zdSI="
       "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
     ];
   };
