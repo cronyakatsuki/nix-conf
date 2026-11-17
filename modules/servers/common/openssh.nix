@@ -28,5 +28,7 @@
 
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJLduAXHWJiglmfRfkBGKffzVWkJP6porxIzw6+Zz3W crony@cronyakatsuki.xyz"
+    # nix-daemon remote builder key (PC root, /root/.ssh/id_nix_builder)
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjOFHwtrqQ8gJ9pewDDyPpjOIJ6fHc/j+lJWBZlf6mD nix-builder@cachyos"
   ];
 }
