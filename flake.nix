@@ -188,12 +188,28 @@
   } @ inputs: let
     hostsData = import ./hosts.nix;
     serversOnly = nixpkgs.lib.filterAttrs (n: v: v.type == "server") hostsData;
+
+    # deploy-rs lib from the flake, but the binary from nixpkgs (cache.nixos.org)
+    # instead of compiling the flake's nightly build
+    # https://github.com/serokell/deploy-rs/issues/163#issuecomment-2991603313
+    deployPkgs = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"] (system:
+      import nixpkgs {
+        inherit system;
+        overlays = [
+          (final: super: {
+            deploy-rs = {
+              inherit ((deploy-rs.overlays.default final super).deploy-rs) lib;
+              inherit (super) deploy-rs;
+            };
+          })
+        ];
+      });
     mkDeployNode = hostname: arch: {
       inherit hostname;
       profiles.system = {
         sshUser = "root";
         user = "root";
-        path = deploy-rs.lib.${arch}.activate.nixos self.nixosConfigurations.${hostname};
+        path = deployPkgs.${arch}.deploy-rs.lib.activate.nixos self.nixosConfigurations.${hostname};
       };
     };
     mkHost = name: host: let
