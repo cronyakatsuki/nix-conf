@@ -15,6 +15,10 @@
         owner = "tuwunel";
         group = "tuwunel";
       };
+      attic-thor-config = {
+        file = "${inputs.secrets}/secrets/attic-thor-config.age";
+        path = "/root/.config/attic/config.toml";
+      };
     };
   };
 }
